@@ -1,0 +1,219 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "isBand": false,
+        "name": "Josh Baugh",
+        "email": "joshbaughmusic@gmail.com"
+      },
+      {
+        "id": 2,
+        "isBand": true,
+        "name": "Crowmouth",
+        "email": "crowmouth@gmail.com"
+      }
+    ],
+    "profiles": [
+      {
+        "id": 1,
+        "userId": 1,
+        "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/84354366_10157512722778884_280175598779760640_n.jpg?_nc_cat=109&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=PfsRZ6LkOMcAX9JqJ1R&_nc_ht=scontent-atl3-1.xx&oh=00_AfCTQrzl3ip7znjqKyUB5l-901niXmJZTnY57SswDRgX8w&oe=64DBFC54",
+        "location": "Nashville, TN",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "tags": [2, 10, 13],
+        "genres": [13, 15, 18],
+        "primaryGenre": 13,
+        "featuredSong": "",
+        "spotify": "",
+        "facebook": "https://www.facebook.com/joshbaughmusic/",
+        "instagram": "https://www.instagram.com/joshbaughmusic",
+        "tiktok": ""
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/271038497_326399376155152_6662249675223265793_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=GH_e31CUNK4AX8bpy27&_nc_ht=scontent-atl3-1.xx&oh=00_AfCkXiHUv51g-C11kx-km4znOprpYgDWsrvD_Q8k4mBqsg&oe=64BA2CCB",
+        "location": "Birmingham, AL",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "tags": [2, 6, 12],
+        "genres": [13, 18],
+        "primaryGenre": 13,
+        "featuredSong": "",
+        "spotify": "https://open.spotify.com/artist/6P9WxS7Sr4fgdJnzKI70h8",
+        "facebook": "https://www.facebook.com/crowmouthTN",
+        "instagram": "https://www.instagram.com/crowmouthtn",
+        "tiktok": "https://www.tiktok.com/@crowmouthband"
+      }
+    ],
+    "savedProfiles": [
+        {
+            "id": 1,
+            "userId": 1,
+            "profileId": 2
+        }
+    ],
+    "posts": [
+      {
+        "id": 1,
+        "userId": 1,
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "date": "2023-07-10"
+      }
+    ],
+    "media": [
+      {
+        "id": 1,
+        "userId": 1,
+        "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/74881481_10157191501453884_8530669089901772800_n.jpg?_nc_cat=107&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=lJ7tl4bhABIAX_ZWCLa&_nc_ht=scontent-atl3-1.xx&oh=00_AfDFedrxo4ANKxEgahXeUZqwvIdG1FW8yJ3jgPZ2b7Sv4A&oe=64DC0BF1"
+      }
+      {
+        "id": 2,
+        "userId": 2,
+        "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355296425_737041681757584_8833967079627215393_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=sqjPrR9QiVcAX8-Qu-j&_nc_ht=scontent-atl3-1.xx&oh=00_AfBKGuQbTlTZshrb2elsN5AyMV5bxHrX3Q_q_kKNSH0grw&oe=64B9755B"
+      }
+    ],
+    "messages": [],
+    "tags": [
+        {
+            "id": 1,
+            "name": "Hobbyist"
+          },
+          {
+            "id": 2,
+            "name": "Professional"
+          },
+          {
+            "id": 3,
+            "name": "Weekend Warrior"
+          },
+          {
+            "id": 4,
+            "name": "Paying Gigs Only"
+          },
+          {
+            "id": 5,
+            "name": "Passion First"
+          },
+          {
+            "id": 6,
+            "name": "Serious"
+          },
+          {
+            "id": 7,
+            "name": "Casual"
+          },
+          {
+            "id": 8,
+            "name": "Collaborative"
+          },
+          {
+            "id": 9,
+            "name": "Songwriter"
+          },
+          {
+            "id": 10,
+            "name": "Versatile"
+          },
+          {
+            "id": 11,
+            "name": "Session Musician"
+          },
+          {
+            "id": 12,
+            "name": "Touring"
+          },
+          {
+            "id": 13,
+            "name": "Recording"
+          },
+          {
+            "id": 14,
+            "name": "Studio Musician"
+          },
+          {
+            "id": 15,
+            "name": "Beginner Friendly"
+          }
+      
+    ],
+    "genres": [
+        {
+            "id": 1,
+            "name": "Acoustic"
+          },
+          {
+            "id": 2,
+            "name": "Alternative"
+          },
+          {
+            "id": 3,
+            "name": "Ambient"
+          },
+          {
+            "id": 4,
+            "name": "Blues"
+          },
+          {
+            "id": 5,
+            "name": "Classical"
+          },
+          {
+            "id": 6,
+            "name": "Country"
+          },
+          {
+            "id": 7,
+            "name": "Dance"
+          },
+          {
+            "id": 8,
+            "name": "Electronic"
+          },
+          {
+            "id": 9,
+            "name": "Folk"
+          },
+          {
+            "id": 10,
+            "name": "Hip-Hop"
+          },
+          {
+            "id": 11,
+            "name": "Indie"
+          },
+          {
+            "id": 12,
+            "name": "Jazz"
+          },
+          {
+            "id": 13,
+            "name": "Metal"
+          },
+          {
+            "id": 14,
+            "name": "Pop"
+          },
+          {
+            "id": 15,
+            "name": "Punk"
+          },
+          {
+            "id": 16,
+            "name": "R&B"
+          },
+          {
+            "id": 17,
+            "name": "Reggae"
+          },
+          {
+            "id": 18,
+            "name": "Rock"
+          },
+          {
+            "id": 19,
+            "name": "Soul"
+          }
+      
+    ]
+  }
+  
