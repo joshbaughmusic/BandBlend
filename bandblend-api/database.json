@@ -18,6 +18,11 @@
     {
       "id": 4,
       "isBand": false,
+      "email": "fakestaff"
+    },
+    {
+      "id": 5,
+      "isBand": false,
       "email": "lilythompson@gmail.com"
     }
   ],
@@ -66,7 +71,7 @@
     },
     {
       "id": 4,
-      "userId": 4,
+      "userId": 5,
       "name": "Lily Thompson",
       "picture": "https://rooftopantics.com/wp-content/uploads/2019/04/popular_female_singers_2019_billie_eilish-1024x683.jpg",
       "location": "London, UK",

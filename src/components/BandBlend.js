@@ -17,7 +17,7 @@ export const BandBlend = () => {
   const bBUserObject = JSON.parse(localBbUser)
 
   useEffect(() => {
-    fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}`)
+    fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_embed=profileTags`)
     .then(res => res.json())
     .then(data => {
         setProfile(data[0])

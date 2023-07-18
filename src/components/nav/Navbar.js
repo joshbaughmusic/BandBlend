@@ -21,7 +21,7 @@ export const Navbar = ( {currentUserProfile} ) => {
                         <Link className="nav_list_item_link" to={`/profiles/${currentUserProfile.id}`}>My Profile</Link>
                     </li>
                     <li className="list_item nav_list_item">
-                        <Link className="nav_list_item_link" to="">Messages</Link>
+                        <Link className="nav_list_item_link" to="/">Messages</Link>
                     </li>
                     
                         {
