@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<nav id="navbar">
+    <img id="img_logo" clasName="img" src="../../../images/bb_logo.png">
+    <ul className="list nav_list">
+        <li className="list_item nav_list_item">
+            <Link className="nav_list_item_link" to="">Home</Link>
+        </li>
+        <li className="list_item nav_list_item">
+            <Link className="nav_list_item_link" to="">All Profiles</Link>
+        </li>
+        <li className="list_item nav_list_item">
+            <Link className="nav_list_item_link" to="">My Profile</Link>
+        </li>
+        <li className="list_item nav_list_item">
+            <Link className="nav_list_item_link" to="">Messages</Link>
+        </li>
+        <li className="list_item nav_list_item">
+            {
+                localStorage.getItem("honey_user")
+                    ? <li className="list_item nav_list_item nav_list_item_logout">
+                        <Link className="nav_list_item_link" to="" onClick={() => {
+                            localStorage.removeItem("honey_user")
+                            navigate("/", {replace: true})
+                        }}>Logout</Link>
+                    </li>
+                    : ""
+            }
+        </li>
+    </ul>
+</nav>
+
+</body>
+</html>
