@@ -7,7 +7,7 @@ export const Navbar = ( {currentUserProfileId} ) => {
     return (
         <>
             <nav id="navbar">
-                <img id="img_logo" clasName="img" src="../../../images/bb_logo.png"/>
+                <img id="img_logo" className="img" src="../../../images/bb_logo.png"/>
                 <ul className="list nav_list">
                     <li className="list_item nav_list_item">
                         <Link className="nav_list_item_link" to="/">Home</Link>
@@ -21,7 +21,7 @@ export const Navbar = ( {currentUserProfileId} ) => {
                     <li className="list_item nav_list_item">
                         <Link className="nav_list_item_link" to="">Messages</Link>
                     </li>
-                    <li className="list_item nav_list_item">
+                    
                         {
                             localStorage.getItem("bb_user")
                                 ? <li className="list_item nav_list_item nav_list_item_logout">
@@ -32,7 +32,7 @@ export const Navbar = ( {currentUserProfileId} ) => {
                                 </li>
                                 : ""
                         }
-                    </li>
+                    
                 </ul>
             </nav>
         </>

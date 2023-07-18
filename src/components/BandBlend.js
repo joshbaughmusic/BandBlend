@@ -8,7 +8,7 @@ import { Sidebar } from "./sidebar/Sidebar.js"
 
 export const BandBlend = () => {
 
-  //enter in logic to get userProfile 
+  //enter in logic to get userProfile. This will be sent as prop to navbar and maincontent. Navbar will use it to power myProfile link. Maincontent to set the route.
 
   const currentUserProfileId = null
 
