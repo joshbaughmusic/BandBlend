@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import bb_logo from "../../images/bb_logo.png"
 import "./NavBar.css"
 
-export const Navbar = ( {currentUserProfileId} ) => {
+export const Navbar = ( {currentUserProfile} ) => {
 
     const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ export const Navbar = ( {currentUserProfileId} ) => {
                         <Link className="nav_list_item_link" to="/profiles">All Profiles</Link>
                     </li>
                     <li className="list_item nav_list_item">
-                        <Link className="nav_list_item_link" to={`/profiles/${currentUserProfileId}`}>My Profile</Link>
+                        <Link className="nav_list_item_link" to={`/profiles/${currentUserProfile.id}`}>My Profile</Link>
                     </li>
                     <li className="list_item nav_list_item">
                         <Link className="nav_list_item_link" to="">Messages</Link>
