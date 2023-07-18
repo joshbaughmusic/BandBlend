@@ -7,15 +7,20 @@ import { Navbar } from "./nav/Navbar.js"
 import { Sidebar } from "./sidebar/Sidebar.js"
 
 export const BandBlend = () => {
+
+  //enter in logic to get userProfile 
+
+  const currentUserProfileId = null
+
   return <Routes>
     <Route path="/login" element={<Login />} />
 		<Route path="/register" element={<Register />} />
     <Route path="*" element={
 			<Authorized>
 				<>
-          <Navbar />
+          <Navbar currentUserProfileId={currentUserProfileId}/>
           <Sidebar />
-					<MainContent />
+					<MainContent currentUserProfileId={currentUserProfileId}/>
 
 				</>
 			</Authorized>
