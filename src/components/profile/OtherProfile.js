@@ -1,7 +1,7 @@
-export const OtherProfile = ({ profileId, profiles }) => {
-    //receiving url param of profile id and full list of all profiles from parent module
+export const OtherProfile = ({ otherProfileId }) => {
+    //receiving id of profile being viewed from ProfileContainer.js
 
 
 
-    return <h1>Profile {profileId}</h1>
+    return <h1>Profile {otherProfileId}</h1>
 }

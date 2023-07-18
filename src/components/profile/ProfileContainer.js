@@ -10,8 +10,10 @@ export const ProfileContainer = ({ currentUserProfile }) => {
     const { profileId } = useParams()
 
     if (parseInt(profileId) === currentUserProfile.id) {
-        return <MyProfile profileId={profileId}/>
+        //if current user's profile, send whole profile object with embeds and expands to be used with minimal fetch calls in child component MyProfile.js
+        return <MyProfile currentUserProfile={currentUserProfile}/>
     } else {
-        return <OtherProfile profileId={profileId}/>
+        //if not the current user's profile, just passing the profile id so it can be pulled in child component OtherProfile.js
+        return <OtherProfile otherProfileId={profileId}/>
     }
 }
