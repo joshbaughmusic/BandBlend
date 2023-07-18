@@ -10,7 +10,10 @@ export const BandBlend = () => {
 
   //enter in logic to get userProfile. This will be sent as prop to navbar and maincontent. Navbar will use it to power myProfile link. Maincontent to set the route.
 
-  const currentUserProfileId = null
+  const localBbUser = localStorage.getItem("bb_user")
+  const bBUserObject = JSON.parse(localBbUser)
+
+  const currentUserProfileId = bBUserObject.id
 
   return <Routes>
     <Route path="/login" element={<Login />} />

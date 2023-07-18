@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react"
 import "./ProfilesAllList.css"
+import { Link } from "react-router-dom"
 
 export const ProfilesAllList = () => {
     const [profiles, setProfiles] = useState([])
     const [tags, setTags] = useState([])
 
+    //get current user id from local storage
+
+    const localBbUser = localStorage.getItem("bb_user")
+    const bBUserObject = JSON.parse(localBbUser)
+
     //fetch all profiles with expanded users and primary genre, embeded profileTags
 
     useEffect(() => {
-        fetch(`http://localhost:8088/profiles?_expand=user&_expand=primaryGenre&_embed=profileTags`)
+        fetch(`http://localhost:8088/profiles?userId_ne=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_embed=profileTags`)
         .then(res => res.json())
         .then(data => {
             setProfiles(data)
@@ -46,7 +52,7 @@ export const ProfilesAllList = () => {
                     return <article key={`profileCard--${profile.id}`} className="container container_profile_card">
                         <img id={`profileCardImg--${profile.id}`} className="img img_profileCard" src={profile.picture}/>
                         <div className="container container_profile_card_header">
-                            <h2 className="profile_card_name">{profile.name}</h2>
+                            <Link to={`${profile.id}`}><h2 className="profile_card_name">{profile.name}</h2></Link>
                             {
                                 profile.user.isBand ? <p className="profile_card_bandnote">Band</p> : ''
                             }

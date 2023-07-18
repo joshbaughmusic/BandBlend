@@ -1,3 +1,6 @@
-export const MyProfile = ({ profileId }) => {
-    return <h1>My Profile {profileId}</h1>
+export const MyProfile = ({ profileId, profiles }) => {
+    //receiving url param of profile id and full list of all profiles from parent module
+
+    
+    return <h1>My Profile</h1>
 }

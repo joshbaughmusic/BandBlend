@@ -1,4 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
+import bb_logo from "../../images/bb_logo.png"
+import "./NavBar.css"
 
 export const Navbar = ( {currentUserProfileId} ) => {
 
@@ -7,7 +9,7 @@ export const Navbar = ( {currentUserProfileId} ) => {
     return (
         <>
             <nav id="navbar">
-                <img id="img_logo" className="img" src="../../../images/bb_logo.png"/>
+                <Link to={"/"}><img id="img_logo" className="img logo" src={bb_logo}/></Link>
                 <ul className="list nav_list">
                     <li className="list_item nav_list_item">
                         <Link className="nav_list_item_link" to="/">Home</Link>

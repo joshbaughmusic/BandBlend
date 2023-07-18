@@ -9,6 +9,16 @@
       "id": 2,
       "isBand": true,
       "email": "crowmouth@gmail.com"
+    },
+    {
+      "id": 3,
+      "isBand": true,
+      "email": "beatstrikers@gmail.com"
+    },
+    {
+      "id": 4,
+      "isBand": false,
+      "email": "lilythompson@gmail.com"
     }
   ],
   "profiles": [
@@ -39,6 +49,34 @@
       "facebook": "https://www.facebook.com/crowmouthTN",
       "instagram": "https://www.instagram.com/crowmouthtn",
       "tiktok": "https://www.tiktok.com/@crowmouthband"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "name": "The Beat Strikers",
+      "picture": "https://media.istockphoto.com/id/912112596/vector/rock-people.jpg?s=612x612&w=0&k=20&c=GqFlTx_Yu4EK1qjHCsYzMPNLLB1D19ZQ9fwWZrz-5xE=",
+      "location": "Los Angeles, CA",
+      "about": "We are an energetic and dynamic band, bringing the best of rock and pop music to the world.",
+      "primaryGenreId": 6,
+      "featuredSong": "https://example.com/songs/beatstrikers/featured.mp3",
+      "spotify": "https://open.spotify.com/artist/beatstrikers",
+      "facebook": "https://www.facebook.com/beatstrikers",
+      "instagram": "https://www.instagram.com/beatstrikersband",
+      "tiktok": "https://www.tiktok.com/@beatstrikers"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "name": "Lily Thompson",
+      "picture": "https://rooftopantics.com/wp-content/uploads/2019/04/popular_female_singers_2019_billie_eilish-1024x683.jpg",
+      "location": "London, UK",
+      "about": "I'm a passionate singer-songwriter, telling stories through my music.",
+      "primaryGenreId": 2,
+      "featuredSong": "https://example.com/songs/lilythompson/featured.mp3",
+      "spotify": "https://open.spotify.com/artist/lilythompson",
+      "facebook": "https://www.facebook.com/lilythompsonmusic",
+      "instagram": "https://www.instagram.com/lilythompsonmusic",
+      "tiktok": "https://www.tiktok.com/@lilythompson"
     }
   ],
   "savedProfiles": [
@@ -98,6 +136,21 @@
     {
       "id": 6,
       "profileId": 2,
+      "tagId": 12
+    },
+    {
+      "id": 7,
+      "profileId": 3,
+      "tagId": 2
+    },
+    {
+      "id": 8,
+      "profileId": 4,
+      "tagId": 6
+    },
+    {
+      "id": 9,
+      "profileId": 4,
       "tagId": 12
     }
   ],
@@ -258,6 +311,21 @@
     {
       "id": 6,
       "profileId": 2,
+      "subGenreId": 25
+    },
+    {
+      "id": 7,
+      "profileId": 3,
+      "subGenreId": 9
+    },
+    {
+      "id": 8,
+      "profileId": 3,
+      "subGenreId": 22
+    },
+    {
+      "id": 9,
+      "profileId": 4,
       "subGenreId": 25
     }
   ],
