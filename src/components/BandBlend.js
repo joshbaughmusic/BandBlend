@@ -6,6 +6,7 @@ import { MainContent } from "./mainContent/MainContent.js"
 import { Navbar } from "./nav/Navbar.js"
 import { Sidebar } from "./sidebar/Sidebar.js"
 import { useEffect, useState } from "react"
+import "./BandBlend.css"
 
 export const BandBlend = () => {
 
@@ -16,32 +17,46 @@ export const BandBlend = () => {
   const localBbUser = localStorage.getItem("bb_user")
   const bBUserObject = JSON.parse(localBbUser)
 
+
   useEffect(() => {
-    fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_embed=profileTags`)
-    .then(res => res.json())
-    .then(data => {
-        setProfile(data[0])
-    })
+    if (bBUserObject) {
+
+      fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_embed=profileTags`)
+      .then(res => res.json())
+      .then(data => {
+          setProfile(data[0])
+      })
+    }
 }, [])
 
   const currentUserProfile = profile
 
   //then set up routing and pass props accordingly
 
-  return <Routes>
-    <Route path="/login" element={<Login />} />
-		<Route path="/register" element={<Register />} />
-    <Route path="*" element={
-			<Authorized>
-				<>
-          <Navbar currentUserProfile={currentUserProfile}/>
-          <Sidebar />
-					<MainContent currentUserProfile={currentUserProfile}/>
+  return <>
+{
+  !currentUserProfile
+  ? '' :
+  <div className="container container_grid_all">
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="*" element={
+        <Authorized>
+          <>
+            <Navbar currentUserProfile={currentUserProfile}/>
+            <Sidebar />
+            <MainContent currentUserProfile={currentUserProfile}/>
 
-				</>
-			</Authorized>
+          </>
+        </Authorized>
 
-		} />
+      } />
 
-  </Routes>
+    </Routes>
+  </div>
+}
+  
+
+</>
 }

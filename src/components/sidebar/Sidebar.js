@@ -1,3 +1,5 @@
+import "./Sidebar.css"
+
 export const Sidebar = () => {
-    return <h1>Sidebar</h1>
+    return <div className="container container_sidebar">Sidebar</div>
 }

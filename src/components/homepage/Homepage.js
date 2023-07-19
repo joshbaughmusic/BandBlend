@@ -1,4 +1,4 @@
-export const Homepage = () => {
+export const Homepage = ( {currentUserProfile} ) => {
     return (
         <>
 
@@ -8,6 +8,9 @@ export const Homepage = () => {
                         <h1>BandBlend</h1>
                         <h2>Fusing Musicians for Masterpieces</h2>
                     </header>
+                    <div id="container_greeting" className="container">
+                        <h3 id="greeting" className="greeting">Hello {currentUserProfile?.user?.name}!</h3>
+                    </div>
                     <div>
                         <input type="text" /><br/>
                         <input type="text" />

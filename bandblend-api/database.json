@@ -2,27 +2,30 @@
   "users": [
     {
       "id": 1,
+      "isStaff": false,
       "isBand": false,
+      "name": "Josh Baugh",
       "email": "joshbaughmusic@gmail.com"
     },
     {
       "id": 2,
+      "isStaff": false,
       "isBand": true,
+      "name": "Crowmouth",
       "email": "crowmouth@gmail.com"
     },
     {
       "id": 3,
+      "isStaff": false,
       "isBand": true,
+      "name": "The Beat Strikers",
       "email": "beatstrikers@gmail.com"
     },
     {
       "id": 4,
+      "isStaff": false,
       "isBand": false,
-      "email": "fakestaff"
-    },
-    {
-      "id": 5,
-      "isBand": false,
+      "name": "Lily Thompson",
       "email": "lilythompson@gmail.com"
     }
   ],
@@ -30,7 +33,6 @@
     {
       "id": 1,
       "userId": 1,
-      "name": "Josh Baugh",
       "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/84354366_10157512722778884_280175598779760640_n.jpg?_nc_cat=109&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=PfsRZ6LkOMcAX9JqJ1R&_nc_ht=scontent-atl3-1.xx&oh=00_AfCTQrzl3ip7znjqKyUB5l-901niXmJZTnY57SswDRgX8w&oe=64DBFC54",
       "location": "Nashville, TN",
       "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -44,7 +46,6 @@
     {
       "id": 2,
       "userId": 2,
-      "name": "Crowmouth",
       "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/271038497_326399376155152_6662249675223265793_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=GH_e31CUNK4AX8bpy27&_nc_ht=scontent-atl3-1.xx&oh=00_AfCkXiHUv51g-C11kx-km4znOprpYgDWsrvD_Q8k4mBqsg&oe=64BA2CCB",
       "location": "Birmingham, AL",
       "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -58,7 +59,6 @@
     {
       "id": 3,
       "userId": 3,
-      "name": "The Beat Strikers",
       "picture": "https://media.istockphoto.com/id/912112596/vector/rock-people.jpg?s=612x612&w=0&k=20&c=GqFlTx_Yu4EK1qjHCsYzMPNLLB1D19ZQ9fwWZrz-5xE=",
       "location": "Los Angeles, CA",
       "about": "We are an energetic and dynamic band, bringing the best of rock and pop music to the world.",
@@ -72,7 +72,6 @@
     {
       "id": 4,
       "userId": 5,
-      "name": "Lily Thompson",
       "picture": "https://rooftopantics.com/wp-content/uploads/2019/04/popular_female_singers_2019_billie_eilish-1024x683.jpg",
       "location": "London, UK",
       "about": "I'm a passionate singer-songwriter, telling stories through my music.",
@@ -94,7 +93,7 @@
   "posts": [
     {
       "id": 1,
-      "userId": 1,
+      "profileId": 2,
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "date": "2023-07-10"
     }
@@ -102,13 +101,18 @@
   "media": [
     {
       "id": 1,
-      "userId": 1,
+      "profileId": 1,
       "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/74881481_10157191501453884_8530669089901772800_n.jpg?_nc_cat=107&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=lJ7tl4bhABIAX_ZWCLa&_nc_ht=scontent-atl3-1.xx&oh=00_AfDFedrxo4ANKxEgahXeUZqwvIdG1FW8yJ3jgPZ2b7Sv4A&oe=64DC0BF1"
     },
     {
       "id": 2,
-      "userId": 2,
+      "profileId": 2,
       "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355296425_737041681757584_8833967079627215393_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=sqjPrR9QiVcAX8-Qu-j&_nc_ht=scontent-atl3-1.xx&oh=00_AfBKGuQbTlTZshrb2elsN5AyMV5bxHrX3Q_q_kKNSH0grw&oe=64B9755B"
+    },
+    {
+      "id": 3,
+      "profileId": 2,
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355265181_732701238858295_1570047882012937844_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=do1r0A7GWBYAX8WkcI-&_nc_ht=scontent-atl3-1.xx&oh=00_AfBuE6FeIdwc3fmAs7D0FpRbsd44ZsAB4NjTWqlJhvmLGg&oe=64BD36FC"
     }
   ],
   "messages": [],

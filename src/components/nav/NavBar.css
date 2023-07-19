@@ -1,3 +1,27 @@
 img.logo {
     width: 75px;
 }
+
+.container_nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-bottom: 2px black solid;
+}
+
+.nav_list {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav_list_item {
+    list-style-type: none;
+    text-decoration: none;
+    padding: 10px;
+    align-self: center;
+    
+}
+
+a {
+    align-self: center;
+}

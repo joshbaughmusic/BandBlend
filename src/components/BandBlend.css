@@ -1,0 +1,27 @@
+* {
+}
+
+/* grid setup */
+
+.container_grid_all {
+  display: grid;
+  grid-template-areas:
+    'nav nav'
+    'main sidebar';
+  
+  grid-template-columns: 8fr 2fr;
+  grid-template-rows: 1fr 9fr;
+  height: 100vh
+}
+
+.container_main {
+    grid-area: main;
+}
+
+.container_nav {
+    grid-area: nav;
+}
+
+.container_sidebar {
+    grid-area: sidebar;
+}

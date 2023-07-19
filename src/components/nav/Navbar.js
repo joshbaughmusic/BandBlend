@@ -8,7 +8,7 @@ export const Navbar = ( {currentUserProfile} ) => {
 
     return (
         <>
-            <nav id="navbar">
+            <nav className="container container_nav">
                 <Link to={"/"}><img id="img_logo" className="img logo" src={bb_logo}/></Link>
                 <ul className="list nav_list">
                     <li className="list_item nav_list_item">

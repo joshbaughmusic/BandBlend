@@ -52,7 +52,7 @@ export const ProfilesAllList = () => {
                     return <article key={`profileCard--${profile.id}`} className="container container_profile_card">
                         <img id={`profileCardImg--${profile.id}`} className="img img_profileCard" src={profile.picture}/>
                         <div className="container container_profile_card_header">
-                            <Link to={`${profile.id}`}><h2 className="profile_card_name">{profile.name}</h2></Link>
+                            <Link to={`/profiles/${profile.id}`}><h2 className="profile_card_name">{profile.user.name}</h2></Link>
                             {
                                 profile.user.isBand ? <p className="profile_card_bandnote">Band</p> : ''
                             }
