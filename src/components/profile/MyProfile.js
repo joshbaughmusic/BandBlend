@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { PostProfile } from "../posts/PostProfile.js"
 import { NewPost } from "../posts/NewPost.js"
 import "./MyProfile.css"
+import { NewPhoto } from "./NewPhoto.js"
 
 export const MyProfile = () => {
 
     const [profile, setProfile] = useState({})
     const [myPosts, setMyPosts] = useState([])
+    const [media, setMedia] = useState([])
     const [tags, setTags] = useState([])
     const [subGenres, setSubGenres] = useState([])
+    
+    const navigate = useNavigate()
 
     //states to handle whether or not to show new content forms
 
     const [showNewPost, setShowNewPost] = useState(false);
+    const [showNewPhoto, setShowNewPhoto] = useState(false);
 
 
     //fetch current user in local storage and fetch their profile when they arrive at MyProfile page. Use this to populate the view.
@@ -22,12 +27,24 @@ export const MyProfile = () => {
     const bBUserObject = JSON.parse(localBbUser)
 
     useEffect(() => {
-        fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_embed=profileTags&_embed=profileSubGenres&_embed=media`)
+        fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_embed=profileTags&_embed=profileSubGenres`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data[0])
             })
     }, [])
+
+    //get media
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/media?profileId=${profile.id}`)
+        .then(res => res.json())
+        .then(data => {
+            setMedia(data)
+        })
+    }, [profile])
+
+    //get posts
 
     useEffect(() => {
         fetch(`http://localhost:8088/posts?profileId=${profile.id}`)
@@ -82,6 +99,35 @@ export const MyProfile = () => {
 
     const handleNewPostClose = () => {
         setShowNewPost(false)
+    }
+    
+    const handleNewPhotoShow = () => {
+        setShowNewPhoto(true)
+    }
+
+    const handleNewPhotoClose = () => {
+        setShowNewPhoto(false)
+    }
+
+    //handler functions to take care of deletions or edits
+
+    const handleDeletePhotoClick = e => {
+        e.preventDefault()
+
+        const [,imgIdToDelete] = e.target.id.split("--")
+
+        return fetch(`http://localhost:8088/media/${imgIdToDelete}`, {
+            method: "DELETE",
+            })
+            .then(() => {
+                fetch(`http://localhost:8088/media?profileId=${profile.id}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        setMedia(data)
+                
+                    })
+            })
+
     }
 
 
@@ -187,19 +233,19 @@ export const MyProfile = () => {
                 <article className="container container_profile_about">
                     <h3 className="heading heading_profile_about">About</h3>
                     <p className="text text_profile_about">{profile.about}</p>
-                    <button type="button" className="btn button_profile_about_edit" id={`btnEditProfileAbout--${profile.id}`} onClick={() => { }}>Edit About</button>
+                    <button type="button" className="btn button_profile_about_edit" id={`btnEditProfileAbout--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/about/${profile.id}`) }}>Edit About</button>
                 </article>
 
                 <article className="container container_profile_media_outer">
                     <h3 className="heading heading_profile_media">Additional Photos</h3>
                     <div className="container container_profile_media_inner">
                         {
-                            profile.media?.length
+                            media?.length
 
                                 ?
 
-                                profile.media.map(media => {
-                                    return <img className="img profile_media_item" key={`img--${profile.id}--${media.url}`} src={media.url} />
+                                media.map(media => {
+                                    return <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} /><button type="button" id={`img--${media.id}`} className="btn btn_delete btn_delete_photo" onClick={handleDeletePhotoClick}>Delete Photo</button></div>
                                 })
 
                                 :
@@ -207,7 +253,20 @@ export const MyProfile = () => {
                                 <p className="text text_profile_media_none">User hasn't uploaded additional photos yet.</p>
                         }
                     </div>
-                    <button type="button" className="btn button_profile_addphotos_new" id={`btnNewProfilePhotos--${profile.id}`} onClick={() => { }}>New Photo</button>
+                    <div className="container container_new_photo" id="container_new_photo">
+                        {
+                            showNewPhoto
+
+                            ?
+
+                            <NewPhoto closeNewPhoto={handleNewPhotoClose} myProfileId={profile.id} setMedia={setMedia} />
+                            
+                            :
+
+                            <button type="button" className="btn button_profile_photos_new" onClick={handleNewPhotoShow}>Add Photo</button>
+
+                        }
+                    </div>
                 </article>
 
                 <article className="container container_profile_posts_outer">

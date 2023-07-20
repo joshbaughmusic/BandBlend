@@ -168,7 +168,7 @@ export const OtherProfile = () => {
                                 ?
 
                                 profile.media.map(media => {
-                                    return <img className="img profile_media_item" key={`img--${profile.id}--${media.url}`} src={media.url} />
+                                    return <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} /></div>
                                 })
 
                                 :
