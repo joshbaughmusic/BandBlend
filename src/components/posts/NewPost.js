@@ -21,23 +21,23 @@ export const NewPost = ({ closeNewPost, myProfileId, setMyPosts }) => {
 
         if (post.body !== "") {
             return fetch(`http://localhost:8088/posts`, {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json"
-            },
-            body: JSON.stringify(postObject)
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(postObject)
             })
-            .then(res => res.json())
-            .then(() => {
-                fetch(`http://localhost:8088/posts?profileId=${myProfileId}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        setMyPosts(data)
-                        closeNewPost()
-                        //clears out value of new post text area
-                        setPost("")
-                    })
-            })
+                .then(res => res.json())
+                .then(() => {
+                    fetch(`http://localhost:8088/posts?profileId=${myProfileId}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            setMyPosts(data)
+                            closeNewPost()
+                            //clears out value of new post text area
+                            setPost("")
+                        })
+                })
         } else {
             window.alert("New post cannot be blank.")
         }
@@ -45,19 +45,21 @@ export const NewPost = ({ closeNewPost, myProfileId, setMyPosts }) => {
 
     return (
         <>
-        <form>
-            <textarea autoFocus name="newPost" className="input input_text" placeholder="What's on your mind?" rows="4" cols="50" onChange={
-                e => {
-                const copy = {...post}
-                copy.body = e.target.value
-                setPost(copy)
-                }
-            }       
-            ></textarea>
-            <br/>
-            <button type="submit" className="btn btn_profile btn_submit" onClick={handleSubmitNewPostClick}>Submit Post</button>
-            <button type="button" className="btn btn_profile btn_close" onClick={closeNewPost}>Close</button>
-        </form>
+            <form className="form form_new_post">
+                <fieldset>
+                    <textarea autoFocus name="newPost" className="input input_text" placeholder="What's on your mind?" rows="4" cols="50" onChange={
+                        e => {
+                            const copy = { ...post }
+                            copy.body = e.target.value
+                            setPost(copy)
+                        }
+                    }
+                    ></textarea>
+                </fieldset>
+                <br />
+                <button type="submit" className="btn btn_profile btn_submit" onClick={handleSubmitNewPostClick}>Submit Post</button>
+                <button type="button" className="btn btn_profile btn_close" onClick={closeNewPost}>Close</button>
+            </form>
         </>
     )
 }

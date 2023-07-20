@@ -122,7 +122,7 @@ export const MyProfile = () => {
 
                                     ?
 
-                                    <Link to={profile.spotify}><img className="img img_profile_primary_socialwidget" src="../../images/spotify.png" /></Link>
+                                    <Link to={profile.spotify}><img className="img img_profile_primary_socialwidget" src={require("../../images/spotify.png")} /></Link>
 
                                     :
 
@@ -133,7 +133,7 @@ export const MyProfile = () => {
 
                                     ?
 
-                                    <Link to={profile.facebook}><img className="img img_profile_primary_socialwidget" src="../../images/facebook.png" /></Link>
+                                    <Link to={profile.facebook}><img className="img img_profile_primary_socialwidget" src={require("../../images/facebook.png")} /></Link>
 
                                     :
 
@@ -144,7 +144,7 @@ export const MyProfile = () => {
 
                                     ?
 
-                                    <Link to={profile.instagram}><img className="img img_profile_primary_socialwidget" src="../../images/instagram.png" /></Link>
+                                    <Link to={profile.instagram}><img className="img img_profile_primary_socialwidget" src={require("../../images/instagram.png")} /></Link>
 
                                     :
 
@@ -155,7 +155,7 @@ export const MyProfile = () => {
 
                                     ?
 
-                                    <Link to={profile.tiktok}><img className="img img_profile_primary_socialwidget" src="../../images/tiktok.png" /></Link>
+                                    <Link to={profile.tiktok}><img className="img img_profile_primary_socialwidget" src={require("../../images/tiktok.png")} /></Link>
 
                                     :
 

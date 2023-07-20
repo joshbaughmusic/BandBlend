@@ -3,6 +3,7 @@ import { Homepage } from "../homepage/Homepage.js"
 import { ProfilesAllList } from "../profile/ProfilesAllList.js"
 import { OtherProfile } from "../profile/OtherProfile.js"
 import { MyProfile } from "../profile/MyProfile.js"
+import { EditPost } from "../posts/EditPost.js"
 
 export const MainContent = () => {
 
@@ -14,6 +15,7 @@ export const MainContent = () => {
                 <Route path="/" element={ <Homepage />}/>
                 <Route path="profiles" element={ <ProfilesAllList />} />
                 <Route path="myprofile" element={<MyProfile />} />
+                <Route path="myprofile/edit/post/:postId" element={<EditPost />} />
                 <Route path="profiles/:profileId" element={<OtherProfile />} />
             </Routes>
             </main>
