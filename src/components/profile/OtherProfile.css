@@ -2,3 +2,7 @@ img {
     width: 150px;
     border-radius: 50%;
 }
+
+.img_profile_primary_socialwidget {
+    width: 5%;
+}

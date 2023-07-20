@@ -87,12 +87,12 @@ export const OtherProfile = () => {
                         </div>
 
                         <div className="container container_profile_primary_socialwidgets">
-                            {
+                        {
                                 profile.spotify
 
                                     ?
 
-                                    <Link to={profile.spotify}><img className="img img_profile_primary_socialwidget" src="../../images/spotify.png" /></Link>
+                                    <Link to={profile.spotify}><img className="img img_profile_primary_socialwidget" src={require("../../images/spotify.png")} /></Link>
 
                                     :
 
@@ -103,7 +103,7 @@ export const OtherProfile = () => {
 
                                     ?
 
-                                    <Link to={profile.facebook}><img className="img img_profile_primary_socialwidget" src="../../images/facebook.png" /></Link>
+                                    <Link to={profile.facebook}><img className="img img_profile_primary_socialwidget" src={require("../../images/facebook.png")} /></Link>
 
                                     :
 
@@ -114,7 +114,7 @@ export const OtherProfile = () => {
 
                                     ?
 
-                                    <Link to={profile.instagram}><img className="img img_profile_primary_socialwidget" src="../../images/instagram.png" /></Link>
+                                    <Link to={profile.instagram}><img className="img img_profile_primary_socialwidget" src={require("../../images/instagram.png")} /></Link>
 
                                     :
 
@@ -125,7 +125,7 @@ export const OtherProfile = () => {
 
                                     ?
 
-                                    <Link to={profile.tiktok}><img className="img img_profile_primary_socialwidget" src="../../images/tiktok.png" /></Link>
+                                    <Link to={profile.tiktok}><img className="img img_profile_primary_socialwidget" src={require("../../images/tiktok.png")} /></Link>
 
                                     :
 
@@ -168,7 +168,7 @@ export const OtherProfile = () => {
                                 ?
 
                                 profile.media.map(media => {
-                                    return <img className="img profile_media_item" key={`img--${profile.id}--${media.url}`} src={media.url} />
+                                    return <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} /></div>
                                 })
 
                                 :

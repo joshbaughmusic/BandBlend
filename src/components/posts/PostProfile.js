@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import "./Post.css"
 
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage.
@@ -6,6 +7,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
+
+    const navigate = useNavigate()
 
     //set a handler function to take care of deleting posts when the button is clicked. Will also update list of posts using props passed down from MyProfile.
 
@@ -37,8 +40,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
             <h4 className="heading heading_post_name">{userName}</h4>
             <p className="text text_post_date">{postDate}</p>
             <p className="text text_post_date">{postBody}</p>
-            <button>Edit Post</button>
-            <button id={`postDelete--${postId}`} onClick={handleDeletePostClick}>Delete Post</button>
+            <button className="btn btn_edit bten_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`)}}>Edit Post</button>
+            <button id={`postDelete--${postId}`} className="btn btn_delete" onClick={handleDeletePostClick}>Delete Post</button>
         </li>
     </>
     } else {
