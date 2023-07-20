@@ -16,7 +16,8 @@ export const Login = () => {
                     const user = foundUsers[0]
                     localStorage.setItem("bb_user", JSON.stringify({
                         id: user.id,
-                        isBand: user.isBand
+                        isBand: user.isBand,
+                        name: user.name
                     }))
 
                     navigate("/")

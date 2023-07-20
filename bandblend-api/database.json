@@ -2,28 +2,24 @@
   "users": [
     {
       "id": 1,
-      "isStaff": false,
       "isBand": false,
       "name": "Josh Baugh",
       "email": "joshbaughmusic@gmail.com"
     },
     {
       "id": 2,
-      "isStaff": false,
       "isBand": true,
       "name": "Crowmouth",
       "email": "crowmouth@gmail.com"
     },
     {
       "id": 3,
-      "isStaff": false,
       "isBand": true,
       "name": "The Beat Strikers",
       "email": "beatstrikers@gmail.com"
     },
     {
       "id": 4,
-      "isStaff": false,
       "isBand": false,
       "name": "Lily Thompson",
       "email": "lilythompson@gmail.com"
@@ -71,7 +67,7 @@
     },
     {
       "id": 4,
-      "userId": 5,
+      "userId": 4,
       "picture": "https://rooftopantics.com/wp-content/uploads/2019/04/popular_female_singers_2019_billie_eilish-1024x683.jpg",
       "location": "London, UK",
       "about": "I'm a passionate singer-songwriter, telling stories through my music.",
@@ -95,7 +91,49 @@
       "id": 1,
       "profileId": 2,
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "date": "2023-07-10"
+      "date": "1689861806637"
+    },
+    {
+      "id": 2,
+      "profileId": 1,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "1689861806653"
+    },
+    {
+      "id": 3,
+      "profileId": 3,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "1689861806659"
+    },
+    {
+      "id": 4,
+      "profileId": 4,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "1689861897969"
+    },
+    {
+      "id": 5,
+      "profileId": 2,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "1689861898305"
+    },
+    {
+      "id": 6,
+      "profileId": 1,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "1689861915793"
+    },
+    {
+      "id": 7,
+      "profileId": 3,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "1689861916124"
+    },
+    {
+      "id": 8,
+      "profileId": 4,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "1689861916133"
     }
   ],
   "media": [

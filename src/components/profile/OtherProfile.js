@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react"
 import "./OtherProfile.css"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
+import { PostProfile } from "../posts/PostProfile.js"
 
-export const OtherProfile = ({ otherProfileId }) => {
-    //receiving id of profile being viewed from ProfileContainer.js
+export const OtherProfile = () => {
 
-    const [profile, setProfile] = useState([])
+    //use useParams to get the profile id from url.
+
+    const { profileId } = useParams()
+
+    const [profile, setProfile] = useState({})
     const [tags, setTags] = useState([])
     const [subGenres, setSubGenres] = useState([])
 
-    //fetch all currently viewed profile based on prop passed in (otherProfileId) with expanded users and primary genre, embeded profileTags and media
+    //fetch currently viewed profile based on param (profileId) with expanded users and primary genre, embeded profileTags and media
 
     useEffect(() => {
-        fetch(`http://localhost:8088/profiles?userId=${otherProfileId}&_expand=user&_expand=primaryGenre&_embed=profileTags&_embed=profileSubGenres&_embed=media&_embed=posts`)
+        fetch(`http://localhost:8088/profiles?userId=${profileId}&_expand=user&_expand=primaryGenre&_embed=profileTags&_embed=profileSubGenres&_embed=media&_embed=posts`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data[0])
@@ -55,9 +59,9 @@ export const OtherProfile = ({ otherProfileId }) => {
         return matchedSubGenre?.name
     }
 
-    // if (!profile || !tags || !subGenres) {
-    //     return null
-    // }
+    if (!profile || !tags || !subGenres) {
+        return null
+    }
 
 
     return (
@@ -66,14 +70,15 @@ export const OtherProfile = ({ otherProfileId }) => {
                 <article className="container container_profile_primary">
                     <img className="img img_profile_primary" src={profile.picture} />
                     <div className="container container_heading_profile_primary">
-                        <h2 className="heading heading_profile_primary_name">{profile.user?.name}</h2>
-                        <h3 className="heading heading_profile_primary_location">{profile.location}</h3>
+                        <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
+                        <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
+                        <h3 className="heading heading_profile_primary_primary_genre">{profile?.primaryGenre?.name}</h3>
                     </div>
 
                     <div className="container container_profile_primary_clickables">
                         <div className="container container_profile_primary_buttons">
-                            <button type="button" className="btn button_profile_primary_save" onClick={<></>}>Save</button>
-                            <button type="button" className="btn button_profile_primary_message" onClick={<></>}>Message</button>
+                            <button type="button" className="btn button_profile_primary_save" onClick={() => { }}>Save</button>
+                            <button type="button" className="btn button_profile_primary_message" onClick={() => { }}>Message</button>
                         </div>
                         <div className="container container_profile_primary_song">
                             {
@@ -83,16 +88,48 @@ export const OtherProfile = ({ otherProfileId }) => {
 
                         <div className="container container_profile_primary_socialwidgets">
                             {
-                                profile.spotify ? <Link to={profile.spotify}><img className="img img_profile_primary_socialwidget" src="../../images/spotify.png" /></Link> : ""
+                                profile.spotify
+
+                                    ?
+
+                                    <Link to={profile.spotify}><img className="img img_profile_primary_socialwidget" src="../../images/spotify.png" /></Link>
+
+                                    :
+
+                                    ""
                             }
                             {
-                                profile.facebook ? <Link to={profile.facebook}><img className="img img_profile_primary_socialwidget" src="../../images/facebook.png" /></Link> : ""
+                                profile.facebook
+
+                                    ?
+
+                                    <Link to={profile.facebook}><img className="img img_profile_primary_socialwidget" src="../../images/facebook.png" /></Link>
+
+                                    :
+
+                                    ""
                             }
                             {
-                                profile.instagram ? <Link to={profile.instagram}><img className="img img_profile_primary_socialwidget" src="../../images/instagram.png" /></Link> : ""
+                                profile.instagram
+
+                                    ?
+
+                                    <Link to={profile.instagram}><img className="img img_profile_primary_socialwidget" src="../../images/instagram.png" /></Link>
+
+                                    :
+
+                                    ""
                             }
                             {
-                                profile.tiktok ? <Link to={profile.tiktok}><img className="img img_profile_primary_socialwidget" src="../../images/tiktok.png" /></Link> : ""
+                                profile.tiktok
+
+                                    ?
+
+                                    <Link to={profile.tiktok}><img className="img img_profile_primary_socialwidget" src="../../images/tiktok.png" /></Link>
+
+                                    :
+
+                                    ""
                             }
                         </div>
 
@@ -105,12 +142,11 @@ export const OtherProfile = ({ otherProfileId }) => {
                                     })
                                 }
                             </ul>
-                            <h4 className="heading heading_profile_primary_genres">Genres</h4>
-                            <ul className="container container_genres">
-                                <li className="profile_primary_primarygenre">{profile?.primaryGenre?.name}</li>
+                            <h4 className="heading heading_profile_subgenres">SubGenres</h4>
+                            <ul className="container container_subgenres">
                                 {
                                     profile?.profileSubGenres?.map(sg => {
-                                        return <li key={`profilePrimarySubGenre--${sg.id}--${sg.subGenreId}`} className="profile_primary_subgenre">{matchSubGenres(sg.subGenreId)}</li>
+                                        return <li key={`profileSubGenre--${sg.id}--${sg.subGenreId}`} className="profile_subgenre">{matchSubGenres(sg.subGenreId)}</li>
                                     })
                                 }
                             </ul>
@@ -124,25 +160,40 @@ export const OtherProfile = ({ otherProfileId }) => {
                 </article>
 
                 <article className="container container_profile_media_outer">
-                    <h3 className="heading heading_profile_media">Additional Media</h3>
+                    <h3 className="heading heading_profile_media">Additional Photos</h3>
                     <div className="container container_profile_media_inner">
                         {
-                            profile.media ? profile.media.map(media => {
-                                return <img className="img profile_media_item" src={media.url} />
-                            }) : <p className="text text_profile_media_none">No additional media at this time.</p>
+                            profile.media?.length
+
+                                ?
+
+                                profile.media.map(media => {
+                                    return <img className="img profile_media_item" key={`img--${profile.id}--${media.url}`} src={media.url} />
+                                })
+
+                                :
+
+                                <p className="text text_profile_media_none">User hasn't uploaded additional photos yet.</p>
                         }
                     </div>
                 </article>
 
                 <article className="container container_profile_posts_outer">
                     <h3 className="heading heading_profile_posts">Posts</h3>
-                    <div className="container container_profile_posts_inner">
+                    <ul className="container container_profile_posts_inner">
                         {
-                            profile.posts ? profile.posts.map(post => {
-                                return <p className="text text_profile_about">{post.body}</p>
-                            }) : <p className="text text_profile_media_none">No additional media at this time.</p>
+                            profile.posts?.length
+
+                                ?
+
+                                profile.posts.map(post => <PostProfile key={`post--${post.id}`} postId={post.id} userPicture={profile.picture} userName={profile?.user?.name} userId={profile?.user?.id} postBody={post.body} postDate={post.date} />)
+
+                                :
+
+                                <li className="post post_list_item_null"><p className="text text_profile_post_none">User hasn't submitted any posts yet.</p>
+                                </li>
                         }
-                    </div>
+                    </ul>
                 </article>
             </section>
         </>
