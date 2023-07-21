@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react"
+import "./Homepage.css"
 
 export const Homepage = () => {
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
+
+    //split user name to only first name if there's a last name as well. Split by space
+
+    const [mainName, ] = bBUserObject.name.split(" ")
 
     const [profilesWithPosts, setProfilesWithPosts] = useState([])
 
@@ -34,21 +39,23 @@ export const Homepage = () => {
     return (
         <>
 
-            <section id="container_homepage" className="container">
-                <section id="container_hero" className="container">
-                    <header id="container_heading" className="container">
-                        <h1>BandBlend</h1>
-                        <h2>Fusing Musicians for Masterpieces</h2>
+            <section className="container container_homepage">
+                <section className="container container_hero">
+                    <header className="container container_heading">
+                        <h1 className="heading heading_app_title">BandBlend</h1>
+                        <h2 className="heading heading_app_subheading">Fusing Musicians for Masterpieces</h2>
                     </header>
-                    <div id="container_greeting" className="container">
-                        <h3 id="greeting" className="greeting">Hello {bBUserObject.name}!</h3>
+                    <div className="container container_greeting">
+                        <h3 className="greeting">Hello {mainName}!</h3>
                     </div>
+                </section>
+                <section>
                     <div>
-                        <input type="text" /><br/>
+                        <input type="text" /><br />
                         <input type="text" />
                     </div>
                 </section>
-                <section className="container container_home_featured_posts_outer">      
+                <section className="container container_home_featured_posts_outer">
                     <h3 className="heading heading_home_featured_posts">Posts</h3>
                     <ul className="container container_home_featured_posts_inner">
                         {
@@ -63,7 +70,7 @@ export const Homepage = () => {
                             //     <li className="post post_list_item_null"><p className="text text_home_post_none">No posts to show at this time.</p>
                             //     </li>
                         }
-                    </ul>                   
+                    </ul>
                 </section>
             </section>
 

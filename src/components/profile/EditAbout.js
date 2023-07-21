@@ -13,9 +13,6 @@ export const EditAbout = () => {
         about: ""
     })
 
-    // useState to hold profile of logged in user
-    const [currentUserProfile, setCurrentUserProfile] = useState([])
-
     //set up navigation hook to take you back to MyProfile on edit submission
 
     const navigate = useNavigate()
@@ -34,6 +31,10 @@ export const EditAbout = () => {
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
+
+    if (!profile.userId) {
+        return null
+    }
 
     if (profile.userId === bBUserObject.id) {
 
@@ -83,7 +84,7 @@ export const EditAbout = () => {
         )
     } else {
         return <>
-            <p>Nice try. You're not authorized to edit this profile.</p>
+            <p>Nice try, loser. You're not authorized to edit this profile.</p>
         </>
     }
 

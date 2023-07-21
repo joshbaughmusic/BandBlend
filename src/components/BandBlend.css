@@ -3,6 +3,11 @@
 
 * {
   font-family: "Poppins";
+  box-sizing: border-box;
+}
+
+button {
+  margin: 7px;
 }
 
 /* grid setup */

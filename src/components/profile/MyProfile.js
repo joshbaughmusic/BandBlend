@@ -144,7 +144,7 @@ export const MyProfile = () => {
                         <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
                         <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
                         <h3 className="heading heading_profile_primary_primary_genre">{profile?.primaryGenre?.name}</h3>
-                        <button type="button" className="btn button_profile_primary_edit" id={`btnEditProfilePrimary--${profile.id}`} onClick={() => { }}>Edit Primary Info</button>
+                        <button type="button" className="btn button_profile_primary_edit" id={`btnEditProfilePrimary--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/primaryinfo/${profile.id}`) }}>Edit Primary Info</button>
                     </div>
 
                     <div className="container container_profile_primary_clickables">
@@ -218,7 +218,8 @@ export const MyProfile = () => {
                                     })
                                 }
                             </ul>
-                            <h4 className="heading heading_profile_subgenres">SubGenres</h4>
+                            <button className="btn btn_edit btn_edit_tags" onClick={ () => { navigate(`/myprofile/edit/tags/${profile.id}`)}}>Edit Tags</button>
+                            <h4 className="heading heading_profile_subgenres">Sub-Genres</h4>
                             <ul className="container container_subgenres">
                                 {
                                     profile?.profileSubGenres?.map(sg => {
@@ -226,6 +227,7 @@ export const MyProfile = () => {
                                     })
                                 }
                             </ul>
+                            <button className="btn btn_edit btn_edit_subgenres" onClick={ () => { navigate(`/myprofile/edit/subgenres/${profile.id}`)}}>Edit Sub-Genres</button>
                         </div>
                     </div>
                 </article>

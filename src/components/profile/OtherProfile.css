@@ -1,8 +1,71 @@
+/* grid and main container setup and specs */
+
+.container_profile_page {
+    display: grid;
+    grid-template-areas:
+        "primary about"
+        "primary media"
+        "primary posts";
+    grid-template-columns: 250px 3fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    margin: 20px 0px;
+}
+
+.container_profile_primary {
+    grid-area: primary;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin-left: 20px;
+}
+
+.container_profile_about {
+    grid-area: about;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin-right: 20px;
+}
+
+.container_profile_media_outer {
+    grid-area: media;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin-right: 20px;
+
+}
+
+.container_profile_posts_outer {
+    grid-area: posts;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin-right: 20px;
+
+}
+
+/* end grid setup */
+
+
+
+
+
 img {
     width: 150px;
     border-radius: 50%;
 }
 
+.profile_img_item {
+    border-radius: 0;
+}
+
+/* .profile_img_item:hover {
+    width: 700px;
+    position: absolute;
+} */
+
 .img_profile_primary_socialwidget {
-    width: 5%;
+    width: 15%;
 }
