@@ -1,4 +1,4 @@
-/* flex setup */
+/* flex setup and basic container layout */
 
 .container_allProfiles {
     display: flex;
@@ -10,9 +10,9 @@
     justify-content: space-between;
     border: black solid 2px;
     border-radius: 20px;
+    margin: 10px;
+
 }
-
-
 
 .img_profileCard {
     width: 100px;
@@ -20,4 +20,5 @@
     border-radius: 50%;
     align-self: center;
     margin-left: 10px;
+    border: solid black 2px;
 }

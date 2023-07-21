@@ -15,32 +15,32 @@ export const ProfilesAllList = () => {
 
     useEffect(() => {
         fetch(`http://localhost:8088/profiles?userId_ne=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_embed=profileTags`)
-        .then(res => res.json())
-        .then(data => {
-            setProfiles(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                setProfiles(data)
+            })
     }, [])
 
     //fetch all tags
 
     useEffect(() => {
         fetch(`http://localhost:8088/tags`)
-        .then(res => res.json())
-        .then(data => {
-            setTags(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                setTags(data)
+            })
 
     }, [])
 
 
-    if (!profiles || !tags ) {
+    if (!profiles || !tags) {
         return null
     }
 
     //define a function to match tag from all tags with incoming profileTags tagId attached to profile by embed. Return that tag's name. Will be invoked in map function below
 
     const matchTags = (tagId) => {
-        let matchedTagName = tags.find( tag => tag.id === tagId)
+        let matchedTagName = tags.find(tag => tag.id === tagId)
         return matchedTagName?.name
     }
 
@@ -48,9 +48,9 @@ export const ProfilesAllList = () => {
     return <>
         <section className="container container_allProfiles">
             {
-                profiles.map( profile => {
+                profiles.map(profile => {
                     return <article key={`profileCard--${profile.id}`} className="container container_profile_card">
-                        <img id={`profileCardImg--${profile.id}`} className="img img_profileCard" src={profile.picture}/>
+                        <img id={`profileCardImg--${profile.id}`} className="img img_profileCard" src={profile.picture} />
                         <div className="container container_profile_card_header">
                             <Link to={`/profiles/${profile.id}`}><h2 className="profile_card_name">{profile?.user?.name}</h2></Link>
                             {
@@ -62,13 +62,17 @@ export const ProfilesAllList = () => {
                             <h3 className="profile_card_genre">Genre</h3>
                             <p className="profile_card_genre_name">{profile.primaryGenre.name}</p>
                         </div>
-                        <ul className="container container_profile_card_tags">
-                            {
-                                profile.profileTags.map( tag => {
-                                    return <li key={`profileCardTag--${tag.id}--${tag.tagId}`} className="profile_card_tag">{matchTags(tag.tagId)}</li>
-                                })
-                            }
-                        </ul>
+
+                        <div className="container container_profile_card_tags">
+                            <h3 className="profile_card_tags">Tags</h3>
+                            <ul>
+                                {
+                                    profile.profileTags.map(tag => {
+                                        return <li key={`profileCardTag--${tag.id}--${tag.tagId}`} className="profile_card_tag">{matchTags(tag.tagId)}</li>
+                                    })
+                                }
+                            </ul>
+                        </div>
                         <button>Save</button>
 
                     </article>
