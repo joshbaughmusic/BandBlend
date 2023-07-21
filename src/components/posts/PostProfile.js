@@ -3,7 +3,7 @@ import "./Post.css"
 
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage.
 
-export const PostProfile = ({ userName, userId, postId, userPicture, postBody, postDate, myProfileId, setMyPosts}) => {
+export const PostProfile = ({ userName, userId, postId, userPicture, postBody, postDate, myProfileId, setMyPosts, postKey}) => {
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
@@ -39,7 +39,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     if (userId === bBUserObject.id) {
     
     return <>
-        <li id={`post--${postId}`} className="post_list_item">
+        <li key={postKey} id={`post--${postId}`} className="post_list_item">
             <img className="img img_post_picture" src={userPicture} />
             <h4 className="heading heading_post_name">{userName}</h4>
             <p className="text text_post_date">{postDateFormated}</p>

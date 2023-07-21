@@ -186,11 +186,11 @@ export const OtherProfile = () => {
 
                                 ?
 
-                                profile.posts.map(post => <PostProfile key={`post--${post.id}`} postId={post.id} userPicture={profile.picture} userName={profile?.user?.name} userId={profile?.user?.id} postBody={post.body} postDate={post.date} />)
+                                profile.posts.map(post => <PostProfile postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userName={profile?.user?.name} userId={profile?.user?.id} postBody={post.body} postDate={post.date} />)
 
                                 :
 
-                                <li className="post post_list_item_null"><p className="text text_profile_post_none">User hasn't submitted any posts yet.</p>
+                                <li key={`nopostskey`} className="post post_list_item_null"><p className="text text_profile_post_none">User hasn't submitted any posts yet.</p>
                                 </li>
                         }
                     </ul>

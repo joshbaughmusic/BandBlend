@@ -2,7 +2,7 @@ import "./Post.css"
 
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage
 
-export const PostHome = ({ userName, userId, postId, userPicture, postBody, postDate }) => {
+export const PostHome = ({ userName, userId, postId, userPicture, postBody, postDate, postKey }) => {
 
     return <>
         <li id={postId} className="post_list_item">
