@@ -23,12 +23,6 @@
       "isBand": false,
       "name": "Lily Thompson",
       "email": "lilythompson@gmail.com"
-    },
-    {
-      "email": "patrick.star@gmail.com",
-      "name": "Patrick Star",
-      "isBand": false,
-      "id": 5
     }
   ],
   "profiles": [

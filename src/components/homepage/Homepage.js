@@ -49,15 +49,15 @@ export const Homepage = () => {
                         <h3 className="greeting">Hello {mainName}!</h3>
                     </div>
                 </section>
-                <section>
+                {/* <section>
                     <div>
                         <input type="text" /><br />
                         <input type="text" />
                     </div>
-                </section>
-                <section className="container container_home_featured_posts_outer">
+                </section> */}
+                {/* <section className="container container_home_featured_posts_outer">
                     <h3 className="heading heading_home_featured_posts">Posts</h3>
-                    <ul className="container container_home_featured_posts_inner">
+                    <ul className="container container_home_featured_posts_inner"> */}
                         {
                             // profile.posts?.length
 
@@ -70,8 +70,8 @@ export const Homepage = () => {
                             //     <li className="post post_list_item_null"><p className="text text_home_post_none">No posts to show at this time.</p>
                             //     </li>
                         }
-                    </ul>
-                </section>
+                    {/* </ul>
+                </section> */}
             </section>
 
         </>
