@@ -46,7 +46,7 @@ export const ProfilesAllList = () => {
 
 
     return <>
-        <section id="container_allProfiles" className="container">
+        <section className="container container_allProfiles">
             {
                 profiles.map( profile => {
                     return <article key={`profileCard--${profile.id}`} className="container container_profile_card">
@@ -54,7 +54,7 @@ export const ProfilesAllList = () => {
                         <div className="container container_profile_card_header">
                             <Link to={`/profiles/${profile.id}`}><h2 className="profile_card_name">{profile?.user?.name}</h2></Link>
                             {
-                                profile?.user?.isBand ? <p className="profile_card_bandnote">Band</p> : ''
+                                profile?.user?.isBand ? <p className="profile_card_bandnote">Band</p> : <p className="profile_card_musiciannote">Musician</p>
                             }
                             <h3 className="profile_card_location">{profile.location}</h3>
                         </div>

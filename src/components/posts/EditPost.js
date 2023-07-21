@@ -102,7 +102,7 @@ export const EditPost = () => {
         )
     } else {
         return <>
-            <p>Nice try. You're not authorized to edit this post.</p>
+            <p>Nice try, loser. You're not authorized to edit this post.</p>
         </>
     }
 
