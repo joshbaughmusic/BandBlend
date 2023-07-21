@@ -1,33 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export const EditTags = () => {
+export const RegisterTags = () => {
     const [tags, setTags] = useState([]);
     const [selectedTags, setSelectedTags] = useState([]);
     const [count, setCount] = useState(0)
     const [showSpinner, setShowSpinner] = useState(false)
+    const navigate = useNavigate()
 
     //get currentUserProfile to make sure they have rights to access this page for this profile
 
-    const [currentUserProfile, setCurrentUserProfile] = useState([])
-
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
-
-    useEffect(() => {
-     fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}`)
-     .then(res => res.json())
-     .then(data => {
-        setCurrentUserProfile(data[0])
-     })
-    }, [])
-
-    const navigate = useNavigate()
-
-    //store the full current profile tags so they can be deleted
-
-    const [currentProfileTags, setCurrentProfileTags] = useState([])
-
 
     // get profile id off of url
     const { profileId } = useParams();
@@ -42,26 +26,6 @@ export const EditTags = () => {
             });
     }, []);
 
-    // get current tags
-
-    useEffect(() => {
-        fetch(`http://localhost:8088/profileTags?profileId=${profileId}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setCurrentProfileTags(data)
-
-                //this is just getting the actual tagIds off of the returned data so that it can be used for easy comparison.
-                const currentTagIdArray = []
-                data.map((profileTag) => {
-                    currentTagIdArray.push(profileTag.tagId)
-                })
-
-                // sets the initial value of selectedTags equal to the current tag array so that they're already selected by default.
-                setSelectedTags(currentTagIdArray);
-
-                setCount(currentTagIdArray.length)
-            });
-    }, []);
 
     const checkboxHandler = (e) => {
         let value = parseInt(e.target.value);
@@ -90,22 +54,10 @@ export const EditTags = () => {
 
     };
 
-    //function to handle submitting changes. Will need to delete all current profileTags for selected profile, as well as create all new profileTags for it based on the choices.
+    //function to handle submitting new selections
 
     const handleSubmitTagEdits = e => {
         e.preventDefault()
-        
-        //delete all current proFileTags
-
-        currentProfileTags.map(profileTag => {
-            return fetch(`http://localhost:8088/profileTags/${profileTag.id}`, {
-                method: "DELETE",
-            })
-                .then(() => {
-
-                    
-                })
-            })
 
             //create all new profileTags by mapping through the selectedTags array. This only has the tagId values, not the full profileTag.
 
@@ -128,6 +80,7 @@ export const EditTags = () => {
                     body: JSON.stringify(newProfileTagObj)
                 })
                     .then(() => {
+
                     })
             })
 
@@ -137,17 +90,15 @@ export const EditTags = () => {
 
             setTimeout(() => {
                 
-                navigate("/myprofile")
+                navigate(`/register/subgenres/${profileId}`)
 
-            }, 2000)
+            }, 1000)
 
     }
 
-    if (!currentUserProfile.id || !profileId) {
+    if (!tags) {
         return null
     }
-
-    if (currentUserProfile.id === parseInt(profileId)) {
 
         if(!showSpinner) {
     
@@ -183,9 +134,5 @@ export const EditTags = () => {
         } else {
             return <img className="loading img_loading" src={require("../../images/loading_spinner.gif")}/>
         }
-    } else {
-        return <p>Nice try, loser. You're not authorized to edit this profile.</p> 
-    }
-
 
 };

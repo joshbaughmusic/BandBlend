@@ -1,33 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export const EditSubGenres = () => {
+export const RegisterSubGenres = () => {
     const [subgenres, setSubgenres] = useState([]);
     const [selectedSubGenres, setSelectedSubGenres] = useState([]);
     const [count, setCount] = useState(0)
     const [showSpinner, setShowSpinner] = useState(false)
-
-    //get currentUserProfile to make sure they have rights to access this page for this profile
-
-    const [currentUserProfile, setCurrentUserProfile] = useState([])
-
-    const localBbUser = localStorage.getItem("bb_user")
-    const bBUserObject = JSON.parse(localBbUser)
-
-    useEffect(() => {
-        fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}`)
-            .then(res => res.json())
-            .then(data => {
-                setCurrentUserProfile(data[0])
-            })
-    }, [])
-
     const navigate = useNavigate()
-
-    //store the full current profile tags so they can be deleted
-
-    const [currentProfileSubGenres, setCurrentProfileSubGenres] = useState([])
-
 
     // get profile id off of url
     const { profileId } = useParams();
@@ -39,27 +18,6 @@ export const EditSubGenres = () => {
             .then((res) => res.json())
             .then((data) => {
                 setSubgenres(data);
-            });
-    }, []);
-
-    // get current profileSubGenres
-
-    useEffect(() => {
-        fetch(`http://localhost:8088/profileSubGenres?profileId=${profileId}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setCurrentProfileSubGenres(data)
-
-                //this is just getting the actual subgenreIds off of the returned data so that it can be used for easy comparison.
-                const currentSubGenreIdArray = []
-                data.map((profileSubGenre) => {
-                    currentSubGenreIdArray.push(profileSubGenre.subGenreId)
-                })
-
-                // sets the initial value of selectedSubGenres equal to the current tag array so that they're already selected by default.
-                setSelectedSubGenres(currentSubGenreIdArray);
-
-                setCount(currentSubGenreIdArray.length)
             });
     }, []);
 
@@ -95,17 +53,8 @@ export const EditSubGenres = () => {
     const handleSubmitTagEdits = e => {
         e.preventDefault()
 
-        //delete all current profileSubGenres
-
-        currentProfileSubGenres.map(profileSubGenre => {
-            return fetch(`http://localhost:8088/profileSubGenres/${profileSubGenre.id}`, {
-                method: "DELETE",
-            })
-                .then(() => {
-                })
-        })
-
-        //create all new profileTags by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
+    
+        //create all new profileSubGenres by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
 
         selectedSubGenres.map(subGenreId => {
 
@@ -138,15 +87,13 @@ export const EditSubGenres = () => {
 
             navigate("/myprofile")
 
-        }, 2000)
+        }, 1000)
 
     }
 
-    if (!currentUserProfile.id || !profileId) {
+    if (!subgenres) {
         return null
     }
-
-    if (currentUserProfile.id === parseInt(profileId)) {
 
         if (!showSpinner) {
 
@@ -175,16 +122,11 @@ export const EditSubGenres = () => {
                             })}
                         </ul>
                         <button type="submit" className="btn btn_edit btn_submit" onClick={handleSubmitTagEdits}>Confirm Changes</button>
-                        <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/myprofile') }}>Exit</button>
+                        <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/') }}>Exit</button>
                     </form>
                 </>
             );
         } else {
             return <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
         }
-
-    } else {
-        return <p>Nice try, loser. You're not authorized to edit this profile.</p>
-    }
-
 };

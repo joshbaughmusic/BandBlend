@@ -214,7 +214,7 @@ export const MyProfile = () => {
                             <ul className="container container_tags">
                                 {
                                     profile?.profileTags?.map(tag => {
-                                        return <li key={`profilePrimaryTag--${tag.id}--${tag.tagId}`} className="profile_primary_tag">{matchTags(tag.tagId)}</li>
+                                        return <li key={`profilePrimaryTag--${tag.id}`} className="profile_primary_tag">{matchTags(tag.tagId)}</li>
                                     })
                                 }
                             </ul>
@@ -223,7 +223,7 @@ export const MyProfile = () => {
                             <ul className="container container_subgenres">
                                 {
                                     profile?.profileSubGenres?.map(sg => {
-                                        return <li key={`profileSubGenre--${sg.id}--${sg.subGenreId}`} className="profile_subgenre">{matchSubGenres(sg.subGenreId)}</li>
+                                        return <li key={`profileSubGenre--${sg.id}`} className="profile_subgenre">{matchSubGenres(sg.subGenreId)}</li>
                                     })
                                 }
                             </ul>
@@ -279,11 +279,11 @@ export const MyProfile = () => {
 
                                 ?
 
-                                myPosts.map(post => <PostProfile setMyPosts={setMyPosts} myProfileId={profile.id} key={`post--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
+                                myPosts.map(post => <PostProfile setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
 
                                 :
 
-                                <li className="post post_list_item_null"><p className="text text_profile_post_none">User hasn't submitted any posts yet.</p>
+                                <li key={`nopostskey`} className="post post_list_item_null"><p className="text text_profile_post_none">User hasn't submitted any posts yet.</p>
                                 </li>
                         }
                     </ul>
