@@ -80,11 +80,11 @@ export const OtherProfile = () => {
                             <button type="button" className="btn button_profile_primary_save" onClick={() => { }}>Save</button>
                             <button type="button" className="btn button_profile_primary_message" onClick={() => { }}>Message</button>
                         </div>
-                        <div className="container container_profile_primary_song">
+                        {/* <div className="container container_profile_primary_song">
                             {
                                 profile.featuredSong ? <div className="audio audio_profile_primary">Featured song goes here</div> : ''
                             }
-                        </div>
+                        </div> */}
 
                         <div className="container container_profile_primary_socialwidgets">
                         {

@@ -1,0 +1,8 @@
+.container_search_filter_all_profiles {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 15px;
+}

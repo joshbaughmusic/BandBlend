@@ -148,7 +148,7 @@ export const MyProfile = () => {
                     </div>
 
                     <div className="container container_profile_primary_clickables">
-                        <div className="container container_profile_primary_song">
+                        {/* <div className="container container_profile_primary_song">
                             {
                                 profile.featuredSong
 
@@ -160,7 +160,7 @@ export const MyProfile = () => {
 
                                     ''
                             }
-                        </div>
+                        </div> */}
 
                         <div className="container container_profile_primary_socialwidgets">
                             {

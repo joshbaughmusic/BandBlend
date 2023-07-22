@@ -107,7 +107,7 @@ export const RegisterProfile = () => {
                         copy.primaryGenreId = parseInt(genreId)
                         setProfile(copy)
                     }}>
-                        <option disabled key={`primarygenre--null`} value={null} ><span className="selection_placeholder">Select a Primary Genre</span></option>
+                        <option key={`primarygenre--null`} value={null} ><span className="selection_placeholder">-select a genre-</span></option>
                         {   
                             primaryGenres.map(genre => {
                                     return <option key={`primarygenre--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>

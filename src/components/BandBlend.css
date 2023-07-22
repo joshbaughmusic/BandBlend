@@ -4,6 +4,12 @@
 * {
   font-family: "Poppins";
   box-sizing: border-box;
+  text-decoration: none;
+  color: rgb(32, 32, 32);
+}
+
+a:hover {
+  text-decoration-line: underline;
 }
 
 button {
