@@ -55,10 +55,11 @@
 img {
     width: 150px;
     border-radius: 50%;
+    border: rgba(0, 0, 0, 0.617) solid 2px
 }
 
 .profile_img_item {
-    border-radius: 0;
+    border-radius: 10px;
 }
 
 /* .profile_img_item:hover {
@@ -68,4 +69,5 @@ img {
 
 .img_profile_primary_socialwidget {
     width: 15%;
+    border: none;
 }

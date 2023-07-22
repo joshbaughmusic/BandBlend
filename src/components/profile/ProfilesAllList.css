@@ -14,6 +14,11 @@
 
 }
 
+.container_allProfiles {
+    overflow-y: scroll;
+    height: 85vh;
+}
+
 .img_profileCard {
     width: 100px;
     height: 100px;
