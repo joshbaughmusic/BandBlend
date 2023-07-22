@@ -59,6 +59,10 @@ export const RegisterTags = () => {
     const handleSubmitTagEdits = e => {
         e.preventDefault()
 
+        //make sure three are selected
+
+        if (selectedTags.length === 3) {
+
             //create all new profileTags by mapping through the selectedTags array. This only has the tagId values, not the full profileTag.
 
             selectedTags.map(tagId => {
@@ -89,10 +93,15 @@ export const RegisterTags = () => {
             setShowSpinner(true)
 
             setTimeout(() => {
-                
+
                 navigate(`/register/subgenres/${profileId}`)
 
             }, 1000)
+
+        } else {
+            window.alert("Please select 3 subgenres.")
+        }
+
 
     }
 
@@ -100,39 +109,39 @@ export const RegisterTags = () => {
         return null
     }
 
-        if(!showSpinner) {
-    
-            return (
-                <>
-                    <label>Select Up To 3 Tags:</label><br />
-                    <form className="container container_tag_edit_form">
-                        <ul className="container container_tag_edit_checkboxes">
-                            {tags.map((tag, index) => {
-        
-                                return (
-                                    <>
-                                        <li key={`tagListItem--${tag.id}`}>
-                                            <label htmlFor={`tag--${tag.id}`}>{tag.name}</label>
-                                            <input
-                                                key={tag.id}
-                                                type="checkbox"
-                                                id={`tag--${tag.id}`}
-                                                value={tag.id}
-                                                onChange={checkboxHandler}
-                                                checked={selectedTags.includes(tag.id)}
-                                            />
-                                        </li>
-                                    </>
-                                );
-                            })}
-                        </ul>
-                        <button type="submit" className="btn btn_edit btn_submit" onClick={handleSubmitTagEdits}>Confirm Changes</button>
-                        <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/myprofile') }}>Exit</button>
-                    </form>
-                </>
-            );
-        } else {
-            return <img className="loading img_loading" src={require("../../images/loading_spinner.gif")}/>
-        }
+    if (!showSpinner) {
+
+        return (
+            <>
+                <label>Select 3 Profile Tags:</label><br />
+                <form className="container container_tag_edit_form">
+                    <ul className="container container_tag_edit_checkboxes">
+                        {tags.map((tag, index) => {
+
+                            return (
+                                <>
+                                    <li key={`tagListItem--${tag.id}`}>
+                                        <label htmlFor={`tag--${tag.id}`}>{tag.name}</label>
+                                        <input
+                                            key={tag.id}
+                                            type="checkbox"
+                                            id={`tag--${tag.id}`}
+                                            value={tag.id}
+                                            onChange={checkboxHandler}
+                                            checked={selectedTags.includes(tag.id)}
+                                        />
+                                    </li>
+                                </>
+                            );
+                        })}
+                    </ul>
+                    <button type="submit" className="btn btn_edit btn_submit" onClick={handleSubmitTagEdits}>Confirm Changes</button>
+                    <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/myprofile') }}>Exit</button>
+                </form>
+            </>
+        );
+    } else {
+        return <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
+    }
 
 };

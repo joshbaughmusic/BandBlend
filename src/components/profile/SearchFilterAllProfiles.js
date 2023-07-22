@@ -6,7 +6,7 @@ export const SearchFilterAllProfiles = ({ setSearchTerms, setSortTerms, setFilte
             <section className="container container_search_filter_all_profiles">
                 <div className="container container_searchbar">
                     <label htmlFor="searchbar_all_profiles">Search:</label>
-                    <input className="searchbar searchbar_all_profiles" type="text" placeholder="Search for a profile..." name="searchbar_all_profiles" onChange={
+                    <input className="searchbar searchbar_all_profiles" id="searchbar_all_profiles" type="text" placeholder="Search for a profile..." name="searchbar_all_profiles" onChange={
                         e => {
                             setSearchTerms(e.target.value)
                         }
@@ -14,7 +14,7 @@ export const SearchFilterAllProfiles = ({ setSearchTerms, setSortTerms, setFilte
                 </div>
                 <div className="container container_sort">
                     <label htmlFor="sort_all_profiles">Sort:</label>
-                    <select className="dropdown sort sort_all_profiles" name="sort_all_profiles" onChange={
+                    <select className="dropdown sort sort_all_profiles" id="sort_all_profiles" name="sort_all_profiles" onChange={
                         e => {
                             setSortTerms(e.target.value)
                         }
@@ -29,7 +29,7 @@ export const SearchFilterAllProfiles = ({ setSearchTerms, setSortTerms, setFilte
                 </div>
                 <div className="container container_filters">
                     <label htmlFor="filter_all_profiles">Filter:</label>
-                    <select className="dropdown filter_all_profiles" name="filter_all_profiles" onChange={
+                    <select className="dropdown filter_all_profiles" id="filter_all_profiles" name="filter_all_profiles" onChange={
                         e => {
                             setFilterTerms(e.target.value)
                         }

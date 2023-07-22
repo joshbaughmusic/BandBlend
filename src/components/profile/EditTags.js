@@ -94,6 +94,10 @@ export const EditTags = () => {
 
     const handleSubmitTagEdits = e => {
         e.preventDefault()
+
+        //make sure three are selected
+
+        if (selectedTags.length === 3) {
         
         //delete all current proFileTags
 
@@ -140,6 +144,10 @@ export const EditTags = () => {
                 navigate("/myprofile")
 
             }, 2000)
+        } else {
+            window.alert("Please select 3 subgenres.")
+        }
+
 
     }
 
@@ -153,7 +161,7 @@ export const EditTags = () => {
     
             return (
                 <>
-                    <label>Select Up To 3 Tags:</label><br />
+                    <label>Select 3 Profile Tags:</label><br />
                     <form className="container container_tag_edit_form">
                         <ul className="container container_tag_edit_checkboxes">
                             {tags.map((tag, index) => {
