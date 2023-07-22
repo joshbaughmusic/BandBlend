@@ -279,7 +279,7 @@ export const MyProfile = () => {
 
                                 ?
 
-                                myPosts.map(post => <PostProfile setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
+                                myPosts.sort((a,b) => b.date - a.date).map(post => <PostProfile setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
 
                                 :
 

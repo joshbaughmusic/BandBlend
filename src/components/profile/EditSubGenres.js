@@ -95,50 +95,58 @@ export const EditSubGenres = () => {
     const handleSubmitTagEdits = e => {
         e.preventDefault()
 
-        //delete all current profileSubGenres
+        //make sure three are selected
 
-        currentProfileSubGenres.map(profileSubGenre => {
-            return fetch(`http://localhost:8088/profileSubGenres/${profileSubGenre.id}`, {
-                method: "DELETE",
-            })
-                .then(() => {
+        if (selectedSubGenres.length === 3) {
+
+            //delete all current profileSubGenres
+    
+            currentProfileSubGenres.map(profileSubGenre => {
+                return fetch(`http://localhost:8088/profileSubGenres/${profileSubGenre.id}`, {
+                    method: "DELETE",
                 })
-        })
-
-        //create all new profileTags by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
-
-        selectedSubGenres.map(subGenreId => {
-
-            //create new object to send
-
-            let newProfileSubGenreObj = {
-                profileId: parseInt(profileId),
-                subGenreId: subGenreId
-            }
-
-            //send object
-
-            fetch(`http://localhost:8088/profileSubGenres`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newProfileSubGenreObj)
+                    .then(() => {
+                    })
             })
-                .then(() => {
-
+    
+            //create all new profileTags by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
+    
+            selectedSubGenres.map(subGenreId => {
+    
+                //create new object to send
+    
+                let newProfileSubGenreObj = {
+                    profileId: parseInt(profileId),
+                    subGenreId: subGenreId
+                }
+    
+                //send object
+    
+                fetch(`http://localhost:8088/profileSubGenres`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newProfileSubGenreObj)
                 })
-        })
+                    .then(() => {
+    
+                    })
+            })
+    
+            //make it so that a loading spinner replaces the screen for a few seconds since there are a lot of fetch calls happening and the db needs a little time to catch up. Let it breathe.
+    
+            setShowSpinner(true)
+    
+            setTimeout(() => {
+    
+                navigate("/myprofile")
+    
+            }, 2000)
+        } else {
+            window.alert("Please select 3 subgenres.")
+        }
 
-        //make it so that a loading spinner replaces the screen for a few seconds since there are a lot of fetch calls happening and the db needs a little time to catch up. Let it breathe.
-
-        setShowSpinner(true)
-
-        setTimeout(() => {
-
-            navigate("/myprofile")
-
-        }, 2000)
 
     }
 
@@ -152,7 +160,7 @@ export const EditSubGenres = () => {
 
             return (
                 <>
-                    <label>Select Up To 3 Sub-Genres:</label><br />
+                    <label>Select 3 Sub-Genres:</label><br />
                     <form className="container container_subgenre_edit_form">
                         <ul className="container container_subgenre_edit_checkboxes">
                             {subgenres.map((subgenre, index) => {

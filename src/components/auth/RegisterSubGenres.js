@@ -53,41 +53,48 @@ export const RegisterSubGenres = () => {
     const handleSubmitTagEdits = e => {
         e.preventDefault()
 
-    
-        //create all new profileSubGenres by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
+        //make sure three are selected
 
-        selectedSubGenres.map(subGenreId => {
+        if (selectedSubGenres.length === 3) {
 
-            //create new object to send
+            //create all new profileSubGenres by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
 
-            let newProfileSubGenreObj = {
-                profileId: parseInt(profileId),
-                subGenreId: subGenreId
-            }
+            selectedSubGenres.map(subGenreId => {
 
-            //send object
+                //create new object to send
 
-            fetch(`http://localhost:8088/profileSubGenres`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newProfileSubGenreObj)
-            })
-                .then(() => {
+                let newProfileSubGenreObj = {
+                    profileId: parseInt(profileId),
+                    subGenreId: subGenreId
+                }
 
+                //send object
+
+                fetch(`http://localhost:8088/profileSubGenres`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newProfileSubGenreObj)
                 })
-        })
+                    .then(() => {
 
-        //make it so that a loading spinner replaces the screen for a few seconds since there are a lot of fetch calls happening and the db needs a little time to catch up. Let it breathe.
+                    })
+            })
 
-        setShowSpinner(true)
+            //make it so that a loading spinner replaces the screen for a few seconds since there are a lot of fetch calls happening and the db needs a little time to catch up. Let it breathe.
 
-        setTimeout(() => {
+            setShowSpinner(true)
 
-            navigate("/myprofile")
+            setTimeout(() => {
 
-        }, 1000)
+                navigate("/")
+
+            }, 1000)
+
+        } else {
+            window.alert("Please select 3 subgenres.")
+        }
 
     }
 
@@ -95,38 +102,38 @@ export const RegisterSubGenres = () => {
         return null
     }
 
-        if (!showSpinner) {
+    if (!showSpinner) {
 
-            return (
-                <>
-                    <label>Select Up To 3 Sub-Genres:</label><br />
-                    <form className="container container_subgenre_edit_form">
-                        <ul className="container container_subgenre_edit_checkboxes">
-                            {subgenres.map((subgenre, index) => {
+        return (
+            <>
+                <label>Select 3 Sub-Genres:</label><br />
+                <form className="container container_subgenre_edit_form">
+                    <ul className="container container_subgenre_edit_checkboxes">
+                        {subgenres.map((subgenre, index) => {
 
-                                return (
-                                    <>
-                                        <li key={`subgenreListItem--${subgenre.id}`}>
-                                            <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
-                                            <input
-                                                key={subgenre.id}
-                                                type="checkbox"
-                                                id={`subgenre--${subgenre.id}`}
-                                                value={subgenre.id}
-                                                onChange={checkboxHandler}
-                                                checked={selectedSubGenres.includes(subgenre.id)}
-                                            />
-                                        </li>
-                                    </>
-                                );
-                            })}
-                        </ul>
-                        <button type="submit" className="btn btn_edit btn_submit" onClick={handleSubmitTagEdits}>Confirm Changes</button>
-                        <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/') }}>Exit</button>
-                    </form>
-                </>
-            );
-        } else {
-            return <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
-        }
+                            return (
+                                <>
+                                    <li key={`subgenreListItem--${subgenre.id}`}>
+                                        <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
+                                        <input
+                                            key={subgenre.id}
+                                            type="checkbox"
+                                            id={`subgenre--${subgenre.id}`}
+                                            value={subgenre.id}
+                                            onChange={checkboxHandler}
+                                            checked={selectedSubGenres.includes(subgenre.id)}
+                                        />
+                                    </li>
+                                </>
+                            );
+                        })}
+                    </ul>
+                    <button type="submit" className="btn btn_edit btn_submit" onClick={handleSubmitTagEdits}>Confirm Changes</button>
+                    <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/') }}>Exit</button>
+                </form>
+            </>
+        );
+    } else {
+        return <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
+    }
 };

@@ -11,3 +11,8 @@
 .container_hero {
     text-align: center;
 }
+
+.container_home_latest_posts_inner {
+    border: black solid 2px;
+    border-radius: 10px;
+}

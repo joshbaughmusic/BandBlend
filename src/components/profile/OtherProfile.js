@@ -186,7 +186,7 @@ export const OtherProfile = () => {
 
                                 ?
 
-                                profile.posts.map(post => <PostProfile postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userName={profile?.user?.name} userId={profile?.user?.id} postBody={post.body} postDate={post.date} />)
+                                profile.posts.sort((a,b) => b.date - a.date).map(post => <PostProfile postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userName={profile?.user?.name} userId={profile?.user?.id} postBody={post.body} postDate={post.date} />)
 
                                 :
 

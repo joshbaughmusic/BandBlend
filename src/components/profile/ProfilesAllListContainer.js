@@ -10,6 +10,6 @@ export const ProfileAllListContainer = () => {
 
     return <>
         <SearchFilterAllProfiles setSearchTerms={setSearchTerms} setSortTerms={setSortTerms} setFilterTerms={setFilterTerms}/>
-        <ProfilesAllList searchTerms={searchTerms} sortTerms={sortTerms} filterTerms={filterTerms} />
+        <ProfilesAllList searchTerms={searchTerms} sortTerms={sortTerms} filterTerms={filterTerms} setSearchTerms={setSearchTerms} setSortTerms={setSortTerms} setFilterTerms={setFilterTerms}/>
     </>
 }

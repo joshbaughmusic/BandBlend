@@ -24,7 +24,7 @@ button {
     'nav nav'
     'main sidebar';
   
-  grid-template-columns: 8fr 2fr;
+  grid-template-columns: 8fr 1.3fr;
   grid-template-rows: 1fr 9fr;
   height: 100vh
 }
