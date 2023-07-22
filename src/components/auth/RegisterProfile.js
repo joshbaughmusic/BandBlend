@@ -7,6 +7,7 @@ export const RegisterProfile = () => {
         picture: "",
         location: "",
         about: "",
+        primaryInstrumentId: 0,
         primaryGenreId: 0,
         spotify: "",
         facebook: "",
@@ -16,12 +17,13 @@ export const RegisterProfile = () => {
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
-    
+
     let navigate = useNavigate()
 
-    //use state to hold primary genres
+    //use state to hold primary genres and instruments
 
     const [primaryGenres, setPrimaryGenres] = useState([])
+    const [primaryInstruments, setPrimaryInstruments] = useState([])
 
     //fetch primary genres
 
@@ -30,6 +32,16 @@ export const RegisterProfile = () => {
             .then(res => res.json())
             .then(data => {
                 setPrimaryGenres(data)
+            })
+    }, [])
+
+    //fetch primary instruments
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/primaryInstruments`)
+            .then(res => res.json())
+            .then(data => {
+                setPrimaryInstruments(data)
             })
     }, [])
 
@@ -42,7 +54,8 @@ export const RegisterProfile = () => {
             userId: bBUserObject.id,
             picture: profile.picture,
             location: profile.location,
-            about:profile.about,
+            about: profile.about,
+            primaryInstrumentId: profile.primaryInstrumentId,
             primaryGenreId: profile.primaryGenreId,
             spotify: profile.spotify,
             facebook: profile.facebook,
@@ -50,24 +63,50 @@ export const RegisterProfile = () => {
             tiktok: profile.tiktok
         }
 
-        if (newPrimaryInfoObj.userId && newPrimaryInfoObj.picture && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryGenreId) {
+        if(bBUserObject.isBand) {
 
-            return fetch(`http://localhost:8088/profiles`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newPrimaryInfoObj)
-            })
-                .then(response => response.json())
-                .then((data) => {
-                    console.log(data)
-                    const newProfileId = data.id; 
-                    navigate(`/register/tags/${newProfileId}`)
+            //if the user is a band, dont make it required to have a primary instrument since they can't pick one
+
+            if (newPrimaryInfoObj.picture && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryGenreId) {
+    
+                return fetch(`http://localhost:8088/profiles`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newPrimaryInfoObj)
                 })
+                    .then(response => response.json())
+                    .then((data) => {
+                        console.log(data)
+                        const newProfileId = data.id;
+                        navigate(`/register/tags/${newProfileId}`)
+                    })
+            } else {
+                window.alert("Please fill out all non-optional forms.")
+            }
         } else {
-            window.alert("Please fill out all non-optional forms.")
+
+            if (newPrimaryInfoObj.picture && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryInstrumentId && newPrimaryInfoObj.primaryGenreId) {
+    
+                return fetch(`http://localhost:8088/profiles`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newPrimaryInfoObj)
+                })
+                    .then(response => response.json())
+                    .then((data) => {
+                        console.log(data)
+                        const newProfileId = data.id;
+                        navigate(`/register/tags/${newProfileId}`)
+                    })
+            } else {
+                window.alert("Please fill out all non-optional forms.")
+            }
         }
+
     }
 
     return (
@@ -98,6 +137,33 @@ export const RegisterProfile = () => {
                     }
                     ></input>
                 </fieldset>
+                {
+                    bBUserObject.isBand
+
+                        ?
+
+                        ""
+                        :
+
+                        <fieldset>
+                            <label htmlFor="profile_register_PrimaryInstrument">Primary Instrument:</label>
+                            <br />
+                            <select required name="profile_register_PrimaryInstrument" className="input input_select" onChange={e => {
+                                const [, instrumentId] = e.target.value.split("--")
+                                let copy = { ...profile }
+                                copy.primaryInstrumentId = parseInt(instrumentId)
+                                setProfile(copy)
+                            }}>
+                                <option key={`primaryinstrument--null`} value={null} ><span className="selection_placeholder">-select an instrument-</span></option>
+                                {
+                                    primaryInstruments.map(instrument => {
+                                        return <option key={`primaryinstrument--${instrument.id}`} value={`primaryinstrument--${instrument.id}`}>{instrument.name}</option>
+
+                                    })
+                                }
+                            </select>
+                        </fieldset>
+                }
                 <fieldset>
                     <label htmlFor="profile_register_PrimaryGenre">Primary Genre:</label>
                     <br />
@@ -108,15 +174,13 @@ export const RegisterProfile = () => {
                         setProfile(copy)
                     }}>
                         <option key={`primarygenre--null`} value={null} ><span className="selection_placeholder">-select a genre-</span></option>
-                        {   
+                        {
                             primaryGenres.map(genre => {
-                                    return <option key={`primarygenre--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
-                                
+                                return <option key={`primarygenre--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
+
                             })
                         }
                     </select>
-
-
                 </fieldset>
                 <fieldset>
                     <label htmlFor="profile_register_Spotify">Spotify URL: <span className="optional">(optional)</span></label>
@@ -167,17 +231,17 @@ export const RegisterProfile = () => {
                     ></input>
                 </fieldset>
                 <fieldset>
-                        <label htmlFor="profile_register)About">About Me</label>
-                        <br />
-                        <textarea autoFocus placeholder="Tell people a little about yourself!" name="profile_register_About" className="input input_text" value={profile.about} rows="8" cols="50" onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.about = e.target.value
-                                setProfile(copy)
-                            }
+                    <label htmlFor="profile_register)About">About Me</label>
+                    <br />
+                    <textarea autoFocus placeholder="Tell people a little about yourself!" name="profile_register_About" className="input input_text" value={profile.about} rows="8" cols="50" onChange={
+                        e => {
+                            let copy = { ...profile }
+                            copy.about = e.target.value
+                            setProfile(copy)
                         }
-                        ></textarea>
-                    </fieldset>
+                    }
+                    ></textarea>
+                </fieldset>
 
                 <br />
                 <button type="submit" className="btn btn_profile_register btn_submit" onClick={handleProfileRegistration}>Submit Profile</button>

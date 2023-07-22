@@ -12,7 +12,8 @@ export const MyProfile = () => {
     const [media, setMedia] = useState([])
     const [tags, setTags] = useState([])
     const [subGenres, setSubGenres] = useState([])
-    
+    const [primaryInstruments, setPrimaryInstruments] = useState([])
+
     const navigate = useNavigate()
 
     //states to handle whether or not to show new content forms
@@ -27,7 +28,7 @@ export const MyProfile = () => {
     const bBUserObject = JSON.parse(localBbUser)
 
     useEffect(() => {
-        fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_embed=profileTags&_embed=profileSubGenres`)
+        fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_expand=primaryInstrument&_embed=profileTags&_embed=profileSubGenres`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data[0])
@@ -38,20 +39,20 @@ export const MyProfile = () => {
 
     useEffect(() => {
         fetch(`http://localhost:8088/media?profileId=${profile.id}`)
-        .then(res => res.json())
-        .then(data => {
-            setMedia(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                setMedia(data)
+            })
     }, [profile])
 
     //get posts
 
     useEffect(() => {
         fetch(`http://localhost:8088/posts?profileId=${profile.id}`)
-        .then(res => res.json())
-        .then(data => {
-            setMyPosts(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                setMyPosts(data)
+            })
     }, [profile])
 
     //fetch all tags
@@ -100,7 +101,7 @@ export const MyProfile = () => {
     const handleNewPostClose = () => {
         setShowNewPost(false)
     }
-    
+
     const handleNewPhotoShow = () => {
         setShowNewPhoto(true)
     }
@@ -114,17 +115,17 @@ export const MyProfile = () => {
     const handleDeletePhotoClick = e => {
         e.preventDefault()
 
-        const [,imgIdToDelete] = e.target.id.split("--")
+        const [, imgIdToDelete] = e.target.id.split("--")
 
         return fetch(`http://localhost:8088/media/${imgIdToDelete}`, {
             method: "DELETE",
-            })
+        })
             .then(() => {
                 fetch(`http://localhost:8088/media?profileId=${profile.id}`)
                     .then(res => res.json())
                     .then(data => {
                         setMedia(data)
-                
+
                     })
             })
 
@@ -143,7 +144,25 @@ export const MyProfile = () => {
                     <div className="container container_heading_profile_primary">
                         <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
                         <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
-                        <h3 className="heading heading_profile_primary_primary_genre">{profile?.primaryGenre?.name}</h3>
+                        {
+                            profile.primaryInstrument
+
+                            ?
+
+                            <div className="container container_primary_instrument">
+                            <h4 className="heading heading_profile_primary_primary_instrument">Primary Instrument:</h4>
+                            <h4 className="heading heading_profile_primary_primary_instrument_name">{profile?.primaryInstrument?.name}</h4>
+                        </div>
+
+                            :
+
+                            ""
+
+                        }
+                        <div className="container container_primary_genre">
+                            <h4 className="heading heading_profile_primary_primary_genre">Primary Genre:</h4>
+                            <h4 className="heading heading_profile_primary_primary_genre_name">{profile?.primaryGenre?.name}</h4>
+                        </div>
                         <button type="button" className="btn button_profile_primary_edit" id={`btnEditProfilePrimary--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/primaryinfo/${profile.id}`) }}>Edit Primary Info</button>
                     </div>
 
@@ -218,7 +237,7 @@ export const MyProfile = () => {
                                     })
                                 }
                             </ul>
-                            <button className="btn btn_edit btn_edit_tags" onClick={ () => { navigate(`/myprofile/edit/tags/${profile.id}`)}}>Edit Tags</button>
+                            <button className="btn btn_edit btn_edit_tags" onClick={() => { navigate(`/myprofile/edit/tags/${profile.id}`) }}>Edit Tags</button>
                             <h4 className="heading heading_profile_subgenres">Sub-Genres</h4>
                             <ul className="container container_subgenres">
                                 {
@@ -227,7 +246,7 @@ export const MyProfile = () => {
                                     })
                                 }
                             </ul>
-                            <button className="btn btn_edit btn_edit_subgenres" onClick={ () => { navigate(`/myprofile/edit/subgenres/${profile.id}`)}}>Edit Sub-Genres</button>
+                            <button className="btn btn_edit btn_edit_subgenres" onClick={() => { navigate(`/myprofile/edit/subgenres/${profile.id}`) }}>Edit Sub-Genres</button>
                         </div>
                     </div>
                 </article>
@@ -259,13 +278,13 @@ export const MyProfile = () => {
                         {
                             showNewPhoto
 
-                            ?
+                                ?
 
-                            <NewPhoto closeNewPhoto={handleNewPhotoClose} myProfileId={profile.id} setMedia={setMedia} />
-                            
-                            :
+                                <NewPhoto closeNewPhoto={handleNewPhotoClose} myProfileId={profile.id} setMedia={setMedia} />
 
-                            <button type="button" className="btn button_profile_photos_new" onClick={handleNewPhotoShow}>Add Photo</button>
+                                :
+
+                                <button type="button" className="btn button_profile_photos_new" onClick={handleNewPhotoShow}>Add Photo</button>
 
                         }
                     </div>
@@ -279,7 +298,7 @@ export const MyProfile = () => {
 
                                 ?
 
-                                myPosts.sort((a,b) => b.date - a.date).map(post => <PostProfile setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
+                                myPosts.sort((a, b) => b.date - a.date).map(post => <PostProfile setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
 
                                 :
 
@@ -291,13 +310,13 @@ export const MyProfile = () => {
                         {
                             showNewPost
 
-                            ?
+                                ?
 
-                            <NewPost closeNewPost={handleNewPostClose} myProfileId={profile.id} setMyPosts={setMyPosts} />
-                            
-                            :
+                                <NewPost closeNewPost={handleNewPostClose} myProfileId={profile.id} setMyPosts={setMyPosts} />
 
-                            <button type="button" className="btn button_profile_posts_new" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostShow}>New Post</button>
+                                :
+
+                                <button type="button" className="btn button_profile_posts_new" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostShow}>New Post</button>
 
                         }
                     </div>

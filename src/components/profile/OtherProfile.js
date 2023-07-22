@@ -16,7 +16,7 @@ export const OtherProfile = () => {
     //fetch currently viewed profile based on param (profileId) with expanded users and primary genre, embeded profileTags and media
 
     useEffect(() => {
-        fetch(`http://localhost:8088/profiles?userId=${profileId}&_expand=user&_expand=primaryGenre&_embed=profileTags&_embed=profileSubGenres&_embed=media&_embed=posts`)
+        fetch(`http://localhost:8088/profiles?userId=${profileId}&_expand=user&_expand=primaryGenre&_expand=primaryInstrument&_embed=profileTags&_embed=profileSubGenres&_embed=media&_embed=posts`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data[0])
@@ -72,7 +72,25 @@ export const OtherProfile = () => {
                     <div className="container container_heading_profile_primary">
                         <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
                         <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
-                        <h3 className="heading heading_profile_primary_primary_genre">{profile?.primaryGenre?.name}</h3>
+                        {
+                            profile.primaryInstrument
+
+                            ?
+
+                            <div className="container container_primary_instrument">
+                            <h4 className="heading heading_profile_primary_primary_instrument">Primary Instrument:</h4>
+                            <h4 className="heading heading_profile_primary_primary_instrument_name">{profile?.primaryInstrument?.name}</h4>
+                        </div>
+
+                            :
+
+                            ""
+
+                        }
+                        <div className="container container_primary_genre">
+                            <h4 className="heading heading_profile_primary_primary_genre">Primary Genre:</h4>
+                            <h4 className="heading heading_profile_primary_primary_genre_name">{profile?.primaryGenre?.name}</h4>
+                        </div>
                     </div>
 
                     <div className="container container_profile_primary_clickables">
