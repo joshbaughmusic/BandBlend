@@ -17,7 +17,7 @@ export const ProfilesAllList = ({
     //fetch all profiles with expanded users and primary genre, embeded profileTags
 
     useEffect(() => {
-        fetch(`http://localhost:8088/profiles?userId_ne=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_embed=profileTags`)
+        fetch(`http://localhost:8088/profiles?userId_ne=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_expand=primaryInstrument&_embed=profileTags`)
             .then((res) => res.json())
             .then((data) => {
                 setProfiles(data);
@@ -64,6 +64,8 @@ export const ProfilesAllList = ({
             filteredData = filteredData.sort((a, b) => b.user.name.localeCompare(a.user.name));
         } else if (sortTerms === "genre") {
             filteredData = filteredData.sort((a, b) => a.primaryGenre.name.localeCompare(b.primaryGenre.name));
+        } else if (sortTerms === "instrument") {
+            filteredData = filteredData.filter((profile) => !profile.user.isBand).sort((a, b) => a.primaryInstrument?.name.localeCompare(b.primaryInstrument?.name));
         }
 
         // include sort by instrument and maybe distance later
@@ -72,7 +74,6 @@ export const ProfilesAllList = ({
     }, [searchTerms, sortTerms, filterTerms, profiles]);
 
     //end search/filter/sort section
-
 
 
     //get current user id from local storage
@@ -107,12 +108,25 @@ export const ProfilesAllList = ({
                                 <Link to={`/profiles/${profile.id}`}>
                                     <h2 className="profile_card_name">{profile?.user?.name}</h2>
                                 </Link>
+                                <h3 className="profile_card_location">{profile.location}</h3>
+                                {
+                                profile?.primaryInstrument
+
+                                    ?
+
+                                    <div className="container container_profile_card_primaryinstrument">
+                                        <p className="profile_card_instrument">{profile?.primaryInstrument?.name}</p>
+                                    </div>
+
+                                    :
+
+                                    ""
+                            }
                                 {profile?.user?.isBand ? (
                                     <p className="profile_card_bandnote">Band</p>
                                 ) : (
-                                    <p className="profile_card_musiciannote">Musician</p>
+                                    ''
                                 )}
-                                <h3 className="profile_card_location">{profile.location}</h3>
                             </div>
                             <div className="container container_profile_card_primarygenre">
                                 <h3 className="profile_card_genre">Genre</h3>

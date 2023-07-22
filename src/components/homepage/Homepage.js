@@ -63,8 +63,7 @@ export const Homepage = () => {
         }
 
         return profileWithPost
-    })
-    
+    })    
 
     return (
         <>
@@ -99,7 +98,7 @@ export const Homepage = () => {
 
                                 ?
 
-                                profilesWithPostsAttached.map(profileWithPost => <PostHome key={`profileWithPost--${profileWithPost.id}`} userPicture={profileWithPost.picture} userName={profileWithPost?.user?.name} userId={profileWithPost?.user?.id} postBody={profileWithPost.body} postDate={profileWithPost.date} />)
+                                profilesWithPostsAttached.map(profileWithPost => <PostHome key={`profileWithPost--${profileWithPost.id}`} profileId={profileWithPost.profileId} userPicture={profileWithPost.picture} userName={profileWithPost?.user?.name} userId={profileWithPost?.user?.id} postBody={profileWithPost.body} postDate={profileWithPost.date} />)
 
                                 :
 

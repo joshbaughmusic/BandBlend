@@ -13,6 +13,7 @@ export const EditPrimaryInfo = () => {
     const [profile, setProfile] = useState({
         picture: "",
         location: "",
+        primaryInstrumentId: "",
         primaryGenreId: "",
         spotify: "",
         facebook: "",
@@ -20,9 +21,10 @@ export const EditPrimaryInfo = () => {
         tiktok: ""
     })
 
-    //use state to hold primary genres
+    //use state to hold primary genres and primary instruments
 
     const [primaryGenres, setPrimaryGenres] = useState([])
+    const [primaryInstruments, setPrimaryInstruments] = useState([])
 
     //set up navigation hook to take you back to MyProfile on edit submission
 
@@ -47,6 +49,16 @@ export const EditPrimaryInfo = () => {
                 setPrimaryGenres(data)
             })
     }, [])
+    
+    //fetch primary instruments
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/primaryInstruments`)
+            .then(res => res.json())
+            .then(data => {
+                setPrimaryInstruments(data)
+            })
+    }, [])
 
     //write function to handle edit submission click
 
@@ -56,6 +68,7 @@ export const EditPrimaryInfo = () => {
         const newPrimaryInfoObj = {
             picture: profile.picture,
             location: profile.location,
+            primaryInstrumentId: profile.primaryInstrumentId,
             primaryGenreId: profile.primaryGenreId,
             spotify: profile.spotify,
             facebook: profile.facebook,
@@ -120,6 +133,40 @@ export const EditPrimaryInfo = () => {
                         }
                         ></input>
                     </fieldset>
+
+                    {
+                        bBUserObject.isBand
+
+                        ?
+
+                        ""
+
+                        :
+
+                    <fieldset>
+                        <label htmlFor="editPrimaryInstrument">Primary Instrument:</label>
+                        <br />
+                        <select required name="editPrimaryInstrument" className="input input_select" onChange={e => {
+                            const [, instrumentId] = e.target.value.split("--")
+                            let copy = { ...profile }
+                            copy.primaryInstrumentId = parseInt(instrumentId)
+                            setProfile(copy)
+                        }}>
+                            {
+                                primaryInstruments.map(instrument => {
+                                    if (instrument.id === profile.primaryInstrumentId) {
+                                        return <option selected key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`}>{instrument.name}</option>
+                                    } else {
+                                        return <option key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`}>{instrument.name}</option>
+                                    }
+                                })
+                            }
+                        </select>
+
+
+                    </fieldset>
+
+                    }
                     <fieldset>
                         <label htmlFor="editPrimaryGenre">Primary Genre:</label>
                         <br />
