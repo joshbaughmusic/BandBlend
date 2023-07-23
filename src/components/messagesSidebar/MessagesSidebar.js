@@ -6,7 +6,14 @@ import { NewMessage } from "./NewMessage.js";
 export const MessagesSidebar = () => {
     const [messages, setMessages] = useState([])
     const [filteredMessages, setFilteredMessages] = useState([])
-    
+
+    //being defined here so they can both go to the children compoinetns to handle reply being selected
+    const [selectedReceiverId, setSelectedReceiverId] = useState('');
+    const [message, setMessage] = useState({
+        body: "",
+        receiverId: ''
+    })
+
     
 
     //state to handle whether or not to show new message form
@@ -26,6 +33,12 @@ export const MessagesSidebar = () => {
                 const userMessages = data.filter(message => {
                     return message.senderId === bBUserObject.id || message.receiverId == bBUserObject.id
                 })
+                
+                //sort messages by date
+                const sortedMessages = userMessages.sort((a,b) => {
+                    return b.date - a.date
+                })
+
                 setMessages(userMessages);
                 setFilteredMessages(userMessages)
             });
@@ -52,7 +65,7 @@ export const MessagesSidebar = () => {
                 <h2 className="heading heading_messages">Messages</h2>
                 <section className="container container_messages_display">
                     {
-                        messages.map(message => <Message messageKey={`message--${message.id}`} messageId={message.id} messageSenderId={message.senderId} messageReceiverId={message.receiverId} messageBody={message.body} messageDate={message.date} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} />)
+                        messages.map(message => <Message messageKey={`message--${message.id}`} messageId={message.id} messageSenderId={message.senderId} messageReceiverId={message.receiverId} messageBody={message.body} messageDate={message.date} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage}/>)
                     }
 
                 </section>
@@ -63,7 +76,7 @@ export const MessagesSidebar = () => {
 
                             ?
 
-                            <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow}/>
+                            <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage}/>
 
                             :
 

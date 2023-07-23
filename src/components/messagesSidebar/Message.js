@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./Message.css"
 
-export const Message = ({ messageKey, messageId, messageSenderId, messageReceiverId, messageBody, messageDate, fetchMessages, handleNewMessageShow}) => {
+export const Message = ({ messageKey, messageId, messageSenderId, messageReceiverId, messageBody, messageDate, fetchMessages, handleNewMessageShow, selectedReceiverId, setSelectedReceiverId, message, setMessage}) => {
     //getting all message details for each message as a props and function to re fetch messages from MessagesSidebar parent ^
 
     const [usersWithProfiles, setUsersWithProfiles] = useState([])
@@ -57,11 +57,23 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
             })
     }
 
-     //function to handle when the reply button is clicked
+     //function to handle when the reply button is clicked. Uses message state shared from parent and sets up values on it as needed.
      const handleReplyClick = e => {
         e.preventDefault()
 
         handleNewMessageShow()
+
+        const [,userId] = e.target.id.split('--')
+
+        const copy = message
+        copy.receiverId = parseInt(userId)
+        copy.body = ''
+        copy.date = 0
+        copy.id = ''
+        setMessage(copy)
+
+        setSelectedReceiverId(`user--${userId}`)
+        
     }
 
 
@@ -74,6 +86,7 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
                         ?
 
                         <h5 className="heading heading_message_tofrom heading_message_to">To: {findUser(messageReceiverId)?.name}</h5>
+                        
 
                         :
 
@@ -84,7 +97,18 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
                 </h6>
                 <p className="text text_message_body">{messageBody}</p>
                 <div className="container container_message_buttons">
-                    <button type="button" className="btn btn_message btn_message_reply" id={`messageReply--${messageId}`} onClick={handleReplyClick}>Reply</button>
+                    {
+                        messageSenderId === bBUserObject.id
+
+                        ?
+
+                        ''
+
+                        :
+
+                        <button type="button" className="btn btn_message btn_message_reply" id={`messageReply--${messageSenderId}`} onClick={handleReplyClick}>Reply</button>
+
+                    }
                     <button type="button" id={`messageDelete--${messageId}`} className="btn btn_message btn_message_delete" onClick={handleMessageDeleteClick}>Delete</button>
                 </div>
             </article>

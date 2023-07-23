@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react"
 import "./NewMessage.css"
 
-export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchMessages }) => {
+export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage }) => {
 
-    const [message, setMessage] = useState({
-        body: "",
-        receiverId: 0
-    })
     const [users, setUsers] = useState([])
 
 
@@ -38,7 +34,7 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
     }, []);
 
 
-    //function to set new message object and send to database, close new message form and clear field on submit, update message list
+    //function to set new message object and send to database, close new message form and clear field on submit, update message list. Message state is held by parent and passed down as prop so that it can be used in the reply button functions
 
 
     const handleSubmitNewMessageClick = e => {
@@ -51,7 +47,7 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
             date: Date.now()
         }
 
-        if (message.body !== "" || message.receiverId) {
+        if (message.body !== "" && message.receiverId) {
             fetch(`http://localhost:8088/messages`, {
                 method: "POST",
                 headers: {
@@ -67,6 +63,7 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
                         body: "",
                         receiverId: 0
                     })
+                    setSelectedReceiverId('')
                 })
         } else {
             window.alert("New message cannot be blank and a recipient must be selected.")
@@ -88,7 +85,8 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
                     ></textarea>
                 </fieldset>
                 <fieldset>
-                    <select required name="dropdown dropdown_message_receiver" className="input input_select" onChange={e => {
+                    <select required defaultValue={null} name="dropdown dropdown_message_receiver" className="input input_select" value={selectedReceiverId} onChange={e => {
+                        setSelectedReceiverId(e.target.value)
                         const [, userId] = e.target.value.split("--")
                         let copy = { ...message }
                         copy.receiverId = parseInt(userId)
