@@ -7,7 +7,7 @@ export const RegisterProfile = () => {
         picture: "",
         location: "",
         about: "",
-        primaryInstrumentId: 0,
+        primaryInstrumentId: 16,
         primaryGenreId: 0,
         spotify: "",
         facebook: "",
