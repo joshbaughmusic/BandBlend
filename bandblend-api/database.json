@@ -383,13 +383,7 @@
       "tiktok": "https://www.tiktok.com/@noahadamsmusic"
     }
   ],
-  "savedProfiles": [
-    {
-      "profileId": 3,
-      "userId": 2,
-      "id": 1
-    }
-  ],
+  "savedProfiles": [],
   "posts": [
     {
       "id": 1,
