@@ -136,7 +136,7 @@
       "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/271038497_326399376155152_6662249675223265793_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=GH_e31CUNK4AX8bpy27&_nc_ht=scontent-atl3-1.xx&oh=00_AfCkXiHUv51g-C11kx-km4znOprpYgDWsrvD_Q8k4mBqsg&oe=64BA2CCB",
       "location": "Birmingham, AL",
       "primaryInstrumentId": 16,
-      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n",
+      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "https://open.spotify.com/artist/6P9WxS7Sr4fgdJnzKI70h8",
@@ -385,11 +385,6 @@
   ],
   "savedProfiles": [
     {
-      "profileId": 3,
-      "userId": 1,
-      "id": 2
-    },
-    {
       "profileId": 4,
       "userId": 1,
       "id": 3
@@ -610,7 +605,29 @@
       "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355265181_732701238858295_1570047882012937844_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=do1r0A7GWBYAX8WkcI-&_nc_ht=scontent-atl3-1.xx&oh=00_AfBuE6FeIdwc3fmAs7D0FpRbsd44ZsAB4NjTWqlJhvmLGg&oe=64BD36FC"
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "id": 1,
+      "senderId": 1,
+      "receiverId": 4,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": 1690063510518
+    },
+    {
+      "id": 2,
+      "senderId": 2,
+      "receiverId": 3,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": 1690063510518
+    },
+    {
+      "id": 3,
+      "senderId": 2,
+      "receiverId": 1,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": 1690063510518
+    }
+  ],
   "profileTags": [
     {
       "id": 7,

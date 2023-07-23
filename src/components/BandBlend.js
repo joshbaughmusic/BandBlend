@@ -4,11 +4,11 @@ import { Login } from "./auth/Login.js"
 import { RegisterUser } from "./auth/RegisterUser.js"
 import { MainContent } from "./mainContent/MainContent.js"
 import { Navbar } from "./nav/Navbar.js"
-import { Sidebar } from "./sidebar/Sidebar.js"
 import "./BandBlend.css"
 import { RegisterProfile } from "./auth/RegisterProfile.js"
 import { RegisterTags } from "./auth/RegisterTags.js"
 import { RegisterSubGenres } from "./auth/RegisterSubGenres.js"
+import { MessagesSidebar } from "./messagesSidebar/MessagesSidebar.js"
 
 export const BandBlend = () => {
 
@@ -24,7 +24,7 @@ export const BandBlend = () => {
         <Authorized>
           <>
             <Navbar />
-            <Sidebar />
+            <MessagesSidebar />
             <MainContent />
 
           </>
