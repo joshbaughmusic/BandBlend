@@ -13,7 +13,16 @@ export const ProfilesAllList = ({
 
     const [profiles, setProfiles] = useState([]);
     const [filteredProfiles, setFilteredProfiles] = useState([]);
+    const [savedProfiles, setSavedProfiles] = useState([]);
     const [tags, setTags] = useState([]);
+    const [saveListener, setSaveListener] = useState(true)
+
+    
+
+    //get current user id from local storage
+
+    const localBbUser = localStorage.getItem("bb_user");
+    const bBUserObject = JSON.parse(localBbUser);
 
     //fetch all profiles with expanded users and primary genre, embeded profileTags
 
@@ -37,7 +46,43 @@ export const ProfilesAllList = ({
             });
     }, []);
 
+    //fetch all savedProfiles
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/savedProfiles`)
+            .then((res) => res.json())
+            .then((data) => {
+                setSavedProfiles(data);
+            });
+    }, [saveListener]);
+
     //manage all search, sort, and filter functions here
+
+    //write a function to handle filtering by favorites that can be used below
+
+    const filterByFavorites = filteredData => {
+
+        //new arr to push all results into and then return at end of function
+
+        const filteredArr = []
+
+        //filter array accordingly and return it for possible further processing
+
+        //loop through all profiles in filteredData
+        for (const profile of filteredData) {
+            //loop through all savedProfile objects
+            for (const savedProfile of savedProfiles) {
+                //if there's matches, push them into filteredArr
+                if (profile.id === savedProfile.profileId && bBUserObject.id === savedProfile.userId) {
+                    filteredArr.push(profile)
+
+                }
+            }
+        }
+
+        return filteredArr
+
+    }
 
     useEffect(() => {
 
@@ -56,6 +101,8 @@ export const ProfilesAllList = ({
             filteredData = filteredData.filter((profile) => !profile.user.isBand);
         } else if (filterTerms === "bands") {
             filteredData = filteredData.filter((profile) => profile.user.isBand);
+        } else if (filterTerms === "saved") {
+            filteredData = filterByFavorites(filteredData)
         }
 
         // include filter for saved later
@@ -73,15 +120,9 @@ export const ProfilesAllList = ({
         // include sort by instrument and maybe distance later
 
         setFilteredProfiles(filteredData);
-    }, [searchTerms, sortTerms, filterTerms, profiles]);
+    }, [searchTerms, sortTerms, filterTerms, profiles, savedProfiles]);
 
     //end search/filter/sort section
-
-
-    //get current user id from local storage
-
-    const localBbUser = localStorage.getItem("bb_user");
-    const bBUserObject = JSON.parse(localBbUser);
 
 
     //define a function to match tag from all tags with incoming profileTags tagId attached to profile by embed. Return that tag's name. Will be invoked in map function below
@@ -112,18 +153,18 @@ export const ProfilesAllList = ({
                                 </Link>
                                 <h3 className="profile_card_location">{profile.location}</h3>
                                 {
-                                !profile?.user?.isBand
+                                    !profile?.user?.isBand
 
-                                    ?
+                                        ?
 
-                                    <div className="container container_profile_card_primaryinstrument">
-                                        <p className="profile_card_instrument">{profile?.primaryInstrument?.name}</p>
-                                    </div>
+                                        <div className="container container_profile_card_primaryinstrument">
+                                            <p className="profile_card_instrument">{profile?.primaryInstrument?.name}</p>
+                                        </div>
 
-                                    :
+                                        :
 
-                                    ""
-                            }
+                                        ""
+                                }
                                 {profile?.user?.isBand ? (
                                     <p className="profile_card_bandnote">Band</p>
                                 ) : (
@@ -145,7 +186,7 @@ export const ProfilesAllList = ({
                                     ))}
                                 </ul>
                             </div>
-                            <SaveButtonList profileId={profile.id} />
+                            <SaveButtonList profileId={profile.id} saveListener={saveListener} setSaveListener={setSaveListener} />
                         </article>
                     ))}
                 </section>

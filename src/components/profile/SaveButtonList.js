@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import './SaveButtonList.css';
 
-export const SaveButtonList = ({ profileId }) => {
+export const SaveButtonList = ({ profileId, saveListener, setSaveListener }) => {
   // getting id of current profile from other profile
 
   const [savedProfiles, setSavedProfiles] = useState([]);
@@ -36,6 +36,8 @@ export const SaveButtonList = ({ profileId }) => {
         method: "DELETE",
       }).then(() => {
         setSavedProfiles(savedProfiles.filter(savedProfile => savedProfile !== foundSavedProfileObj));
+        setSaveListener(!saveListener)
+
       });
     } else {
       const newSavedProfile = {
@@ -52,8 +54,10 @@ export const SaveButtonList = ({ profileId }) => {
       }).then(res => res.json())
         .then(data => {
           setSavedProfiles([...savedProfiles, data]);
+          setSaveListener(!saveListener)
         });
     }
+    
   };
 
   return (
