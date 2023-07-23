@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./ProfilesAllList.css";
 import { Link } from "react-router-dom";
+import { SaveButtonList } from "./SaveButtonList.js";
 
 export const ProfilesAllList = ({
     searchTerms,
@@ -144,7 +145,7 @@ export const ProfilesAllList = ({
                                     ))}
                                 </ul>
                             </div>
-                            <button>Save</button>
+                            <SaveButtonList profileId={profile.id} />
                         </article>
                     ))}
                 </section>
