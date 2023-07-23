@@ -24,7 +24,7 @@ button {
     'nav nav'
     'main sidebar';
   
-  grid-template-columns: 8fr 1.3fr;
+  grid-template-columns: 8fr 2.5fr;
   grid-template-rows: 1fr 9fr;
   height: 100vh
 }
@@ -37,6 +37,6 @@ button {
     grid-area: nav;
 }
 
-.container_sidebar {
+.container_messages_sidebar {
     grid-area: sidebar;
 }
