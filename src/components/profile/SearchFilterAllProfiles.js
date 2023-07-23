@@ -24,7 +24,7 @@ export const SearchFilterAllProfiles = ({ setSearchTerms, setSortTerms, setFilte
                         <option value="name-backward">Name Z-A</option>
                         <option value="genre">Genre</option>
                         <option value="instrument">Instrument</option>
-                        <option value="distance">Distance</option>
+                        {/* <option value="distance">Distance</option> */}
                     </select>
                 </div>
                 <div className="container container_filters">
