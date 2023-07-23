@@ -40,13 +40,14 @@ export const ProfilesAllList = ({
 
     useEffect(() => {
 
-        //search by name, primaryGenre, or location, maybe include about later
+        //search by name, primaryGenre, or location, instrument, and maybe include about later
 
         const searchedProfiles = profiles.filter(
             (profile) =>
                 profile.user.name.toLowerCase().includes(searchTerms.toLowerCase()) ||
                 profile.primaryGenre.name.toLowerCase().includes(searchTerms.toLowerCase()) ||
-                profile.location.toLowerCase().includes(searchTerms.toLowerCase())
+                profile.location.toLowerCase().includes(searchTerms.toLowerCase()) ||
+                profile.primaryInstrument?.name.toLowerCase().includes(searchTerms.toLowerCase())
         );
 
         let filteredData = [...searchedProfiles];
@@ -110,7 +111,7 @@ export const ProfilesAllList = ({
                                 </Link>
                                 <h3 className="profile_card_location">{profile.location}</h3>
                                 {
-                                profile?.primaryInstrument
+                                !profile?.user?.isBand
 
                                     ?
 

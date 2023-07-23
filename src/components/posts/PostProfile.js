@@ -32,7 +32,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
     //format post date
 
-    const postDateFormated = new Date(parseInt(postDate)).getMonth() + "/" + new Date(parseInt(postDate)).getDate() + "/"+ new Date(parseInt(postDate)).getFullYear()
+    const postDateFormatted = new Date(parseInt(postDate));
+    const formattedDate = (postDateFormatted.getMonth() + 1) + "/" + postDateFormatted.getDate() + "/" + postDateFormatted.getFullYear();
 
     //only give edit and delete options on the profile pages and only to owners of that post
 
@@ -42,7 +43,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
         <li key={postKey} id={`post--${postId}`} className="post_list_item">
             <img className="img img_post_picture" src={userPicture} />
             <h4 className="heading heading_post_name">{userName}</h4>
-            <p className="text text_post_date">{postDateFormated}</p>
+            <p className="text text_post_date">{formattedDate}</p>
             <p className="text text_post_date">{postBody}</p>
             <button className="btn btn_edit bten_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`)}}>Edit Post</button>
             <button id={`postDelete--${postId}`} className="btn btn_delete" onClick={handleDeletePostClick}>Delete Post</button>
@@ -54,7 +55,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
         <li key={postKey} id={`post--${postId}`} className="post_list_item">
             <img className="img img_post_picture" src={userPicture} />
             <h4 className="heading heading_post_name">{userName}</h4>
-            <p className="text text_post_date">{postDateFormated}</p>
+            <p className="text text_post_date">{formattedDate}</p>
             <p className="text text_post_body">{postBody}</p>
         </li>
     </>

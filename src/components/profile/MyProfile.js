@@ -145,7 +145,7 @@ export const MyProfile = () => {
                         <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
                         <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
                         {
-                            profile.primaryInstrument
+                            !profile?.user?.isBand
 
                             ?
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./OtherProfile.css"
 import { Link, useParams } from "react-router-dom"
 import { PostProfile } from "../posts/PostProfile.js"
+import { SaveButtonProfile } from "./SaveButtonProfile.js"
 
 export const OtherProfile = () => {
 
@@ -73,7 +74,7 @@ export const OtherProfile = () => {
                         <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
                         <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
                         {
-                            profile.primaryInstrument
+                            !profile?.user?.isBand 
 
                             ?
 
@@ -95,7 +96,8 @@ export const OtherProfile = () => {
 
                     <div className="container container_profile_primary_clickables">
                         <div className="container container_profile_primary_buttons">
-                            <button type="button" className="btn button_profile_primary_save" onClick={() => { }}>Save</button>
+                            <SaveButtonProfile profileId={profileId}/>
+                            {/* <button type="button" className="btn button_profile_primary_save" onClick={handleSaveButtonClick}>Save</button> */}
                             <button type="button" className="btn button_profile_primary_message" onClick={() => { }}>Message</button>
                         </div>
                         {/* <div className="container container_profile_primary_song">

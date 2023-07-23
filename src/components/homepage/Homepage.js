@@ -48,7 +48,7 @@ export const Homepage = () => {
     //filter out posts that belong to the currently logged in user and get latest 3 posts from remainder and store in variable
 
     const latestPosts = [...allPosts].filter( post => {
-        return post.profileId !== currentUserProfile.id
+        return post.profileId !== currentUserProfile?.id
     }).sort((a, b) => b.date - a.date).slice(0, 3)
 
 
