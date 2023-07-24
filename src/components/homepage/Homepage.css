@@ -1,11 +1,13 @@
 .heading_app_title {
-    font-size: 100px;
+    border-radius: 0;
+    border: none;
+    width: 90%;
 }
 
 .container_homepage {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: center; */
+    align-items: center;
 }
 
 .container_hero {

@@ -72,7 +72,7 @@ export const Homepage = () => {
             <section className="container container_homepage">
                 <section className="container container_hero">
                     <header className="container container_heading">
-                        <h1 className="heading heading_app_title">BandBlend</h1>
+                        <img className="heading heading_app_title" src={require("../../images/bb_text_logo.png")}/>
                         <h2 className="heading heading_app_subheading">Fusing Musicians for Masterpieces</h2>
                     </header>
                     <div className="container container_greeting">

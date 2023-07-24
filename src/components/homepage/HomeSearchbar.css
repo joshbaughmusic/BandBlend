@@ -28,8 +28,8 @@
     border: none;
     height: 100%;
     width: 100%;
-    font-size: 1.10rem;
-    text-align: center;
+    font-size: 1.15rem;
+    margin-left: 10px;
 }
 
 .input_searchbar_home:focus {
