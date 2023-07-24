@@ -8,6 +8,10 @@
   color: rgb(32, 32, 32);
 }
 
+body {
+  background-color: aliceblue;
+}
+
 a:hover {
   text-decoration-line: underline;
 }

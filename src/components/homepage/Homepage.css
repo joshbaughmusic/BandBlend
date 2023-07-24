@@ -1,5 +1,7 @@
 .heading_app_title {
-    font-size: 100px;
+    border-radius: 0;
+    border: none;
+    width: 90%;
 }
 
 .container_homepage {
