@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import "./Message.css"
+import { Link, useNavigate } from "react-router-dom"
 
 export const Message = ({ messageKey, messageId, messageSenderId, messageReceiverId, messageBody, messageDate, fetchMessages, handleNewMessageShow, selectedReceiverId, setSelectedReceiverId, message, setMessage}) => {
     //getting all message details for each message as a props and function to re fetch messages from MessagesSidebar parent ^
 
     const [usersWithProfiles, setUsersWithProfiles] = useState([])
+    const navigate = useNavigate()
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
@@ -76,6 +78,19 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
         
     }
 
+    //function to handle onclick events for name links
+
+    const handleNameClick = e => {
+
+        const [,senderId] = e.target.id.split('--')
+
+        navigate(`/profiles/${senderId}`)
+    }
+
+
+    if (usersWithProfiles.length === 0) {
+        return null
+    }
 
     return (
         <>
@@ -85,12 +100,12 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
 
                         ?
 
-                        <h5 className="heading heading_message_tofrom heading_message_to">To: {findUser(messageReceiverId)?.name}</h5>
+                        <h5 className="heading heading_message_tofrom heading_message_to" id={`messageUser--${messageReceiverId}`} onClick={handleNameClick}>To: <span className="message_nameLink">{findUser(messageReceiverId)?.name}</span> </h5>
                         
 
                         :
 
-                        <h5 className="heading heading_message_tofrom heading_message_from">From: {findUser(messageSenderId)?.name}</h5>
+                        <h5 className="heading heading_message_tofrom heading_message_from" id={`messageUser--${messageSenderId}`} onClick={handleNameClick}>From: <span className="message_nameLink">{findUser(messageSenderId)?.name}</span> </h5>
                 }
                 <h6 className="heading heading_message_date">
                     {convertTimestamp(messageDate)}

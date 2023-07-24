@@ -4,7 +4,8 @@ import { Link, useParams } from "react-router-dom"
 import { PostProfile } from "../posts/PostProfile.js"
 import { SaveButtonProfile } from "./SaveButtonProfile.js"
 
-export const OtherProfile = () => {
+export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage}) => {
+    //bringing in these props from maincontainer to handle message button click
 
     //use useParams to get the profile id from url.
 
@@ -60,6 +61,27 @@ export const OtherProfile = () => {
         return matchedSubGenre?.name
     }
 
+
+    //function to handle when the message button is clicked. Uses message state shared from parent and sets up values on it as needed.
+    const handleMessageClick = e => {
+        e.preventDefault()
+
+        setShowNewMessage(true)
+
+        const [,userId] = e.target.id.split('--')
+
+        const copy = message
+        copy.receiverId = parseInt(userId)
+        copy.body = ''
+        copy.date = 0
+        copy.id = ''
+        setMessage(copy)
+
+        setSelectedReceiverId(`user--${userId}`)
+        
+    }
+
+
     if (!profile || !tags || !subGenres) {
         return null
     }
@@ -98,7 +120,7 @@ export const OtherProfile = () => {
                         <div className="container container_profile_primary_buttons">
                             <SaveButtonProfile profileId={profileId}/>
                             {/* <button type="button" className="btn button_profile_primary_save" onClick={handleSaveButtonClick}>Save</button> */}
-                            <button type="button" className="btn button_profile_primary_message" onClick={() => { }}>Message</button>
+                            <button type="button" className="btn button_profile_primary_message" id={`messageUser--${profile?.user?.id}`} onClick={handleMessageClick}>Message</button>
                         </div>
                         {/* <div className="container container_profile_primary_song">
                             {

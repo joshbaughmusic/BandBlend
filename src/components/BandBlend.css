@@ -16,6 +16,12 @@ button {
   margin: 7px;
 }
 
+img {
+  border-radius: 50%;
+  border: rgba(0, 0, 0, 0.617) solid 2px
+
+}
+
 /* grid setup */
 
 .container_grid_all {
