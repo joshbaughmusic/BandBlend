@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import "./Message.css"
 import { Link, useNavigate } from "react-router-dom"
 
-export const Message = ({ messageKey, messageId, messageSenderId, messageReceiverId, messageBody, messageDate, fetchMessages, handleNewMessageShow, selectedReceiverId, setSelectedReceiverId, message, setMessage}) => {
+export const Message = ({ messageKey, messageId, messageSenderId, messageReceiverId, messageBody, messageDate, messageReceiverProfileId, messageSenderProfileId, messageReceiverPicture, messageSenderPicture, messageReceiverName, messageSenderName, fetchMessages, handleNewMessageShow, selectedReceiverId, setSelectedReceiverId, message, setMessage}) => {
+
     //getting all message details for each message as a props and function to re fetch messages from MessagesSidebar parent ^
 
     const [usersWithProfiles, setUsersWithProfiles] = useState([])
@@ -20,16 +21,6 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
                 setUsersWithProfiles(data);
             });
     }, []);
-
-
-    //function to match up a userId on a message with one in the usersWithProfiles list. Should get the object and return it.
-
-    const findUser = userId => {
-        const foundUser = usersWithProfiles.find(user => {
-            return user.id === userId
-        })
-        return foundUser
-    }
 
 
     //function to convert message timestamps
@@ -88,9 +79,11 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
     }
 
 
-    if (usersWithProfiles.length === 0) {
+    if (!messageReceiverProfileId || !messageSenderProfileId ||usersWithProfiles.length === 0) {
         return null
     }
+
+    console.log("receiverProfId", messageReceiverProfileId)
 
     return (
         <>
@@ -99,13 +92,21 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
                     messageSenderId === bBUserObject.id
 
                         ?
-
-                        <h5 className="heading heading_message_tofrom heading_message_to" id={`messageUser--${messageReceiverId}`} onClick={handleNameClick}>To: <span className="message_nameLink">{findUser(messageReceiverId)?.name}</span> </h5>
+                        <>
+                        <h5 className="heading heading_message_tofrom heading_message_to" id={`messageUser--${messageReceiverId}`}>To: <span onClick={() => {
+                            navigate(`profiles/${messageReceiverProfileId}`)
+                        }}className="message_nameLink">{messageReceiverName}</span> </h5>
+                        <img className="img img_message" src={messageReceiverPicture}/>
+                        </>
                         
 
                         :
-
-                        <h5 className="heading heading_message_tofrom heading_message_from" id={`messageUser--${messageSenderId}`} onClick={handleNameClick}>From: <span className="message_nameLink">{findUser(messageSenderId)?.name}</span> </h5>
+                        <>
+                        <h5 className="heading heading_message_tofrom heading_message_from" id={`messageUser--${messageSenderId}`}>From: <span onClick={() => {
+                            navigate(`profiles/${messageSenderId}`)
+                        }}className="message_nameLink">{messageSenderName}</span> </h5>
+                        <img src={messageSenderPicture}/>
+                        </>
                 }
                 <h6 className="heading heading_message_date">
                     {convertTimestamp(messageDate)}

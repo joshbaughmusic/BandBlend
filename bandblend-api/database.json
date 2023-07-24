@@ -390,11 +390,6 @@
       "id": 3
     },
     {
-      "profileId": 2,
-      "userId": 1,
-      "id": 6
-    },
-    {
       "profileId": 1,
       "userId": 2,
       "id": 7
@@ -408,6 +403,11 @@
       "profileId": 10,
       "userId": 2,
       "id": 9
+    },
+    {
+      "profileId": 4,
+      "userId": 1,
+      "id": 10
     }
   ],
   "posts": [
