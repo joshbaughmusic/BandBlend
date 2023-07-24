@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: aliceblue;
+  background-color: rgb(174, 187, 197);
 }
 
 a:hover {
@@ -41,12 +41,17 @@ img {
 
 .container_main {
     grid-area: main;
+    height: 100%;
 }
 
 .container_nav {
     grid-area: nav;
+    height: 100%;
+
 }
 
 .container_messages_sidebar {
     grid-area: sidebar;
+    /* height: 100%; */
+
 }

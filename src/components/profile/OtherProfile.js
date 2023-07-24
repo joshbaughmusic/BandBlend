@@ -23,7 +23,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
             .then(data => {
                 setProfile(data[0])
             })
-    }, [])
+    }, [profileId])
 
     //fetch all tags
 
@@ -34,7 +34,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
                 setTags(data)
             })
 
-    }, [])
+    }, [profileId])
 
     //fetch all subgenres
 
@@ -45,7 +45,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
                 setSubGenres(data)
             })
 
-    }, [])
+    }, [profileId])
 
     //define a function to match tag from all tags with incoming profileTags tagId attached to profile by embed. Return that tag's name. Will be invoked in map function below
 
