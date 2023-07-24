@@ -44,6 +44,7 @@ export const MessagesSidebar = ({message, setMessage, selectedReceiverId, setSel
 
     const handleNewMessageClose = () => {
         setShowNewMessage(false)
+        setSelectedReceiverId('')
     }
 
 
