@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./Homepage.css"
 import { PostHome } from "../posts/PostHome.js"
+import { HomeSearchbar } from "./HomeSearchbar.js"
 
 export const Homepage = () => {
 
@@ -89,7 +90,7 @@ export const Homepage = () => {
                         }
                     </div>
                 </section>
-
+                        <HomeSearchbar />
                 <section className="container container_home_latest_posts_outer">
                     <h3 className="heading heading_home_latest_posts">Latest Posts</h3>
                     <ul className="container container_home_latest_posts_inner">

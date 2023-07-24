@@ -1,0 +1,77 @@
+/* Searchbar icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+.search-bar-container {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    position: relative;
+}
+
+.input-wrapper {
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 5px;
+    height: 2.5rem;
+    padding: 0 15px;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+
+}
+
+.input_searchbar_home {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 100%;
+    font-size: 1.10rem;
+    text-align: center;
+}
+
+.input_searchbar_home:focus {
+    outline: none;
+}
+
+.search-icon {
+    color: black;
+}
+
+/* results list */
+
+.results-list {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 12px #cfcfcf;
+    border-radius: 5px;
+    margin-top: 1rem;
+    max-height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    top: 30px;
+}
+
+.search-result {
+    padding: 5px;
+}
+
+.search-result:hover {
+    background-color: #efefef;
+}
+
+.search-result:active {
+    background-color: #dadada
+}
+
+/* subtext */
+
+.text_searchbar_subtext{
+    text-align: center;
+    font-style: italic;
+    font-size: smaller;
+}

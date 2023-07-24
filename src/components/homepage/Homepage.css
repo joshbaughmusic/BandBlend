@@ -3,9 +3,9 @@
 }
 
 .container_homepage {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
 }
 
 .container_hero {

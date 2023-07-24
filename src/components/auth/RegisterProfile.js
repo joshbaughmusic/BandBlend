@@ -38,7 +38,7 @@ export const RegisterProfile = () => {
     //fetch primary instruments
 
     useEffect(() => {
-        fetch(`http://localhost:8088/primaryInstruments`)
+        fetch(`http://localhost:8088/primaryInstruments?id_ne=17`)
             .then(res => res.json())
             .then(data => {
                 setPrimaryInstruments(data)
