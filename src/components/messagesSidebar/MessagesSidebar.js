@@ -3,22 +3,10 @@ import "./MessagesSidebar.css"
 import { Message } from "./Message.js";
 import { NewMessage } from "./NewMessage.js";
 
-export const MessagesSidebar = () => {
+export const MessagesSidebar = ({message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage }) => {
     const [messages, setMessages] = useState([])
-    const [filteredMessages, setFilteredMessages] = useState([])
-
-    //being defined here so they can both go to the children compoinetns to handle reply being selected
-    const [selectedReceiverId, setSelectedReceiverId] = useState('');
-    const [message, setMessage] = useState({
-        body: "",
-        receiverId: ''
-    })
-
+    // const [filteredMessages, setFilteredMessages] = useState([])
     
-
-    //state to handle whether or not to show new message form
-
-    const [showNewMessage, setShowNewMessage] = useState(false);
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
@@ -40,7 +28,7 @@ export const MessagesSidebar = () => {
                 })
 
                 setMessages(userMessages);
-                setFilteredMessages(userMessages)
+                // setFilteredMessages(userMessages)
             });
     }
 

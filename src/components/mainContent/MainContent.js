@@ -10,7 +10,8 @@ import { EditPrimaryInfo } from "../profile/EditPrimaryInfo.js"
 import { ProfileAllListContainer } from "../profile/ProfilesAllListContainer.js"
 
 
-export const MainContent = () => {
+export const MainContent = ({message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage}) => {
+    //bringing in these props from bandblend to pass down to otherProfile to handle message click
 
     //main content is where everything that isn't the nav and sidebar is displayed, mainly profile views and the homepage
 
@@ -25,7 +26,7 @@ export const MainContent = () => {
                 <Route path="myprofile/edit/primaryinfo/:profileId" element={<EditPrimaryInfo />} />
                 <Route path="myprofile/edit/tags/:profileId" element={<EditTags />} />
                 <Route path="myprofile/edit/subgenres/:profileId" element={<EditSubGenres />} />
-                <Route path="profiles/:profileId" element={<OtherProfile />} />
+                <Route path="profiles/:profileId" element={<OtherProfile message={message} setMessage={setMessage} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} showNewMessage={showNewMessage} setShowNewMessage={setShowNewMessage}/>} />
             </Routes>
             </main>
             

@@ -52,14 +52,19 @@
 
 
 
-img {
+.img_profile_primary {
     width: 150px;
+    height: 150px;
     border-radius: 50%;
     border: rgba(0, 0, 0, 0.617) solid 2px
 }
 
 .profile_img_item {
     border-radius: 10px;
+    width: 150px;
+    height: 150px;
+
+
 }
 
 /* .profile_img_item:hover {
