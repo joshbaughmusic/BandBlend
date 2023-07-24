@@ -1,8 +1,4 @@
 .button_profile_primary_saved {
-    color: lightcoral;
+    background-color: lightcoral;
+    color: aliceblue;
 }
-
-.button_profile_primary_nonsaved {
-    color: white;
-}
-

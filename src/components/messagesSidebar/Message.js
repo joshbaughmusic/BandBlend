@@ -26,12 +26,21 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
     //function to convert message timestamps
 
     const convertTimestamp = timestamp => {
-
         const messageDateFormatted = new Date(parseInt(timestamp));
-        const formattedDate = (messageDateFormatted.getMonth() + 1) + "/" + messageDateFormatted.getDate() + "/" + messageDateFormatted.getFullYear();
-
-        return formattedDate
-    }
+    
+        const options = {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true // To display time in 12-hour format with AM/PM
+        };
+    
+        const formattedDate = new Intl.DateTimeFormat('en-US', options).format(messageDateFormatted);
+    
+        return formattedDate;
+    };
 
 
     //handler function for delete message click
@@ -69,16 +78,6 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
         
     }
 
-    //function to handle onclick events for name links
-
-    const handleNameClick = e => {
-
-        const [,senderId] = e.target.id.split('--')
-
-        navigate(`/profiles/${senderId}`)
-    }
-
-
     if (!messageReceiverProfileId || !messageSenderProfileId ||usersWithProfiles.length === 0) {
         return null
     }
@@ -93,19 +92,15 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
 
                         ?
                         <>
-                        <h5 className="heading heading_message_tofrom heading_message_to" id={`messageUser--${messageReceiverId}`}>To: <span onClick={() => {
-                            navigate(`profiles/${messageReceiverProfileId}`)
-                        }}className="message_nameLink">{messageReceiverName}</span> </h5>
+                        <h5 className="heading heading_message_tofrom heading_message_to" id={`messageUser--${messageReceiverId}`}>To: <span className="message_nameLink"><Link to={`profiles/${messageReceiverId}`}>{messageReceiverName}</Link></span> </h5>
                         <img className="img img_message" src={messageReceiverPicture}/>
                         </>
                         
 
                         :
                         <>
-                        <h5 className="heading heading_message_tofrom heading_message_from" id={`messageUser--${messageSenderId}`}>From: <span onClick={() => {
-                            navigate(`profiles/${messageSenderId}`)
-                        }}className="message_nameLink">{messageSenderName}</span> </h5>
-                        <img src={messageSenderPicture}/>
+                        <h5 className="heading heading_message_tofrom heading_message_from" id={`messageUser--${messageSenderId}`}>From: <span className="message_nameLink"><Link to={`profiles/${messageSenderId}`}>{messageSenderName}</Link></span> </h5>
+                        <img className="img img_message" src={messageSenderPicture}/>
                         </>
                 }
                 <h6 className="heading heading_message_date">

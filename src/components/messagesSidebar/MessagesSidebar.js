@@ -99,6 +99,22 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
         <>
             <div className="container container_messages_sidebar">
                 <h2 className="heading heading_messages">Messages</h2>
+                <section className="container container_messages_new">
+
+                    {
+                        showNewMessage
+
+                            ?
+
+                            <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage} />
+
+                            :
+
+                            <button type="button" className="btn button_messages_new" id={`btnNewMessage--${0}`} onClick={handleNewMessageShow}>New Message</button>
+
+                    }
+
+                </section>
                 <section className="container container_messages_display">
                     {
                         messages.map(message => <Message        
@@ -123,22 +139,7 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
                     }
 
                 </section>
-                <section className="container container_messages_new">
-
-                    {
-                        showNewMessage
-
-                            ?
-
-                            <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage} />
-
-                            :
-
-                            <button type="button" className="btn button_messages_new" id={`btnNewMessage--${0}`} onClick={handleNewMessageShow}>New Message</button>
-
-                    }
-
-                </section>
+                
             </div>
         </>
     )
