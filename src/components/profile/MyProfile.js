@@ -292,20 +292,6 @@ export const MyProfile = () => {
 
                 <article className="container container_profile_posts_outer">
                     <h3 className="heading heading_profile_posts">Posts</h3>
-                    <ul className="container container_profile_posts_inner">
-                        {
-                            myPosts?.length
-
-                                ?
-
-                                myPosts.sort((a, b) => b.date - a.date).map(post => <PostProfile setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
-
-                                :
-
-                                <li key={`nopostskey`} className="post post_list_item_null"><p className="text text_profile_post_none">User hasn't submitted any posts yet.</p>
-                                </li>
-                        }
-                    </ul>
                     <div className="container container_new_post" id="container_new_post">
                         {
                             showNewPost
@@ -320,6 +306,21 @@ export const MyProfile = () => {
 
                         }
                     </div>
+                    <ul className="container container_profile_posts_inner">
+                        {
+                            myPosts?.length
+
+                                ?
+
+                                myPosts.sort((a, b) => b.date - a.date).map(post => <PostProfile setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
+
+                                :
+
+                                <li key={`nopostskey`} className="post post_list_item_null"><p className="text text_profile_post_none">User hasn't submitted any posts yet.</p>
+                                </li>
+                        }
+                    </ul>
+                    
                 </article>
             </section>
         </>

@@ -52,6 +52,6 @@ img {
 
 .container_messages_sidebar {
     grid-area: sidebar;
-    /* height: 100%; */
+   
 
 }

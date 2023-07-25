@@ -398,6 +398,11 @@
       "profileId": 4,
       "userId": 1,
       "id": 10
+    },
+    {
+      "profileId": 2,
+      "userId": 1,
+      "id": 11
     }
   ],
   "posts": [
@@ -580,6 +585,12 @@
       "body": "Hello!",
       "date": 1690166733441,
       "id": 33
+    },
+    {
+      "profileId": 1,
+      "body": "wasssssssssssssupppppppppppp",
+      "date": 1690255387584,
+      "id": 34
     }
   ],
   "media": [
