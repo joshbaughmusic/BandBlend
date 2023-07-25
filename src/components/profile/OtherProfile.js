@@ -5,7 +5,7 @@ import { PostProfile } from "../posts/PostProfile.js"
 import { SaveButtonProfile } from "./SaveButtonProfile.js"
 import { Distance } from "./Distance.js"
 
-export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage}) => {
+export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage }) => {
     //bringing in these props from maincontainer to handle message button click
 
     //use useParams to get the profile id from url.
@@ -15,6 +15,10 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
     const [profile, setProfile] = useState({})
     const [tags, setTags] = useState([])
     const [subGenres, setSubGenres] = useState([])
+
+    //state to handle photo enlarge
+
+    const [file, setFile] = useState(null)
 
     //fetch currently viewed profile based on param (profileId) with expanded users and primary genre, embeded profileTags and media
 
@@ -69,7 +73,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
 
         setShowNewMessage(true)
 
-        const [,userId] = e.target.id.split('--')
+        const [, userId] = e.target.id.split('--')
 
         const copy = message
         copy.receiverId = parseInt(userId)
@@ -79,7 +83,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
         setMessage(copy)
 
         setSelectedReceiverId(`user--${userId}`)
-        
+
     }
 
 
@@ -92,24 +96,24 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
         <>
             <section className="container container_profile_page">
                 <article className="container container_profile_primary">
-                    <img className="img img_profile_primary" src={profile.picture} />
+                    <img className="img img_profile_primary" src={profile.picture} onClick={() => { setFile(profile.picture) }}/>
                     <div className="container container_heading_profile_primary">
                         <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
                         <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
-                            <Distance profileId={profileId}/>
+                        <Distance profileId={profileId} />
                         {
-                            !profile?.user?.isBand 
+                            !profile?.user?.isBand
 
-                            ?
+                                ?
 
-                            <div className="container container_primary_instrument">
-                            <h4 className="heading heading_profile_primary_primary_instrument">Primary Instrument:</h4>
-                            <h4 className="heading heading_profile_primary_primary_instrument_name">{profile?.primaryInstrument?.name}</h4>
-                        </div>
+                                <div className="container container_primary_instrument">
+                                    <h4 className="heading heading_profile_primary_primary_instrument">Primary Instrument:</h4>
+                                    <h4 className="heading heading_profile_primary_primary_instrument_name">{profile?.primaryInstrument?.name}</h4>
+                                </div>
 
-                            :
+                                :
 
-                            ""
+                                ""
 
                         }
                         <div className="container container_primary_genre">
@@ -120,7 +124,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
 
                     <div className="container container_profile_primary_clickables">
                         <div className="container container_profile_primary_buttons">
-                            <SaveButtonProfile profileId={profileId}/>
+                            <SaveButtonProfile profileId={profileId} />
                             {/* <button type="button" className="btn button_profile_primary_save" onClick={handleSaveButtonClick}>Save</button> */}
                             <button type="button" className="btn button_profile_primary_message" id={`messageUser--${profile?.user?.id}`} onClick={handleMessageClick}>Message</button>
                         </div>
@@ -131,7 +135,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
                         </div> */}
 
                         <div className="container container_profile_primary_socialwidgets">
-                        {
+                            {
                                 profile.spotify
 
                                     ?
@@ -212,7 +216,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
                                 ?
 
                                 profile.media.map(media => {
-                                    return <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} /></div>
+                                    return <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} onClick={() => { setFile(media) }} /></div>
                                 })
 
                                 :
@@ -220,6 +224,14 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
                                 <p className="text text_profile_media_none">User hasn't uploaded additional photos yet.</p>
                         }
                     </div>
+
+                    <div className="popup-media-container" style={{ display: file ? 'block' : 'none'}}>
+                        <span className="icon icon_close icon_close_popup_media" onClick={() => {
+                            setFile(null)
+                        }}>&times;</span>
+                        <img className="img img-popup" src={ file?.url ? file?.url : file} />
+                    </div>
+
                 </article>
 
                 <article className="container container_profile_posts_outer">
@@ -230,7 +242,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
 
                                 ?
 
-                                profile.posts.sort((a,b) => b.date - a.date).map(post => <PostProfile postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userName={profile?.user?.name} userId={profile?.user?.id} postBody={post.body} postDate={post.date} />)
+                                profile.posts.sort((a, b) => b.date - a.date).map(post => <PostProfile postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userName={profile?.user?.name} userId={profile?.user?.id} postBody={post.body} postDate={post.date} />)
 
                                 :
 

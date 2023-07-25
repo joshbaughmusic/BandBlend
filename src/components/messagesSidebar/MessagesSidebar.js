@@ -63,11 +63,6 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
                                 receiverProfileObj: receiverProf
                             }
 
-                            // console.log("sortedMessages:",sortedMessages)
-                            // console.log("receiverProfiles:",receiverProfile)
-                            // console.log("senderProfiles:",senderProfile)
-                            console.log("combinedObj", combinedObj)
-
                             return combinedObj
 
                         });
