@@ -2,13 +2,19 @@ import { useEffect, useState } from "react";
 import "./MessagesSidebar.css"
 import { Message } from "./Message.js";
 import { NewMessage } from "./NewMessage.js";
+import { MessageSearchSort } from "./MessageSortFilter.js";
 
 export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage }) => {
     const [messages, setMessages] = useState([])
-    const [allMessagesPlaceholder, setAllMessagesPlaceholder] = useState([])
-    const [profilesWithUsers, setProfilesWithUsers] = useState([])
 
-    // const [filteredMessages, setFilteredMessages] = useState([])
+    // states to handle and hold filter/sort terms. Passing down into MessageSortFilter.js
+
+    const [searchTerms, setSearchTerms] = useState('')
+    const [sortTerms, setSortTerms] = useState('')
+
+    //state to manage the filtered messages 
+
+    const [filteredMessages, setFilteredMessages] = useState([])
 
 
     const localBbUser = localStorage.getItem("bb_user")
@@ -20,14 +26,12 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
         fetch(`http://localhost:8088/messages`)
             .then((res) => res.json())
             .then((allMessages) => {
-                setAllMessagesPlaceholder(allMessages)
 
                 //get all profiles with expanded users
 
                 fetch(`http://localhost:8088/profiles?_expand=user`)
                     .then((res) => res.json())
                     .then((profsWithUsers) => {
-                        setProfilesWithUsers(profsWithUsers);
 
                         //filter down to just messages the current user has sent or received before setting state
                         const userMessages = allMessages.filter(message => {
@@ -69,7 +73,7 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
                         });
 
                         setMessages(messagesWithProfiles);
-                        // setFilteredMessages(userMessages)
+                        setFilteredMessages(messagesWithProfiles)
 
                     })
 
@@ -77,11 +81,35 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
             });
     }
 
-
-
     useEffect(() => {
         fetchMessages()
     }, []);
+
+
+    //useEffect for search sort purposes
+
+    useEffect(() => {
+
+        //search by name or message body conent
+
+        const searchedMessages = messages.filter(
+            (message) =>
+                message.senderProfileObj.user.name.toLowerCase().includes(searchTerms.toLowerCase()) ||
+                message.receiverProfileObj.user.name.toLowerCase().includes(searchTerms.toLowerCase()) ||
+                message.messageObj.body.toLowerCase().includes(searchTerms.toLowerCase())
+        );
+
+        let filteredData = [...searchedMessages];
+ 
+        if (sortTerms === "newest") {
+            filteredData = filteredData.sort((a, b) => b.messageObj.date - a.messageObj.date);
+        } else if (sortTerms === "oldest") {
+            filteredData = filteredData.sort((a, b) => a.messageObj.date - b.messageObj.date);
+        }
+
+        setFilteredMessages(filteredData);
+    }, [searchTerms, sortTerms]);
+
 
     //handler functions for click events to take care of showing and hiding new message form
 
@@ -115,9 +143,10 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
                     }
 
                 </section>
+                <MessageSearchSort setSearchTerms={setSearchTerms} setSortTerms={setSortTerms}/>
                 <section className="container container_messages_display">
                     {
-                        messages.map(message => <Message        
+                        filteredMessages.map(message => <Message        
                             messageKey={`message--${message.messageObj.id}`}
                             messageId={message.messageObj.id}
                             messageSenderId={message.messageObj.senderId}
