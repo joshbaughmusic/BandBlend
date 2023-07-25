@@ -84,6 +84,8 @@ export const ProfilesAllList = ({
 
     }
 
+    //search sort filter section
+
     useEffect(() => {
 
         //search by name, primaryGenre, or location, instrument, and maybe include about later
