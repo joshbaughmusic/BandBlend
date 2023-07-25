@@ -6,6 +6,8 @@
   box-sizing: border-box;
   text-decoration: none;
   color: rgb(32, 32, 32);
+  /* margin: 0px;
+  padding: 0px; */
 }
 
 body {
@@ -41,12 +43,13 @@ img {
 
 .container_main {
     grid-area: main;
-    height: 100%;
+    /* height: 100%; */
 }
 
 .container_nav {
     grid-area: nav;
-    height: 100%;
+    /* height: 100px; */
+    
 
 }
 

@@ -50,29 +50,93 @@
 
 
 
-
+/* images */
 
 .img_profile_primary {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: rgba(0, 0, 0, 0.617) solid 2px
+    border: rgba(0, 0, 0, 0.617) solid 2px;
+    cursor: pointer;
+}
+
+.container_profile_additional_img {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: rgba(0, 0, 0, 0.617) solid 2px;
+    position: relative;
+    
 }
 
 .profile_img_item {
+    border: none;
     border-radius: 10px;
     width: 150px;
     height: 150px;
-
+    object-fit: cover;
+    transition: all 0.3s linear;
+    cursor: pointer;
 
 }
 
-/* .profile_img_item:hover {
-    width: 700px;
-    position: absolute;
-} */
+.profile_img_item:hover {
+    transform: scale(1.1)
+    
+}
 
 .img_profile_primary_socialwidget {
     width: 15%;
     border: none;
 }
+
+/* end images */
+
+
+/* popup image styles */
+
+.popup-media-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+.img-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+.icon_close_popup_media {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 50px;
+    font-weight: bolder;
+    z-index: 100%;
+    cursor: pointer;
+    color: white;
+    user-select: none;
+    transition: all 0.3s linear;
+
+}
+
+.icon_close_popup_media:hover {
+    transform: scale(1.1);
+    color: #b3afaf;
+
+}
+
+/* end popup image styles*/

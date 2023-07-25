@@ -23,8 +23,8 @@ export const Distance = ({ profileId }) => {
                     .then(data => {
                         const rawProfileObject = data;
                         //get rid of the space in the locations for both rawUserLocation and profileLocation
-                        const userLocation = rawUserObject[0].location.split(' ').join('');
-                        const profileLocation = rawProfileObject[0].location.split(' ').join('');
+                        const userLocation = rawUserObject[0].location;
+                        const profileLocation = rawProfileObject[0].location;
     
                         if (userLocation === profileLocation) {
                             setCalculatedMiles('0');
