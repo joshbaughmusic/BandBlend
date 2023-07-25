@@ -1,0 +1,22 @@
+.container_profile_distance {
+    display: flex;
+    align-items: center;
+}
+
+.icon_loading {
+    width: 30px;
+    height: 30px;
+    align-self: center;
+}
+
+.icon_distance {
+    height: 30px;
+    width: 30px;
+    border: none;
+    margin-right: 10px;
+}
+
+.text_profile_distance {
+    font-style: italic;
+
+}
