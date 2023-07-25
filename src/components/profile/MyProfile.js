@@ -272,9 +272,9 @@ export const MyProfile = () => {
                                 media.map(media => {
                                     return (
                                         <>
-                                            <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} onClick={() => { setFile(media) }}/></div>
+                                            <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} onClick={() => { setFile(media) }}/><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClick}>&times;</span></div>
 
-                                            <div className="container container_add_photos_buttons"><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClick}>&times;</span></div>
+                                            
                                         </>
                                     )
                                 })

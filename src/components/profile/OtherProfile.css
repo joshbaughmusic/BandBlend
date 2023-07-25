@@ -56,7 +56,8 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: rgba(0, 0, 0, 0.617) solid 2px
+    border: rgba(0, 0, 0, 0.617) solid 2px;
+    cursor: pointer;
 }
 
 .container_profile_additional_img {
@@ -64,7 +65,9 @@
     height: 150px;
     overflow: hidden;
     border-radius: 10px;
-    border: rgba(0, 0, 0, 0.617) solid 2px
+    border: rgba(0, 0, 0, 0.617) solid 2px;
+    position: relative;
+    
 }
 
 .profile_img_item {
@@ -74,6 +77,8 @@
     height: 150px;
     object-fit: cover;
     transition: all 0.3s linear;
+    cursor: pointer;
+
 }
 
 .profile_img_item:hover {
