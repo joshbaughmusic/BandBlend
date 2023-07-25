@@ -260,9 +260,9 @@
       "id": 11,
       "userId": 11,
       "picture": "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjJ8fG11c2ljaWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      "location": "London, UK",
+      "location": "Orland, FL",
       "primaryInstrumentId": 12,
-      "about": "Maxwell Reed is a talented singer-songwriter from London, UK, who weaves poetic lyrics into his heartfelt acoustic melodies.",
+      "about": "Maxwell Reed is a talented singer-songwriter from Orland, who weaves poetic lyrics into his heartfelt acoustic melodies.",
       "primaryGenreId": 9,
       "featuredSong": "https://www.youtube.com/watch?v=maxwellreed",
       "spotify": "https://open.spotify.com/artist/maxwellreed",
@@ -384,11 +384,6 @@
     }
   ],
   "savedProfiles": [
-    {
-      "profileId": 4,
-      "userId": 1,
-      "id": 3
-    },
     {
       "profileId": 4,
       "userId": 2,

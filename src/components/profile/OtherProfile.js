@@ -3,6 +3,7 @@ import "./OtherProfile.css"
 import { Link, useParams } from "react-router-dom"
 import { PostProfile } from "../posts/PostProfile.js"
 import { SaveButtonProfile } from "./SaveButtonProfile.js"
+import { Distance } from "./Distance.js"
 
 export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage}) => {
     //bringing in these props from maincontainer to handle message button click
@@ -95,6 +96,7 @@ export const OtherProfile = ({message, setMessage, selectedReceiverId, setSelect
                     <div className="container container_heading_profile_primary">
                         <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
                         <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
+                            <Distance profileId={profileId}/>
                         {
                             !profile?.user?.isBand 
 
