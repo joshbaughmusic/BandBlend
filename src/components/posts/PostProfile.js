@@ -3,6 +3,7 @@ import "./Post.css"
 import { useEffect, useState } from "react"
 import { Comment } from "./Comment.js"
 import "./PostProfile.css"
+import { NewComment } from "./NewComment.js"
 
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage.
 
@@ -18,7 +19,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
     //fetch all users with embed profiles in a separate function to pass it down to Comment so on deletion it can rerender them
 
-    const getAllPosts = () => {
+    const getAllComments = () => {
         fetch(`http://localhost:8088/users?_embed=profiles`)
             .then(res => res.json())
             .then(data => {
@@ -63,7 +64,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     }
 
     useEffect(() => {
-        getAllPosts()
+        getAllComments()
     }, [])
 
 
@@ -85,6 +86,22 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                     })
             })
+    }
+
+    const handleOpenNewCommentFormButtonClick = e => {
+        const [,postIdToOpenNewCommentFor] = e.target.id.split('--')
+
+        const formToOpen = document.getElementById(`newCommentForm--${postIdToOpenNewCommentFor}`)
+
+        formToOpen.classList.add("show")
+
+        // hide reply button
+
+        const buttonToHide = document.getElementById(`openNewCommentBtn--${postIdToOpenNewCommentFor}`)
+
+        buttonToHide.classList.remove("show")
+
+
     }
     
 
@@ -138,7 +155,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                            commentProfileId={comment.userObj.profiles[0].id}
                            commentUserId={comment.userObj.id}
                            commentKey={`comment--${comment.commentObj.Id}`}
-                           getAllPosts={getAllPosts}
+                           getAllComments={getAllComments}
                             />
                         }
                     })
@@ -156,7 +173,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                 <p className="text text_post_date">{convertTimestamp(postDate)}</p>
                 <p className="text text_post_body">{postBody}</p>
             </div>
-            <div className="container container_comments" id={`comments--${postId}`}>
+            <div className="container container_commentsSection" id={`commentsSection--${postId}`}>
                 {
                     commentsWithUsers.map(comment => {
                         if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
@@ -170,12 +187,14 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                            commentPicture={comment.userObj.profiles[0].picture}
                            commentProfileId={comment.userObj.profiles[0].id}
                            commentKey={`comment--${comment.commentObj.Id}`}
-                           getAllPosts={getAllPosts}
+                           getAllComments={getAllComments}
                             />
                         }
                     })
                 }
             </div> 
+            <NewComment postId={postId} getAllComments={getAllComments}/>
+            <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Reply</button>
             </div>
         </>
     }

@@ -1,0 +1,12 @@
+/* set default visibilty of new form to hidden and 0 max height, have that change when show class gets added.*/
+
+.form_new_comment {
+    visibility: hidden;
+    max-height: 0;
+}
+
+.form_new_comment.show {
+    visibility: visible;
+    max-height: 100%;
+}
+
