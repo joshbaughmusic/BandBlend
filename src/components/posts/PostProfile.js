@@ -16,9 +16,9 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
     //fetch all users and comments and match them up with each other
 
-    //fetch all users with embed profiles
+    //fetch all users with embed profiles in a separate function to pass it down to Comment so on deletion it can rerender them
 
-    useEffect(() => {
+    const getAllPosts = () => {
         fetch(`http://localhost:8088/users?_embed=profiles`)
             .then(res => res.json())
             .then(data => {
@@ -60,6 +60,10 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     })
 
             })
+    }
+
+    useEffect(() => {
+        getAllPosts()
     }, [])
 
 
@@ -134,6 +138,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                            commentProfileId={comment.userObj.profiles[0].id}
                            commentUserId={comment.userObj.id}
                            commentKey={`comment--${comment.commentObj.Id}`}
+                           getAllPosts={getAllPosts}
                             />
                         }
                     })
@@ -165,6 +170,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                            commentPicture={comment.userObj.profiles[0].picture}
                            commentProfileId={comment.userObj.profiles[0].id}
                            commentKey={`comment--${comment.commentObj.Id}`}
+                           getAllPosts={getAllPosts}
                             />
                         }
                     })
