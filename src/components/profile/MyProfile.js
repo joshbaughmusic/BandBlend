@@ -144,9 +144,24 @@ export const MyProfile = () => {
         <>
             <section className="container container_profile_page">
                 <article className="container container_profile_primary">
-                    <img className="img img_profile_primary" src={profile.picture} onClick={() => { setFile(profile.picture)}}/>
+
+                    <div className="container container_img_profile_primary">
+                        <img className="img img_profile_primary" src={profile.picture} onClick={() => { setFile(profile.picture) }} />
+                    </div>
+
                     <div className="container container_heading_profile_primary">
                         <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
+                        {
+                            bBUserObject.isBand
+
+                                ?
+
+                                <h5 className="heading heading_profile_isBand">Band</h5>
+
+                                :
+
+                                <h5 className="heading heading_profile_isBand">Musician</h5>
+                        }
                         <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
                         {
                             !profile?.user?.isBand
@@ -272,9 +287,9 @@ export const MyProfile = () => {
                                 media.map(media => {
                                     return (
                                         <>
-                                            <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} onClick={() => { setFile(media) }}/><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClick}>&times;</span></div>
+                                            <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClick}>&times;</span></div>
 
-                                            
+
                                         </>
                                     )
                                 })
@@ -283,13 +298,13 @@ export const MyProfile = () => {
 
                                 <p className="text text_profile_media_none">User hasn't uploaded additional photos yet.</p>
                         }
-                        
-                        <div className="popup-media-container" style={{ display: file ? 'block' : 'none'}}>
-                        <span className="icon icon_close icon_close_popup_media" onClick={() => {
-                            setFile(null)
-                        }}>&times;</span>
-                        <img className="img img-popup" src={ file?.url ? file?.url : file} />
-                    </div>
+
+                        <div className="popup-media-container" style={{ display: file ? 'block' : 'none' }}>
+                            <span className="icon icon_close icon_close_popup_media" onClick={() => {
+                                setFile(null)
+                            }}>&times;</span>
+                            <img className="img img-popup" src={file?.url ? file?.url : file} />
+                        </div>
 
                     </div>
                     <div className="container container_new_photo" id="container_new_photo">
