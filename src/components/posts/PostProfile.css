@@ -1,3 +1,15 @@
+/* hide and show reply button  */
+.btn_reply_comment.show {
+    visibility: visible;
+    max-height: 100%;
+}
+
+.btn_reply_comment {
+    visibility: hidden;
+    max-height: 0;
+}
+
+
 .container_comments {
     padding-left: 20px;
 }

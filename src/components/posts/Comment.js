@@ -3,7 +3,7 @@ import { ReactComponent as ArrowUpturnRight } from "../../images/svg/arrow_uptur
 import { ReactComponent as ArrowUpturnLeft } from "../../images/svg/arrow_upturn_left.svg"
 import "./Comment.css"
 
-export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, posterProfileId, commentId, commentBody, commentDate, commentName, commentPicture, commentProfileId, commentUserId, commentKey, getAllPosts }) => {
+export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, posterProfileId, commentId, commentBody, commentDate, commentName, commentPicture, commentProfileId, commentUserId, commentKey, getAllComments }) => {
 
     console.log(commentId)
 
@@ -47,7 +47,7 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
         })
             .then(() => {
                 //refetch all comments
-                getAllPosts()
+                getAllComments()
                 
             })
     }
