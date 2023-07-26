@@ -49,6 +49,12 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                             return combinedCommentUserObj
                         })
 
+                        //sort matchedCommentsWithUsers by date
+
+                        const sortedMatchedCommentsWithUsers = matchedCommentsWithUsers.sort((a,b) => {
+                            return b.commentObj.date - a.commentObj.date
+                        })
+
                         setCommentsWithUsers(matchedCommentsWithUsers)
 
                     })
