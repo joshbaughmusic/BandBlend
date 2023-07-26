@@ -87,7 +87,13 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
 
                     ?
 
+                    <>
                     <button className="btn btn_delete btn_delete_comment" id={`comment--${commentId}`} onClick={handleCommentDeleteClick}>Delete Comment</button>
+
+                    <button className="btn btn_edit btn_edit_comment" id={`comment--${commentId}`} onClick={() => {
+                        navigate(`../edit/comment/${commentId}`)
+                    }}>Edit Comment</button>
+                    </>
 
                     :
 

@@ -26,6 +26,13 @@ export const NewComment = ({ postId, getAllComments }) => {
 
         buttonToShow.classList.add("show")
 
+        // clears out value of new comment text area and updates the textarea directly
+        const textarea = document.querySelector(`#newCommentForm--${postId} textarea`);
+        textarea.value = "";
+        setNewComment({
+            body: ""
+        });
+
     }
 
     //handle new comment submit
@@ -53,6 +60,13 @@ export const NewComment = ({ postId, getAllComments }) => {
                     //refetch all comments
                     getAllComments()
 
+                    // clears out value of new comment text area and updates the textarea directly
+                    const textarea = document.querySelector(`#newCommentForm--${postId} textarea`);
+                    textarea.value = "";
+                    setNewComment({
+                        body: ""
+                    });
+
                     //close form
 
                     const [, postIdToCloseNewCommentFor] = e.target.id.split('--')
@@ -62,8 +76,11 @@ export const NewComment = ({ postId, getAllComments }) => {
                     formToClose.classList.remove("show")
 
 
-                    //clears out value of new post text area
-                    setNewComment("")
+                    //show reply button
+
+                    const buttonToShow = document.getElementById(`openNewCommentBtn--${postIdToCloseNewCommentFor}`)
+
+                    buttonToShow.classList.add("show")
                 })
         } else {
             window.alert("New post cannot be blank.")
