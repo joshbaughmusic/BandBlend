@@ -1,0 +1,29 @@
+.container_comment_card {
+    margin: 10px 0px 20px 0px;
+    border: black solid 1px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(141, 152, 162, 0.729);
+}
+
+.container_comment_heading {
+    display: flex;
+    align-items: center;
+    max-height: 50px;  
+}
+
+.icon_comment_arrowup {
+    width: 20px;
+    padding-bottom: 8px;
+}
+
+.img_commentor {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.heading_comment_name {
+    margin-left: 10px;
+}

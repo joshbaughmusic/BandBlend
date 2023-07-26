@@ -82,8 +82,6 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
         return null
     }
 
-    console.log("receiverProfId", messageReceiverProfileId)
-
     return (
         <>
             <article key={messageKey} className="container container_message_card">
