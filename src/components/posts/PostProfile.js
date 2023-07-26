@@ -82,13 +82,12 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     }
 
     useEffect(() => {
-        getAllComments()
-    }, [])
-
-    useEffect(() => {
         getAllLikes()
     }, [])
-
+    
+    useEffect(() => {
+        getAllComments()
+    }, [])
 
     //use effect to set state of whether or not current user has like the post already or not so the right html can be generated below
 
@@ -215,15 +214,24 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     <h4 className="heading heading_post_name">{userName}</h4>
                     <p className="text text_post_date">{convertTimestamp(postDate)}</p>
                     {
-                        likes.length
+                            !likes.length 
 
                             ?
-
-                            <p className="text text_post_likecount">{likes.length} likes</p>
+                            
+                            <p className="text text_post_likecount">Nobody has liked this yet.</p>
 
                             :
 
-                            <p className="text text_post_likecount">Nobody has liked this yet.</p>
+                            likes.length === 1
+
+                            ?
+
+                            <p className="text text_post_likecount">{likes.length} like</p>
+                            
+                            :
+                            
+                            <p className="text text_post_likecount">{likes.length} likes</p>
+
                     }
                     <p className="text text_post_date">{postBody}</p>
                     <button className="btn btn_edit bten_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit Post</button>
@@ -262,15 +270,24 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     <h4 className="heading heading_post_name">{userName}</h4>
                     <p className="text text_post_date">{convertTimestamp(postDate)}</p>
                     {
-                        likes.length
+                            !likes.length 
 
                             ?
-
-                            <p className="text text_post_likecount">{likes.length} likes</p>
+                            
+                            <p className="text text_post_likecount">Be the first to like this!</p>
 
                             :
 
-                            <p className="text text_post_likecount">Be the first to like this!</p>
+                            likes.length === 1
+
+                            ?
+
+                            <p className="text text_post_likecount">{likes.length} like</p>
+                            
+                            :
+                            
+                            <p className="text text_post_likecount">{likes.length} likes</p>
+
                     }
                     <p className="text text_post_body">{postBody}</p>
                 </div>

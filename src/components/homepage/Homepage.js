@@ -99,7 +99,12 @@ export const Homepage = () => {
 
                                 ?
 
-                                profilesWithPostsAttached.map(profileWithPost => <PostHome key={`profileWithPost--${profileWithPost.id}`} profileId={profileWithPost.profileId} userPicture={profileWithPost.picture} userName={profileWithPost?.user?.name} userId={profileWithPost?.user?.id} postBody={profileWithPost.body} postDate={profileWithPost.date} />)
+                                profilesWithPostsAttached.map(profileWithPost => <PostHome 
+                                    key={`profileWithPost--${profileWithPost.id}`} 
+                                    profileId={profileWithPost.profileId} userPicture={profileWithPost.picture} userName={profileWithPost?.user?.name} userId={profileWithPost?.user?.id} 
+                                    postId={profileWithPost.id}
+                                    postBody={profileWithPost.body} 
+                                    postDate={profileWithPost.date} />)
 
                                 :
 
