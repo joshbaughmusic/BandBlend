@@ -1098,6 +1098,38 @@
       "id": 66
     }
   ],
+  "likes": [
+    {
+      "id": 2,
+      "userId": 3,
+      "postId": 5,
+      "date": 1690392906738
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "postId": 5,
+      "date": 1690392906738
+    },
+    {
+      "id": 4,
+      "userId": 5,
+      "postId": 5,
+      "date": 1690392906738
+    },
+    {
+      "userId": 1,
+      "postId": 35,
+      "date": 1690404837305,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "postId": 33,
+      "date": 1690404839489,
+      "id": 8
+    }
+  ],
   "profileTags": [
     {
       "id": 7,

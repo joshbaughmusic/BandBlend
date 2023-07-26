@@ -10,6 +10,20 @@
 }
 
 
+
+
 .container_comments {
     padding-left: 20px;
+}
+
+.icon_like {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+}
+
+.text_post_likecount {
+    font-weight: bold;
 }
