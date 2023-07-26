@@ -52,12 +52,29 @@
 
 /* images */
 
+.container_img_profile_primary {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: rgba(0, 0, 0, 0.617) solid 2px;
+    position: relative;
+    border-radius: 50%;
+}
+
 .img_profile_primary {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-    border: rgba(0, 0, 0, 0.617) solid 2px;
+    border: none;
     cursor: pointer;
+    object-fit: cover;
+    transition: all 0.3s linear;
+
+}
+
+.img_profile_primary:hover {
+    transform: scale(1.07)
+    
 }
 
 .container_profile_additional_img {
@@ -82,7 +99,7 @@
 }
 
 .profile_img_item:hover {
-    transform: scale(1.1)
+    transform: scale(1.07)
     
 }
 

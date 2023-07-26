@@ -96,9 +96,25 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
         <>
             <section className="container container_profile_page">
                 <article className="container container_profile_primary">
-                    <img className="img img_profile_primary" src={profile.picture} onClick={() => { setFile(profile.picture) }}/>
+
+                    <div className="container container_img_profile_primary">
+                        <img className="img img_profile_primary" src={profile.picture} onClick={() => { setFile(profile.picture) }} />
+                    </div>
+
                     <div className="container container_heading_profile_primary">
                         <h2 className="heading heading_profile_primary_name">{profile?.user?.name}</h2>
+                        {
+                            profile.user?.isBand
+
+                                ?
+
+                                <h5 className="heading heading_profile_isBand">Band</h5>
+
+                                :
+
+                                <h5 className="heading heading_profile_isBand">Musician</h5>
+
+                        }
                         <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
                         <Distance profileId={profileId} />
                         {
@@ -225,11 +241,11 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
                         }
                     </div>
 
-                    <div className="popup-media-container" style={{ display: file ? 'block' : 'none'}}>
+                    <div className="popup-media-container" style={{ display: file ? 'block' : 'none' }}>
                         <span className="icon icon_close icon_close_popup_media" onClick={() => {
                             setFile(null)
                         }}>&times;</span>
-                        <img className="img img-popup" src={ file?.url ? file?.url : file} />
+                        <img className="img img-popup" src={file?.url ? file?.url : file} />
                     </div>
 
                 </article>
