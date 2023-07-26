@@ -8,6 +8,7 @@ import { EditTags } from "../profile/EditTags.js"
 import { EditSubGenres } from "../profile/EditSubGenres.js"
 import { EditPrimaryInfo } from "../profile/EditPrimaryInfo.js"
 import { ProfileAllListContainer } from "../profile/ProfilesAllListContainer.js"
+import { EditComment } from "../posts/EditComment.js"
 
 
 export const MainContent = ({message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage}) => {
@@ -27,6 +28,7 @@ export const MainContent = ({message, setMessage, selectedReceiverId, setSelecte
                 <Route path="myprofile/edit/tags/:profileId" element={<EditTags />} />
                 <Route path="myprofile/edit/subgenres/:profileId" element={<EditSubGenres />} />
                 <Route path="profiles/:profileId" element={<OtherProfile message={message} setMessage={setMessage} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} showNewMessage={showNewMessage} setShowNewMessage={setShowNewMessage}/>} />
+                <Route path="edit/comment/:commentId" element={<EditComment />} />
             </Routes>
             </main>
             

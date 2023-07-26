@@ -53,7 +53,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         //sort matchedCommentsWithUsers by date
 
                         const sortedMatchedCommentsWithUsers = matchedCommentsWithUsers.sort((a,b) => {
-                            return b.commentObj.date - a.commentObj.date
+                            return a.commentObj.date - b.commentObj.date
                         })
 
                         setCommentsWithUsers(matchedCommentsWithUsers)
@@ -146,6 +146,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     commentsWithUsers.map(comment => {
                         if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
                            return <Comment
+                           fullCommentObj={comment}
                            posterId={userId} 
                            posterName={userName} 
                            posterPicture={userPicture} posterProfileId={myProfileId} 
@@ -153,7 +154,6 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                            commentName={comment.userObj.name} 
                            commentPicture={comment.userObj.profiles[0].picture}
                            commentProfileId={comment.userObj.profiles[0].id}
-                           commentUserId={comment.userObj.id}
                            commentKey={`comment--${comment.commentObj.Id}`}
                            getAllComments={getAllComments}
                             />
@@ -161,6 +161,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     })
                 }
             </div>  
+            <NewComment postId={postId} getAllComments={getAllComments}/>
+            <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Reply</button>
             </div>
         </>
     } else {
