@@ -3,7 +3,9 @@ import { ReactComponent as ArrowUpturnRight } from "../../images/svg/arrow_uptur
 import { ReactComponent as ArrowUpturnLeft } from "../../images/svg/arrow_upturn_left.svg"
 import "./Comment.css"
 
-export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, posterProfileId, commentId, commentBody, commentDate, commentName, commentPicture, commentProfileId, commentUserId, commentKey }) => {
+export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, posterProfileId, commentId, commentBody, commentDate, commentName, commentPicture, commentProfileId, commentUserId, commentKey, getAllPosts }) => {
+
+    console.log(commentId)
 
     
     const localBbUser = localStorage.getItem("bb_user")
@@ -30,6 +32,25 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
 
         return formattedDate;
     };
+
+    // handler event for delete comment click
+
+    const handleCommentDeleteClick = e => {
+        e.preventDefault()
+
+        const [, commentId] = e.target.id.split('--')
+
+        const parsed = parseInt(commentId)
+
+        return fetch(`http://localhost:8088/comments/${parsed}`, {
+            method: "DELETE",
+        })
+            .then(() => {
+                //refetch all comments
+                getAllPosts()
+                
+            })
+    }
 
 
     return (
@@ -59,6 +80,19 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
                 <div className="container container_comment_body">
                     <p className="text_comment_body">{commentBody}</p>
                 </div>
+                {
+                    //if current user is the creator of comment, show delete button
+
+                    fullCommentObj?.userObj.id === bBUserObject.id
+
+                    ?
+
+                    <button className="btn btn_delete btn_delete_comment" id={`comment--${commentId}`} onClick={handleCommentDeleteClick}>Delete Comment</button>
+
+                    :
+
+                    ""
+                }
             </div>
         </>
     )
