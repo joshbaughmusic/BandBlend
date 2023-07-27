@@ -2,6 +2,8 @@
 
 .heading_app_title {
     width: 75%;
+    max-width: 900px;
+    margin-top: 20px;
 }
 
 .container_hero {
@@ -41,7 +43,7 @@
     border: black solid 2px;
     border-radius: 10px;
     width: 80%;
-    padding: 20px;
+    /* padding: 20px; */
 } 
 
 /* end latest posts container */

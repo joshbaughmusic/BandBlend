@@ -8,10 +8,12 @@ img.logo {
     justify-content: space-between;
     padding: 5px;
     border-bottom: 2px black solid;
-    /* position: fixed;
+    height: 100px;
+    position: fixed;
     width: 100%;
-    background-color: blanchedalmond;
-    z-index: 100; */
+    background-color: rgb(122, 157, 174);
+    z-index: 100;
+    top: 0
 }
 
 .nav_list {
@@ -24,7 +26,6 @@ img.logo {
     text-decoration: none;
     padding: 10px;
     align-self: center;
-    
 }
 
 a {

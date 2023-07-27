@@ -1,8 +1,13 @@
 /* flex setup and basic container layout */
 
+.container_all_profiles_and_search {
+}
+
 .container_allProfiles {
     display: flex;
     flex-direction: column;
+    height: 100%;
+
 }
 
 .container_profile_card {
@@ -12,11 +17,6 @@
     border-radius: 20px;
     margin: 10px;
 
-}
-
-.container_allProfiles {
-    overflow-y: scroll;
-    height: 85vh;
 }
 
 .img_profileCard {

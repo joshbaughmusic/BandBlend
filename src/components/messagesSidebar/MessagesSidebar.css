@@ -1,3 +1,19 @@
 .container_messages_sidebar {
+    position: fixed;
+    width: 30%;
+    max-width: 450px;
+    height: 100vh;
     border-left: black 2px solid;
+    right: -100%;
+    transition: right linear 850ms;
+    /* margin-top: 100px; */
+    background-color: rgb(122, 157, 174);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.container_messages_sidebar.active {
+    right: 0;
+    transition: right linear 450ms;
 }

@@ -17,32 +17,3 @@ a:hover {
 body {
   background-color: rgb(174, 187, 197);
 }
-
-/* grid setup */
-
-.container_grid_all {
-  display: grid;
-  grid-template-areas:
-    'nav nav'
-    'main sidebar';  
-  grid-template-columns: 8fr 2.5fr;
-  grid-template-rows: 1fr 9fr;
-  height: 100vh
-}
-
-.container_main {
-    grid-area: main;
-    /* margin-top: 100px; */
-}
-
-.container_nav {
-    grid-area: nav;
-}
-
-.container_messages_sidebar {
-    grid-area: sidebar;
-    /* margin-top: 100px; */
-
-}
-
-/* end grid setup */
