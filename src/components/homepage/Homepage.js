@@ -75,6 +75,8 @@ export const Homepage = () => {
                         <img className="heading heading_app_title" src={require("../../images/bb_text_logo.png")}/>
                         <h2 className="heading heading_app_subheading">Fusing Musicians for Masterpieces</h2>
                     </header>
+                        <HomeSearchbar />
+                </section>
                     <div className="container container_greeting">
                         {
                             bBUserObject.isBand === true
@@ -89,10 +91,8 @@ export const Homepage = () => {
 
                         }
                     </div>
-                </section>
-                        <HomeSearchbar />
                 <section className="container container_home_latest_posts_outer">
-                    <h3 className="heading heading_home_latest_posts">Latest Posts</h3>
+                    <h3 className="heading heading_home_latest_posts">Latest Posts:</h3>
                     <ul className="container container_home_latest_posts_inner">
                         {
                             profilesWithPostsAttached?.length
@@ -111,6 +111,7 @@ export const Homepage = () => {
                                 ''
                         }
                     </ul>
+                    
                 </section>
             </section>
 

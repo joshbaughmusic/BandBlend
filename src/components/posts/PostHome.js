@@ -100,50 +100,61 @@ export const PostHome = ({ userName, profileId, userPicture, postBody, postId, p
         return formattedDate;
     };
 
+    if (!likes) {
+        return null
+    }
 
 
     return <>
-        <li key={postKey} className="post_list_item">
-            <Link to={`/profiles/${profileId}`}><img className="img img_post_picture" src={userPicture} /></Link>
-            <Link to={`/profiles/${profileId}`}><h4 className="heading heading_post_name">{userName}</h4></Link>
-            <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+        <div className="container container_post container_post_home" key={postKey} id={`post--${postId}`}>
+            <div className="container container_heading_post">
+                <div className="container container_post_img_name">
+                    <Link to={`/profiles/${profileId}`}><img className="img img_post_picture" src={userPicture} /></Link>
+                    <Link to={`/profiles/${profileId}`}><h4 className="heading heading_post_name">{userName}</h4></Link>
+                </div>
+                <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+            </div>
+            <p className="text text_post_body">{postBody}</p>
+            <div className="container container_footer_post">
+                <section className="container container_post_like_section">
+                    <div className="container container_post_like_icon">
+
+                        {
+                            userLikeObj
+
+                                ?
+
+                                <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick} />
+
+                                :
+
+                                <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick} />
+
+                        }
+                    </div>
                     {
-                            !likes.length 
+                        !likes.length
 
                             ?
-                            
+
                             <p className="text text_post_likecount">Be the first to like this!</p>
 
                             :
 
                             likes.length === 1
 
-                            ?
+                                ?
 
-                            <p className="text text_post_likecount">{likes.length} like</p>
-                            
-                            :
-                            
-                            <p className="text text_post_likecount">{likes.length} likes</p>
+                                <p className="text text_post_likecount">{likes.length} like</p>
+
+                                :
+
+                                <p className="text text_post_likecount">{likes.length} likes</p>
 
                     }
-            <p className="text text_post_body">{postBody}</p>
-            <div className="container container_like_icon">
-
-                {
-                    userLikeObj
-
-                        ?
-
-                        <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick}/>
-
-                        :
-
-                        <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick}/>
-
-                }
-                </div>
-        </li>
+                </section>
+            </div>
+        </div>
     </>
 
 }

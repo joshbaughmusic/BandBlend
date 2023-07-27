@@ -8,6 +8,10 @@ img.logo {
     justify-content: space-between;
     padding: 5px;
     border-bottom: 2px black solid;
+    /* position: fixed;
+    width: 100%;
+    background-color: blanchedalmond;
+    z-index: 100; */
 }
 
 .nav_list {

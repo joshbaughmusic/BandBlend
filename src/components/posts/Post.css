@@ -1,3 +1,86 @@
+/* containers */
+
+.container_post {
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 0.5rem 0;
+}
+
+.container_post_home {
+    margin: 20px 0;
+}
+
+.container_heading_post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.container_post_img_name {
+    display: flex;
+    align-items: center;
+}
+
+.container_post_like_section {
+    display: flex;
+}
+
+.container_footer_post {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.container_commentsSection {
+    padding-left: 20px;
+}
+
+/* end containers */
+
+
+/* images and icons */
+
 .img_post_picture {
     width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: solid black 2px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.icon_like {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    margin-right: 0.5rem;
+}
+
+/* end images and icons */
+
+
+/* hide and show reply button  */
+.btn_reply_comment.show {
+    visibility: visible;
+    max-height: 100%;
+}
+
+.btn_reply_comment {
+    visibility: hidden;
+    max-height: 0;
+}
+
+/* end hide and show reply button  */
+
+
+.text_post_likecount {
+    font-weight: bold;
+}
+
+.text_post_date {
+    font-size:0.9rem;
 }
