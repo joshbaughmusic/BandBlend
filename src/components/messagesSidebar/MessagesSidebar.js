@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import { IconContext } from "react-icons";
 import "./MessagesSidebar.css"
 import { Message } from "./Message.js";
 import { NewMessage } from "./NewMessage.js";
 import { MessageSearchSort } from "./MessageSortFilter.js";
 
-export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage }) => {
+export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, showSidebar }) => {
+
     const [messages, setMessages] = useState([])
 
     // states to handle and hold filter/sort terms. Passing down into MessageSortFilter.js
@@ -120,8 +124,11 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
 
     return (
         <>
-            <div className="container container_messages_sidebar">
+            <div className={sidebar ? "container container_messages_sidebar active" : "container container_messages_sidebar" }>
+                <div className="container container_messages_header">
                 <h2 className="heading heading_messages">Messages</h2>
+                <AiIcons.AiOutlineClose onClick={showSidebar}/>
+                </div>
                 <section className="container container_messages_new">
 
                     {

@@ -220,37 +220,40 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         <p className="text text_post_body">{postBody}</p>
                     </section>
                     <div className="container container_footer_post">
-                    <section className="container container_post_like_section">
-                        {
-                            !likes.length
-
-                                ?
-
-                                <p className="text text_post_likecount">Nobody has liked this yet.</p>
-
-                                :
-
-                                likes.length === 1
+                        <section className="container container_post_like_section">
+                            {
+                                !likes.length
 
                                     ?
 
-                                    <p className="text text_post_likecount">{likes.length} like</p>
+                                    <p className="text text_post_likecount">Nobody has liked this yet.</p>
 
                                     :
 
-                                    <p className="text text_post_likecount">{likes.length} likes</p>
+                                    likes.length === 1
 
-                        }
-                    </section>
+                                        ?
 
-                    {/* open comment box button below*/}
-                    <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+                                        <p className="text text_post_likecount">{likes.length} like</p>
 
-                    {/* edit and delete buttons */}
-                    <button className="btn btn_edit btn_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit Post</button>
-                    <button id={`postDelete--${postId}`} className="btn btn_delete" onClick={handleDeletePostClick}>Delete Post</button>
+                                        :
 
-                </div>
+                                        <p className="text text_post_likecount">{likes.length} likes</p>
+
+                            }
+                        </section>
+                        <div className="container container_post_myprofile_all_buttons">
+
+                            {/* open comment box button below*/}
+                            <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+
+                            {/* edit and delete buttons */}
+                            <div className="container container_post_myprofile_edit-delete_buttons">
+                                <button className="btn btn_edit btn_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit Post</button>
+                                <button id={`postDelete--${postId}`} className="btn btn_delete" onClick={handleDeletePostClick}>Delete Post</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <NewComment postId={postId} getAllComments={getAllComments} />

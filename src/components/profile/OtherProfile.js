@@ -5,7 +5,7 @@ import { PostProfile } from "../posts/PostProfile.js"
 import { SaveButtonProfile } from "./SaveButtonProfile.js"
 import { Distance } from "./Distance.js"
 
-export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage }) => {
+export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, setSidebar }) => {
     //bringing in these props from maincontainer to handle message button click
 
     //use useParams to get the profile id from url.
@@ -81,7 +81,7 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
         copy.date = 0
         copy.id = ''
         setMessage(copy)
-
+        setSidebar(true)
         setSelectedReceiverId(`user--${userId}`)
 
     }
@@ -142,7 +142,8 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
                         <div className="container container_profile_primary_buttons">
                             <SaveButtonProfile profileId={profileId} />
                             {/* <button type="button" className="btn button_profile_primary_save" onClick={handleSaveButtonClick}>Save</button> */}
-                            <button type="button" className="btn button_profile_primary_message" id={`messageUser--${profile?.user?.id}`} onClick={handleMessageClick}>Message</button>
+                            <button type="button" className="btn button_profile_primary_message" id={`messageUser--${profile?.user?.id}`} onClick={handleMessageClick}
+                            >Message</button>
                         </div>
                         {/* <div className="container container_profile_primary_song">
                             {

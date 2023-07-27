@@ -4,12 +4,23 @@
     border: solid black 2px;
     border-radius: 10px;
     padding: 15px;
-    margin: 0.5rem 0;
+    background-color: rgba(141, 152, 162, 0.729);
+
 }
 
-.container_post_home {
-    margin: 20px 0;
+.container_post_profile {
+    margin-top: 20px;
 }
+
+.container_post_home:nth-of-type(1),
+.container_post_home:nth-of-type(3) {
+    margin: 20px 20px;
+}
+
+.container_post_home:nth-of-type(2) {
+    margin: 0 20px;
+}
+
 
 .container_heading_post {
     display: flex;
@@ -33,6 +44,17 @@
     padding-top: 1rem;
 }
 
+.container_post_myprofile_all_buttons {
+    display: flex;
+    align-items: center;
+}
+
+.container_post_myprofile_edit-delete_buttons {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
 .container_commentsSection {
     padding-left: 20px;
 }
@@ -43,11 +65,11 @@
 /* images and icons */
 
 .img_post_picture {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     border: solid black 2px;
-    margin-right: 10px;
+    margin-right: 7px;
     object-fit: cover;
 }
 

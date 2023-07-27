@@ -9,7 +9,9 @@ export const ProfileAllListContainer = () => {
     const [filterTerms, setFilterTerms] = useState('')
 
     return <>
+    <div className="container container_all_profiles_and_search">
         <SearchFilterAllProfiles setSearchTerms={setSearchTerms} setSortTerms={setSortTerms} setFilterTerms={setFilterTerms}/>
         <ProfilesAllList searchTerms={searchTerms} sortTerms={sortTerms} filterTerms={filterTerms}/>
+        </div>
     </>
 }

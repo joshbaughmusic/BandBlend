@@ -3,7 +3,7 @@ import bb_logo from "../../images/bb_logo.png"
 import "./NavBar.css"
 import { useEffect, useState } from "react"
 
-export const Navbar = () => {
+export const Navbar = ( { showSidebar } ) => {
 
     // const [myProfile, setMyProfile] = useState({})
     // const localBbUser = localStorage.getItem("bb_user")
@@ -33,8 +33,8 @@ export const Navbar = () => {
                     <li className="list_item nav_list_item">
                         <Link className="nav_list_item_link" to="/profiles">All Profiles</Link>
                     </li>
-                    <li className="list_item nav_list_item">
-                        <Link className="nav_list_item_link" to="/">Messages</Link>
+                    <li className="list_item nav_list_item" onClick={showSidebar}>
+                        Messages
                     </li>
                     
                         {
