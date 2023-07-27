@@ -28,6 +28,11 @@ img.logo {
     align-self: center;
 }
 
+.nav_list_item:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 a {
     align-self: center;
 }
