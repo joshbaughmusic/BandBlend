@@ -16,18 +16,19 @@
 .heading_greeting {
     text-align: center;
     margin: 3rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 /* end hero */
 
 
 
-/* latest posts container */
-
 .heading_home_latest_posts {
     margin-bottom: 1rem;
 }
+
+/* latest posts container */
+
 
 .container_home_latest_posts_outer {
     display: flex;
@@ -40,7 +41,7 @@
     border: black solid 2px;
     border-radius: 10px;
     width: 80%;
-    padding: 30px;
+    padding: 20px;
 } 
 
 /* end latest posts container */

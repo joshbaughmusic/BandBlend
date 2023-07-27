@@ -207,41 +207,55 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     if (userId === bBUserObject.id) {
 
         return <>
-            <div className="container container_post">
-                <div key={postKey} id={`post--${postId}`} className="container container_post_list_item">
-                    <div className="container 
-                    container_heading_post_list_item">
-                        <div className="container container_post_img_name">
-                            <img className="img img_post_picture" src={userPicture} />
-                            <h4 className="heading heading_post_name">{userName}</h4>
+            <div className="container_container_post_comments_full">
+                <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
+                    <section className="post_content_except_comments">
+                        <div className="container container_heading_post">
+                            <div className="container container_post_img_name">
+                                <img className="img img_post_picture" src={userPicture} />
+                                <h4 className="heading heading_post_name">You posted:</h4>
+                            </div>
+                            <p className="text text_post_date">{convertTimestamp(postDate)}</p>
                         </div>
-                        <p className="text text_post_date">{convertTimestamp(postDate)}</p>
-                    </div>
-                    {
-                        !likes.length
-
-                            ?
-
-                            <p className="text text_post_likecount">Nobody has liked this yet.</p>
-
-                            :
-
-                            likes.length === 1
+                        <p className="text text_post_body">{postBody}</p>
+                    </section>
+                    <div className="container container_footer_post">
+                    <section className="container container_post_like_section">
+                        {
+                            !likes.length
 
                                 ?
 
-                                <p className="text text_post_likecount">{likes.length} like</p>
+                                <p className="text text_post_likecount">Nobody has liked this yet.</p>
 
                                 :
 
-                                <p className="text text_post_likecount">{likes.length} likes</p>
+                                likes.length === 1
 
-                    }
-                    <p className="text text_post_date">{postBody}</p>
-                    <button className="btn btn_edit bten_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit Post</button>
+                                    ?
+
+                                    <p className="text text_post_likecount">{likes.length} like</p>
+
+                                    :
+
+                                    <p className="text text_post_likecount">{likes.length} likes</p>
+
+                        }
+                    </section>
+
+                    {/* open comment box button below*/}
+                    <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+
+                    {/* edit and delete buttons */}
+                    <button className="btn btn_edit btn_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit Post</button>
                     <button id={`postDelete--${postId}`} className="btn btn_delete" onClick={handleDeletePostClick}>Delete Post</button>
+
                 </div>
-                <div className="container container_comments" id={`comments--${postId}`}>
+                </div>
+
+                <NewComment postId={postId} getAllComments={getAllComments} />
+
+                <div className="container container_commentsSection" id={`comments--${postId}`}>
                     {
                         commentsWithUsers.map(comment => {
                             if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
@@ -261,45 +275,71 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         })
                     }
                 </div>
-                <NewComment postId={postId} getAllComments={getAllComments} />
-                <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Reply</button>
             </div>
         </>
     } else {
 
         return <>
-            <div className="container container_post">
-                <div key={postKey} id={`post--${postId}`} className="post_list_item">
-                    <div className="container container_heading_post_list_item">
-                        <div className="container container_post_img_name">
-                            <img className="img img_post_picture" src={userPicture} />
-                            <h4 className="heading heading_post_name">{userName}</h4>
+            <div className="container_container_post_comments_full">
+                <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
+                    <section className="post_content_except_comments">
+                        <div className="container container_heading_post">
+                            <div className="container container_post_img_name">
+                                <img className="img img_post_picture" src={userPicture} />
+                                <h4 className="heading heading_post_name">{userName} posted:</h4>
+                            </div>
+                            <p className="text text_post_date">{convertTimestamp(postDate)}</p>
                         </div>
-                        <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                        <p className="text text_post_body">{postBody}</p>
+                    </section>
+                    <div className="container container_footer_post">
+                        <section className="container container_post_like_section">
+                            <div className="container container_post_like_icon">
+
+                                {
+                                    userLikeObj
+
+                                        ?
+
+                                        <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick} />
+
+                                        :
+
+                                        <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick} />
+
+                                }
+                            </div>
+                            {
+                                !likes.length
+
+                                    ?
+
+                                    <p className="text text_post_likecount">Be the first to like this!</p>
+
+                                    :
+
+                                    likes.length === 1
+
+                                        ?
+
+                                        <p className="text text_post_likecount">{likes.length} like</p>
+
+                                        :
+
+                                        <p className="text text_post_likecount">{likes.length} likes</p>
+
+                            }
+                        </section>
+
+                        {/* open comment box button below*/}
+                        <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+
                     </div>
-                    {
-                        !likes.length
-
-                            ?
-
-                            <p className="text text_post_likecount">Be the first to like this!</p>
-
-                            :
-
-                            likes.length === 1
-
-                                ?
-
-                                <p className="text text_post_likecount">{likes.length} like</p>
-
-                                :
-
-                                <p className="text text_post_likecount">{likes.length} likes</p>
-
-                    }
-                    <p className="text text_post_body">{postBody}</p>
                 </div>
-                <div className="container container_commentsSection" id={`commentsSection--${postId}`}>
+
+                <NewComment postId={postId} getAllComments={getAllComments} />
+
+                <section className="container container_commentsSection" id={`commentsSection--${postId}`}>
                     {
                         commentsWithUsers.map(comment => {
                             if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
@@ -318,24 +358,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                             }
                         })
                     }
-                </div>
-                <NewComment postId={postId} getAllComments={getAllComments} />
-                <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Reply</button>
-                <div className="container container_like_icon">
-
-                    {
-                        userLikeObj
-
-                            ?
-
-                            <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick} />
-
-                            :
-
-                            <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick} />
-
-                    }
-                </div>
+                </section>
             </div>
         </>
     }
