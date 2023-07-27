@@ -1,11 +1,29 @@
+.container_post {
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 1rem 0;
+}
+
 .container_heading_post_list_item {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+.container_post_img_name {
+    display: flex;
+    align-items: center;
     
 }
 
-
 .img_post_picture {
     width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: solid black 2px;
+    margin-right: 10px;
+    object-fit: cover;
 }
 
 /* hide and show reply button  */

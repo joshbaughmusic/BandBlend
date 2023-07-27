@@ -209,9 +209,12 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
         return <>
             <div className="container container_post">
                 <div key={postKey} id={`post--${postId}`} className="container container_post_list_item">
-                    <div className="container container_heading_post_list_item">
-                        <img className="img img_post_picture" src={userPicture} />
-                        <h4 className="heading heading_post_name">{userName}</h4>
+                    <div className="container 
+                    container_heading_post_list_item">
+                        <div className="container container_post_img_name">
+                            <img className="img img_post_picture" src={userPicture} />
+                            <h4 className="heading heading_post_name">{userName}</h4>
+                        </div>
                         <p className="text text_post_date">{convertTimestamp(postDate)}</p>
                     </div>
                     {
@@ -267,9 +270,13 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
         return <>
             <div className="container container_post">
                 <div key={postKey} id={`post--${postId}`} className="post_list_item">
-                    <img className="img img_post_picture" src={userPicture} />
-                    <h4 className="heading heading_post_name">{userName}</h4>
-                    <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                    <div className="container container_heading_post_list_item">
+                        <div className="container container_post_img_name">
+                            <img className="img img_post_picture" src={userPicture} />
+                            <h4 className="heading heading_post_name">{userName}</h4>
+                        </div>
+                        <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                    </div>
                     {
                         !likes.length
 
