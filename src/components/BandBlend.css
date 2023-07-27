@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
 * {
   font-family: "Poppins";
   box-sizing: border-box;
@@ -8,24 +7,15 @@
   color: rgb(32, 32, 32);
   margin: 0px;
   padding: 0px;
+  list-style-type: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 body {
   background-color: rgb(174, 187, 197);
-}
-
-a:hover {
-  text-decoration-line: underline;
-}
-
-button {
-  margin: 7px;
-}
-
-img {
-  border-radius: 50%;
-  border: rgba(0, 0, 0, 0.617) solid 2px
-
 }
 
 /* grid setup */
@@ -34,8 +24,7 @@ img {
   display: grid;
   grid-template-areas:
     'nav nav'
-    'main sidebar';
-  
+    'main sidebar';  
   grid-template-columns: 8fr 2.5fr;
   grid-template-rows: 1fr 9fr;
   height: 100vh
@@ -43,18 +32,14 @@ img {
 
 .container_main {
     grid-area: main;
-    /* height: 100%; */
 }
 
 .container_nav {
     grid-area: nav;
-    /* height: 100px; */
-    
-
 }
 
 .container_messages_sidebar {
     grid-area: sidebar;
-   
-
 }
+
+/* end grid setup */

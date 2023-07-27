@@ -54,6 +54,7 @@
     overflow-y: scroll;
     position: absolute;
     top: 30px;
+    text-align: left;
 }
 
 .search-result {
@@ -74,4 +75,7 @@
     text-align: center;
     font-style: italic;
     font-size: smaller;
+    margin-top: 10px;
 }
+
+/* end subtext */

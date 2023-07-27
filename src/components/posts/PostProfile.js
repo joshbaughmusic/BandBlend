@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom"
 import "./Post.css"
 import { useEffect, useState } from "react"
 import { Comment } from "./Comment.js"
-import "./PostProfile.css"
 import { NewComment } from "./NewComment.js"
 // import { ReactComponent as ThumbLiked } from "../../images/svg/thumb-liked-2.svg"
 // import { ReactComponent as ThumbNonLiked } from "../../images/svg/thumb-nonliked.svg"
@@ -84,7 +83,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     useEffect(() => {
         getAllLikes()
     }, [])
-    
+
     useEffect(() => {
         getAllComments()
     }, [])
@@ -94,7 +93,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     useEffect(() => {
         const searchForUserLike = likes.find(like => {
             return like.userId === bBUserObject.id
-            }
+        }
         )
 
         setUserLikeObj(searchForUserLike)
@@ -109,7 +108,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
     const handleDeletePostClick = e => {
         e.preventDefault()
-        
+
         const [, postIdToDelete] = e.target.id.split("--")
 
         return fetch(`http://localhost:8088/posts/${postIdToDelete}`, {
@@ -158,8 +157,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
             body: JSON.stringify(newLikeObj)
         })
             .then(() => {
-                 //refetch all likes
-                 getAllLikes()
+                //refetch all likes
+                getAllLikes()
             })
     }
 
@@ -176,7 +175,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
             .then(() => {
                 //refetch all likes
                 getAllLikes()
-                
+
             })
     }
 
@@ -209,28 +208,30 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
         return <>
             <div className="container container_post">
-                <div key={postKey} id={`post--${postId}`} className="post_list_item">
-                    <img className="img img_post_picture" src={userPicture} />
-                    <h4 className="heading heading_post_name">{userName}</h4>
-                    <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                <div key={postKey} id={`post--${postId}`} className="container container_post_list_item">
+                    <div className="container container_heading_post_list_item">
+                        <img className="img img_post_picture" src={userPicture} />
+                        <h4 className="heading heading_post_name">{userName}</h4>
+                        <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                    </div>
                     {
-                            !likes.length 
+                        !likes.length
 
                             ?
-                            
+
                             <p className="text text_post_likecount">Nobody has liked this yet.</p>
 
                             :
 
                             likes.length === 1
 
-                            ?
+                                ?
 
-                            <p className="text text_post_likecount">{likes.length} like</p>
-                            
-                            :
-                            
-                            <p className="text text_post_likecount">{likes.length} likes</p>
+                                <p className="text text_post_likecount">{likes.length} like</p>
+
+                                :
+
+                                <p className="text text_post_likecount">{likes.length} likes</p>
 
                     }
                     <p className="text text_post_date">{postBody}</p>
@@ -270,23 +271,23 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     <h4 className="heading heading_post_name">{userName}</h4>
                     <p className="text text_post_date">{convertTimestamp(postDate)}</p>
                     {
-                            !likes.length 
+                        !likes.length
 
                             ?
-                            
+
                             <p className="text text_post_likecount">Be the first to like this!</p>
 
                             :
 
                             likes.length === 1
 
-                            ?
+                                ?
 
-                            <p className="text text_post_likecount">{likes.length} like</p>
-                            
-                            :
-                            
-                            <p className="text text_post_likecount">{likes.length} likes</p>
+                                <p className="text text_post_likecount">{likes.length} like</p>
+
+                                :
+
+                                <p className="text text_post_likecount">{likes.length} likes</p>
 
                     }
                     <p className="text text_post_body">{postBody}</p>
@@ -315,18 +316,18 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                 <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Reply</button>
                 <div className="container container_like_icon">
 
-                {
-                    userLikeObj
+                    {
+                        userLikeObj
 
-                        ?
+                            ?
 
-                        <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick}/>
+                            <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick} />
 
-                        :
+                            :
 
-                        <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick}/>
+                            <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick} />
 
-                }
+                    }
                 </div>
             </div>
         </>

@@ -1,3 +1,40 @@
+.container_heading_post_list_item {
+    display: flex;
+    
+}
+
+
 .img_post_picture {
     width: 40px;
+}
+
+/* hide and show reply button  */
+.btn_reply_comment.show {
+    visibility: visible;
+    max-height: 100%;
+}
+
+.btn_reply_comment {
+    visibility: hidden;
+    max-height: 0;
+}
+
+/* end hide and show reply button  */
+
+
+.container_comments {
+    padding-left: 20px;
+}
+
+
+.icon_like {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+}
+
+.text_post_likecount {
+    font-weight: bold;
 }

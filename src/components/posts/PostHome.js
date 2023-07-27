@@ -100,6 +100,9 @@ export const PostHome = ({ userName, profileId, userPicture, postBody, postId, p
         return formattedDate;
     };
 
+    if (!likes) {
+        return null
+    }
 
 
     return <>
