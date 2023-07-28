@@ -4,14 +4,18 @@ export const SearchFilterAllProfiles = ({ setSearchTerms, setSortTerms, setFilte
     return (
         <>
             <section className="container container_search_filter_all_profiles">
-                <div className="container container_searchbar">
-                    <label htmlFor="searchbar_all_profiles">Search:</label>
-                    <input className="searchbar searchbar_all_profiles" id="searchbar_all_profiles" type="text" placeholder="Search for a profile..." name="searchbar_all_profiles" onChange={
-                        e => {
-                            setSearchTerms(e.target.value)
+                <div className='search-bar-container allprofiles'>
+                    <div className='input-wrapper allprofiles'>
+                        <i className="fas fa-search search-icon allprofiles"></i>
+                        <input className='input input_searchbar input_searchbar_allprofiles' placeholder='Find your stage mates...' onChange={
+                            e => {
+                                setSearchTerms(e.target.value)
+                            }
                         }
-                    } />
+                        ></input>
+                    </div>
                 </div>
+
                 <div className="container container_sort">
                     <label htmlFor="sort_all_profiles">Sort:</label>
                     <select className="dropdown sort sort_all_profiles" id="sort_all_profiles" name="sort_all_profiles" onChange={
