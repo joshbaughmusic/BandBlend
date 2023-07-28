@@ -8,8 +8,6 @@
     cursor: pointer;
     font-weight: bold;
 
-
-
 }
 
 .icon_delete_photo:hover {
@@ -20,4 +18,8 @@
 
 .container_profile_primary_socialwidgets_myprofile {
     margin-bottom: 10px;
+}
+
+.button_profile_sidebar_edit {
+    margin: 10px 0px
 }

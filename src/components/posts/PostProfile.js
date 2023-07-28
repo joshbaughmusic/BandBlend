@@ -233,7 +233,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                                     ?
 
-                                    <p className="text text_post_likecount">Nobody has liked this yet.</p>
+                                    <p className="text text_post_likecount">No likes yet</p>
 
                                     :
 

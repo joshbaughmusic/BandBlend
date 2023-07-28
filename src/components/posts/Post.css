@@ -41,6 +41,15 @@
 
 .container_post_like_section {
     display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+    min-width: 39px;
+    margin-right: 20px;
+}
+
+.container_post_like_icon {
+    
 }
 
 .container_footer_post {

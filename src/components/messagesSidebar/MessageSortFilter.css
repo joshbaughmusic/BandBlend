@@ -1,0 +1,49 @@
+/* containers */
+
+.container_search_sort_messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px 0px 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 75%;
+    background-color: rgba(87, 120, 149, 0.453);
+}
+
+.container_searchbar_messages {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px 0px 10px;
+}
+
+.container_sort_messages {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+}
+
+/* end containers */
+
+
+
+/* inputs */
+
+.searchbar_messages {
+    width: 90%
+}
+
+.sort_messages {
+    width: 90%
+}
+
+/* end inputs */
+
+
+.label_messages {
+    width: 85px;
+    font-weight: 600;
+}

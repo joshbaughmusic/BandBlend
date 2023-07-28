@@ -652,20 +652,6 @@
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "date": 1690209087558,
       "id": 3
-    },
-    {
-      "senderId": 1,
-      "receiverId": 19,
-      "body": "asdfasdfasdf",
-      "date": 1690423847269,
-      "id": 4
-    },
-    {
-      "senderId": 1,
-      "receiverId": 14,
-      "body": "asdfasdf",
-      "date": 1690423866725,
-      "id": 5
     }
   ],
   "comments": [
@@ -1137,13 +1123,6 @@
       "body": "asdfasdf",
       "date": 1690423817963,
       "id": 67
-    },
-    {
-      "postId": 6,
-      "userId": 1,
-      "body": "asdfasdf",
-      "date": 1690481979438,
-      "id": 68
     }
   ],
   "likes": [
@@ -1197,14 +1176,8 @@
     },
     {
       "userId": 1,
-      "postId": 33,
-      "date": 1690466837937,
-      "id": 18
-    },
-    {
-      "userId": 1,
       "postId": 35,
-      "date": 1690484401460,
+      "date": 1690511392396,
       "id": 19
     }
   ],

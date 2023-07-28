@@ -229,7 +229,7 @@ export const MyProfile = () => {
                             <h4 className="heading heading_profile_primary_primary_genre heading_bubbles_section">Primary Genre:</h4>
                             <h4 className="heading heading_profile_primary_primary_genre_name tag_genre_bubble">{profile?.primaryGenre?.name}</h4>
                         </div>
-                        <button type="button" className="btn button_profile_primary_edit" id={`btnEditProfilePrimary--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/primaryinfo/${profile.id}`) }}>Edit Primary Info</button>
+                        <button type="button" className="btn button_profile_primary_edit button_profile_sidebar_edit" id={`btnEditProfilePrimary--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/primaryinfo/${profile.id}`) }}>Edit Primary Info</button>
                     </div>
 
                     <div className="container container_profile_primary_clickables">
@@ -248,37 +248,69 @@ export const MyProfile = () => {
                         </div> */}
 
                         <div className="container container_tags_genres">
-                            <h4 className="heading heading_profile_primary_tags heading_bubbles_section">Tags:</h4>
-                            <ul className="container container_tags container_tag_genre_bubbles">
-                                {
-                                    profile?.profileTags?.map(tag => {
-                                        return <li key={`profilePrimaryTag--${tag.id}`} className="profile_primary_tag tag_genre_bubble">{matchTags(tag.tagId)}</li>
-                                    })
-                                }
-                            </ul>
-                            <button className="btn btn_edit btn_edit_tags" onClick={() => { navigate(`/myprofile/edit/tags/${profile.id}`) }}>Edit Tags</button>
-                            <h4 className="heading heading_profile_subgenres heading_bubbles_section">Sub-Genres:</h4>
-                            <ul className="container container_subgenres container_tag_genre_bubbles">
-                                {
-                                    profile?.profileSubGenres?.map(sg => {
-                                        return <li key={`profileSubGenre--${sg.id}`} className="profile_primary_subgenre tag_genre_bubble">{matchSubGenres(sg.subGenreId)}</li>
-                                    })
-                                }
-                            </ul>
-                            <button className="btn btn_edit btn_edit_subgenres" onClick={() => { navigate(`/myprofile/edit/subgenres/${profile.id}`) }}>Edit Sub-Genres</button>
+                            <div className="container container_tags_section">
+                                <h4 className="heading heading_profile_primary_tags heading_bubbles_section">Tags:</h4>
+                                <ul className="container container_tags container_tag_genre_bubbles">
+                                    {
+                                        profile?.profileTags?.map(tag => {
+                                            return <li key={`profilePrimaryTag--${tag.id}`} className="profile_primary_tag tag_genre_bubble">{matchTags(tag.tagId)}</li>
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                            <button className="btn btn_edit btn_edit_tags button_profile_sidebar_edit" onClick={() => { navigate(`/myprofile/edit/tags/${profile.id}`) }}>Edit Tags</button>
+                            <div className="container container_subgenres_section">
+                                <h4 className="heading heading_profile_subgenres heading_bubbles_section">Sub-Genres:</h4>
+                                <ul className="container container_subgenres container_tag_genre_bubbles">
+                                    {
+                                        profile?.profileSubGenres?.map(sg => {
+                                            return <li key={`profileSubGenre--${sg.id}`} className="profile_primary_subgenre tag_genre_bubble">{matchSubGenres(sg.subGenreId)}</li>
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                            <button className="btn btn_edit btn_edit_subgenres button_profile_sidebar_edit" onClick={() => { navigate(`/myprofile/edit/subgenres/${profile.id}`) }}>Edit Sub-Genres</button>
                         </div>
                     </div>
                 </article>
 
                 <article className="container container_profile_about">
-                    {/* <hr className="linebreak_about"/> */}
-                    <h3 className="heading heading_profile_about heading_main_profile_sections">About</h3>
+                    <div className="container heading_main_profile_sections">
+                        <h3 className="heading heading_profile_about">About</h3>
+                        <button type="button" className="btn button_profile_about_edit" id={`btnEditProfileAbout--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/about/${profile.id}`) }}>Edit About</button>
+                    </div>
                     <p className="text text_profile_about">{profile.about}</p>
-                    <button type="button" className="btn button_profile_about_edit" id={`btnEditProfileAbout--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/about/${profile.id}`) }}>Edit About</button>
                 </article>
 
                 <article className="container container_profile_media_outer">
-                    <h3 className="heading heading_profile_media heading_main_profile_sections">Additional Photos</h3>
+                    <div className="container heading_main_profile_sections">
+                        <h3 className="heading heading_profile_media ">Additional Photos</h3>
+                        {
+                            showNewPhoto
+
+                                ?
+
+                                <button type="button" className="btn button_profile_photos_close_main" onClick={handleNewPhotoClose}>Close</button>
+
+                                :
+
+                                <button type="button" className="btn button_profile_photos_new" onClick={handleNewPhotoShow}>Add Photo</button>
+
+                        }
+                        
+                    </div>
+                    {
+                            showNewPhoto
+
+                                ?
+
+                                <NewPhoto closeNewPhoto={handleNewPhotoClose} myProfileId={profile.id} setMedia={setMedia} />
+
+                                :
+
+                                ''
+
+                        }
                     <div className="container container_profile_media_inner">
                         {
                             media?.length
@@ -309,37 +341,40 @@ export const MyProfile = () => {
 
                     </div>
                     <div className="container container_new_photo" id="container_new_photo">
-                        {
-                            showNewPhoto
 
-                                ?
-
-                                <NewPhoto closeNewPhoto={handleNewPhotoClose} myProfileId={profile.id} setMedia={setMedia} />
-
-                                :
-
-                                <button type="button" className="btn button_profile_photos_new" onClick={handleNewPhotoShow}>Add Photo</button>
-
-                        }
                     </div>
                 </article>
 
                 <article className="container container_profile_posts_outer">
-                    <h3 className="heading heading_profile_posts heading_main_profile_sections">Posts</h3>
-                    <div className="container container_new_post" id="container_new_post">
-                        {
-                            showNewPost
+                    <div className="container heading_main_profile_sections">
+                        <h3 className="heading heading_profile_posts ">Posts</h3>
+                        <div className="container container_new_post" id="container_new_post">
+                            {
+                                showNewPost
 
-                                ?
+                                    ?
 
-                                <NewPost closeNewPost={handleNewPostClose} myProfileId={profile.id} setMyPosts={setMyPosts} />
+                                    <button type="button" className="btn button_profile_posts_close_main" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostClose}>Close</button>
 
-                                :
+                                    :
 
-                                <button type="button" className="btn button_profile_posts_new" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostShow}>New Post</button>
+                                    <button type="button" className="btn button_profile_posts_new" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostShow}>New Post</button>
 
-                        }
+                            }
+                        </div>
                     </div>
+                            {
+                                showNewPost
+
+                                    ?
+
+                                    <NewPost closeNewPost={handleNewPostClose} myProfileId={profile.id} setMyPosts={setMyPosts} />
+
+                                    :
+
+                                    ''
+
+                            }
                     <ul className="container container_profile_posts_inner">
                         {
                             myPosts?.length
