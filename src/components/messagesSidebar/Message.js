@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import "./Message.css"
 import { Link, useNavigate } from "react-router-dom"
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
 
-export const Message = ({ messageKey, messageId, messageSenderId, messageReceiverId, messageBody, messageDate, messageReceiverProfileId, messageSenderProfileId, messageReceiverPicture, messageSenderPicture, messageReceiverName, messageSenderName, fetchMessages, handleNewMessageShow, selectedReceiverId, setSelectedReceiverId, message, setMessage}) => {
+export const Message = ({ messageKey, messageId, messageSenderId, messageReceiverId, messageBody, messageDate, messageReceiverProfileId, messageSenderProfileId, messageReceiverPicture, messageSenderPicture, messageReceiverName, messageSenderName, fetchMessages, handleNewMessageShow, selectedReceiverId, setSelectedReceiverId, message, setMessage }) => {
 
     //getting all message details for each message as a props and function to re fetch messages from MessagesSidebar parent ^
 
@@ -27,7 +29,7 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
 
     const convertTimestamp = timestamp => {
         const messageDateFormatted = new Date(parseInt(timestamp));
-    
+
         const options = {
             year: 'numeric',
             month: 'numeric',
@@ -36,9 +38,9 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
             minute: 'numeric',
             hour12: true // To display time in 12-hour format with AM/PM
         };
-    
+
         const formattedDate = new Intl.DateTimeFormat('en-US', options).format(messageDateFormatted);
-    
+
         return formattedDate;
     };
 
@@ -59,13 +61,13 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
             })
     }
 
-     //function to handle when the reply button is clicked. Uses message state shared from parent and sets up values on it as needed.
-     const handleReplyClick = e => {
+    //function to handle when the reply button is clicked. Uses message state shared from parent and sets up values on it as needed.
+    const handleReplyClick = e => {
         e.preventDefault()
 
         handleNewMessageShow()
 
-        const [,userId] = e.target.id.split('--')
+        const [, userId] = e.target.id.split('--')
 
         const copy = message
         copy.receiverId = parseInt(userId)
@@ -75,52 +77,51 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
         setMessage(copy)
 
         setSelectedReceiverId(`user--${userId}`)
-        
+
     }
 
-    if (!messageReceiverProfileId || !messageSenderProfileId ||usersWithProfiles.length === 0) {
+    if (!messageReceiverProfileId || !messageSenderProfileId || usersWithProfiles.length === 0) {
         return null
     }
 
     return (
         <>
-            <article key={messageKey} className="container container_message_card">
-                {
-                    messageSenderId === bBUserObject.id
 
-                        ?
-                        <>
-                        <h5 className="heading heading_message_tofrom heading_message_to" id={`messageUser--${messageReceiverId}`}>To: <span className="message_nameLink"><Link to={`profiles/${messageReceiverId}`}>{messageReceiverName}</Link></span> </h5>
-                        <img className="img img_message" src={messageReceiverPicture}/>
-                        </>
-                        
+            {
+                messageSenderId === bBUserObject.id
 
-                        :
-                        <>
-                        <h5 className="heading heading_message_tofrom heading_message_from" id={`messageUser--${messageSenderId}`}>From: <span className="message_nameLink"><Link to={`profiles/${messageSenderId}`}>{messageSenderName}</Link></span> </h5>
-                        <img className="img img_message" src={messageSenderPicture}/>
-                        </>
-                }
-                <h6 className="heading heading_message_date">
-                    {convertTimestamp(messageDate)}
-                </h6>
-                <p className="text text_message_body">{messageBody}</p>
-                <div className="container container_message_buttons">
-                    {
-                        messageSenderId === bBUserObject.id
+                    ?
 
-                        ?
+                    <article key={messageKey} className="container container_message_card container_message_card_sender">
+                        <AiIcons.AiOutlineArrowRight className="icon icon_message_arrowright" />
+                        <h5 className="heading heading_message_tofrom heading_message_sender" id={`messageUser--${messageReceiverId}`}>To: <span className="message_nameLink"><Link to={`profiles/${messageReceiverId}`}>{messageReceiverName}</Link></span> </h5>
+                        <img className="img img_message" src={messageReceiverPicture} />
+                        <h6 className="heading heading_message_date">
+                            {convertTimestamp(messageDate)}
+                        </h6>
+                        <p className="text text_message_body">{messageBody}</p>
+                        <div className="container container_message_buttons">
+                            <button type="button" id={`messageDelete--${messageId}`} className="btn btn_message btn_message_delete" onClick={handleMessageDeleteClick}>Delete</button>
+                        </div>
+                    </article>
 
-                        ''
+                    :
 
-                        :
+                    <article key={messageKey} className="container container_message_card container_message_card_receiver">
+                        <AiIcons.AiOutlineArrowLeft className="icon icon_message_arrowleft" />
+                        <h5 className="heading heading_message_tofrom heading_message_receiver" id={`messageUser--${messageSenderId}`}>From: <span className="message_nameLink"><Link to={`profiles/${messageSenderId}`}>{messageSenderName}</Link></span> </h5>
+                        <img className="img img_message" src={messageSenderPicture} />
+                        <h6 className="heading heading_message_date">
+                            {convertTimestamp(messageDate)}
+                        </h6>
+                        <p className="text text_message_body">{messageBody}</p>
+                        <div className="container container_message_buttons">
+                            <button type="button" className="btn btn_message btn_message_reply" id={`messageReply--${messageSenderId}`} onClick={handleReplyClick}>Reply</button>
+                            <button type="button" id={`messageDelete--${messageId}`} className="btn btn_message btn_message_delete" onClick={handleMessageDeleteClick}>Delete</button>
+                        </div>
+                    </article>
+            }
 
-                        <button type="button" className="btn btn_message btn_message_reply" id={`messageReply--${messageSenderId}`} onClick={handleReplyClick}>Reply</button>
-
-                    }
-                    <button type="button" id={`messageDelete--${messageId}`} className="btn btn_message btn_message_delete" onClick={handleMessageDeleteClick}>Delete</button>
-                </div>
-            </article>
         </>
     )
 }

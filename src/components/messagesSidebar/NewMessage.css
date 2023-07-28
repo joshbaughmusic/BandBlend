@@ -1,0 +1,15 @@
+.form_new_message {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container_buttons_messages_new {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+}

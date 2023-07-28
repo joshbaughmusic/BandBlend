@@ -102,8 +102,10 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
                     </select>
                 </fieldset>
                 <br />
+                <div className="container container_buttons_messages_new">
                 <button type="submit" className="btn btn_profile btn_submit" onClick={handleSubmitNewMessageClick}>Submit Message</button>
                 <button type="button" className="btn btn_profile btn_close" onClick={handleNewMessageClose}>Close</button>
+                </div>
             </form>
         </>
     )
