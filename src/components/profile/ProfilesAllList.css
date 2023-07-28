@@ -1,14 +1,14 @@
 /* flex setup and basic container layout */
 
 .container_all_profiles_and_search {
-    padding: 30px 50px;
-
+    padding: 30px 60px;
 }
 
 .container_allProfiles {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
     /* padding: 20px 50px; */
 
 }
@@ -18,7 +18,8 @@
     justify-content: space-between;
     border: black solid 2px;
     border-radius: 20px;
-    margin: 10px;
+    margin: 0px 0px 10px 0px;
+    padding: 10px;
 
 }
 
@@ -29,4 +30,5 @@
     align-self: center;
     margin-left: 10px;
     border: solid black 2px;
+    object-fit: cover;
 }
