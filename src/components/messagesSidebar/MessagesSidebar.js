@@ -130,7 +130,7 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
                         <AiIcons.AiOutlineClose className="icon icon_messages_close" onClick={showSidebar} />
                         <h2 className="heading heading_messages">Messages</h2>
                     </div>
-                    <section className="container container_messages_new">
+                    <section className="container container_messages_new_button">
 
                         {
                             showNewMessage
