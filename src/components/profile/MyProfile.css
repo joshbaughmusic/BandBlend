@@ -1,5 +1,5 @@
 .icon_delete_photo {
-    color: #b545458e;
+    /* color: #b545458e; */
     font-size: 35px;
     position: absolute;
     top: -8%;
@@ -12,7 +12,7 @@
 
 .icon_delete_photo:hover {
     transform: scale(1.3);
-    color: #c12929d6;
+    /* color: #c12929d6; */
     font-weight: bolder;
 }
 

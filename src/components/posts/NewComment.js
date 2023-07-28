@@ -91,8 +91,7 @@ export const NewComment = ({ postId, getAllComments }) => {
     return (
         <>
             <form className="form form_new_comment" id={`newCommentForm--${postId}`}>
-                <fieldset>
-                    <textarea autoFocus name="newComment" className="input input_text" placeholder="What's on your mind?" rows="4" cols="50" onChange={
+                    <textarea autoFocus name="newComment" className="input input_text_new_comment" placeholder="What's on your mind?" rows="4" cols="50" onChange={
                         e => {
                             const copy = { ...newComment }
                             copy.body = e.target.value
@@ -100,7 +99,6 @@ export const NewComment = ({ postId, getAllComments }) => {
                         }
                     }
                     ></textarea>
-                </fieldset>
                 <br />
                 <button type="submit" className="btn btn_profile btn_submit" id={`submitNewCommentBtn--${postId}`} onClick={handleSubmitNewCommentClick}>Submit Reply</button>
                 <button type="button" className="btn btn_profile btn_close" id={`closeNewCommentBtn--${postId}`} onClick={handleCloseNewCommentFormButtonClick}>Close</button>

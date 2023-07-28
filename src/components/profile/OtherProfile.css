@@ -18,7 +18,7 @@
 .container_profile_primary {
     grid-area: primary;
     padding: 20px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 25px;
     margin-left: 20px;
     display: flex;
@@ -105,7 +105,7 @@
 
 .heading_main_profile_sections {
     /* margin-bottom: 20px;    */
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
     padding-bottom: 8px;
     display: flex;
     justify-content: space-between;
@@ -116,7 +116,7 @@
 .container_profile_about {
     grid-area: about;
     padding: 20px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 25px;
     margin-right: 20px;
 
@@ -126,7 +126,7 @@
 .container_profile_media_outer {
     grid-area: media;
     padding: 20px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 25px;
     margin-right: 20px;
 
@@ -138,6 +138,7 @@
     display: flex;
     flex-wrap: wrap;
     overflow-x: auto;
+    row-gap: 8px;
     
 
 }
@@ -145,7 +146,7 @@
 .container_profile_posts_outer {
     grid-area: posts;
     padding: 20px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 25px;
     margin-right: 20px;
     /* max-height: 630px;
@@ -164,7 +165,7 @@
     height: 150px;
     overflow: hidden;
     border-radius: 10px;
-    border: rgba(0, 0, 0, 0.617) solid 2px;
+    /* border: rgba(0, 0, 0, 0.617) solid 2px; */
     position: relative;
     border-radius: 50%;
     margin-bottom: 5px;
@@ -190,7 +191,7 @@
     height: 150px;
     overflow: hidden;
     border-radius: 10px;
-    border: rgba(0, 0, 0, 0.617) solid 2px;
+    /* border: rgba(0, 0, 0, 0.617) solid 2px; */
     position: relative;
     margin-right: 8px;
     
@@ -226,7 +227,7 @@
     top: 0;
     left: 0;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.8);
+    /* background: rgba(0, 0, 0, 0.8); */
     width: 100%;
     height: 100%;
 }
@@ -240,7 +241,7 @@
     max-width: 85%;
     max-height: 85%;
     object-fit: contain;
-    border: 3px solid white;
+    /* border: 3px solid white; */
     border-radius: 10px;
 }
 
@@ -252,7 +253,7 @@
     font-weight: bolder;
     z-index: 100%;
     cursor: pointer;
-    color: white;
+    /* color: white; */
     user-select: none;
     transition: all 0.3s linear;
 
@@ -260,7 +261,7 @@
 
 .icon_close_popup_media:hover {
     transform: scale(1.1);
-    color: #b3afaf;
+    /* color: #b3afaf; */
 
 }
 
@@ -291,10 +292,10 @@
     min-width: 100px;
     margin-top: 8px;
     font-size: 0.8rem;
-    border: solid black 1px;
+    /* border: solid black 1px; */
     padding: 3px 15px;
     border-radius: 20px;
-    background-color: #a9abb1;
+    /* background-color: #a9abb1; */
     font-size: 0.8rem;
     font-weight: 500;
 }

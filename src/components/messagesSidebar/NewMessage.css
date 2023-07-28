@@ -10,7 +10,8 @@
 }
 
 .container_buttons_messages_new {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: -15px;
     width: 100%;
     display: flex;
     justify-content: start;
@@ -26,7 +27,7 @@
     width: 110%;
     margin-left: 2px;
     margin-right: auto;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 10px;
 }
 
@@ -36,7 +37,8 @@
     margin-top: 10px;
     margin-left: 2px;
     margin-right: auto;
-    border-radius: 15px;
+    border: none;
+    border-radius: 5px;
     padding: 5px;
 
 }

@@ -6,17 +6,19 @@ export const MessageSearchSort = ({setSortTerms, setSearchTerms}) => {
     return (
         <>
             <section className="container container_search_sort_messages">
-            <div className="container container_searchbar_messages">
-                    <label className="label label_messages label_searchbar_messages" htmlFor="searchbar_messages">Search:</label>
-                    <input className="searchbar searchbar_messages" id="searchbar_messages" type="text" placeholder="Search for messages..." name="searchbar_messages" onChange={
+                <div className="container_searchbar_messages">
+                    <i className="fas fa-search search-icon_messages"></i>
+                    <input className="searchbar searchbar_messages input_messages" id="searchbar_messages" type="text" placeholder="Search messages..." name="searchbar_messages" onChange={
                         e => {
                             setSearchTerms(e.target.value)
                         }
+
                     } />
+
                 </div>
                 <div className="container container_sort_messages">
                     <label className="label label_messages label_sort_messages" htmlFor="sort_messages">Sort:</label>
-                    <select className="dropdown sort sort_messages" id="sort_messages" name="sort_messages" onChange={
+                    <select className="dropdown sort sort_messages input_messages" id="sort_messages" name="sort_messages" onChange={
                         e => {
                             setSortTerms(e.target.value)
                         }

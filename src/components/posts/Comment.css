@@ -2,10 +2,10 @@
 
 .container_comment_card {
     margin: 10px 0px 10px 0px;
-    border: black solid 1px;
+    /* border: black solid 1px; */
     padding: 10px 10px 10px 10px; 
     border-radius: 10px;
-    background-color: rgba(96, 108, 119, 0.565);
+    /* background-color: rgba(96, 108, 119, 0.565); */
 }
 
 .container_comment_heading {
@@ -50,7 +50,7 @@
     height: 30px;
     margin-left: 5px;
     cursor: pointer;
-    border: black solid 2px;
+    /* border: black solid 2px; */
     border-radius: 50%;
 }
 

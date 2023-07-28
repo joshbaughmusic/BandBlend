@@ -3,7 +3,7 @@
 .container_message_card {
     padding: 10px;
     margin: 15px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 15px;
     width: 75%;
 }
@@ -16,7 +16,7 @@
 .container_message_card_sender {
     margin-right: auto;
     position: relative;
-    background-color: rgba(84, 116, 176, 0.639);
+    /* background-color: rgba(84, 116, 176, 0.639); */
     box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.300);
 
 }
@@ -24,7 +24,7 @@
 .container_message_card_receiver {
     margin-left: auto;
     position: relative;
-    background-color: rgba(97, 96, 158, 0.601);
+    /* background-color: rgba(97, 96, 158, 0.601); */
     box-shadow: -5px 5px 5px hsla(0, 0%, 0%, 0.300);
 
 }
@@ -58,7 +58,7 @@
 .img_message {
     width: 30px;
     height: 30px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 50%;
 }
 
@@ -70,6 +70,11 @@
 .heading_message_tofrom {
     font-size: 0.9rem;
     margin-right: 5px;
+}
+
+.heading_message_date{
+    margin: 5px 0 6px 0px;
+    font-weight: 600;
 }
 
 /* end headings/text */

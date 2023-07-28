@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./NewPhoto.css"
 
 export const NewPhoto = ({ closeNewPhoto, myProfileId, setMedia, }) => {
 
@@ -45,8 +46,7 @@ export const NewPhoto = ({ closeNewPhoto, myProfileId, setMedia, }) => {
     return (
         <>
         <form className="form form_new_photo">
-                <fieldset>
-                    <input autoFocus name="newPhoto" className="input input_text" placeholder="Enter Photo URL..." onChange={
+                    <input autoFocus name="newPhoto" className="input input_text input_text_photo" placeholder="Enter Photo URL..." onChange={
                         e => {
                             const copy = { ...newPhoto }
                             copy.url = e.target.value
@@ -54,10 +54,9 @@ export const NewPhoto = ({ closeNewPhoto, myProfileId, setMedia, }) => {
                         }
                     }
                     ></input>
-                </fieldset>
                 <br />
-                <button type="submit" className="btn btn_profile btn_submit" onClick={handleSubmitNewPhotoClick}>Submit Photo</button>
-                <button type="button" className="btn btn_profile btn_close" onClick={closeNewPhoto}>Close</button>
+                <button type="submit" className="btn btn_profile btn_submit_photo" onClick={handleSubmitNewPhotoClick}>Submit Photo</button>
+                {/* <button type="button" className="btn btn_profile btn_close" onClick={closeNewPhoto}>Close</button> */}
             </form>
         </>
     )

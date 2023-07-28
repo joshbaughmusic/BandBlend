@@ -1,0 +1,248 @@
+/* text and background colors */
+
+* {
+    color: rgb(32, 32, 32);
+}
+
+body {
+    background-color: rgb(174, 187, 197);
+}
+
+/* otherprofile */
+
+.tag_genre_bubble {
+    background-color: #a9abb1;
+}
+
+/* profile all list */
+
+.container_profile_card {
+    background-color: #a9abb1;
+}
+
+.container_profile_card:nth-child(even) {
+    background-color: #b5b9c6;
+}
+
+.tag_genre_bubble_allprof {
+    background-color: #a9abb1;
+}
+
+/* search filter all profiles */
+
+.container_search_filter_all_profiles {
+    background-color: rgb(113, 143, 170);
+}
+
+/* post  */
+
+.container_post {
+    background-color: rgba(141, 152, 162, 0.729);
+}
+
+/* comment */
+.container_comment_card {
+    background-color: rgba(96, 108, 119, 0.565);
+}
+
+/* nav */
+
+.container_nav {
+    background-color: rgb(122, 157, 174);
+}
+
+/* messages sidebar */
+
+.container_messages_sidebar {
+    background-color: rgb(122, 157, 174);
+}
+
+.container_messages_header {
+    background-color: rgb(47, 115, 174);
+
+}
+
+/* message */
+.container_message_card_sender {
+    background-color: rgba(84, 116, 176, 0.639);;
+}
+
+.container_message_card_receiver {
+    background-color: rgba(97, 96, 158, 0.601);
+}
+
+
+
+
+/* borders */
+
+/* Other profile */
+
+.heading_main_profile_sections {
+    border-bottom: 1px solid black;
+}
+
+.container_profile_primary {
+    border: 2px solid black;
+}
+
+.container_profile_about {
+    border: 2px solid black;
+}
+
+.container_profile_media_outer {
+    border: 2px solid black;
+}
+
+.container_profile_posts_outer {
+    border: 2px solid black;
+}
+
+.container_img_profile_primary {
+    border: rgba(0, 0, 0, 0.617) solid 2px;
+}
+
+.container_profile_additional_img {
+    border: rgba(0, 0, 0, 0.617) solid 2px;
+}
+
+.tag_genre_bubble {
+    border: solid black 1px;
+}
+
+/* profile all list */
+
+.container_profile_card {
+    border: black solid 2px;
+}
+
+.tag_genre_bubble_allprof {
+    border: solid black 1px;
+}
+
+/* search filter all profiles */
+
+.input_allprofiles {
+    border: 1px solid rgba(0, 0, 0, 0.275);
+}
+
+.container_search_filter_all_profiles {
+
+    border: solid black 2px;
+}
+
+/* new photo */
+
+.input_text_photo {
+    border: 1px solid rgba(0, 0, 0, 0.275);
+}
+
+/* posts */
+
+.container_post {
+    border: solid black 1px;
+}
+
+.img_post_picture {
+    border: solid black 2px;
+}
+
+/* new post */
+
+.input_text_post {
+    border: 1px solid rgba(0, 0, 0, 0.275);
+}
+
+/* comment */
+.container_comment_card {
+    border: black solid 1px;
+}
+
+.img_commentor {
+    border: black solid 2px;
+}
+
+/* new comment */
+
+.input_text_new_comment {
+    border: 1px solid rgba(0, 0, 0, 0.275);
+}
+
+/* nav */
+.container_nav {
+    border-bottom: 2px black solid;
+}
+
+/* messages sidebar */
+
+.container_messages_sidebar {
+  border-left: black 2px solid;
+}
+
+.container_messages_header {
+    border-bottom: solid black 2px;
+}
+
+/* messages sort filter */
+
+.input_messages {
+    border: 1px solid rgba(0, 0, 0, 0.275);
+}
+
+/* message */
+
+.container_message_card {
+    border: 1px solid black;
+}
+
+.img_message {
+    border: 2px solid black;
+}
+
+/* homepage */
+
+.container_home_latest_posts_inner {
+    border: black solid 2px;
+}
+
+
+
+/* other stuff */
+
+/* image pop up otherprofile */
+
+.popup-media-container {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.img-popup {
+    border: 3px solid white;
+}
+
+.icon_close_popup_media {
+    color: white;
+}
+
+.icon_close_popup_media:hover {
+    color: #b3afaf;
+}
+
+/* myprofile delete photo */
+
+.icon_delete_photo {
+    color: #b545458e;
+}
+
+.icon_delete_photo:hover {
+    color: #c12929d6;
+}
+
+
+/* buttons */
+
+/* saved button profile */
+
+.button_profile_primary_saved {
+    background-color: lightcoral;
+    color: aliceblue;
+}
