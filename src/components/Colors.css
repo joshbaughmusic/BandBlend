@@ -5,10 +5,27 @@
 }
 
 body {
-    background-color: rgb(174, 187, 197);
+    background-color: #b0bdf3
 }
 
 /* otherprofile */
+
+.container_profile_primary {
+  background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
+
+}
+
+.container_profile_about {
+    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
+}
+
+.container_profile_media_outer {
+    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
+}
+
+.container_profile_posts_outer {
+    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
+}
 
 .tag_genre_bubble {
     background-color: #a9abb1;
@@ -34,10 +51,16 @@ body {
     background-color: rgb(113, 143, 170);
 }
 
+/* homepage */
+
+.container_home_latest_posts_inner {
+    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
+}
+
 /* post  */
 
 .container_post {
-    background-color: rgba(141, 152, 162, 0.729);
+    background-color: #b0bdf3
 }
 
 /* comment */
@@ -48,8 +71,8 @@ body {
 /* nav */
 
 .container_nav {
-    background-color: rgb(122, 157, 174);
-}
+    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
+    }
 
 /* messages sidebar */
 
@@ -119,6 +142,11 @@ body {
 .tag_genre_bubble_allprof {
     border: solid black 1px;
 }
+
+.img_profileCard {
+    border: solid black 2px;
+}
+
 
 /* search filter all profiles */
 

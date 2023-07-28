@@ -69,7 +69,8 @@ export const Homepage = () => {
     return (
         <>
 
-            <section className="container container_homepage">
+            <section className="spacer layer1 container container_homepage">
+                <div className="container container_homepage_inner">
                 <section className="container container_hero">
                     <header className="container container_heading">
                         <img className="heading heading_app_title" src={require("../../images/bb_text_logo.png")}/>
@@ -113,6 +114,7 @@ export const Homepage = () => {
                     </ul>
                     
                 </section>
+                </div>
             </section>
 
         </>
