@@ -94,8 +94,10 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
 
                     <article key={messageKey} className="container container_message_card container_message_card_sender">
                         <AiIcons.AiOutlineArrowRight className="icon icon_message_arrowright" />
+                        <div className="container container_message_heading">
                         <h5 className="heading heading_message_tofrom heading_message_sender" id={`messageUser--${messageReceiverId}`}>To: <span className="message_nameLink"><Link to={`profiles/${messageReceiverId}`}>{messageReceiverName}</Link></span> </h5>
-                        <img className="img img_message" src={messageReceiverPicture} />
+                        <Link to={`profiles/${messageReceiverId}`}><img className="img img_message" src={messageReceiverPicture} /></Link>
+                        </div>
                         <h6 className="heading heading_message_date">
                             {convertTimestamp(messageDate)}
                         </h6>
@@ -109,15 +111,16 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
 
                     <article key={messageKey} className="container container_message_card container_message_card_receiver">
                         <AiIcons.AiOutlineArrowLeft className="icon icon_message_arrowleft" />
-                        <h5 className="heading heading_message_tofrom heading_message_receiver" id={`messageUser--${messageSenderId}`}>From: <span className="message_nameLink"><Link to={`profiles/${messageSenderId}`}>{messageSenderName}</Link></span> </h5>
-                        <img className="img img_message" src={messageSenderPicture} />
+                        <div className="container container_message_heading"><h5 className="heading heading_message_tofrom heading_message_receiver" id={`messageUser--${messageSenderId}`}>From: <span className="message_nameLink"><Link to={`profiles/${messageSenderId}`}>{messageSenderName}</Link></span> </h5>
+                        <Link to={`profiles/${messageSenderId}`}><img className="img img_message" src={messageSenderPicture} /></Link>
+                        </div>
                         <h6 className="heading heading_message_date">
                             {convertTimestamp(messageDate)}
                         </h6>
                         <p className="text text_message_body">{messageBody}</p>
                         <div className="container container_message_buttons">
-                            <button type="button" className="btn btn_message btn_message_reply" id={`messageReply--${messageSenderId}`} onClick={handleReplyClick}>Reply</button>
                             <button type="button" id={`messageDelete--${messageId}`} className="btn btn_message btn_message_delete" onClick={handleMessageDeleteClick}>Delete</button>
+                            <button type="button" className="btn btn_message btn_message_reply" id={`messageReply--${messageSenderId}`} onClick={handleReplyClick}>Reply</button>
                         </div>
                     </article>
             }

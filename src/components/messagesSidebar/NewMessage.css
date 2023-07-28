@@ -1,8 +1,11 @@
+/* containers */
+
 .form_new_message {
-    width: 100%;
+    width: 90%;
+    display: block;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
 }
 
@@ -10,6 +13,41 @@
     margin-bottom: 20px;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
+}
+
+/* end containers */
+
+
+/* inputs */
+
+.input_text_message {
+    display: block;
+    width: 110%;
+    margin-left: 2px;
+    margin-right: auto;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.input_select_message {
+    display: block;
+    width: 110%;
+    margin-top: 10px;
+    margin-left: 2px;
+    margin-right: auto;
+    border-radius: 15px;
+    padding: 5px;
 
 }
+
+/* end inputs */
+
+
+/* buttons */
+
+.btn_submit_message {
+    margin-right: 5px;
+}
+
+/* end buttons */
