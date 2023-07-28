@@ -123,9 +123,6 @@
 
 }
 
-.heading_profile_about {
-    margin-bottom: 20px;
-}
 
 .container_profile_media_outer {
     grid-area: media;
@@ -284,9 +281,6 @@
     font-size: 1rem; 
 }
 
-/* .heading_profile_about {
-    margin-bottom: 15px;
-} */
 
 .heading_bubbles_section {
     font-weight: 600;
@@ -306,8 +300,7 @@
     font-weight: 500;
 }
 
-/* hr {
-    color: black;
-    font-size: 20px;
-    margin-bottom: 5px;
-} */
+/* not doing the 20px maring here like other sections because of the text height making it look off then. This makes up the visual difference */
+.text_profile_about {
+    margin-top: 15px;
+}

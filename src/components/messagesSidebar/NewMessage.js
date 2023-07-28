@@ -74,8 +74,7 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
     return (
         <>
             <form className="form form_new_message">
-                <fieldset>
-                    <textarea autoFocus name="newMessage" className="input input_text" placeholder="Compose Message..." rows="7" cols="30" onChange={
+                    <textarea autoFocus name="newMessage" className="input input_text input_text_message" placeholder="Compose Message..." rows="7" cols="auto" onChange={
                         e => {
                             const copy = { ...message }
                             copy.body = e.target.value
@@ -83,9 +82,7 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
                         }
                     }
                     ></textarea>
-                </fieldset>
-                <fieldset>
-                    <select required defaultValue={null} name="dropdown dropdown_message_receiver" className="input input_select" value={selectedReceiverId} onChange={e => {
+                    <select required defaultValue={null} name="dropdown dropdown_message_receiver" className="input input_select input_select_message" value={selectedReceiverId} onChange={e => {
                         setSelectedReceiverId(e.target.value)
                         const [, userId] = e.target.value.split("--")
                         let copy = { ...message }
@@ -100,11 +97,10 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
                             })
                         }
                     </select>
-                </fieldset>
                 <br />
                 <div className="container container_buttons_messages_new">
-                <button type="submit" className="btn btn_profile btn_submit" onClick={handleSubmitNewMessageClick}>Submit Message</button>
-                <button type="button" className="btn btn_profile btn_close" onClick={handleNewMessageClose}>Close</button>
+                <button type="submit" className="btn btn_message btn_submit btn_submit_message" onClick={handleSubmitNewMessageClick}>Submit Message</button>
+                <button type="button" className="btn btn_message btn_close" onClick={handleNewMessageClose}>Close</button>
                 </div>
             </form>
         </>
