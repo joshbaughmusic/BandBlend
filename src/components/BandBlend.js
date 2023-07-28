@@ -11,6 +11,7 @@ import { MessagesSidebar } from "./messagesSidebar/MessagesSidebar.js"
 import { useState } from "react"
 import "./BandBlend.css"
 import "./Colors.css"
+import "./Backgrounds.css"
 
 export const BandBlend = () => {
 
