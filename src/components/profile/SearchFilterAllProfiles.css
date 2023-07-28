@@ -7,10 +7,53 @@
     padding: 15px;
     margin-bottom: 10px;
     min-width: 660px;
-    background-color: rgb(113, 143, 170);
+    /* background-color: rgb(113, 143, 170); */
 
 }
 
+.input_allprofiles {
+    padding: 8px;
+    /* border: 1px solid rgba(0, 0, 0, 0.275); */
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+    max-height: 33px;
+    font-size: 0.9rem;
+}
+
 .container_searchbar_allprofiles {
-    
+    width: 80%;
+    position: relative;
+}
+
+.searchbar_all_profiles {
+    width: 70%;
+    min-width: 200px;
+    padding-left: 30px;
+}
+
+.container_sort_filter_allprofiles {
+    display: flex;
+    flex-wrap: none;
+    align-items: center;
+}
+
+.filter_all_profiles,
+.sort_all_profiles {
+    min-width: 145px;
+    margin-left: 5px;
+    padding-top: 5px;
+
+}
+
+.label_allprofiles {
+    margin-left: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.search-icon_allprofiles {
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    margin: auto 0;
 }

@@ -4,12 +4,13 @@ import { Login } from "./auth/Login.js"
 import { RegisterUser } from "./auth/RegisterUser.js"
 import { MainContent } from "./mainContent/MainContent.js"
 import { Navbar } from "./nav/Navbar.js"
-import "./BandBlend.css"
 import { RegisterProfile } from "./auth/RegisterProfile.js"
 import { RegisterTags } from "./auth/RegisterTags.js"
 import { RegisterSubGenres } from "./auth/RegisterSubGenres.js"
 import { MessagesSidebar } from "./messagesSidebar/MessagesSidebar.js"
 import { useState } from "react"
+import "./BandBlend.css"
+import "./Colors.css"
 
 export const BandBlend = () => {
 

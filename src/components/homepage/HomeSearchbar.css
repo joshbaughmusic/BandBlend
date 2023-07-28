@@ -32,10 +32,6 @@
     margin-left: 10px;
 }
 
-.input_searchbar_home:focus {
-    outline: none;
-}
-
 .search-icon {
     color: black;
 }

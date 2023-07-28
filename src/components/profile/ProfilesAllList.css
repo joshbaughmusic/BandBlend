@@ -24,15 +24,15 @@
     grid-template-columns: 150px 1fr 0.7fr 1fr 50px;
     /* display: flex;
     justify-content: space-between; */
-    border: black solid 2px;
+    /* border: black solid 2px; */
     border-radius: 20px;
     margin: 0px 0px 10px 0px;
     padding: 10px;
-    background-color: #a9abb1;
+    /* background-color: #a9abb1; */
 }
 
 .container_profile_card:nth-child(even) {
-    background-color: #b5b9c6;
+    /* background-color: #b5b9c6; */
 
 }
 
@@ -42,7 +42,7 @@
     border-radius: 50%;
     align-self: center;
     margin-left: 10px;
-    border: solid black 2px;
+    /* border: solid black 2px; */
     object-fit: cover;
 }
 
@@ -51,10 +51,10 @@
     min-width: 100px;
     margin-top: 8px;
     font-size: 0.8rem;
-    border: solid black 1px;
+    /* border: solid black 1px; */
     padding: 3px 15px;
     border-radius: 20px;
-    background-color: #a9abb1;
+    /* background-color: #a9abb1; */
     font-size: 0.8rem;
     font-weight: 500;
 }

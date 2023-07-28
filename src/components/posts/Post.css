@@ -1,10 +1,10 @@
 /* containers */
 
 .container_post {
-    border: solid black 1px;
+    /* border: solid black 1px; */
     border-radius: 10px;
     padding: 15px;
-    background-color: rgba(141, 152, 162, 0.729);
+    /* background-color: rgba(141, 152, 162, 0.729); */
 
 }
 
@@ -82,7 +82,7 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    border: solid black 2px;
+    /* border: solid black 2px; */
     margin-right: 7px;
     object-fit: cover;
 }
