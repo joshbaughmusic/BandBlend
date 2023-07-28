@@ -120,6 +120,11 @@ body {
     border: solid black 1px;
 }
 
+.img_profileCard {
+    border: solid black 2px;
+}
+
+
 /* search filter all profiles */
 
 .input_allprofiles {
