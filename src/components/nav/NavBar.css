@@ -26,6 +26,13 @@ img.logo {
     text-decoration: none;
     padding: 10px;
     align-self: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.nav_list_item:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 a {

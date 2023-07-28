@@ -83,11 +83,11 @@ export const Homepage = () => {
 
                                 ?
 
-                                <h3 className="heading heading_greeting">Hello {bBUserObject.name}!</h3>
+                                <h3 className="heading heading_greeting">Hey {bBUserObject.name}!</h3>
 
                                 :
 
-                                <h3 className="heading heading_greeting">Hello {mainName}!</h3>
+                                <h3 className="heading heading_greeting">Hey {mainName}!</h3>
 
                         }
                     </div>

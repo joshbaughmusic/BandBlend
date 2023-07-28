@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./Post.css"
 import { useEffect, useState } from "react"
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
 
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage.
 
@@ -112,7 +114,10 @@ export const PostHome = ({ userName, profileId, userPicture, postBody, postId, p
                     <Link to={`/profiles/${profileId}`}><img className="img img_post_picture" src={userPicture} /></Link>
                     <Link to={`/profiles/${profileId}`}><h4 className="heading heading_post_name">{userName} posted:</h4></Link>
                 </div>
-                <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                <div className="container container_post_date_icon">
+                    <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                    <FaIcons.FaRegComment className="icon icon_post_bubble" />
+                </div>
             </div>
             <p className="text text_post_body">{postBody}</p>
             <div className="container container_footer_post">

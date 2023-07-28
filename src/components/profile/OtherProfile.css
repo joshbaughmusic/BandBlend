@@ -6,34 +6,143 @@
         "primary about"
         "primary media"
         "primary posts";
-    grid-template-columns: 250px 3fr;
+    grid-template-columns: 280px auto;
     grid-template-rows: auto;
     grid-gap: 20px;
-    margin: 20px 0px;
+    padding: 30px 50px;
+    /* margin: 20px 0px; */
 }
 
 .container_profile_primary {
     grid-area: primary;
     padding: 20px;
     border: 2px solid black;
-    border-radius: 30px;
+    border-radius: 25px;
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
+
+
+.container_heading_profile_primary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.container_profile_primary_socialwidgets {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    width: 125px;
+    /* border: black solid 1px;
+    background-color: #64687431;
+    border-radius: 20px;
+    padding: 5px 10px 0px 10px; */
+}
+
+.container_primary_genre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.container_primary_instrument {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.container_tags_genres {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_tags_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.container_subgenres_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.container_tags {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_subgenres {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container_profile_primary_buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* .container_tag_genre_bubbles {
+   
+} */
+
+.heading_main_profile_sections {
+    /* margin-bottom: 20px;    */
+    border-bottom: 1px solid black;
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+   }
+
 
 .container_profile_about {
     grid-area: about;
     padding: 20px;
     border: 2px solid black;
-    border-radius: 30px;
+    border-radius: 25px;
     margin-right: 20px;
+
+}
+
+.heading_profile_about {
+    margin-bottom: 20px;
 }
 
 .container_profile_media_outer {
     grid-area: media;
     padding: 20px;
     border: 2px solid black;
-    border-radius: 30px;
+    border-radius: 25px;
     margin-right: 20px;
+
+
+}
+
+.container_profile_media_inner {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    
 
 }
 
@@ -41,8 +150,10 @@
     grid-area: posts;
     padding: 20px;
     border: 2px solid black;
-    border-radius: 30px;
+    border-radius: 25px;
     margin-right: 20px;
+    /* max-height: 630px;
+    overflow-y: auto; */
 
 }
 
@@ -60,6 +171,7 @@
     border: rgba(0, 0, 0, 0.617) solid 2px;
     position: relative;
     border-radius: 50%;
+    margin-bottom: 5px;
 }
 
 .img_profile_primary {
@@ -78,12 +190,13 @@
 }
 
 .container_profile_additional_img {
-    width: 150px;
+    min-width: 150px;
     height: 150px;
     overflow: hidden;
     border-radius: 10px;
     border: rgba(0, 0, 0, 0.617) solid 2px;
     position: relative;
+    margin-right: 8px;
     
 }
 
@@ -104,8 +217,7 @@
 }
 
 .img_profile_primary_socialwidget {
-    width: 15%;
-    border: none;
+    width: 25px;
 }
 
 /* end images */
@@ -157,3 +269,45 @@
 }
 
 /* end popup image styles*/
+
+/* headings and text */
+
+.heading_profile_primary_location {
+    margin-bottom: 2px;
+}
+
+.heading_profile_primary_primary_instrument {
+    font-size: 1rem;
+}
+
+.heading_profile_primary_primary_genre {
+    font-size: 1rem; 
+}
+
+/* .heading_profile_about {
+    margin-bottom: 15px;
+} */
+
+.heading_bubbles_section {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.tag_genre_bubble {
+    text-align: center;
+    min-width: 100px;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    border: solid black 1px;
+    padding: 3px 15px;
+    border-radius: 20px;
+    background-color: #a9abb1;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* hr {
+    color: black;
+    font-size: 20px;
+    margin-bottom: 5px;
+} */

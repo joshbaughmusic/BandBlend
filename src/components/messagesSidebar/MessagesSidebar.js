@@ -99,7 +99,7 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
         );
 
         let filteredData = [...searchedMessages];
- 
+
         if (sortTerms === "newest") {
             filteredData = filteredData.sort((a, b) => b.messageObj.date - a.messageObj.date);
         } else if (sortTerms === "oldest") {
@@ -124,31 +124,48 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
 
     return (
         <>
-            <div className={sidebar ? "container container_messages_sidebar active" : "container container_messages_sidebar" }>
+            <div className={sidebar ? "container container_messages_sidebar active" : "container container_messages_sidebar"}>
                 <div className="container container_messages_header">
-                <h2 className="heading heading_messages">Messages</h2>
-                <AiIcons.AiOutlineClose onClick={showSidebar}/>
+                    <div className="container container_messages_heading_close">
+                        <AiIcons.AiOutlineClose className="icon icon_messages_close" onClick={showSidebar} />
+                        <h2 className="heading heading_messages">Messages</h2>
+                    </div>
+                    <section className="container container_messages_new">
+
+                        {
+                            showNewMessage
+
+                                ?
+
+                                <button type="button" className="btn button_messages_new" id={`btnNewMessage--${0}`} onClick={handleNewMessageClose}>Close</button>
+
+                                :
+
+                                <button type="button" className="btn button_messages_new" id={`btnNewMessage--${0}`} onClick={handleNewMessageShow}>New Message</button>
+
+                        }
+
+                    </section>
                 </div>
-                <section className="container container_messages_new">
+                    <section className="container container_messages_new">
 
-                    {
-                        showNewMessage
+                        {
+                            showNewMessage
 
-                            ?
+                                ?
 
-                            <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage} />
+                                <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage} />
 
-                            :
+                                :
 
-                            <button type="button" className="btn button_messages_new" id={`btnNewMessage--${0}`} onClick={handleNewMessageShow}>New Message</button>
+                                ""
+                        }
 
-                    }
-
-                </section>
-                <MessageSearchSort setSearchTerms={setSearchTerms} setSortTerms={setSortTerms}/>
+                    </section>
+                <MessageSearchSort setSearchTerms={setSearchTerms} setSortTerms={setSortTerms} />
                 <section className="container container_messages_display">
                     {
-                        filteredMessages.map(message => <Message        
+                        filteredMessages.map(message => <Message
                             messageKey={`message--${message.messageObj.id}`}
                             messageId={message.messageObj.id}
                             messageSenderId={message.messageObj.senderId}
@@ -170,7 +187,7 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
                     }
 
                 </section>
-                
+
             </div>
         </>
     )

@@ -1,4 +1,15 @@
+.container_message_card {
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: rgba(96, 129, 158, 0.601);
+}
+
+
 .img_message {
     width: 30px;
     height: 30px;
+    border: 2px solid black;
+    border-radius: 50%;
 }

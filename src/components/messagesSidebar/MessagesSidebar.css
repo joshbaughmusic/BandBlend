@@ -1,6 +1,9 @@
+/* containers */
+
 .container_messages_sidebar {
     position: fixed;
     width: 30%;
+    min-width: 290px;
     max-width: 450px;
     height: 100vh;
     border-left: black 2px solid;
@@ -10,6 +13,10 @@
     background-color: rgb(122, 157, 174);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
@@ -17,3 +24,61 @@
     right: 0;
     transition: right linear 450ms;
 }
+
+.container_messages_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px 10px 10px;
+    border-bottom: solid black 2px;
+    min-width: 90%;
+
+}
+
+.container_messages_heading_close {
+    display: flex;
+
+}
+
+.container_messages_new {
+    display: flex;
+    justify-content: end;
+    /* margin-left: 20px; */
+    width: 100%;
+}
+
+/* end containers */
+
+
+
+
+/* icons and imgs */
+
+.icon_messages_close {
+    font-size: 30px;
+
+}
+
+/* end icons and imgs */
+
+
+.icon_messages_close:hover {
+    cursor: pointer;
+}
+
+/* headings and text */
+
+.heading_messages {
+    margin-left: 10px;
+}
+
+/* end headings and text */
+
+
+/* buttons */
+
+.button_messages_new {
+    margin-left: 20px;
+}
+
+/* end buttons */

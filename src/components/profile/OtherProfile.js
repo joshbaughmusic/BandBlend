@@ -115,42 +115,6 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
                                 <h5 className="heading heading_profile_isBand">Musician</h5>
 
                         }
-                        <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
-                        <Distance profileId={profileId} />
-                        {
-                            !profile?.user?.isBand
-
-                                ?
-
-                                <div className="container container_primary_instrument">
-                                    <h4 className="heading heading_profile_primary_primary_instrument">Primary Instrument:</h4>
-                                    <h4 className="heading heading_profile_primary_primary_instrument_name">{profile?.primaryInstrument?.name}</h4>
-                                </div>
-
-                                :
-
-                                ""
-
-                        }
-                        <div className="container container_primary_genre">
-                            <h4 className="heading heading_profile_primary_primary_genre">Primary Genre:</h4>
-                            <h4 className="heading heading_profile_primary_primary_genre_name">{profile?.primaryGenre?.name}</h4>
-                        </div>
-                    </div>
-
-                    <div className="container container_profile_primary_clickables">
-                        <div className="container container_profile_primary_buttons">
-                            <SaveButtonProfile profileId={profileId} />
-                            {/* <button type="button" className="btn button_profile_primary_save" onClick={handleSaveButtonClick}>Save</button> */}
-                            <button type="button" className="btn button_profile_primary_message" id={`messageUser--${profile?.user?.id}`} onClick={handleMessageClick}
-                            >Message</button>
-                        </div>
-                        {/* <div className="container container_profile_primary_song">
-                            {
-                                profile.featuredSong ? <div className="audio audio_profile_primary">Featured song goes here</div> : ''
-                            }
-                        </div> */}
-
                         <div className="container container_profile_primary_socialwidgets">
                             {
                                 profile.spotify
@@ -197,35 +161,78 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
                                     ""
                             }
                         </div>
+                        <h3 className="heading heading_profile_primary_location">{profile?.location}</h3>
+                        <Distance profileId={profileId} />
+                        {
+                            !profile?.user?.isBand
+
+                                ?
+
+                                <div className="container container_primary_instrument">
+                                    <h4 className="heading heading_profile_primary_primary_instrument heading_bubbles_section">Primary Instrument:</h4>
+                                    <h4 className="heading heading_profile_primary_primary_instrument_name tag_genre_bubble ">{profile?.primaryInstrument?.name}</h4>
+                                </div>
+
+                                :
+
+                                ""
+
+                        }
+                        <div className="container container_primary_genre">
+                            <h4 className="heading heading_profile_primary_primary_genre heading_bubbles_section">Primary Genre:</h4>
+                            <h4 className="heading heading_profile_primary_primary_genre_name tag_genre_bubble">{profile?.primaryGenre?.name}</h4>
+                        </div>
+                    </div>
+
+                    <div className="container container_profile_primary_clickables">
+                    
+                        {/* <div className="container container_profile_primary_song">
+                            {
+                                profile.featuredSong ? <div className="audio audio_profile_primary">Featured song goes here</div> : ''
+                            }
+                        </div> */}
+
+
 
                         <div className="container container_tags_genres">
-                            <h4 className="heading heading_profile_primary_tags">Tags</h4>
-                            <ul className="container container_tags">
-                                {
-                                    profile?.profileTags?.map(tag => {
-                                        return <li key={`profilePrimaryTag--${tag.id}--${tag.tagId}`} className="profile_primary_tag">{matchTags(tag.tagId)}</li>
-                                    })
-                                }
-                            </ul>
-                            <h4 className="heading heading_profile_subgenres">SubGenres</h4>
-                            <ul className="container container_subgenres">
-                                {
-                                    profile?.profileSubGenres?.map(sg => {
-                                        return <li key={`profileSubGenre--${sg.id}--${sg.subGenreId}`} className="profile_subgenre">{matchSubGenres(sg.subGenreId)}</li>
-                                    })
-                                }
-                            </ul>
+                            <div className="container container_tags_section">
+                                <h4 className="heading heading_profile_primary_tags heading_bubbles_section">Tags:</h4>
+                                <ul className="container container_tags container_tag_genre_bubbles">
+                                    {
+                                        profile?.profileTags?.map(tag => {
+                                            return <li key={`profilePrimaryTag--${tag.id}--${tag.tagId}`} className="profile_primary_tag tag_genre_bubble">{matchTags(tag.tagId)}</li>
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                            <div className="container container_subgenres_section">
+                                <h4 className="heading heading_profile_subgenres heading_bubbles_section">SubGenres:</h4>
+                                <ul className="container container_subgenres container_tag_genre_bubbles">
+                                    {
+                                        profile?.profileSubGenres?.map(sg => {
+                                            return <li key={`profileSubGenre--${sg.id}--${sg.subGenreId}`} className="profile_primary_subgenre tag_genre_bubble">{matchSubGenres(sg.subGenreId)}</li>
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="container container_profile_primary_buttons">
+                            <SaveButtonProfile profileId={profileId} />
+                            {/* <button type="button" className="btn button_profile_primary_save" onClick={handleSaveButtonClick}>Save</button> */}
+                            <button type="button" className="btn button_profile_primary_message" id={`messageUser--${profile?.user?.id}`} onClick={handleMessageClick}
+                            >Message</button>
                         </div>
                     </div>
                 </article>
 
                 <article className="container container_profile_about">
-                    <h3 className="heading heading_profile_about">About</h3>
+                    <h3 className="heading heading_profile_about heading_main_profile_sections">About</h3>
+                    {/* <hr className="linebreak_about"/> */}
                     <p className="text text_profile_about">{profile.about}</p>
                 </article>
 
                 <article className="container container_profile_media_outer">
-                    <h3 className="heading heading_profile_media">Additional Photos</h3>
+                    <h3 className="heading heading_profile_media heading_main_profile_sections">Additional Photos</h3>
                     <div className="container container_profile_media_inner">
                         {
                             profile.media?.length
@@ -252,7 +259,7 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
                 </article>
 
                 <article className="container container_profile_posts_outer">
-                    <h3 className="heading heading_profile_posts">Posts</h3>
+                    <h3 className="heading heading_profile_posts heading_main_profile_sections">Posts</h3>
                     <ul className="container container_profile_posts_inner">
                         {
                             profile.posts?.length

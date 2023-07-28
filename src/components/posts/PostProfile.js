@@ -3,6 +3,10 @@ import "./Post.css"
 import { useEffect, useState } from "react"
 import { Comment } from "./Comment.js"
 import { NewComment } from "./NewComment.js"
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+
+
 // import { ReactComponent as ThumbLiked } from "../../images/svg/thumb-liked-2.svg"
 // import { ReactComponent as ThumbNonLiked } from "../../images/svg/thumb-nonliked.svg"
 
@@ -215,7 +219,10 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                                 <img className="img img_post_picture" src={userPicture} />
                                 <h4 className="heading heading_post_name">You posted:</h4>
                             </div>
+                            <div className="container container_post_date_icon">
                             <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                            <FaIcons.FaRegComment className="icon icon_post_bubble"/>
+                            </div>
                         </div>
                         <p className="text text_post_body">{postBody}</p>
                     </section>
@@ -226,7 +233,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                                     ?
 
-                                    <p className="text text_post_likecount">Nobody has liked this yet.</p>
+                                    <p className="text text_post_likecount">No likes yet</p>
 
                                     :
 
@@ -249,8 +256,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                             {/* edit and delete buttons */}
                             <div className="container container_post_myprofile_edit-delete_buttons">
-                                <button className="btn btn_edit btn_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit Post</button>
-                                <button id={`postDelete--${postId}`} className="btn btn_delete" onClick={handleDeletePostClick}>Delete Post</button>
+                                <button className="btn btn_edit btn_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
+                                <button id={`postDelete--${postId}`} className="btn btn_delete_post" onClick={handleDeletePostClick}>Delete</button>
                             </div>
                         </div>
                     </div>
@@ -291,8 +298,10 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                                 <img className="img img_post_picture" src={userPicture} />
                                 <h4 className="heading heading_post_name">{userName} posted:</h4>
                             </div>
+                            <div className="container container_post_date_icon">
                             <p className="text text_post_date">{convertTimestamp(postDate)}</p>
-                        </div>
+                            <FaIcons.FaRegComment className="icon icon_post_bubble"/>
+                            </div>                        </div>
                         <p className="text text_post_body">{postBody}</p>
                     </section>
                     <div className="container container_footer_post">

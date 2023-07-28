@@ -10,13 +10,13 @@
 }
 
 .icon_distance {
-    height: 30px;
-    width: 30px;
-    border: none;
-    margin-right: 10px;
+    height: 25px;
+    width: 25px;
+    margin-right: 6px;
 }
 
 .text_profile_distance {
     font-style: italic;
+    font-size: 0.8rem;
 
 }

@@ -1,12 +1,15 @@
 /* flex setup and basic container layout */
 
 .container_all_profiles_and_search {
+    padding: 30px 50px;
+
 }
 
 .container_allProfiles {
     display: flex;
     flex-direction: column;
     height: 100%;
+    /* padding: 20px 50px; */
 
 }
 
