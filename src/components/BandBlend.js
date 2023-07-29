@@ -47,7 +47,7 @@ export const BandBlend = () => {
         <Route path="*" element={
           <Authorized>
             <>
-              <Navbar showSidebar={showSidebar}/>
+              <Navbar showSidebar={showSidebar} sidebar={sidebar}/>
               <MessagesSidebar message={message} setMessage={setMessage} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} showNewMessage={showNewMessage} setShowNewMessage={setShowNewMessage} sidebar={sidebar}  showSidebar={showSidebar}/>
               <MainContent message={message} setMessage={setMessage} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} showNewMessage={showNewMessage} setShowNewMessage={setShowNewMessage} sidebar={sidebar} setSidebar={setSidebar}/>
 

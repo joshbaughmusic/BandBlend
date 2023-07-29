@@ -1,5 +1,7 @@
-/* .container_homepage {
-} */
+/* fixes body over flow issue */
+.container_homepage {
+    padding-bottom: 40px;
+}
 
 /* this is what fixed that background color showing through like what was happening with the above code. Making another inner div and placing the max width on that worked. */
 .container_homepage_inner {
@@ -47,7 +49,7 @@
 
 
 .heading_home_latest_posts {
-    margin: 1rem;
+    margin-top: 10px;
     text-align: center;
     text-shadow: var(--bxsh-home-text)
 
@@ -67,6 +69,7 @@
 
 .container_home_latest_posts_inner {
     /* border: black solid 2px; */
+    padding: 15px;
     border-radius: 10px;
     width: 80%;
     /* padding: 20px; */
