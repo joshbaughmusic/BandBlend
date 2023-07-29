@@ -15,8 +15,8 @@
     --bg-profilesall-card-1: #001220;
     --bg-profilesall-card-2: #2E3C4C;
     --bg-profilesall-search: #001220;
-    --bg-post: #a23831f1;
-    --bg-comment: #8d2622b8;
+    --bg-post: #c04b40d1;
+    --bg-comment: #973c32c5;
     --bg-bubble-tags: #a23831f1;
     --bg-sidebar: linear-gradient(49deg, rgba(0, 18, 32, 0.838) 0%, rgba(46, 60, 76, 0.925) 49%, rgb(5, 23, 37) 100%);
     --bg-sidebar-header: #001220;
@@ -31,6 +31,7 @@
     --text-input: #001220;
     --link-hover: #b3afaf;
     --link-active: #8d8d8d;
+    --nav-active: #d03d30;
 
 
 
@@ -137,6 +138,16 @@ a:active {
     color: var(--link-active)
 }
 
+
+/* color for active nav selection */
+
+a.active {
+    color: var(--nav-active);
+}
+
+.nav_list_item_message_active {
+    color: var(--nav-active)
+}
 
 
 
