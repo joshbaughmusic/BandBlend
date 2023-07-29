@@ -98,7 +98,7 @@ export const SaveButtonProfile = ({ profileId }) => {
 
         return (
             <>
-                <button type="button" id={`nonsaved--${profileId}--${bBUserObject.id}`} className="btn btn_save button_profile_primary_nonsaved" onClick={handleSaveButtonClick}>Save</button>
+                <button type="button" id={`nonsaved--${profileId}--${bBUserObject.id}`} className="btn btn_save button_profile_primary_nonsaved button_profile_colors" onClick={handleSaveButtonClick}>Save</button>
             </>
         )
     }

@@ -17,7 +17,7 @@
     margin-right: auto;
     position: relative;
     /* background-color: rgba(84, 116, 176, 0.639); */
-    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.300);
+    box-shadow: var(--bxsh-message-sender);
 
 }
 
@@ -25,7 +25,7 @@
     margin-left: auto;
     position: relative;
     /* background-color: rgba(97, 96, 158, 0.601); */
-    box-shadow: -5px 5px 5px hsla(0, 0%, 0%, 0.300);
+    box-shadow: var(--bxsh-message-receiver)
 
 }
 
@@ -34,6 +34,10 @@
     display: flex;
     margin-top: 10px;
     justify-content: start;
+}
+
+.heading_message_tofrom {
+    display: flex;
 }
 
 /* end containers */
@@ -75,6 +79,11 @@
 .heading_message_date{
     margin: 5px 0 6px 0px;
     font-weight: 600;
+}
+
+.message_nameLink {
+    /* controls space between message name and to/from */
+    margin-left: 4px;
 }
 
 /* end headings/text */

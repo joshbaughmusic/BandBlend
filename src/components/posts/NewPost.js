@@ -47,7 +47,7 @@ export const NewPost = ({ closeNewPost, myProfileId, setMyPosts }) => {
     return (
         <>
             <form className="form form_new_post">
-                    <textarea autoFocus name="newPost" className="input input_text input_text_post" placeholder="What's on your mind?" rows="4" cols="50" onChange={
+                    <textarea autoFocus name="newPost" className="input input_text input_text_post input_field_colors" placeholder="What's on your mind?" rows="4" cols="50" onChange={
                         e => {
                             const copy = { ...post }
                             copy.body = e.target.value
@@ -56,7 +56,7 @@ export const NewPost = ({ closeNewPost, myProfileId, setMyPosts }) => {
                     }
                     ></textarea>
                 <br />
-                <button type="submit" className="btn btn_profile btn_submit_post" onClick={handleSubmitNewPostClick}>Submit Post</button>
+                <button type="submit" className="btn btn_profile btn_submit_post button_profile_colors" onClick={handleSubmitNewPostClick}>Submit Post</button>
                 {/* <button type="button" className="btn btn_profile btn_close" onClick={closeNewPost}>Close</button> */}
             </form>
         </>

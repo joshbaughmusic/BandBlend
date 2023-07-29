@@ -127,8 +127,7 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
             <div className={sidebar ? "container container_messages_sidebar active" : "container container_messages_sidebar"}>
                 <div className="container container_messages_header">
                     <div className="container container_messages_heading_close">
-                        <AiIcons.AiOutlineClose className="icon icon_messages_close" onClick={showSidebar} />
-                        <h2 className="heading heading_messages">Messages</h2>
+                        <h2 className="heading heading_messages"><span className="icon icon_messages_close" onClick={showSidebar}>X</span> Messages</h2>
                     </div>
                     <section className="container container_messages_new_button">
 
@@ -137,11 +136,11 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
 
                                 ?
 
-                                <button type="button" className="btn button_messages_new" id={`btnNewMessage--${0}`} onClick={handleNewMessageClose}>Close</button>
+                                <button type="button" className="btn button_messages_new button_profile_colors" id={`btnNewMessage--${0}`} onClick={handleNewMessageClose}>Close</button>
 
                                 :
 
-                                <button type="button" className="btn button_messages_new" id={`btnNewMessage--${0}`} onClick={handleNewMessageShow}>New Message</button>
+                                <button type="button" className="btn button_messages_new button_profile_colors" id={`btnNewMessage--${0}`} onClick={handleNewMessageShow}>New Message</button>
 
                         }
 

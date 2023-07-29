@@ -42,9 +42,9 @@ export const HomeSearchbar = () => {
     return (
         <>
             <div className='search-bar-container'>
-                <div className='input-wrapper'>
+                <div className='input-wrapper input_field_colors'>
                     <i className="fas fa-search search-icon"></i>
-                    <input className='input input_searchbar input_searchbar_home' placeholder='Find your stage mates...' value={input} onChange={(e) => {
+                    <input className='input input_searchbar input_searchbar_home input_field_colors' placeholder='Find your stage mates...' value={input} onChange={(e) => {
                         setInput(e.target.value)
                     }}
                     ></input>
@@ -52,7 +52,7 @@ export const HomeSearchbar = () => {
                 <div className='results-list'>
                     {
                         filteredProfiles.map((profile, id) => {
-                            return <div className='search-result' key={`result--${id}`} onClick={ () => {
+                            return <div className='search-result input_field_colors' key={`result--${id}`} onClick={ () => {
                                 navigate(`/profiles/${profile.id}`)
                             }}>{profile.user.name}</div>
                         })

@@ -229,7 +229,7 @@ export const MyProfile = () => {
                             <h4 className="heading heading_profile_primary_primary_genre heading_bubbles_section">Primary Genre:</h4>
                             <h4 className="heading heading_profile_primary_primary_genre_name tag_genre_bubble">{profile?.primaryGenre?.name}</h4>
                         </div>
-                        <button type="button" className="btn button_profile_primary_edit button_profile_sidebar_edit" id={`btnEditProfilePrimary--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/primaryinfo/${profile.id}`) }}>Edit Primary Info</button>
+                        <button type="button" className="btn button_profile_primary_edit button_profile_sidebar_edit button_profile_colors" id={`btnEditProfilePrimary--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/primaryinfo/${profile.id}`) }}>Edit Primary Info</button>
                     </div>
 
                     <div className="container container_profile_primary_clickables">
@@ -258,7 +258,7 @@ export const MyProfile = () => {
                                     }
                                 </ul>
                             </div>
-                            <button className="btn btn_edit btn_edit_tags button_profile_sidebar_edit" onClick={() => { navigate(`/myprofile/edit/tags/${profile.id}`) }}>Edit Tags</button>
+                            <button className="btn btn_edit btn_edit_tags button_profile_sidebar_edit button_profile_colors" onClick={() => { navigate(`/myprofile/edit/tags/${profile.id}`) }}>Edit Tags</button>
                             <div className="container container_subgenres_section">
                                 <h4 className="heading heading_profile_subgenres heading_bubbles_section">Sub-Genres:</h4>
                                 <ul className="container container_subgenres container_tag_genre_bubbles">
@@ -269,7 +269,7 @@ export const MyProfile = () => {
                                     }
                                 </ul>
                             </div>
-                            <button className="btn btn_edit btn_edit_subgenres button_profile_sidebar_edit" onClick={() => { navigate(`/myprofile/edit/subgenres/${profile.id}`) }}>Edit Sub-Genres</button>
+                            <button className="btn btn_edit btn_edit_subgenres button_profile_sidebar_edit button_profile_colors" onClick={() => { navigate(`/myprofile/edit/subgenres/${profile.id}`) }}>Edit Sub-Genres</button>
                         </div>
                     </div>
                 </article>
@@ -277,7 +277,7 @@ export const MyProfile = () => {
                 <article className="container container_profile_about">
                     <div className="container heading_main_profile_sections">
                         <h3 className="heading heading_profile_about">About</h3>
-                        <button type="button" className="btn button_profile_about_edit" id={`btnEditProfileAbout--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/about/${profile.id}`) }}>Edit About</button>
+                        <button type="button" className="btn button_profile_about_edit button_profile_colors" id={`btnEditProfileAbout--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/about/${profile.id}`) }}>Edit About</button>
                     </div>
                     <p className="text text_profile_about">{profile.about}</p>
                 </article>
@@ -290,11 +290,11 @@ export const MyProfile = () => {
 
                                 ?
 
-                                <button type="button" className="btn button_profile_photos_close_main" onClick={handleNewPhotoClose}>Close</button>
+                                <button type="button" className="btn button_profile_photos_close_main button_profile_colors" onClick={handleNewPhotoClose}>Close</button>
 
                                 :
 
-                                <button type="button" className="btn button_profile_photos_new" onClick={handleNewPhotoShow}>Add Photo</button>
+                                <button type="button" className="btn button_profile_photos_new button_profile_colors" onClick={handleNewPhotoShow}>Add Photo</button>
 
                         }
                         
@@ -354,11 +354,11 @@ export const MyProfile = () => {
 
                                     ?
 
-                                    <button type="button" className="btn button_profile_posts_close_main" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostClose}>Close</button>
+                                    <button type="button" className="btn button_profile_posts_close_main button_profile_colors" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostClose}>Close</button>
 
                                     :
 
-                                    <button type="button" className="btn button_profile_posts_new" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostShow}>New Post</button>
+                                    <button type="button" className="btn button_profile_posts_new button_profile_colors" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostShow}>New Post</button>
 
                             }
                         </div>

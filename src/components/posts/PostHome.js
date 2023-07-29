@@ -112,7 +112,7 @@ export const PostHome = ({ userName, profileId, userPicture, postBody, postId, p
             <div className="container container_heading_post">
                 <div className="container container_post_img_name">
                     <Link to={`/profiles/${profileId}`}><img className="img img_post_picture" src={userPicture} /></Link>
-                    <Link to={`/profiles/${profileId}`}><h4 className="heading heading_post_name">{userName} posted:</h4></Link>
+                    <h4 className="heading heading_post_name_home"><Link to={`/profiles/${profileId}`}><span className="post_home_name">{userName}</span></Link> posted:</h4>
                 </div>
                 <div className="container container_post_date_icon">
                     <p className="text text_post_date">{convertTimestamp(postDate)}</p>

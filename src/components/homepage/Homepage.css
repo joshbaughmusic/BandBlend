@@ -1,8 +1,5 @@
 /* .container_homepage {
-    max-width: 1750px;
-    margin: 0 auto;
 } */
-
 
 /* this is what fixed that background color showing through like what was happening with the above code. Making another inner div and placing the max width on that worked. */
 .container_homepage_inner {
@@ -12,10 +9,21 @@
 
 /* hero */
 
+.container_heading {
+    padding: 80px 0px;
+}
+
 .heading_app_title {
-    width: 75%;
+    width: 85%;
     max-width: 900px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
+}
+
+.heading_app_subtitle {
+    width: 70%;
+    max-width: 700px;
+    margin: 10px auto 0px;
+    display: flex;
 }
 
 .container_hero {
@@ -31,6 +39,7 @@
     text-align: center;
     margin: 3rem;
     font-size: 1.5rem;
+    text-shadow: var(--bxsh-home-text)
 }
 
 /* end hero */
@@ -38,7 +47,10 @@
 
 
 .heading_home_latest_posts {
-    margin-bottom: 1rem;
+    margin: 1rem;
+    text-align: center;
+    text-shadow: var(--bxsh-home-text)
+
 }
 
 /* latest posts container */
@@ -50,6 +62,7 @@
     align-items: center;
     /* margin-bottom: 4rem; */
     padding-bottom: 4rem;
+    
 }
 
 .container_home_latest_posts_inner {
@@ -57,6 +70,8 @@
     border-radius: 10px;
     width: 80%;
     /* padding: 20px; */
+    box-shadow: var(--bxsh-home-latestposts);
+
 }
 
 /* end latest posts container */

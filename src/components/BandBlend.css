@@ -10,15 +10,15 @@
   list-style-type: none;
 }
 
-/* gets rid of the extra spacing added by the Link tags */
 a {
+  /* gets rid of the extra spacing added by the Link tags */
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
+  align-self: center;
+
 }
 
 a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 body {
@@ -35,6 +35,8 @@ button {
 /* keep outlines off of any focused text input fields/searchbars */
 
 textarea:focus,
-input:focus {
+input:focus,
+select:focus,
+option:focus {
   outline: none;
 }

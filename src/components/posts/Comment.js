@@ -92,11 +92,11 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
 
                         <>
                             <div className="container container_comment_edit-delete">
-                                <button className="btn btn_edit btn_edit_comment" id={`comment--${commentId}`} onClick={() => {
+                                <button className="btn btn_edit btn_edit_comment button_cmt_msg_colors" id={`comment--${commentId}`} onClick={() => {
                                     navigate(`../edit/comment/${commentId}`)
                                 }}>Edit</button>
 
-                                <button className="btn btn_delete btn_delete_comment" id={`comment--${commentId}`} onClick={handleCommentDeleteClick}>Delete</button>
+                                <button className="btn btn_delete btn_delete_comment button_cmt_msg_colors" id={`comment--${commentId}`} onClick={handleCommentDeleteClick}>Delete</button>
                             </div>
 
                         </>

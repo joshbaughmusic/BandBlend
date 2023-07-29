@@ -74,7 +74,7 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
     return (
         <>
             <form className="form form_new_message">
-                    <textarea autoFocus name="newMessage" className="input input_text input_text_message" placeholder="Compose Message..." rows="7" cols="auto" onChange={
+                    <textarea autoFocus name="newMessage" className="input input_text input_text_message input_field_colors" placeholder="Compose Message..." rows="7" cols="auto" onChange={
                         e => {
                             const copy = { ...message }
                             copy.body = e.target.value
@@ -82,25 +82,25 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
                         }
                     }
                     ></textarea>
-                    <select required defaultValue={null} name="dropdown dropdown_message_receiver" className="input input_select input_select_message" value={selectedReceiverId} onChange={e => {
+                    <select required defaultValue={null} name="dropdown dropdown_message_receiver" className="input input_select input_select_message input_field_colors" value={selectedReceiverId} onChange={e => {
                         setSelectedReceiverId(e.target.value)
                         const [, userId] = e.target.value.split("--")
                         let copy = { ...message }
                         copy.receiverId = parseInt(userId)
                         setMessage(copy)
                     }}>
-                        <option key={`user--null`} value={null} ><span className="selection_placeholder">-select a recipient-</span></option>
+                        <option key={`user--null`} className="input_field_colors" value={null} ><span className="selection_placeholder input_field_colors">-select a recipient-</span></option>
                         {
                             users.map(user => {
-                                return <option key={`userKey--${user.id}`} value={`user--${user.id}`}>{user.name}</option>
+                                return <option key={`userKey--${user.id}`} className="input_field_colors" value={`user--${user.id}`}>{user.name}</option>
 
                             })
                         }
                     </select>
                 <br />
                 <div className="container container_buttons_messages_new">
-                <button type="submit" className="btn btn_message btn_submit btn_submit_message" onClick={handleSubmitNewMessageClick}>Submit Message</button>
-                <button type="button" className="btn btn_message btn_close" onClick={handleNewMessageClose}>Close</button>
+                <button type="submit" className="btn btn_message btn_submit btn_submit_message button_profile_colors" onClick={handleSubmitNewMessageClick}>Submit Message</button>
+                <button type="button" className="btn btn_message btn_close button_profile_colors" onClick={handleNewMessageClose}>Close</button>
                 </div>
             </form>
         </>

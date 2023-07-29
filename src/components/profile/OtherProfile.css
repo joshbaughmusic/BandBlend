@@ -25,6 +25,7 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
+    box-shadow: var(--bxsh-profile-sections)
 }
 
 
@@ -40,8 +41,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-bottom: 20px;
     margin-top: 5px;
+    margin-bottom: 15px;
     width: 125px;
     /* border: black solid 1px;
     background-color: #64687431;
@@ -110,6 +111,7 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
+    text-shadow: var(--txsh-profile-headings);
    }
 
 
@@ -119,6 +121,8 @@
     /* border: 2px solid black; */
     border-radius: 25px;
     margin-right: 20px;
+    box-shadow: var(--bxsh-profile-sections)
+
 
 }
 
@@ -129,6 +133,8 @@
     /* border: 2px solid black; */
     border-radius: 25px;
     margin-right: 20px;
+    box-shadow: var(--bxsh-profile-sections)
+
 
 
 }
@@ -151,6 +157,8 @@
     margin-right: 20px;
     /* max-height: 630px;
     overflow-y: auto; */
+    box-shadow: var(--bxsh-profile-sections)
+
 
 }
 
@@ -168,7 +176,7 @@
     /* border: rgba(0, 0, 0, 0.617) solid 2px; */
     position: relative;
     border-radius: 50%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .img_profile_primary {
@@ -269,8 +277,14 @@
 
 /* headings and text */
 
+.heading_profile_isBand {
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
 .heading_profile_primary_location {
     margin-bottom: 2px;
+    margin-top: 20px;
 }
 
 .heading_profile_primary_primary_instrument {
@@ -279,6 +293,10 @@
 
 .heading_profile_primary_primary_genre {
     font-size: 1rem; 
+}
+
+.heading_profile_primary_name {
+    text-shadow: var(--txsh-profile-headings);
 }
 
 
@@ -298,6 +316,7 @@
     /* background-color: #a9abb1; */
     font-size: 0.8rem;
     font-weight: 500;
+    box-shadow: var(--bxsh-profile-bubbles);
 }
 
 /* not doing the 20px maring here like other sections because of the text height making it look off then. This makes up the visual difference */

@@ -219,7 +219,8 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
                         <div className="container container_profile_primary_buttons">
                             <SaveButtonProfile profileId={profileId} />
                             {/* <button type="button" className="btn button_profile_primary_save" onClick={handleSaveButtonClick}>Save</button> */}
-                            <button type="button" className="btn button_profile_primary_message" id={`messageUser--${profile?.user?.id}`} onClick={handleMessageClick}
+                            <button type="button" className="btn button_profile_primary_message
+                            button_profile_colors" id={`messageUser--${profile?.user?.id}`} onClick={handleMessageClick}
                             >Message</button>
                         </div>
                     </div>
