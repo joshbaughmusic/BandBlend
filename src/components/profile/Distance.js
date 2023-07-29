@@ -47,20 +47,27 @@ export const Distance = ({ profileId }) => {
                                             //store those values in a useable string
                                             const routeString = `point=${userLatLong}&point=${profileLatLong}`;
                                             //now calculate the route to get the distance
+                                            
                                             fetch(`https://graphhopper.com/api/1/route?${routeString}&vehicle=car&locale=us&instructions=true&calc_points=true&key=${graphHopperAPIKey}`)
                                                 .then(res => res.json())
                                                 .then(data => {
-                                                    //store that data
-                                                    const routeObject = data;
-                                                    //get the distance off of the route object
-                                                    const rawDistance = routeObject.paths[0].distance;
-                                                    //now convert meters to miles
-                                                    function metersToMiles(meters) {
-                                                        const milesPerMeter = 0.000621371;
-                                                        return meters * milesPerMeter;
+
+                                                    if (data.message === "Connection between locations not found") {
+                                                        setCalculatedMiles("In a galaxy far, far away...")
+                                                    } else {
+
+                                                        //store that data
+                                                        const routeObject = data;
+                                                        //get the distance off of the route object
+                                                        const rawDistance = routeObject.paths[0].distance;
+                                                        //now convert meters to miles
+                                                        function metersToMiles(meters) {
+                                                            const milesPerMeter = 0.000621371;
+                                                            return meters * milesPerMeter;
+                                                        }
+                                                        const distanceInMiles = metersToMiles(rawDistance);
+                                                        setCalculatedMiles(distanceInMiles);
                                                     }
-                                                    const distanceInMiles = metersToMiles(rawDistance);
-                                                    setCalculatedMiles(distanceInMiles);
                                                 });
                                         });
                                 });
@@ -83,6 +90,14 @@ export const Distance = ({ profileId }) => {
             <div className="container container_profile_distance">
                 <img className="icon icon_distance" src={require("../../images/car_icon.png")} />
                 {
+                    calculatedMiles === 'In a galaxy far, far away...'
+
+                    ?
+
+                    <p className="text text_profile_distance">In a galaxy far, far away...</p>
+
+                    :
+
                     calculatedMiles !== '0'
 
                     ?
