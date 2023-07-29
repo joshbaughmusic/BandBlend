@@ -29,6 +29,7 @@
     margin: 0px 0px 10px 0px;
     padding: 10px;
     /* background-color: #a9abb1; */
+    box-shadow: var(--bxsh-profileall-card);
 }
 
 .container_profile_card:nth-child(even) {
@@ -44,6 +45,9 @@
     margin-left: 10px;
     /* border: solid black 2px; */
     object-fit: cover;
+    box-shadow: var(--bxsh-profileall-img);
+
+    
 }
 
 .tag_genre_bubble_allprof {
@@ -57,4 +61,8 @@
     /* background-color: #a9abb1; */
     font-size: 0.8rem;
     font-weight: 500;
+}
+
+.profileall_link {
+    width: fit-content;
 }

@@ -64,7 +64,10 @@
 /* icons and imgs */
 
 .icon_messages_close {
-    font-size: 30px;
+    font-size: 27px;
+    font-weight: 400;
+    margin-right: 10px;
+    margin-left: -5px;
 
 }
 

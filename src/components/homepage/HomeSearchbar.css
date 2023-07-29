@@ -12,7 +12,6 @@
 }
 
 .input-wrapper {
-    background-color: #ffffff;
     width: 100%;
     border-radius: 5px;
     height: 2.5rem;
@@ -33,14 +32,15 @@
 }
 
 .search-icon {
-    color: black;
+    color: var(--icons);
 }
 
 /* results list */
 
 .results-list {
     width: 100%;
-    background-color: white;
+    color: var(--text-input);
+    background-color: var(--bg-input);
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 12px #cfcfcf;
@@ -58,11 +58,11 @@
 }
 
 .search-result:hover {
-    background-color: #efefef;
+    background-color: #dadada;
 }
 
 .search-result:active {
-    background-color: #dadada
+    background-color: #c4c4c4
 }
 
 /* subtext */

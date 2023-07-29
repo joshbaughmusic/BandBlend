@@ -252,12 +252,12 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         <div className="container container_post_myprofile_all_buttons">
 
                             {/* open comment box button below*/}
-                            <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+                            <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
 
                             {/* edit and delete buttons */}
                             <div className="container container_post_myprofile_edit-delete_buttons">
-                                <button className="btn btn_edit btn_edit_post" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
-                                <button id={`postDelete--${postId}`} className="btn btn_delete_post" onClick={handleDeletePostClick}>Delete</button>
+                                <button className="btn btn_edit btn_edit_post button_cmt_msg_colors" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
+                                <button id={`postDelete--${postId}`} className="btn btn_delete_post button_cmt_msg_colors" onClick={handleDeletePostClick}>Delete</button>
                             </div>
                         </div>
                     </div>
@@ -344,7 +344,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         </section>
 
                         {/* open comment box button below*/}
-                        <button className="btn btn_post btn_open btn_reply_comment show" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+                        <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
 
                     </div>
                 </div>
@@ -375,18 +375,3 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
         </>
     }
 }
-
-
-
-
-
-// userLikeObj
-
-// ?
-// <button className="icon icon_like icon_liked" src={require("../../images/svg/thumb-nonliked.svg")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick}>Like</button>
-
-// :
-
-// <button className="icon icon_like icon_nonliked" src={require("../../images/svg/thumb-liked.svg")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick}>Unlike</button>
-
-// }

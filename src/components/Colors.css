@@ -1,238 +1,65 @@
-/* text and background colors */
+/* variables */
 
-* {
-    color: rgb(32, 32, 32);
-}
+:root {
 
-body {
-    background-color: #b0bdf3
-}
+    /* colors */
+    --text-1: #eff0f3;
+    --text-2: #001220;
+    --icons: #001220;
+    --bg-nav: linear-gradient(49deg, rgba(0,18,32,1) 6%, rgba(39,48,69,1) 53%, rgba(5,22,37,1) 94%);
+    --bg-main-solid-1: #001220;
+    --bg-main-solid-2: #C04A40;
+    --bg-main-gradient-1: linear-gradient(49deg, rgba(0,18,32,0.7) 0%, rgba(46,60,76,0.7) 34%, rgba(39,48,69,0.7) 64%, rgba(0,18,32,0.7) 100%);;
+    --bg-main-gradient-2: linear-gradient(49deg, rgba(162,57,49,1) 0%, rgba(187,71,62,1) 48%, rgba(223,92,80,1) 100%);
+    --bg-profiles-sections:linear-gradient(49deg, rgba(0,18,32,1) 0%, rgba(46, 60, 76, 0.81) 49%, rgba(5,23,37,1) 100%);
+    --bg-profilesall-card-1: #001220;
+    --bg-profilesall-card-2: #2E3C4C;
+    --bg-profilesall-search: #001220;
+    --bg-post: #a23831f1;
+    --bg-comment: #8d2622b8;
+    --bg-bubble-tags: #a23831f1;
+    --bg-sidebar: linear-gradient(49deg, rgba(0, 18, 32, 0.838) 0%, rgba(46, 60, 76, 0.925) 49%, rgb(5, 23, 37) 100%);
+    --bg-sidebar-header: #001220;
+    --bg-sidebar-msg-1: #C04A40;
+    --bg-sidebar-msg-2: #A23931;
+    --bg-buttons-pro: #eff0f3;
+    --bg-buttons-cmt-mes: #eff0f3;
+    --text-buttons-pro: #001220;
+    --text-buttons-cmt-mes: #001220;
+    --bg-buttons-saved: #C04A40;
+    --bg-input: #eff0f3;
+    --text-input: #001220;
+    --link-hover: #b3afaf;
+    --link-active: #8d8d8d;
 
-/* otherprofile */
 
-.container_profile_primary {
-  background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
 
-}
+    /* borders and border colors */
+    --border-1-thick: #001220 solid 2px;
+    --border-1-thin: #001220 solid 1px;
+    --border-2-thick: #eff0f3 solid 2px;
+    --border-2-thin: #eff0f3 solid 1px;
+    --border-img-popup: #eff0f3 solid 3px;
+    --border-buttons-pro: #001220 solid 1px;
+    --border-buttons-cmt-mes: #001220 solid 1px;
+    
 
-.container_profile_about {
-    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
-}
+    /* boxshadow and textshadow variables */
+    --bxsh-home-text: 4px 4px 4px rgba(0, 0, 0, 0.289);
+    --bxsh-home-latestposts: 6px 6px 15px rgba(30, 30, 30, 0.742);
+    --bxsh-profileall-card: 4px 4px 5px rgba(30, 30, 30, 0.698);
+    --bxsh-profileall-img: 4px 4px 5px rgba(30, 30, 30, 0.698);
+    --bxsh-profileall-search: 4px 4px 5px rgba(30, 30, 30, 0.698);
+    --bxsh-profile-sections: 8px 12px 8px rgba(30, 30, 30, 0.824);
+    --txsh-profile-headings: 5px 5px 7px rgba(0, 0, 0, 0.514);
+    --bxsh-profile-bubbles: 5px 5px 5px rgba(0, 0, 0, 0.451);
+    --bxsh-post-container: 5px 5px 8px rgba(0, 0, 0, 0.422);
+    --bxsh-post-img: 3px 3px 3px rgba(0, 0, 0, 0.422);
+    --bxsh-message-sender: 5px 5px 5px hsla(0, 0%, 0%, 0.300);
+    --bxsh-message-receiver: -5px 5px 5px hsla(0, 0%, 0%, 0.300);
 
-.container_profile_media_outer {
-    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
-}
-
-.container_profile_posts_outer {
-    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
-}
-
-.tag_genre_bubble {
-    background-color: #a9abb1;
-}
-
-/* profile all list */
-
-.container_profile_card {
-    background-color: #a9abb1;
-}
-
-.container_profile_card:nth-child(even) {
-    background-color: #b5b9c6;
-}
-
-.tag_genre_bubble_allprof {
-    background-color: #a9abb1;
-}
-
-/* search filter all profiles */
-
-.container_search_filter_all_profiles {
-    background-color: rgb(113, 143, 170);
-}
-
-/* homepage */
-
-.container_home_latest_posts_inner {
-    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
-}
-
-/* post  */
-
-.container_post {
-    background-color: #b0bdf3
-}
-
-/* comment */
-.container_comment_card {
-    background-color: rgba(96, 108, 119, 0.565);
-}
-
-/* nav */
-
-.container_nav {
-    background: linear-gradient(45deg, rgba(151,154,173,1) 20%, rgba(114,120,150,1) 50%, rgba(110,112,128,1) 79%);
-    }
-
-/* messages sidebar */
-
-.container_messages_sidebar {
-    background-color: rgb(122, 157, 174);
-}
-
-.container_messages_header {
-    background-color: rgb(47, 115, 174);
 
 }
-
-/* message */
-.container_message_card_sender {
-    background-color: rgba(84, 116, 176, 0.639);;
-}
-
-.container_message_card_receiver {
-    background-color: rgba(97, 96, 158, 0.601);
-}
-
-
-
-
-/* borders */
-
-/* Other profile */
-
-.heading_main_profile_sections {
-    border-bottom: 1px solid black;
-}
-
-.container_profile_primary {
-    border: 2px solid black;
-}
-
-.container_profile_about {
-    border: 2px solid black;
-}
-
-.container_profile_media_outer {
-    border: 2px solid black;
-}
-
-.container_profile_posts_outer {
-    border: 2px solid black;
-}
-
-.container_img_profile_primary {
-    border: rgba(0, 0, 0, 0.617) solid 2px;
-}
-
-.container_profile_additional_img {
-    border: rgba(0, 0, 0, 0.617) solid 2px;
-}
-
-.tag_genre_bubble {
-    border: solid black 1px;
-}
-
-/* profile all list */
-
-.container_profile_card {
-    border: black solid 2px;
-}
-
-.tag_genre_bubble_allprof {
-    border: solid black 1px;
-}
-
-.img_profileCard {
-    border: solid black 2px;
-}
-
-
-/* search filter all profiles */
-
-.input_allprofiles {
-    border: 1px solid rgba(0, 0, 0, 0.275);
-}
-
-.container_search_filter_all_profiles {
-
-    border: solid black 2px;
-}
-
-/* new photo */
-
-.input_text_photo {
-    border: 1px solid rgba(0, 0, 0, 0.275);
-}
-
-/* posts */
-
-.container_post {
-    border: solid black 1px;
-}
-
-.img_post_picture {
-    border: solid black 2px;
-}
-
-/* new post */
-
-.input_text_post {
-    border: 1px solid rgba(0, 0, 0, 0.275);
-}
-
-/* comment */
-.container_comment_card {
-    border: black solid 1px;
-}
-
-.img_commentor {
-    border: black solid 2px;
-}
-
-/* new comment */
-
-.input_text_new_comment {
-    border: 1px solid rgba(0, 0, 0, 0.275);
-}
-
-/* nav */
-.container_nav {
-    border-bottom: 2px black solid;
-}
-
-/* messages sidebar */
-
-.container_messages_sidebar {
-  border-left: black 2px solid;
-}
-
-.container_messages_header {
-    border-bottom: solid black 2px;
-}
-
-/* messages sort filter */
-
-.input_messages {
-    border: 1px solid rgba(0, 0, 0, 0.275);
-}
-
-/* message */
-
-.container_message_card {
-    border: 1px solid black;
-}
-
-.img_message {
-    border: 2px solid black;
-}
-
-/* homepage */
-
-.container_home_latest_posts_inner {
-    border: black solid 2px;
-}
-
 
 
 /* other stuff */
@@ -244,33 +71,365 @@ body {
 }
 
 .img-popup {
-    border: 3px solid white;
+    border: var(--border-img-popup)
 }
 
 .icon_close_popup_media {
-    color: white;
+    color: var(--text-1)
 }
 
 .icon_close_popup_media:hover {
-    color: #b3afaf;
+    color: #cbcbcb;
 }
 
 /* myprofile delete photo */
 
 .icon_delete_photo {
-    color: #b545458e;
+    color: #a23831a9;
 }
 
 .icon_delete_photo:hover {
-    color: #c12929d6;
+    color: #c04b40e2;
 }
+
+
+/* hover colors for links */
+
+a:hover {
+    color: var(--link-hover)
+}
+
+.nav_list_item:hover {
+    color: var(--link-hover)
+}
+
+.post_home_name:hover {
+    color: var(--link-hover)
+}
+
+.profile_card_name:hover {
+    color: var(--link-hover)
+}
+
+.icon_messages_close:hover {
+    color: var(--link-hover)
+}
+
+/* active colors for links */
+
+a:active {
+    color: var(--link-active)
+}
+
+.nav_list_item:active {
+    color: var(--link-active)
+}
+
+.post_home_name:active {
+    color: var(--link-active)
+}
+
+.profile_card_name:active {
+    color: var(--link-active)
+}
+
+.icon_messages_close:active {
+    color: var(--link-active)
+}
+
+
+
+
+/* text and background colors */
 
 
 /* buttons */
 
+.button_profile_colors {
+    color: var(--text-buttons-pro);
+    background: var(--bg-buttons-pro);
+    border: var(--border-buttons-pro);
+}
+
+.button_cmt_msg_colors {
+    color: var(--text-buttons-cmt-mes);
+    background: var(--bg-buttons-cmt-mes);
+    border: var(--border-buttons-cmt-mes);
+}
+
 /* saved button profile */
 
 .button_profile_primary_saved {
-    background-color: lightcoral;
-    color: aliceblue;
+    color: var(--text-1);
+    background: var(--bg-buttons-saved)
+}
+
+
+
+* {
+    color: var(--text-1)
+}
+
+body {
+    background: var(--bg-main-solid-2)
+}
+
+/* otherprofile */
+
+.container_profile_page {
+    background: var(--bg-main-solid-2)
+
+}
+
+.container_profile_primary {
+    background: var(--bg-profiles-sections)
+
+}
+
+.container_profile_about {
+    background: var(--bg-profiles-sections)
+}
+
+.container_profile_media_outer {
+    background: var(--bg-profiles-sections)
+}
+
+.container_profile_posts_outer {
+    background: var(--bg-profiles-sections)
+}
+
+.tag_genre_bubble {
+    background: var(--bg-bubble-tags)
+}
+
+/* profile all list */
+
+.container_all_profiles_and_search {
+    background: var(--bg-main-solid-2)
+
+}
+
+.container_profile_card {
+    background: var(--bg-profilesall-card-1)
+}
+
+.container_profile_card:nth-child(even) {
+    background: var(--bg-profilesall-card-2)
+}
+
+.tag_genre_bubble_allprof {
+    background: var(--bg-bubble-tags)
+}
+
+/* search filter all profiles */
+
+.container_search_filter_all_profiles {
+    background: var(--bg-profilesall-search)
+}
+
+/* homepage */
+
+.container_home_latest_posts_inner {
+    background: var(--bg-main-gradient-1)
+
+
+}
+
+/* post  */
+
+.container_post {
+    background: var(--bg-post)
+}
+
+/* comment */
+.container_comment_card {
+    background: var(--bg-comment)
+}
+
+/* nav */
+
+.container_nav {
+    background: var(--bg-nav)
+}
+
+/* messages sidebar */
+
+.container_messages_sidebar {
+    background: var(--bg-sidebar)
+}
+
+.container_messages_header {
+    background: var(--bg-sidebar-header)
+}
+
+/* message */
+.container_message_card_sender {
+    background: var(--bg-sidebar-msg-1)
+}
+
+.container_message_card_receiver {
+    background: var(--bg-sidebar-msg-2)
+}
+
+/* inputs */
+
+.input_field_colors {
+    background: var(--bg-input);
+    color: var(--text-input);
+}
+
+
+
+
+/* borders */
+
+/* Other profile */
+
+.heading_main_profile_sections {
+    border-bottom: var(--border-2-thin)
+}
+
+.container_profile_primary {
+    border: var(--border-2-thick)
+}
+
+.container_profile_about {
+    border: var(--border-2-thick)}
+
+.container_profile_media_outer {
+    border: var(--border-2-thick)}
+
+.container_profile_posts_outer {
+    border: var(--border-2-thick)}
+
+.container_img_profile_primary {
+    border: var(--border-2-thick)}
+
+.container_profile_additional_img {
+    border: var(--border-2-thick)}
+
+.tag_genre_bubble {
+    border: var(--border-2-thin)}
+
+/* profile all list */
+
+.container_profile_card {
+    border: var(--border-2-thick)
+}
+
+.tag_genre_bubble_allprof {
+    border: var(--border-2-thick)
+}
+
+.img_profileCard {
+    border: var(--border-2-thick)
+}
+
+
+/* search filter all profiles */
+
+.input_allprofiles {
+    border: var(--border-2-thin)
+
+}
+
+.container_search_filter_all_profiles {
+    border: var(--border-2-thick)
+}
+
+/* new photo */
+
+.input_text_photo {
+    border: var(--border-2-thin)
+}
+
+/* posts */
+
+.container_post {
+    border: var(--border-2-thick)
+}
+
+.img_post_picture {
+    border: var(--border-2-thick)
+}
+
+/* new post */
+
+.input_text_post {
+    border: var(--border-2-thin)
+}
+
+/* comment */
+.container_comment_card {
+    border: var(--border-2-thin)
+}
+
+.img_commentor {
+    border: var(--border-2-thick)
+}
+
+/* new comment */
+
+.input_text_new_comment {
+    border: 1px solid rgba(0, 0, 0, 0.275);
+}
+
+/* nav */
+.container_nav {
+    border-bottom: var(--border-2-thick)
+}
+
+/* messages sidebar */
+
+.container_messages_sidebar {
+  border-left: var(--border-2-thick)
+}
+
+.container_messages_header {
+    border-bottom: var(--border-2-thick)
+}
+
+/* messages sort filter */
+
+.input_messages {
+    border: var(--border-2-thin)
+}
+
+/* message */
+
+.container_message_card {
+    border: var(--border-2-thin)
+}
+
+.img_message {
+    border: var(--border-2-thick)
+}
+
+/* homepage */
+
+.container_home_latest_posts_inner {
+    border: var(--border-2-thick)
+}
+
+
+/* transitions */
+
+a {
+    transition: 0.15s;
+}
+
+.nav_list_item {
+    transition: 0.15s;
+}
+
+.post_home_name {
+    transition: 0.15s;
+}
+
+.profile_card_name {
+    transition: 0.15s;
+}
+
+.icon_messages_close:hover {
+    transition: 0.15s;
 }

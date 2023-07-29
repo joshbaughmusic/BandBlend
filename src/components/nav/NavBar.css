@@ -1,5 +1,6 @@
 img.logo {
-    width: 75px;
+    margin-left: 15px;
+    width: 50px;
     border: none;
 }
 
@@ -17,8 +18,10 @@ img.logo {
 }
 
 .nav_list {
+    margin-right: 15px;
     display: flex;
     justify-content: space-evenly;
+    
 }
 
 .nav_list_item {
@@ -28,13 +31,9 @@ img.logo {
     align-self: center;
     font-size: 1.2rem;
     font-weight: 500;
+    transition: 0.2s;
 }
 
 .nav_list_item:hover {
-    text-decoration: underline;
     cursor: pointer;
-}
-
-a {
-    align-self: center;
 }

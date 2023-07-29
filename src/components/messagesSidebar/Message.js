@@ -103,7 +103,7 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
                         </h6>
                         <p className="text text_message_body">{messageBody}</p>
                         <div className="container container_message_buttons">
-                            <button type="button" id={`messageDelete--${messageId}`} className="btn btn_message btn_message_delete" onClick={handleMessageDeleteClick}>Delete</button>
+                            <button type="button" id={`messageDelete--${messageId}`} className="btn btn_message btn_message_delete button_cmt_msg_colors" onClick={handleMessageDeleteClick}>Delete</button>
                         </div>
                     </article>
 
@@ -119,8 +119,8 @@ export const Message = ({ messageKey, messageId, messageSenderId, messageReceive
                         </h6>
                         <p className="text text_message_body">{messageBody}</p>
                         <div className="container container_message_buttons">
-                            <button type="button" id={`messageDelete--${messageId}`} className="btn btn_message btn_message_delete" onClick={handleMessageDeleteClick}>Delete</button>
-                            <button type="button" className="btn btn_message btn_message_reply" id={`messageReply--${messageSenderId}`} onClick={handleReplyClick}>Reply</button>
+                            <button type="button" id={`messageDelete--${messageId}`} className="btn btn_message btn_message_delete button_cmt_msg_colors" onClick={handleMessageDeleteClick}>Delete</button>
+                            <button type="button" className="btn btn_message btn_message_reply button_cmt_msg_colors" id={`messageReply--${messageSenderId}`} onClick={handleReplyClick}>Reply</button>
                         </div>
                     </article>
             }

@@ -146,11 +146,11 @@ export const ProfilesAllList = ({
                 <section className="container container_allProfiles">
                     {filteredProfiles.map((profile) => (
                         <article key={`profileCard--${profile.id}`} className="container container_profile_card">
-                            <Link to={`/profiles/${profile.id}`}>
+                            <Link to={`/profiles/${profile.id}`} className="profileall_link">
                                 <img id={`profileCardImg--${profile.id}`} className="img img_profileCard" src={profile.picture} />
                             </Link>
                             <div className="container container_profile_card_header">
-                                <Link to={`/profiles/${profile.id}`}>
+                                <Link to={`/profiles/${profile.id}`} className="profileall_link">
                                     <h2 className="profile_card_name">{profile?.user?.name}</h2>
                                 </Link>
                                 <h3 className="profile_card_location">{profile.location}</h3>

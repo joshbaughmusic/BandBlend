@@ -69,12 +69,12 @@ export const Homepage = () => {
     return (
         <>
 
-            <section className="spacer layer1 container container_homepage">
+            <section className="waves container container_homepage">
                 <div className="container container_homepage_inner">
                 <section className="container container_hero">
                     <header className="container container_heading">
-                        <img className="heading heading_app_title" src={require("../../images/bb_text_logo.png")}/>
-                        <h2 className="heading heading_app_subheading">Fusing Musicians for Masterpieces</h2>
+                        <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-white.png")}/>
+                        <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-white.png")}/>
                     </header>
                         <HomeSearchbar />
                 </section>
@@ -93,8 +93,8 @@ export const Homepage = () => {
                         }
                     </div>
                 <section className="container container_home_latest_posts_outer">
-                    <h3 className="heading heading_home_latest_posts">Latest Posts:</h3>
                     <ul className="container container_home_latest_posts_inner">
+                    <h3 className="heading heading_home_latest_posts">Latest Posts:</h3>
                         {
                             profilesWithPostsAttached?.length
 
