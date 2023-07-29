@@ -12,11 +12,11 @@
     --bg-main-gradient-1: linear-gradient(49deg, rgba(0,18,32,0.7) 0%, rgba(46,60,76,0.7) 34%, rgba(39,48,69,0.7) 64%, rgba(0,18,32,0.7) 100%);;
     --bg-main-gradient-2: linear-gradient(49deg, rgba(162,57,49,1) 0%, rgba(187,71,62,1) 48%, rgba(223,92,80,1) 100%);
     --bg-profiles-sections:linear-gradient(49deg, rgba(0,18,32,1) 0%, rgba(46, 60, 76, 0.81) 49%, rgba(5,23,37,1) 100%);
-    --bg-profilesall-card-1: #001220;
-    --bg-profilesall-card-2: #2E3C4C;
+    --bg-profilesall-card-1: linear-gradient(49deg, rgba(0,18,32,1) 0%, rgba(46, 60, 76, 0.907) 49%, rgba(5,23,37,1) 100%);
+    --bg-profilesall-card-2: linear-gradient(49deg, rgba(46, 60, 76, 0.877) 0%, rgba(0, 18, 32, 0.874) 49%, rgba(46, 60, 76, 0.798) 100%);
     --bg-profilesall-search: #001220;
-    --bg-post: #c04b40d1;
-    --bg-comment: #973c32c5;
+    --bg-post: #c04b40d9;
+    --bg-comment: #a23831c2;
     --bg-bubble-tags: #a23831f1;
     --bg-sidebar: linear-gradient(49deg, rgba(0, 18, 32, 0.838) 0%, rgba(46, 60, 76, 0.925) 49%, rgb(5, 23, 37) 100%);
     --bg-sidebar-header: #001220;
@@ -58,6 +58,8 @@
     --bxsh-post-img: 3px 3px 3px rgba(0, 0, 0, 0.422);
     --bxsh-message-sender: 5px 5px 5px hsla(0, 0%, 0%, 0.300);
     --bxsh-message-receiver: -5px 5px 5px hsla(0, 0%, 0%, 0.300);
+    --bxsh-message-sidebar: -13px 0px 15px rgba(0, 0, 0, 0.61);
+    ;
 
 
 }
@@ -188,7 +190,7 @@ body {
 /* otherprofile */
 
 .container_profile_page {
-    background: var(--bg-main-solid-2)
+    background: var(--bg-main-gradient-2)
 
 }
 
@@ -216,7 +218,7 @@ body {
 /* profile all list */
 
 .container_all_profiles_and_search {
-    background: var(--bg-main-solid-2)
+    background: var(--bg-main-gradient-2)
 
 }
 

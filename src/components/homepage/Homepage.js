@@ -94,7 +94,7 @@ export const Homepage = () => {
                     </div>
                 <section className="container container_home_latest_posts_outer">
                     <ul className="container container_home_latest_posts_inner">
-                    <h3 className="heading heading_home_latest_posts">Latest Posts:</h3>
+                    <h3 className="heading heading_home_latest_posts">Latest posts from the community:</h3>
                         {
                             profilesWithPostsAttached?.length
 
