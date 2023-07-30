@@ -10,11 +10,12 @@
     --bg-main-solid-1: #1D2625;
     --bg-main-solid-2: #1D2625;
     --bg-main-gradient-1: linear-gradient(49deg, rgba(132, 73, 73, 0.666) 21%, rgba(125, 90, 90, 0.642) 48%, rgba(147, 98, 97, 0.614) 68%);
-    --bg-main-gradient-2: linear-gradient(49deg, rgba(29,38,37,1) 20%, rgba(51,61,59,1) 50%, rgba(79,89,87,1) 78%);
-    --bg-profiles-sections:linear-gradient(49deg, rgba(140,74,74,1) 21%, rgba(185,114,113,0.8) 48%, rgba(174,104,103,1) 68%);
+    --bg-main-gradient-2: linear-gradient(49deg, rgba(29, 38, 37, 1) 13%, rgba(37, 46, 45, 1) 46%, rgba(48, 58, 56, 1) 76%, rgba(71, 81, 79, 1) 100%);
+    /* --bg-main-gradient-2: linear-gradient(49deg, rgba(29,38,37,1) 20%, rgba(51,61,59,1) 50%, rgba(79,89,87,1) 78%); */
+    --bg-profiles-sections: linear-gradient(49deg, rgba(140, 74, 74, 1) 21%, rgba(185, 114, 113, 0.8) 48%, rgba(174, 104, 103, 1) 68%);
     --bg-profilesall-card-1: #602d2db4;
     --bg-profilesall-card-2: #8c4a4acf;
-    --bg-profilesall-search: linear-gradient(49deg, rgba(29,38,37,1) 20%, rgba(51,61,59,1) 50%, rgba(79,89,87,1) 78%);
+    --bg-profilesall-search: linear-gradient(49deg, rgba(132, 73, 73, 0.905) 21%, rgba(125, 90, 90, 0.84) 48%, rgba(147, 98, 97, 0.769) 68%);
     --bg-post: #4f5957d7;
     --bg-comment: #2d3736c6;
     --bg-bubble-tags: #4F5957;
@@ -24,9 +25,9 @@
     --bg-sidebar-msg-2: #602d2dd4;
     --bg-buttons-pro: #D9D6D2;
     --bg-buttons-cmt-mes: #D9D6D2;
+    --bg-buttons-saved: #602d2dd4;
     --text-buttons-pro: #001220;
     --text-buttons-cmt-mes: #001220;
-    --bg-buttons-saved: #602d2dd4;
     --bg-input: #D9D6D2;
     --text-input: #0D0D0B;
     --link-hover: #b3afaf;
@@ -43,9 +44,10 @@
     --border-img-popup: #D9D6D2 solid 3px;
     --border-buttons-pro: #0D0D0B solid 1px;
     --border-buttons-cmt-mes: #0D0D0B solid 2px;
-    
+
 
     /* boxshadow and textshadow variables */
+    --bxsh-loginreg-text: 4px 4px 8px rgba(0, 0, 0, 0.683);
     --bxsh-home-text: 4px 4px 4px rgba(0, 0, 0, 0.289);
     --bxsh-home-latestposts: 6px 6px 15px rgba(30, 30, 30, 0.742);
     --bxsh-profileall-card: 4px 4px 5px rgba(30, 30, 30, 0.698);
@@ -62,6 +64,8 @@
     --bxsh-message-receiver: -5px 5px 5px hsla(0, 0%, 0%, 0.300);
     --bxsh-message-sidebar: -13px 0px 15px rgba(0, 0, 0, 0.61);
     --bxsh-nav: 0px 1px 15px rgba(0, 0, 0, 0.61);
+    --bxsh-button: 3px 3px 3px rgba(0, 0, 0, 0.326);
+    --bxsh-button-saved: 3px 3px 5px rgba(0, 0, 0, 0.326);
 }
 
 
@@ -196,7 +200,6 @@ body {
 
 .container_profile_primary {
     background: var(--bg-profiles-sections)
-
 }
 
 .container_profile_about {
@@ -244,8 +247,6 @@ body {
 
 .container_home_latest_posts_inner {
     background: var(--bg-main-gradient-1)
-
-
 }
 
 /* post  */
@@ -264,7 +265,7 @@ body {
 .container_nav {
     background: var(--bg-nav);
     box-shadow: var(--bxsh-nav);
-    
+
 }
 
 /* messages sidebar */
@@ -309,22 +310,28 @@ body {
 }
 
 .container_profile_about {
-    border: var(--border-2-thick)}
+    border: var(--border-2-thick)
+}
 
 .container_profile_media_outer {
-    border: var(--border-2-thick)}
+    border: var(--border-2-thick)
+}
 
 .container_profile_posts_outer {
-    border: var(--border-2-thick)}
+    border: var(--border-2-thick)
+}
 
 .container_img_profile_primary {
-    border: var(--border-2-thick)}
+    border: var(--border-2-thick)
+}
 
 .container_profile_additional_img {
-    border: var(--border-2-thick)}
+    border: var(--border-2-thick)
+}
 
 .tag_genre_bubble {
-    border: var(--border-2-thin)}
+    border: var(--border-2-thin)
+}
 
 /* profile all list */
 
@@ -345,7 +352,6 @@ body {
 
 .input_allprofiles {
     border: var(--border-2-thin)
-
 }
 
 .container_search_filter_all_profiles {
@@ -386,7 +392,7 @@ body {
 /* new comment */
 
 .input_text_new_comment {
-    border: 1px solid rgba(0, 0, 0, 0.275);
+    border: var(--border-2-thin)
 }
 
 /* nav */
@@ -397,7 +403,7 @@ body {
 /* messages sidebar */
 
 .container_messages_sidebar {
-  border-left: var(--border-2-thick)
+    border-left: var(--border-2-thick)
 }
 
 .container_messages_header {
@@ -452,3 +458,69 @@ a {
 .icon_messages_close:hover {
     transition: 0.15s;
 }
+
+
+
+/* button styles */
+
+button {
+    box-shadow: var(--bxsh-button);
+    background:linear-gradient(to bottom, #d9d6d2 5%, #c3c0bd 100%);
+	background-color:#d9d6d2;
+    border-radius: 6px;
+    border: var(--border-buttons-cmt-mes);
+    display: inline-block;
+    cursor: pointer;
+    color: var(--text-buttons-pro);
+    font-weight: 600;
+    padding: 4px 7px;
+    min-width: 80px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
+}
+
+button:hover {
+    background:linear-gradient(to bottom, #c3c0bd 5%, #d9d6d2 100%);
+	background-color:#c3c0bd;
+}
+
+button:active {
+    background:linear-gradient(to bottom, #bab7b4 5%, #aeaca8 100%);
+	background-color:#aba8a5;
+    position: relative;
+    top: 1px;
+    background-color: #d9d6d2;
+}
+
+
+/* saved button profile */
+
+button.button_profile_primary_saved {
+    box-shadow: var(--bxsh-button-saved);
+    background:linear-gradient(to bottom, #9d5d5c 5%, #5b2929 100%);
+	background-color:#995f5e;
+    border-radius: 6px;
+    border: var(--border-buttons-cmt-mes);
+    display: inline-block;
+    cursor: pointer;
+    color: var(--text-1);
+    font-weight: 600;
+    padding: 4px 7px;
+    min-width: 80px;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+button.button_profile_primary_saved:hover {
+    background:linear-gradient(to bottom, #683131 5%, rgb(119, 70, 69) 100%);
+	background-color:#683131;
+}
+
+button.button_profile_primary_saved:active {
+    background:linear-gradient(to bottom, #5d2c2c 5%, rgb(82, 36, 35) 100%);
+	background-color:#683131;
+    position: relative;
+    top: 1px;
+}
+
+

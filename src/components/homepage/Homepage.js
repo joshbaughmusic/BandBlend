@@ -69,7 +69,7 @@ export const Homepage = () => {
     return (
         <>
 
-            <section className="waves container container_homepage">
+            <section className="waves-home container container_homepage">
                 <div className="container container_homepage_inner">
                 <section className="container container_hero">
                     <header className="container container_heading">

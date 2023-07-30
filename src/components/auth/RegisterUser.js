@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Register.css"
 
 export const RegisterUser = (props) => {
   const [customer, setCustomer] = useState({
@@ -52,56 +53,68 @@ export const RegisterUser = (props) => {
   };
 
   return (
-    <main style={{ textAlign: "center" }}>
-      <form className="form--login" onSubmit={handleRegister}>
-        <h1 className="h3 mb-3 font-weight-normal">Register below:</h1>
-        <fieldset>
-          <label htmlFor="name"> Full Name </label>
-          <input
-            onChange={(evt) => {
-              const copy = { ...customer };
-              copy.name = evt.target.value;
-              setCustomer(copy);
-            }}
-            type="text"
-            id="name"
-            className="form-control"
-            placeholder="Enter your name"
-            required
-            autoFocus
-          />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="email"> Email address </label>
-          <input
-            onChange={(evt) => {
-              const copy = { ...customer };
-              copy.email = evt.target.value;
-              setCustomer(copy);
-            }}
-            type="email"
-            id="email"
-            className="form-control"
-            placeholder="Email address"
-            required
-          />
-        </fieldset>
-        <fieldset>
-          <input
-            onChange={(evt) => {
-              const copy = { ...customer };
-              copy.isBand = evt.target.checked;
-              setCustomer(copy);
-            }}
-            type="checkbox"
-            id="isBand"
-          />
-          <label htmlFor="email"> Sign up as a band? </label>
-        </fieldset>
-        <fieldset>
-          <button type="submit"> Register </button>
-        </fieldset>
-      </form>
-    </main>
+
+    <>
+
+      {/* copied over homepage content for background and logos, leaving css the same here for that part of it */}
+
+      <section className="waves-reguser container container_homepage">
+        <div className="container container_homepage_inner">
+
+
+          <main className="container container_register">
+            <form className="form--login" onSubmit={handleRegister}>
+              <h2 className="h3 mb-3 font-weight-normal">Register below:</h2>
+              <label htmlFor="name"> Full Name </label>
+              <input
+                onChange={(evt) => {
+                  const copy = { ...customer };
+                  copy.name = evt.target.value;
+                  setCustomer(copy);
+                }}
+                type="text"
+                id="name"
+                className="form-control input_reg input_field_colors"
+                placeholder="Enter your name"
+                required
+                autoFocus
+              />
+              <label htmlFor="email"> Email address </label>
+              <input
+                onChange={(evt) => {
+                  const copy = { ...customer };
+                  copy.email = evt.target.value;
+                  setCustomer(copy);
+                }}
+                type="email"
+                id="email"
+                className="form-control input_reg input_field_colors"
+                placeholder="Email address"
+                required
+              />
+              <fieldset className="container container_isBandCheck">
+                <label htmlFor="isBand"> Sign up as a band? </label>
+                <input
+                  onChange={(evt) => {
+                    const copy = { ...customer };
+                    copy.isBand = evt.target.checked;
+                    setCustomer(copy);
+                  }}
+                  type="checkbox"
+                  id="isBand"
+                  name="isBand"
+                  className="isBandCheckbox"
+                  
+                />
+              </fieldset>
+             
+                <button type="submit" className="button_profile_colors button-loginreg"> Register </button>
+              
+            </form>
+          </main>
+        </div>
+      </section>
+
+    </>
   );
 };

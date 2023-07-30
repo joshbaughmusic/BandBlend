@@ -1,0 +1,145 @@
+.input_reg {
+    padding: 8px;
+    /* border: var(--border-2-thin); */
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+    font-size: 1rem;
+    margin: 5px auto 10px auto;
+    width: 50%;
+}
+
+
+/* register user */
+
+.container_register {
+    width: 100%;
+    margin-top: 20%;
+}
+
+.container_register h2 {
+    color: var(--text-1);
+    text-shadow: var(--bxsh-loginreg-text);
+    margin-bottom: 10px;
+}
+
+.container_isBandCheck {
+    border: none;
+    margin-bottom: 30px;
+}
+
+
+.isBandCheckbox {
+    margin-left: 5px;
+}
+
+
+/* register profile */
+
+.profile_register_form_primary_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.profile_register_form_primary_info h2 {
+    color: var(--text-1);
+    text-shadow: var(--bxsh-loginreg-text);
+}
+
+.profile_register_form_primary_info label {
+    text-shadow: var(--bxsh-loginreg-text);
+}
+
+.container_regprofile_header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/* register tags */
+
+.container_register_tags {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.container_register_tags_header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container_register_tags_header h2 {
+    color: var(--text-1);
+    text-shadow: var(--bxsh-loginreg-text);
+}
+
+.container_tag_edit_checkboxes {
+    margin-bottom: 20px;
+}
+
+.tag-list-item {
+    margin-bottom: 5px;
+}
+
+.tag-list-item label {
+    text-shadow: var(--bxsh-loginreg-text);
+}
+
+.tag-list-item-checkbox {
+    margin-right: 10px;
+}
+
+/* register subgenres */
+
+.container_register_subgenres {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    width: 100%;
+}
+
+.container_register_subgenres_header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container_register_subgenres_header h2 {
+    color: var(--text-1);
+    text-shadow: var(--bxsh-loginreg-text);
+}
+
+.container_subgenre_edit_form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container_subgenre_columns {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    min-width: 400px;
+    margin-bottom: 20px;
+
+} 
+
+.subgenre-list-item {
+    margin-bottom: 5px;
+}
+
+.subgenre-list-item label {
+    text-shadow: var(--bxsh-loginreg-text);
+}
+
+.subgenre-list-item-checkbox {
+    margin-right: 10px;
+}
+
