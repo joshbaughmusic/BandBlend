@@ -12,6 +12,7 @@
     padding: 30px 50px;
     max-width: 1750px;
     margin: 0 auto;
+    min-height: 100vh;
     /* margin: 20px 0px; */
 }
 
@@ -25,7 +26,10 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    box-shadow: var(--bxsh-profile-sections)
+    box-shadow: var(--bxsh-profile-sections);
+
+    /* get rid of this to make the primary section fill top to bottom as well */
+    max-height: 950px;
 }
 
 
@@ -100,7 +104,7 @@
 .container_profile_primary_buttons {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 

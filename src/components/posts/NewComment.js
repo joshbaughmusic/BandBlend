@@ -101,7 +101,7 @@ export const NewComment = ({ postId, getAllComments }) => {
                     ></textarea>
                 <br />
                 <button type="submit" className="btn btn_profile btn_submit button_profile_colors" id={`submitNewCommentBtn--${postId}`} onClick={handleSubmitNewCommentClick}>Submit Reply</button>
-                <button type="button" className="btn btn_profile btn_close button_profile_colors" id={`closeNewCommentBtn--${postId}`} onClick={handleCloseNewCommentFormButtonClick}>Close</button>
+                <button type="button" className="btn btn_profile btn_close btn_close_new_comment button_profile_colors" id={`closeNewCommentBtn--${postId}`} onClick={handleCloseNewCommentFormButtonClick}>Close</button>
             </form>
         </>
     )
