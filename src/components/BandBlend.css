@@ -14,23 +14,15 @@ a {
   /* gets rid of the extra spacing added by the Link tags */
   display: flex;
   align-self: center;
-
 }
 
-a:hover {
-  /* text-decoration: underline; */
-}
-
-body {
-  /* background-color: rgb(174, 187, 197); */
-}
-
-button {
+/* button {
   cursor: pointer;
   min-width: 80px;
   padding: 4px 7px;
   border-radius: 8px;
-}
+} */
+
 
 /* keep outlines off of any focused text input fields/searchbars */
 

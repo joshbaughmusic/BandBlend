@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
+import "./Login.css"
 
 export const Login = () => {
     const [email, set] = useState("joshbaughmusic@gmail.com")
@@ -28,32 +29,51 @@ export const Login = () => {
             })
     }
 
+    const handleRegisterClick = () => {
+        navigate('/register/user')
+    }
+
     return (
-        <main className="container--login">
-            <section>
-                <form className="form--login" onSubmit={handleLogin}>
-                    <h1>BandBlend</h1>
-                    <h2>Returning member? Sign in:</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input type="email"
-                            value={email}
-                            onChange={evt => set(evt.target.value)}
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
-                    </fieldset>
-                </form>
+        <>
+
+            {/* copied over homepage content for background and logos, leaving css the same here for that part of it */}
+
+            <section className="waves-login container container_homepage">
+                <div className="container container_homepage_inner">
+                    <section className="container container_hero">
+                        <header className="container container_heading">
+                            <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-black.png")} />
+                            <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-black.png")} />
+                        </header>
+                    </section>
+
+                  
+
+                    <main className="container--login">
+                        
+                            <form className="form--login" onSubmit={handleLogin}>
+                                <h2>Returning Blender?</h2>
+                                    <label htmlFor="inputEmail"> Sign in with email address:</label>
+                                    <input type="email"
+                                        value={email}
+                                        onChange={evt => set(evt.target.value)}
+                                        className="form-control input_field_colors input_login"
+                                        placeholder="Email address"
+                                        required autoFocus />
+                                    <button type="submit" className="button_profile_colors button-loginreg">
+                                        Sign in
+                                    </button>
+                            </form>
+                       
+                        <section className="section--register">
+                            <h2>New to the Blend?</h2>
+                            <button type="submit" className="button_profile_colors button-loginreg" onClick={handleRegisterClick}>Register</button>
+                        </section>
+                    </main>
+                </div>
             </section>
-            <section className="link--register">
-                <Link to="/register/user">Not a member yet?</Link>
-            </section>
-        </main>
+
+        </>
     )
 }
 
