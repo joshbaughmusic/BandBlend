@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./EditTags.css"
 
 export const EditTags = () => {
     const [tags, setTags] = useState([]);
@@ -15,11 +16,11 @@ export const EditTags = () => {
     const bBUserObject = JSON.parse(localBbUser)
 
     useEffect(() => {
-     fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}`)
-     .then(res => res.json())
-     .then(data => {
-        setCurrentUserProfile(data[0])
-     })
+        fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}`)
+            .then(res => res.json())
+            .then(data => {
+                setCurrentUserProfile(data[0])
+            })
     }, [])
 
     const navigate = useNavigate()
@@ -98,17 +99,17 @@ export const EditTags = () => {
         //make sure three are selected
 
         if (selectedTags.length === 3) {
-        
-        //delete all current proFileTags
 
-        currentProfileTags.map(profileTag => {
-            return fetch(`http://localhost:8088/profileTags/${profileTag.id}`, {
-                method: "DELETE",
-            })
-                .then(() => {
+            //delete all current proFileTags
 
-                    
+            currentProfileTags.map(profileTag => {
+                return fetch(`http://localhost:8088/profileTags/${profileTag.id}`, {
+                    method: "DELETE",
                 })
+                    .then(() => {
+
+
+                    })
             })
 
             //create all new profileTags by mapping through the selectedTags array. This only has the tagId values, not the full profileTag.
@@ -140,7 +141,7 @@ export const EditTags = () => {
             setShowSpinner(true)
 
             setTimeout(() => {
-                
+
                 navigate("/myprofile")
 
             }, 2000)
@@ -157,42 +158,59 @@ export const EditTags = () => {
 
     if (currentUserProfile.id === parseInt(profileId)) {
 
-        if(!showSpinner) {
-    
+        if (!showSpinner) {
+
             return (
                 <>
-                    <label>Select 3 Profile Tags:</label><br />
-                    <form className="container container_tag_edit_form">
-                        <ul className="container container_tag_edit_checkboxes">
-                            {tags.map((tag, index) => {
-        
-                                return (
-                                    <>
-                                        <li key={`tagListItem--${tag.id}`}>
-                                            <label htmlFor={`tag--${tag.id}`}>{tag.name}</label>
-                                            <input
-                                                key={tag.id}
-                                                type="checkbox"
-                                                id={`tag--${tag.id}`}
-                                                value={tag.id}
-                                                onChange={checkboxHandler}
-                                                checked={selectedTags.includes(tag.id)}
-                                            />
-                                        </li>
-                                    </>
-                                );
-                            })}
-                        </ul>
-                        <button type="submit" className="btn btn_edit btn_submit" onClick={handleSubmitTagEdits}>Confirm Changes</button>
-                        <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/myprofile') }}>Exit</button>
-                    </form>
+                    {/* copied over registration content for background, leaving css the same here for that part of it. Also carrying over styles and classes from registration for a lot of it*/}
+
+                    <section className="waves-regtags container container_homepage">
+                        <div className="container container_homepage_inner">
+
+                            <div className="container container_register_tags">
+                                <div className="container container_register_tags_header">
+                                    <h2>Select 3 Profile Tags:</h2>
+                                </div>
+                                <form className="container container_tag_edit_form">
+                                    <ul className="container container_tag_edit_checkboxes">
+                                        {tags.map((tag, index) => {
+
+                                            return (
+                                                <>
+                                                    <li key={`tagListItem--${tag.id}`} className="tag-list-item">
+                                                        <input
+                                                            key={tag.id}
+                                                            type="checkbox"
+                                                            id={`tag--${tag.id}`}
+                                                            value={tag.id}
+                                                            onChange={checkboxHandler}
+                                                            checked={selectedTags.includes(tag.id)}
+                                                        />
+                                                        <label htmlFor={`tag--${tag.id}`} className="tag-list-item-label">{tag.name}</label>
+                                                    </li>
+                                                </>
+                                            );
+                                        })}
+                                    </ul>
+                                    <button type="submit" className="btn btn_edit btn_submit button_profile_colors button-loginreg" onClick={handleSubmitTagEdits}>Confirm Changes</button>
+                                    <button type="button" className="btn btn_edit btn_navigate button_exit_edit button_profile_colors button-loginreg" onClick={() => { navigate('/myprofile') }}>Exit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
                 </>
             );
         } else {
-            return <img className="loading img_loading" src={require("../../images/loading_spinner.gif")}/>
+            return  <>
+            <section className="waves-regtags container container_homepage">
+                <div className="container container_homepage_inner container_loading_spinner">
+                    <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
+                </div>
+            </section >
+        </>
         }
     } else {
-        return <p>Nice try, loser. You're not authorized to edit this profile.</p> 
+        return <p>Nice try, loser. You're not authorized to edit this profile.</p>
     }
 
 

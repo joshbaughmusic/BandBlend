@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import "./EditComment.css"
 
 export const EditComment = () => {
     // get comment id off of url
@@ -21,7 +22,7 @@ export const EditComment = () => {
 
     const navigate = useNavigate()
 
-    
+
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
 
@@ -38,11 +39,11 @@ export const EditComment = () => {
                 //get profile of current user to find out if the profile they came from belonged to them so proper navigate can happen
 
                 fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}`)
-                .then(res => res.json())
-                .then(data => {
-                    setCurrentUserProfile(data[0])
-                 
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        setCurrentUserProfile(data[0])
+
+                    })
 
 
             })
@@ -96,34 +97,37 @@ export const EditComment = () => {
 
         return (
             <>
-                <form className="form edit_form edit_form_comment">
-                    <fieldset>
-                        <label htmlFor="editComment">Edit Comment</label>
-                        <br />
-                        <textarea autoFocus name="editComment" className="input input_text" value={comment.body} rows="8" cols="50" onChange={
-                            e => {
-                                const copy = { ...comment }
-                                copy.body = e.target.value
-                                setComment(copy)
+            {/* copied over registration content for background, leaving css the same here for that part of it. Also carrying over styles and classes from registration for a lot of it*/}
+            
+                <section className="waves-reguser container container_homepage">
+                    <div className="container container_homepage_inner">
+                        <form className="form edit_form edit_form_comment">
+                            <h2 htmlFor="editComment">Edit Comment:</h2>
+                            <textarea autoFocus name="editComment" className="input input_text input_reg input_field_colors" value={comment.body} rows="8" cols="50" onChange={
+                                e => {
+                                    const copy = { ...comment }
+                                    copy.body = e.target.value
+                                    setComment(copy)
+                                }
                             }
-                        }
-                        ></textarea>
-                    </fieldset>
-                    <br />
-                    <button type="submit" className="btn btn_edit btn_submit" onClick={handleCommentEditSubmission}>Confirm Changes</button>
-                    {
-                        currentUserProfile.id === previousProfileId
+                            ></textarea>
+                            <div className="container container_buttons_edit_about">
+                                <button type="submit" className="btn btn_edit btn_submit" onClick={handleCommentEditSubmission}>Confirm Changes</button>
+                                {
+                                    currentUserProfile.id === previousProfileId
 
-                        ?
+                                        ?
 
-                        <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate(`/myprofile`) }}>Exit</button>
+                                        <button type="button" className="btn btn_edit btn_navigate button_exit_edit" onClick={() => { navigate(`/myprofile`) }}>Exit</button>
 
-                        :
-                        
-                        <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate(`/profiles/${previousProfileId}`) }}>Exit</button>
-                        
-                    }
-                </form>
+                                        :
+
+                                        <button type="button" className="btn btn_edit btn_navigate button_exit_edit" onClick={() => { navigate(`/profiles/${previousProfileId}`) }}>Exit</button>
+                                }
+                            </div>
+                        </form>
+                    </div>
+                </section>
             </>
         )
     } else {

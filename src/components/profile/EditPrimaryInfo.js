@@ -49,7 +49,7 @@ export const EditPrimaryInfo = () => {
                 setPrimaryGenres(data)
             })
     }, [])
-    
+
     //fetch primary instruments
 
     useEffect(() => {
@@ -107,140 +107,139 @@ export const EditPrimaryInfo = () => {
 
         return (
             <>
-                <form className="form edit_form edit_form_primaryinfo">
-                    <label>Edit Primary Info</label>
-                    <fieldset>
-                        <label htmlFor="editPicture">Profile Picture URL:</label>
-                        <br />
-                        <input required type="url" name="editPicture" className="input input_text" value={profile.picture} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.picture = e.target.value
-                                setProfile(copy)
+
+                <section className="waves-regprofile container container_homepage">
+                    <div className="container container_homepage_inner">
+                        <form className="form edit_form edit_form_primaryinfo">
+                            <h2>Edit Primary Info:</h2>
+
+                            <label htmlFor="editPicture">Profile Picture URL:</label>
+                            <br />
+                            <input required type="url" name="editPicture" className="input input_text input_reg input_field_colors" value={profile.picture} onChange={
+                                e => {
+                                    let copy = { ...profile }
+                                    copy.picture = e.target.value
+                                    setProfile(copy)
+                                }
                             }
-                        }
-                        ></input>
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="editLocation">Location:</label>
-                        <br />
-                        <input required type="text" name="editLocation" className="input input_text" value={profile.location} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.location = e.target.value
-                                setProfile(copy)
+                            ></input>
+
+                            <label htmlFor="editLocation">Location:</label>
+                            <br />
+                            <input required type="text" name="editLocation" className="input input_text input_reg input_field_colors" value={profile.location} onChange={
+                                e => {
+                                    let copy = { ...profile }
+                                    copy.location = e.target.value
+                                    setProfile(copy)
+                                }
                             }
-                        }
-                        ></input>
-                    </fieldset>
+                            ></input>
 
-                    {
-                        bBUserObject.isBand
-
-                        ?
-
-                        ""
-
-                        :
-
-                    <fieldset>
-                        <label htmlFor="editPrimaryInstrument">Primary Instrument:</label>
-                        <br />
-                        <select required name="editPrimaryInstrument" className="input input_select" onChange={e => {
-                            const [, instrumentId] = e.target.value.split("--")
-                            let copy = { ...profile }
-                            copy.primaryInstrumentId = parseInt(instrumentId)
-                            setProfile(copy)
-                        }}>
                             {
-                                primaryInstruments.map(instrument => {
-                                    if (instrument.id === profile.primaryInstrumentId) {
-                                        return <option selected key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`}>{instrument.name}</option>
-                                    } else {
-                                        return <option key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`}>{instrument.name}</option>
-                                    }
-                                })
+                                bBUserObject.isBand
+
+                                    ?
+
+                                    ""
+
+                                    :
+
+                                    <>
+                                        <label htmlFor="editPrimaryInstrument">Primary Instrument:</label>
+                                        <br />
+                                        <select required name="editPrimaryInstrument" className="input input_select input_reg input_field_colors" onChange={e => {
+                                            const [, instrumentId] = e.target.value.split("--")
+                                            let copy = { ...profile }
+                                            copy.primaryInstrumentId = parseInt(instrumentId)
+                                            setProfile(copy)
+                                        }}>
+                                            {
+                                                primaryInstruments.map(instrument => {
+                                                    if (instrument.id === profile.primaryInstrumentId) {
+                                                        return <option selected key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`}>{instrument.name}</option>
+                                                    } else {
+                                                        return <option key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`}>{instrument.name}</option>
+                                                    }
+                                                })
+                                            }
+                                        </select>
+                                    </>
+
+
+
                             }
-                        </select>
 
-
-                    </fieldset>
-
-                    }
-                    <fieldset>
-                        <label htmlFor="editPrimaryGenre">Primary Genre:</label>
-                        <br />
-                        <select required name="editPrimaryGenre" className="input input_select" onChange={e => {
-                            const [, genreId] = e.target.value.split("--")
-                            let copy = { ...profile }
-                            copy.primaryGenreId = parseInt(genreId)
-                            setProfile(copy)
-                        }}>
-                            {
-                                primaryGenres.map(genre => {
-                                    if (genre.id === profile.primaryGenreId) {
-                                        return <option selected key={`primarygenrekey--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
-                                    } else {
-                                        return <option key={`primarygenrekey--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
-                                    }
-                                })
-                            }
-                        </select>
-
-
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="editSpotify">Spotify URL: <span className="optional">(optional)</span></label>
-                        <br />
-                        <input type="url" name="editSpotify" className="input input_text" value={profile.spotify} onChange={
-                            e => {
+                            <label htmlFor="editPrimaryGenre">Primary Genre:</label>
+                            <br />
+                            <select required name="editPrimaryGenre" className="input input_select input_reg input_field_colors" onChange={e => {
+                                const [, genreId] = e.target.value.split("--")
                                 let copy = { ...profile }
-                                copy.spotify = e.target.value
+                                copy.primaryGenreId = parseInt(genreId)
                                 setProfile(copy)
+                            }}>
+                                {
+                                    primaryGenres.map(genre => {
+                                        if (genre.id === profile.primaryGenreId) {
+                                            return <option selected key={`primarygenrekey--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
+                                        } else {
+                                            return <option key={`primarygenrekey--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
+                                        }
+                                    })
+                                }
+                            </select>
+
+
+
+                            <label htmlFor="editSpotify">Spotify URL: <span className="optional">(optional)</span></label>
+                            <br />
+                            <input type="url" name="editSpotify" className="input input_text input_reg input_field_colors" value={profile.spotify} onChange={
+                                e => {
+                                    let copy = { ...profile }
+                                    copy.spotify = e.target.value
+                                    setProfile(copy)
+                                }
                             }
-                        }
-                        ></input>
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="editFacebook">Facebook URL: <span className="optional">(optional)</span></label>
-                        <br />
-                        <input type="url" name="editFacebook" className="input input_text" value={profile.facebook} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.facebook = e.target.value
-                                setProfile(copy)
+                            ></input>
+
+                            <label htmlFor="editFacebook">Facebook URL: <span className="optional">(optional)</span></label>
+                            <br />
+                            <input type="url" name="editFacebook" className="input input_text input_reg input_field_colors" value={profile.facebook} onChange={
+                                e => {
+                                    let copy = { ...profile }
+                                    copy.facebook = e.target.value
+                                    setProfile(copy)
+                                }
                             }
-                        }
-                        ></input>
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="editInstagram">Instagram URL: <span className="optional">(optional)</span></label>
-                        <br />
-                        <input type="url" name="editInstagram" className="input input_text" value={profile.instagram} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.instagram = e.target.value
-                                setProfile(copy)
+                            ></input>
+
+                            <label htmlFor="editInstagram">Instagram URL: <span className="optional">(optional)</span></label>
+                            <br />
+                            <input type="url" name="editInstagram" className="input input_text input_reg input_field_colors" value={profile.instagram} onChange={
+                                e => {
+                                    let copy = { ...profile }
+                                    copy.instagram = e.target.value
+                                    setProfile(copy)
+                                }
                             }
-                        }
-                        ></input>
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="editTiktok">TikTok URL: <span className="optional">(optional)</span></label>
-                        <br />
-                        <input type="url" name="editTiktok" className="input input_text" value={profile.tiktok} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.tiktok = e.target.value
-                                setProfile(copy)
+                            ></input>
+
+                            <label htmlFor="editTiktok">TikTok URL: <span className="optional">(optional)</span></label>
+                            <br />
+                            <input type="url" name="editTiktok" className="input input_text input_reg input_field_colors" value={profile.tiktok} onChange={
+                                e => {
+                                    let copy = { ...profile }
+                                    copy.tiktok = e.target.value
+                                    setProfile(copy)
+                                }
                             }
-                        }
-                        ></input>
-                    </fieldset>
-                    <br />
-                    <button type="submit" className="btn btn_edit btn_submit" onClick={handlePrimaryInfoEditSubmission}>Confirm Changes</button>
-                    <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/myprofile') }}>Exit</button>
-                </form>
+                            ></input>
+                            <div className="container container_buttons_edit_primaryinfo">
+                            <button type="submit" className="btn btn_edit btn_submit" onClick={handlePrimaryInfoEditSubmission}>Confirm Changes</button>
+                            <button type="button" className="btn btn_edit btn_navigate button_exit_edit" onClick={() => { navigate('/myprofile') }}>Exit</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
             </>
         )
     } else {

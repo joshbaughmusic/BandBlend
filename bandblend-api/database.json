@@ -1096,6 +1096,13 @@
       "body": "asdfasdfasdfasdfasdfasdfasdfasdf",
       "date": 1690392906738,
       "id": 66
+    },
+    {
+      "postId": 6,
+      "userId": 1,
+      "body": "sdfgsdfg",
+      "date": 1690754910198,
+      "id": 67
     }
   ],
   "likes": [
@@ -1122,18 +1129,6 @@
       "userId": 5,
       "postId": 5,
       "date": 1690392906738
-    },
-    {
-      "userId": 1,
-      "postId": 33,
-      "date": 1690748388260,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "postId": 35,
-      "date": 1690748390159,
-      "id": 6
     }
   ],
   "profileTags": [

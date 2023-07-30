@@ -23,9 +23,15 @@
     --bg-sidebar-header: #602d2dd4;
     --bg-sidebar-msg-1: #8C4A4A;
     --bg-sidebar-msg-2: #602d2dd4;
-    --bg-buttons-pro: #D9D6D2;
-    --bg-buttons-cmt-mes: #D9D6D2;
-    --bg-buttons-saved: #602d2dd4;
+    --bg-buttons-pro: linear-gradient(to bottom, #d9d6d2 5%, #c3c0bd 100%);
+    --bg-buttons-pro-hover: linear-gradient(to bottom, #c3c0bd 5%, #d9d6d2 100%);
+    --bg-buttons-pro-active: linear-gradient(to bottom, #bab7b4 5%, #aeaca8 100%);
+    --bg-buttons-cmt-mes: linear-gradient(to bottom, #d9d6d2 5%, #c3c0bd 100%);
+    --bg-buttons-cmt-mes-hover: linear-gradient(to bottom, #c3c0bd 5%, #d9d6d2 100%);
+    --bg-buttons-cmt-mes-active: linear-gradient(to bottom, #bab7b4 5%, #aeaca8 100%);
+    --bg-buttons-saved: linear-gradient(to bottom, #9d5d5c 5%, #5b2929 100%);
+    --bg-buttons-saved-hover: linear-gradient(to bottom, #683131 5%, rgb(119, 70, 69) 100%);
+    --bg-buttons-saved-active: linear-gradient(to bottom, #5d2c2c 5%, rgb(82, 36, 35) 100%);
     --text-buttons-pro: #001220;
     --text-buttons-cmt-mes: #001220;
     --bg-input: #D9D6D2;
@@ -465,8 +471,7 @@ a {
 
 button {
     box-shadow: var(--bxsh-button);
-    background:linear-gradient(to bottom, #d9d6d2 5%, #c3c0bd 100%);
-	background-color:#d9d6d2;
+    background: var(--bg-buttons-pro);
     border-radius: 6px;
     border: var(--border-buttons-cmt-mes);
     display: inline-block;
@@ -480,13 +485,11 @@ button {
 }
 
 button:hover {
-    background:linear-gradient(to bottom, #c3c0bd 5%, #d9d6d2 100%);
-	background-color:#c3c0bd;
+    background: var(--bg-buttons-pro-hover);
 }
 
 button:active {
-    background:linear-gradient(to bottom, #bab7b4 5%, #aeaca8 100%);
-	background-color:#aba8a5;
+    background: var(--bg-buttons-pro-active);
     position: relative;
     top: 1px;
     background-color: #d9d6d2;
@@ -497,8 +500,7 @@ button:active {
 
 button.button_profile_primary_saved {
     box-shadow: var(--bxsh-button-saved);
-    background:linear-gradient(to bottom, #9d5d5c 5%, #5b2929 100%);
-	background-color:#995f5e;
+    background: var(--bg-buttons-saved);
     border-radius: 6px;
     border: var(--border-buttons-cmt-mes);
     display: inline-block;
@@ -512,15 +514,11 @@ button.button_profile_primary_saved {
 }
 
 button.button_profile_primary_saved:hover {
-    background:linear-gradient(to bottom, #683131 5%, rgb(119, 70, 69) 100%);
-	background-color:#683131;
+    background: var(--bg-buttons-saved-hover);
 }
 
 button.button_profile_primary_saved:active {
-    background:linear-gradient(to bottom, #5d2c2c 5%, rgb(82, 36, 35) 100%);
-	background-color:#683131;
+    background: var(--bg-buttons-saved-active);
     position: relative;
     top: 1px;
 }
-
-
