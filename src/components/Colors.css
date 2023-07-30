@@ -11,7 +11,6 @@
     --bg-main-solid-2: #1D2625;
     --bg-main-gradient-1: linear-gradient(49deg, rgba(132, 73, 73, 0.666) 21%, rgba(125, 90, 90, 0.642) 48%, rgba(147, 98, 97, 0.614) 68%);
     --bg-main-gradient-2: linear-gradient(49deg, rgba(29, 38, 37, 1) 13%, rgba(37, 46, 45, 1) 46%, rgba(48, 58, 56, 1) 76%, rgba(71, 81, 79, 1) 100%);
-    /* --bg-main-gradient-2: linear-gradient(49deg, rgba(29,38,37,1) 20%, rgba(51,61,59,1) 50%, rgba(79,89,87,1) 78%); */
     --bg-profiles-sections: linear-gradient(49deg, rgba(140, 74, 74, 1) 21%, rgba(185, 114, 113, 0.8) 48%, rgba(174, 104, 103, 1) 68%);
     --bg-profilesall-card-1: #602d2db4;
     --bg-profilesall-card-2: #8c4a4acf;
@@ -194,7 +193,7 @@ a.active {
 }
 
 body {
-    background: var(--bg-main-gradient-2)
+    background: var(--bg-main-solid-1)
 }
 
 /* otherprofile */

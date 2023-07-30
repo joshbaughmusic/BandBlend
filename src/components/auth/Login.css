@@ -8,6 +8,11 @@
     text-align: center;
 }
 
+.container_hero_login {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
 .container--login h2 {
     color: var(--text-1);
     text-shadow: var(--bxsh-loginreg-text);
