@@ -1,0 +1,13 @@
+.edit_form_comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.edit_form_comment h2 {
+    color: var(--text-1);
+    text-shadow: var(--bxsh-loginreg-text);
+    margin-bottom: 10px;
+}

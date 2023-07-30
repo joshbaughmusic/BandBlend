@@ -111,9 +111,6 @@ export const RegisterSubGenres = () => {
 
     }
 
-    console.log(subGenreCol1)
-    console.log(subGenreCol2)
-
     if (!subgenres || !subGenreCol1 || !subGenreCol2) {
         return null
     }
@@ -194,7 +191,7 @@ export const RegisterSubGenres = () => {
         return (
             <>
                 <section className="waves-reggenres container container_homepage">
-                    <div className="container container_homepage_inner">
+                    <div className="container container_homepage_inner container_loading_spinner">
                         <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
                     </div>
                 </section>

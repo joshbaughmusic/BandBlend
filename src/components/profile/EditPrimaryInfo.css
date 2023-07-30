@@ -3,3 +3,24 @@
     font-style: italic;
     opacity: 70%;
 }
+
+.edit_form_primaryinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.edit_form_primaryinfo h2 {
+    color: var(--text-1);
+    text-shadow: var(--bxsh-loginreg-text);
+    margin-bottom: 30px;
+}
+
+.edit_form_primaryinfo label {
+    text-shadow: var(--bxsh-loginreg-text);
+    margin-bottom: -25px;
+    margin-top: 5px
+}

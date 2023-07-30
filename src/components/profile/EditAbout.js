@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import "./EditAbout.css"
 
 export const EditAbout = () => {
 
@@ -63,23 +64,29 @@ export const EditAbout = () => {
 
         return (
             <>
-                <form className="form edit_form edit_form_about">
-                    <fieldset>
-                        <label htmlFor="editAbout">Edit About</label>
-                        <br />
-                        <textarea autoFocus name="editAbout" className="input input_text" value={profile.about} rows="8" cols="50" onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.about = e.target.value
-                                setProfile(copy)
+
+                {/* copied over registration content for background, leaving css the same here for that part of it. Also carrying over styles and classes from registration for a lot of it*/}
+                
+                <section className="waves-reguser container container_homepage">
+                    <div className="container container_homepage_inner">
+                        <form className="form edit_form edit_form_about">
+                            <h2 htmlFor="editAbout">Edit About:</h2>
+
+                            <textarea autoFocus name="editAbout" className="input input_text input_reg input_field_colors" value={profile.about} rows="8" cols="50" onChange={
+                                e => {
+                                    let copy = { ...profile }
+                                    copy.about = e.target.value
+                                    setProfile(copy)
+                                }
                             }
-                        }
-                        ></textarea>
-                    </fieldset>
-                    <br />
-                    <button type="submit" className="btn btn_edit btn_submit" onClick={handleAboutEditSubmission}>Confirm Changes</button>
-                    <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/myprofile') }}>Exit</button>
-                </form>
+                            ></textarea>
+                            <div className="container container_buttons_edit_about">
+                                <button type="submit" className="btn btn_edit btn_submit" onClick={handleAboutEditSubmission}>Confirm Changes</button>
+                                <button type="button" className="btn btn_edit btn_navigate button_exit_edit" onClick={() => { navigate('/myprofile') }}>Exit</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
             </>
         )
     } else {

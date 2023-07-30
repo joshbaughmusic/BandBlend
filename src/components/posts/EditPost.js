@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import "./EditPost.css"
 
 export const EditPost = () => {
 
@@ -50,8 +51,8 @@ export const EditPost = () => {
 
     //looks through users posts and if the id of one of them matches postId variable from params/url, then allowAccess becomes truthy, allowing for the rest of the page content to populate.
 
-    const allowAccess = userProfileWithPosts.posts.find(post => 
-    post.id === parseInt(postId))
+    const allowAccess = userProfileWithPosts.posts.find(post =>
+        post.id === parseInt(postId))
 
 
     if (allowAccess) {
@@ -81,23 +82,28 @@ export const EditPost = () => {
 
         return (
             <>
-                <form className="form edit_form edit_form_post">
-                    <fieldset>
-                        <label htmlFor="editPost">Edit Post</label>
-                        <br />
-                        <textarea autoFocus name="editPost" className="input input_text" value={post.body} rows="8" cols="50" onChange={
-                            e => {
-                                const copy = { ...post }
-                                copy.body = e.target.value
-                                setPost(copy)
+            {/* copied over registration content for background, leaving css the same here for that part of it. Also carrying over styles and classes from registration for a lot of it*/}
+            
+                <section className="waves-reguser container container_homepage">
+                    <div className="container container_homepage_inner">
+                        <form className="form edit_form edit_form_post">
+                            <h2 htmlFor="editPost">Edit Post:</h2>
+                          
+                            <textarea autoFocus name="editPost" className="input input_text input_reg input_field_colors" value={post.body} rows="8" cols="50" onChange={
+                                e => {
+                                    const copy = { ...post }
+                                    copy.body = e.target.value
+                                    setPost(copy)
+                                }
                             }
-                        }
-                        ></textarea>
-                    </fieldset>
-                    <br />
-                    <button type="submit" className="btn btn_edit btn_submit" onClick={handlePostEditSubmission}>Confirm Changes</button>
-                    <button type="button" className="btn btn_edit btn_navigate" onClick={() => { navigate('/myprofile') }}>Exit</button>
-                </form>
+                            ></textarea>
+                            <div className="container container_buttons_edit_post">
+                                <button type="submit" className="btn btn_edit btn_submit" onClick={handlePostEditSubmission}>Confirm Changes</button>
+                                <button type="button" className="btn btn_edit btn_navigate button_exit_edit" onClick={() => { navigate('/myprofile') }}>Exit</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
             </>
         )
     } else {

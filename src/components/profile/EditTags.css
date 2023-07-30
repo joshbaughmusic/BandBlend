@@ -1,0 +1,16 @@
+.button_exit_edit {
+    margin-left: 5px;
+}
+
+.container_loading_spinner {
+    position: relative;
+}
+
+.img_loading {
+    position: absolute;
+    top: 250px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+

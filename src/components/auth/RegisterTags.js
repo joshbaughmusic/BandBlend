@@ -159,7 +159,7 @@ export const RegisterTags = () => {
         return (
             <>
                 <section className="waves-regtags container container_homepage">
-                    <div className="container container_homepage_inner">
+                    <div className="container container_homepage_inner container_loading_spinner">
                         <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
                     </div>
                 </section >
