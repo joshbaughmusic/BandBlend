@@ -1,6 +1,7 @@
 .waves {
     aspect-ratio: 2560/1440;
     width: 100%;
+    min-height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;

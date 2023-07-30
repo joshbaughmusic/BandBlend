@@ -1,6 +1,6 @@
-/* fixes body over flow issue */
 .container_homepage {
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
+    overflow-y: hidden;
 }
 
 /* this is what fixed that background color showing through like what was happening with the above code. Making another inner div and placing the max width on that worked. */

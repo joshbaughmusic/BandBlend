@@ -174,12 +174,12 @@ export const ProfilesAllList = ({
                                 )}
                             </div>
                             <div className="container container_profile_card_primarygenre">
-                                <h3 className="profile_card_genre">Genre</h3>
+                                <h3 className="profile_card_genre">Genre:</h3>
                                 <p className="profile_card_genre_name">{profile.primaryGenre.name}</p>
                             </div>
 
                             <div className="container container_profile_card_tags">
-                                <h3 className="profile_card_tags">Tags</h3>
+                                <h3 className="profile_card_tags">Tags:</h3>
                                 <ul>
                                     {profile.profileTags.map((tag) => (
                                         <li key={`profileCardTag--${tag.id}--${tag.tagId}`} className="profile_card_tag">

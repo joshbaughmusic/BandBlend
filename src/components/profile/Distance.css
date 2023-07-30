@@ -4,19 +4,20 @@
 }
 
 .icon_loading {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     align-self: center;
 }
 
 .icon_distance {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     margin-right: 6px;
 }
 
 .text_profile_distance {
     font-style: italic;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 400;
 
 }
