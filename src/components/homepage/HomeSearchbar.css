@@ -58,11 +58,11 @@
 }
 
 .search-result:hover {
-    background-color: #dadada;
+    background-color: #c1bfbf;
 }
 
 .search-result:active {
-    background-color: #c4c4c4
+    background-color: rgb(176, 176, 176)
 }
 
 /* subtext */

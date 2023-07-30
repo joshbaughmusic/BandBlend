@@ -6,6 +6,7 @@
     padding: 10px 10px 10px 10px; 
     border-radius: 10px;
     /* background-color: rgba(96, 108, 119, 0.565); */
+    box-shadow: var(--bxsh-comment-container);
 }
 
 .container_comment_heading {

@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom"
-import bb_logo from "../../images/Bandblend_Logos/Logo-nav-white.png"
+import bb_logo from "../../images/Bandblend_Logos/Logo-nav-black.png"
 import "./NavBar.css"
 import { useEffect, useState } from "react"
 
