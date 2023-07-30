@@ -73,8 +73,8 @@ export const Homepage = () => {
                 <div className="container container_homepage_inner">
                 <section className="container container_hero">
                     <header className="container container_heading">
-                        <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-white.png")}/>
-                        <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-white.png")}/>
+                        <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-black.png")}/>
+                        <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-black.png")}/>
                     </header>
                         <HomeSearchbar />
                 </section>
