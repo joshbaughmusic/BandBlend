@@ -40,7 +40,7 @@ export const Login = () => {
 
             <section className="waves-login container container_homepage">
                 <div className="container container_homepage_inner">
-                    <section className="container container_hero">
+                    <section className="container container_hero container_hero_login">
                         <header className="container container_heading">
                             <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-black.png")} />
                             <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-black.png")} />
