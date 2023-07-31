@@ -108,8 +108,8 @@ export const EditPrimaryInfo = () => {
         return (
             <>
 
-                <section className="waves-regprofile container container_homepage">
-                    <div className="container container_homepage_inner">
+                {/* Carrying over styles and classes from registration for a lot of it*/}
+                
                         <form className="form edit_form edit_form_primaryinfo">
                             <h2>Edit Primary Info:</h2>
 
@@ -238,8 +238,9 @@ export const EditPrimaryInfo = () => {
                             <button type="button" className="btn btn_edit btn_navigate button_exit_edit" onClick={() => { navigate('/myprofile') }}>Exit</button>
                             </div>
                         </form>
-                    </div>
-                </section>
+              
+
+                <div className="waves-primary-transparent"></div>
             </>
         )
     } else {

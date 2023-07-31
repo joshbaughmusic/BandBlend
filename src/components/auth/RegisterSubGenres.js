@@ -119,12 +119,6 @@ export const RegisterSubGenres = () => {
 
         return (
             <>
-
-                {/* copied over homepage content for background and logos, leaving css the same here for that part of it */}
-
-                <section className="waves-reggenres container container_homepage">
-                    <div className="container container_homepage_inner">
-
                         <div className="container container_register_subgenres">
                             <div className="container container_register_subgenres_header">
                                 <h2>Select 3 Subgenres:</h2>
@@ -183,18 +177,17 @@ export const RegisterSubGenres = () => {
                             </form>
                                 <button type="submit" className="btn btn_edit btn_submit button_profile_colors button-loginreg" onClick={handleSubmitTagEdits}>Confirm Selections</button>
                         </div>
-                    </div>
-                </section>
+                        <div className="waves-subgenre-transparent"></div>
+
+                   
             </>
         );
     } else {
         return (
             <>
-                <section className="waves-reggenres container container_homepage">
-                    <div className="container container_homepage_inner container_loading_spinner">
+               
                         <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
-                    </div>
-                </section>
+                  <div className="waves-subgenre-transparent"></div>
             </>
         )
     }

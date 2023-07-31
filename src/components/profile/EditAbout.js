@@ -65,10 +65,8 @@ export const EditAbout = () => {
         return (
             <>
 
-                {/* copied over registration content for background, leaving css the same here for that part of it. Also carrying over styles and classes from registration for a lot of it*/}
-                
-                <section className="waves-reguser container container_homepage">
-                    <div className="container container_homepage_inner">
+                {/* Carrying over styles and classes from registration for a lot of it*/}
+          
                         <form className="form edit_form edit_form_about">
                             <h2 htmlFor="editAbout">Edit About:</h2>
 
@@ -85,8 +83,8 @@ export const EditAbout = () => {
                                 <button type="button" className="btn btn_edit btn_navigate button_exit_edit" onClick={() => { navigate('/myprofile') }}>Exit</button>
                             </div>
                         </form>
-                    </div>
-                </section>
+                        <div className="waves-about-transparent"></div>
+              
             </>
         )
     } else {

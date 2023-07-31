@@ -20,7 +20,7 @@
 
 }
 
-.waves-reguser {
+/* .waves-reguser {
     aspect-ratio: 2560/1440;
     width: 100%;
     min-height: 100vh;
@@ -61,5 +61,99 @@
     background-position: center;
     background-size:cover;
     background-image: url('../images/svg/layered-waves-reggenres.svg');;
+
+}
+
+*/
+
+
+.waves-about-transparent {
+    aspect-ratio: 2560/1440;
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-image: url('../images/svg/layered-waves-about-transparent.svg');
+    position: fixed;
+    z-index: -1;
+
+}
+
+.waves-primary-transparent {
+    aspect-ratio: 2560/1440;
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-image: url('../images/svg/layered-waves-primary-transparent.svg');
+    position: fixed;
+    z-index: -1;
+
+}
+
+.waves-subgenre-transparent {
+    aspect-ratio: 2560/1440;
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-image: url('../images/svg/layered-waves-subgenre-transparent.svg');
+    position: fixed;
+    z-index: -1;
+
+
+}
+.waves-tags-transparent {
+    aspect-ratio: 2560/1440;
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-image: url('../images/svg/layered-waves-tags-transparent.svg');
+    position: fixed;
+    z-index: -1;
+
+}
+
+.waves-post-transparent {
+    aspect-ratio: 2560/1440;
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-image: url('../images/svg/layered-waves-post-transparent.svg');
+    position: fixed;
+    z-index: -1;
+
+}
+
+.waves-comment-transparent {
+    aspect-ratio: 2560/1440;
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-image: url('../images/svg/layered-waves-comment-transparent.svg');
+    position: fixed;
+    z-index: -1;
+
+}
+
+.waves-user-transparent {
+    aspect-ratio: 2560/1440;
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-image: url('../images/svg/layered-waves-user-transparent.svg');
+    position: fixed;
+    z-index: -1;
 
 }

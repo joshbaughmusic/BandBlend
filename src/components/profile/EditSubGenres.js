@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./EditSubGenres.css"
 
 export const EditSubGenres = () => {
     const [subgenres, setSubgenres] = useState([]);
@@ -176,67 +177,63 @@ export const EditSubGenres = () => {
 
                     {/* copied over registration content for background, leaving css the same here for that part of it. Also carrying over styles and classes from registration for a lot of it*/}
 
-                    <section className="waves-reggenres container container_homepage">
-                        <div className="container container_homepage_inner">
-
-                            <div className="container container_register_subgenres">
-                                <div className="container container_register_subgenres_header">
-                                    <h2>Select 3 Subgenres:</h2>
-                                </div>
-
-                                <form className="container container_subgenre_edit_form">
-                                    <div className="container container_subgenre_columns">
-                                        <ul className="container container_subgenre_edit_checkbox-col">
-                                            {subGenreCol1.map((subgenre, index) => {
-
-                                                return (
-                                                    <>
-                                                        <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
-                                                            <input
-                                                                key={subgenre.id}
-                                                                type="checkbox"
-                                                                id={`subgenre--${subgenre.id}`}
-                                                                value={subgenre.id}
-                                                                onChange={checkboxHandler}
-                                                                checked={selectedSubGenres.includes(subgenre.id)}
-                                                                className="subgenre-list-item-checkbox"
-                                                            />
-                                                            <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
-                                                        </li>
-                                                    </>
-                                                );
-                                            })}
-                                        </ul>
-                                        <ul className="container container_subgenre_edit_checkbox-col">
-                                            {subGenreCol2.map((subgenre, index) => {
-
-                                                return (
-                                                    <>
-                                                        <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
-                                                            <input
-                                                                key={subgenre.id}
-                                                                type="checkbox"
-                                                                id={`subgenre--${subgenre.id}`}
-                                                                value={subgenre.id}
-                                                                onChange={checkboxHandler}
-                                                                checked={selectedSubGenres.includes(subgenre.id)}
-                                                                className="subgenre-list-item-checkbox"
-                                                            />
-                                                            <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
-                                                        </li>
-                                                    </>
-                                                );
-                                            })}
-                                        </ul>
-                                    </div>
-                                </form>
-                                <div className="container container_buttons_edit_subgenres">
-                                    <button type="submit" className="btn btn_edit btn_submit button_profile_colors button-loginreg" onClick={handleSubmitTagEdits}>Confirm Changes</button>
-                                    <button type="button" className="btn btn_edit btn_navigate button_exit_edit button_profile_colors button-loginreg" onClick={() => { navigate('/myprofile') }}>Exit</button>
-                                </div>
-                            </div>
+                    <div className="container container_register_subgenres container_register_subgenres_edit">
+                        <div className="container container_register_subgenres_header">
+                            <h2>Select 3 Subgenres:</h2>
                         </div>
-                    </section>
+
+                        <form className="container container_subgenre_edit_form">
+                            <div className="container container_subgenre_columns">
+                                <ul className="container container_subgenre_edit_checkbox-col">
+                                    {subGenreCol1.map((subgenre, index) => {
+
+                                        return (
+                                            <>
+                                                <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
+                                                    <input
+                                                        key={subgenre.id}
+                                                        type="checkbox"
+                                                        id={`subgenre--${subgenre.id}`}
+                                                        value={subgenre.id}
+                                                        onChange={checkboxHandler}
+                                                        checked={selectedSubGenres.includes(subgenre.id)}
+                                                        className="subgenre-list-item-checkbox"
+                                                    />
+                                                    <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
+                                                </li>
+                                            </>
+                                        );
+                                    })}
+                                </ul>
+                                <ul className="container container_subgenre_edit_checkbox-col">
+                                    {subGenreCol2.map((subgenre, index) => {
+
+                                        return (
+                                            <>
+                                                <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
+                                                    <input
+                                                        key={subgenre.id}
+                                                        type="checkbox"
+                                                        id={`subgenre--${subgenre.id}`}
+                                                        value={subgenre.id}
+                                                        onChange={checkboxHandler}
+                                                        checked={selectedSubGenres.includes(subgenre.id)}
+                                                        className="subgenre-list-item-checkbox"
+                                                    />
+                                                    <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
+                                                </li>
+                                            </>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        </form>
+                        <div className="container container_buttons_edit_subgenres">
+                            <button type="submit" className="btn btn_edit btn_submit button_profile_colors button-loginreg" onClick={handleSubmitTagEdits}>Confirm Changes</button>
+                            <button type="button" className="btn btn_edit btn_navigate button_exit_edit button_profile_colors button-loginreg" onClick={() => { navigate('/myprofile') }}>Exit</button>
+                        </div>
+                    </div>
+                    <div className="waves-subgenre-transparent"></div>
                 </>
             );
         } else {
@@ -246,6 +243,7 @@ export const EditSubGenres = () => {
                         <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
                     </div>
                 </section>
+                <div className="waves-subgenre-transparent"></div>
             </>
         }
 

@@ -114,55 +114,48 @@ export const RegisterTags = () => {
         return (
             <>
 
-                {/* copied over homepage content for background and logos, leaving css the same here for that part of it */}
-
-                <section className="waves-regtags container container_homepage">
-                    <div className="container container_homepage_inner">
-
-                        <div className="container container_register_tags">
-                            <div className="container container_register_tags_header">
-                                <h2>Select 3 Profile Tags:</h2>
-                                <p className="optional">(Don't worry, you can change this later)</p>
-                            </div>
-
-                            <form className="container container_tag_edit_form">
-                                <ul className="container container_tag_edit_checkboxes">
-                                    {tags.map((tag, index) => {
-
-                                        return (
-                                            <>
-                                                <li key={`tagListItem--${tag.id}`} className="tag-list-item">
-                                                    <input
-                                                        key={tag.id}
-                                                        type="checkbox"
-                                                        id={`tag--${tag.id}`}
-                                                        value={tag.id}
-                                                        onChange={checkboxHandler}
-                                                        checked={selectedTags.includes(tag.id)}
-                                                        className="tag-list-item-checkbox"
-                                                    />
-                                                    <label htmlFor={`tag--${tag.id}`} className="tag-list-item-label">{tag.name}</label>
-                                                </li>
-                                            </>
-                                        );
-                                    })}
-                                </ul>
-                                <button type="submit" className="btn btn_edit btn_submit button_profile_colors button-loginreg" onClick={handleSubmitTags}>Confirm Selections</button>
-
-                            </form>
-                        </div>
+                <div className="container container_register_tags">
+                    <div className="container container_register_tags_header">
+                        <h2>Select 3 Profile Tags:</h2>
+                        <p className="optional">(Don't worry, you can change this later)</p>
                     </div>
-                </section >
+
+                    <form className="container container_tag_edit_form">
+                        <ul className="container container_tag_edit_checkboxes">
+                            {tags.map((tag, index) => {
+
+                                return (
+                                    <>
+                                        <li key={`tagListItem--${tag.id}`} className="tag-list-item">
+                                            <input
+                                                key={tag.id}
+                                                type="checkbox"
+                                                id={`tag--${tag.id}`}
+                                                value={tag.id}
+                                                onChange={checkboxHandler}
+                                                checked={selectedTags.includes(tag.id)}
+                                                className="tag-list-item-checkbox"
+                                            />
+                                            <label htmlFor={`tag--${tag.id}`} className="tag-list-item-label">{tag.name}</label>
+                                        </li>
+                                    </>
+                                );
+                            })}
+                        </ul>
+                        <button type="submit" className="btn btn_edit btn_submit button_profile_colors button-loginreg" onClick={handleSubmitTags}>Confirm Selections</button>
+
+                    </form>
+                </div>
+                <div className="waves-tags-transparent"></div>
             </>
         );
     } else {
         return (
             <>
-                <section className="waves-regtags container container_homepage">
-                    <div className="container container_homepage_inner container_loading_spinner">
-                        <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
-                    </div>
-                </section >
+
+                <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
+                <div className="waves-tags-transparent"></div>
+
             </>
         )
     }

@@ -84,8 +84,8 @@ export const EditPost = () => {
             <>
             {/* copied over registration content for background, leaving css the same here for that part of it. Also carrying over styles and classes from registration for a lot of it*/}
             
-                <section className="waves-reguser container container_homepage">
-                    <div className="container container_homepage_inner">
+                {/* <section className="waves-reguser container container_homepage">
+                    <div className="container container_homepage_inner"> */}
                         <form className="form edit_form edit_form_post">
                             <h2 htmlFor="editPost">Edit Post:</h2>
                           
@@ -102,8 +102,7 @@ export const EditPost = () => {
                                 <button type="button" className="btn btn_edit btn_navigate button_exit_edit" onClick={() => { navigate('/myprofile') }}>Exit</button>
                             </div>
                         </form>
-                    </div>
-                </section>
+                 <div className="waves-post-transparent"></div>
             </>
         )
     } else {
