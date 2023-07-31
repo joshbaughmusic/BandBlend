@@ -1,3 +1,15 @@
+.container_all_login_content {
+    position: relative;
+}
+
+.container_hero_login {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    position: absolute;
+    width: 100%;
+
+}
+
 .container--login {
     /* margin-top: 5%; */
     width: 100%;
@@ -6,12 +18,11 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: absolute;
+    top: 400px;
+
 }
 
-.container_hero_login {
-    padding-top: 100px;
-    padding-bottom: 50px;
-}
 
 .container--login h2 {
     color: var(--text-1);
@@ -25,6 +36,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+   
 
 }
 
@@ -44,6 +56,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 60px;
+   
 }
 
 .button-loginreg {

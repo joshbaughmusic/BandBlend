@@ -9,7 +9,7 @@
 
 }
 
-.waves-login {
+.waves-login-transparent {
     aspect-ratio: 2560/1440;
     width: 100%;
     min-height: 100vh;
@@ -17,55 +17,10 @@
     background-position: center;
     background-size:cover;
     background-image: url('../images/svg/layered-waves-login.svg');
+    position: fixed;
+    z-index: -1;
 
 }
-
-/* .waves-reguser {
-    aspect-ratio: 2560/1440;
-    width: 100%;
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover;
-    background-image: url('../images/svg/layered-waves-reguser.svg');;
-
-}
-
-.waves-regprofile {
-    aspect-ratio: 2560/1440;
-    width: 100%;
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover;
-    background-image: url('../images/svg/layered-waves-regprofile.svg');;
-
-}
-
-.waves-regtags {
-    aspect-ratio: 2560/1440;
-    width: 100%;
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover;
-    background-image: url('../images/svg/layered-waves-regtags.svg');;
-
-}
-
-.waves-reggenres {
-    aspect-ratio: 2560/1440;
-    width: 100%;
-    min-height: 100vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:cover;
-    background-image: url('../images/svg/layered-waves-reggenres.svg');;
-
-}
-
-*/
-
 
 .waves-about-transparent {
     aspect-ratio: 2560/1440;
