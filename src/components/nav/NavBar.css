@@ -37,3 +37,29 @@ img.logo {
 .nav_list_item:hover {
     cursor: pointer;
 }
+
+
+/* new mail positioning */
+
+.nav_list_item_with_new_mail {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.icon_newmail {
+    margin-left: 5px;
+}
+
+.newmail_count {
+    position: absolute;
+    top: 4px;
+    right: -1px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-1);
+    background-color: var(--bg-main-solid-2);
+    border: var(--border-2-thick);
+    padding: 0 6px;
+    border-radius: 50%;
+}
