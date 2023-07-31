@@ -1,8 +1,18 @@
 img.logo {
     margin-left: 15px;
-    width: 50px;
+    width: 60px;
     border: none;
+    animation: rotate 20s linear infinite;
 }
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
 .container_nav {
     display: flex;

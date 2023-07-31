@@ -64,7 +64,7 @@
     max-height: 500px;
     min-width: 550px;
     margin: auto;
-    margin-bottom: 250px;
+    margin-bottom: 150px;
     
 }
 
@@ -79,3 +79,31 @@
 }
 
 /* end latest posts container */
+
+
+
+/* media queries */
+
+@media screen and (max-width: 1860px) {
+   .container_home_latest_posts_outer {
+    margin-bottom: 175px;
+   }
+  }
+
+@media screen and (max-width: 1675px) {
+   .container_home_latest_posts_outer {
+    margin-bottom: 200px;
+   }
+  }
+
+@media screen and (max-width: 1200px) {
+   .container_home_latest_posts_outer {
+    margin-bottom: 250px;
+   }
+  }
+
+@media screen and (max-width: 850px) {
+   .container_home_latest_posts_outer {
+    margin-bottom: 290px;
+   }
+  }
