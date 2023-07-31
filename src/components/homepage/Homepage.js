@@ -69,8 +69,9 @@ export const Homepage = () => {
     return (
         <>
 
-            <section className="waves-home container container_homepage">
-                <div className="container container_homepage_inner">
+            {/* <section className="waves-home container container_homepage">
+                <div className="container container_homepage_inner"> */}
+                <div className="container container_all_homepage_content">
                 <section className="container container_hero">
                     <header className="container container_heading">
                         <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-black.png")}/>
@@ -115,7 +116,9 @@ export const Homepage = () => {
                     
                 </section>
                 </div>
-            </section>
+                {/* </div>
+            </section> */}
+            <div className="waves-home"></div>
 
         </>
     )
