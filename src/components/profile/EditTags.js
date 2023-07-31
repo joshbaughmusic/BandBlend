@@ -102,49 +102,48 @@ export const EditTags = () => {
 
             //delete all current proFileTags
 
-            currentProfileTags.map(profileTag => {
+            Promise.all(currentProfileTags.map(profileTag => {
                 return fetch(`http://localhost:8088/profileTags/${profileTag.id}`, {
                     method: "DELETE",
                 })
-                    .then(() => {
 
+            }))
+                .then(() => {
 
-                    })
-            })
+                    //create all new profileTags by mapping through the selectedTags array. This only has the tagId values, not the full profileTag.
 
-            //create all new profileTags by mapping through the selectedTags array. This only has the tagId values, not the full profileTag.
+                    Promise.all(selectedTags.map(tagId => {
 
-            selectedTags.map(tagId => {
+                        //create new object to send
 
-                //create new object to send
+                        let newProfileTagObj = {
+                            profileId: parseInt(profileId),
+                            tagId: tagId
+                        }
 
-                let newProfileTagObj = {
-                    profileId: parseInt(profileId),
-                    tagId: tagId
-                }
+                        //send object
 
-                //send object
+                        return fetch(`http://localhost:8088/profileTags`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(newProfileTagObj)
+                        })
+                    }))
+                        .then(() => {
 
-                fetch(`http://localhost:8088/profileTags`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(newProfileTagObj)
+                            // setShowSpinner(true)
+
+                            // setTimeout(() => {
+
+                                navigate("/myprofile")
+
+                            // }, 2000)
+                        })
+
                 })
-                    .then(() => {
-                    })
-            })
 
-            //make it so that a loading spinner replaces the screen for a few seconds since there are a lot of fetch calls happening and the db needs a little time to catch up. Let it breathe.
-
-            setShowSpinner(true)
-
-            setTimeout(() => {
-
-                navigate("/myprofile")
-
-            }, 2000)
         } else {
             window.alert("Please select 3 subgenres.")
         }
@@ -200,7 +199,7 @@ export const EditTags = () => {
             return <>
                 <section className="waves-regtags container container_homepage">
                     <div className="container container_homepage_inner container_loading_spinner">
-                        <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
+                        <img className="loading img_loading" src={require("../../images/loading_spinner.svg")} />
                     </div>
                 </section >
                 <div className="waves-tags-transparent"></div>

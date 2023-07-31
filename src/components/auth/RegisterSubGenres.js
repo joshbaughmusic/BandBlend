@@ -83,7 +83,7 @@ export const RegisterSubGenres = () => {
 
                 //send object
 
-                fetch(`http://localhost:8088/profileSubGenres`, {
+                return fetch(`http://localhost:8088/profileSubGenres`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -91,19 +91,18 @@ export const RegisterSubGenres = () => {
                     body: JSON.stringify(newProfileSubGenreObj)
                 })
                     .then(() => {
+            
+                        // setShowSpinner(true)
+            
+                        // setTimeout(() => {
+            
+                            navigate("/")
+            
+                        // }, 1000)
 
                     })
             })
 
-            //make it so that a loading spinner replaces the screen for a few seconds since there are a lot of fetch calls happening and the db needs a little time to catch up. Let it breathe.
-
-            setShowSpinner(true)
-
-            setTimeout(() => {
-
-                navigate("/")
-
-            }, 1000)
 
         } else {
             window.alert("Please select 3 subgenres.")
@@ -186,7 +185,7 @@ export const RegisterSubGenres = () => {
         return (
             <>
                
-                        <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
+                        <img className="loading img_loading" src={require("../../images/loading_spinner.svg")} />
                   <div className="waves-subgenre-transparent"></div>
             </>
         )

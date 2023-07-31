@@ -65,7 +65,7 @@ export const RegisterTags = () => {
 
             //create all new profileTags by mapping through the selectedTags array. This only has the tagId values, not the full profileTag.
 
-            selectedTags.map(tagId => {
+            Promise.all(selectedTags.map(tagId => {
 
                 //create new object to send
 
@@ -76,27 +76,26 @@ export const RegisterTags = () => {
 
                 //send object
 
-                fetch(`http://localhost:8088/profileTags`, {
+                return fetch(`http://localhost:8088/profileTags`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify(newProfileTagObj)
                 })
-                    .then(() => {
+            }))
+            .then(() => {
 
-                    })
+
+                // setShowSpinner(true)
+    
+                // setTimeout(() => {
+    
+                    navigate(`/register/subgenres/${profileId}`)
+    
+                // }, 1000)
             })
 
-            //make it so that a loading spinner replaces the screen for a few seconds since there are a lot of fetch calls happening and the db needs a little time to catch up. Let it breathe.
-
-            setShowSpinner(true)
-
-            setTimeout(() => {
-
-                navigate(`/register/subgenres/${profileId}`)
-
-            }, 1000)
 
         } else {
             window.alert("Please select 3 subgenres.")
@@ -153,7 +152,7 @@ export const RegisterTags = () => {
         return (
             <>
 
-                <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
+                <img className="loading img_loading" src={require("../../images/loading_spinner.svg")} />
                 <div className="waves-tags-transparent"></div>
 
             </>
