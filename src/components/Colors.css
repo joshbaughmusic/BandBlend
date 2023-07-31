@@ -39,7 +39,10 @@
     --link-hover: #b3afaf;
     --link-active: #8d8d8d;
     --nav-active: #1D2625;
-
+    --bg-dropdown-nav: linear-gradient(49deg, rgba(27, 34, 33, 0.851) 20%, rgba(34, 39, 38, 0.924) 50%, rgba(51, 58, 57, 0.911) 78%);
+    --bg-dropdown-nav-hover: #602d2db4;
+    --nav-dropdown-links-active: #8d8d8d;
+    --nav-dropdown-links-active-choice: #f1cccc;
 
 
     /* borders and border colors */
@@ -128,6 +131,10 @@ a:hover {
     color: var(--link-hover)
 }
 
+.nav-dropdown-links:hover {
+    --link-hover: #b3afaf;
+}
+
 /* active colors for links */
 
 a:active {
@@ -136,6 +143,10 @@ a:active {
 
 .nav_list_item:active {
     color: var(--link-active)
+}
+
+.nav-dropdown-links:active {
+    color: var(--nav-dropdown-links-active)
 }
 
 .post_home_name:active {
@@ -155,6 +166,10 @@ a:active {
 
 a.active {
     color: var(--nav-active);
+}
+
+a.active.nav-dropdown-links {
+    color: var(--nav-dropdown-links-active-choice);
 }
 
 .nav_list_item_message_active {
