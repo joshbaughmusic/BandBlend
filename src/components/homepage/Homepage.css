@@ -1,12 +1,7 @@
-.container_homepage {
-    /* padding-bottom: 40px; */
-    overflow-y: hidden;
-}
 
-/* this is what fixed that background color showing through like what was happening with the above code. Making another inner div and placing the max width on that worked. */
-.container_homepage_inner {
-    max-width: 1750px;
-    margin: 0 auto;
+.container_all_homepage_content {
+    position: absolute;
+    width: 100%;
 }
 
 /* hero */
