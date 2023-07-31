@@ -70,37 +70,50 @@ export const RegisterSubGenres = () => {
 
         if (selectedSubGenres.length === 3) {
 
-            //create all new profileSubGenres by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
+            //create all new profileSubGenres. This only has the subGenreId values, not the full profileSubGenre.
 
-            selectedSubGenres.map(subGenreId => {
+            let newProfileSubGenreObj1 = {
+                profileId: parseInt(profileId),
+                subGenreId: selectedSubGenres[0]
+            }
 
-                //create new object to send
+            return fetch(`http://localhost:8088/profileSubGenres`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newProfileSubGenreObj1)
+            }).then(() => {
 
-                let newProfileSubGenreObj = {
+                let newProfileSubGenreObj2 = {
                     profileId: parseInt(profileId),
-                    subGenreId: subGenreId
+                    subGenreId: selectedSubGenres[1]
                 }
-
-                //send object
 
                 return fetch(`http://localhost:8088/profileSubGenres`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(newProfileSubGenreObj)
-                })
-                    .then(() => {
-            
-                        // setShowSpinner(true)
-            
-                        // setTimeout(() => {
-            
-                            navigate("/")
-            
-                        // }, 1000)
+                    body: JSON.stringify(newProfileSubGenreObj2)
+                }).then(() => {
 
+                    let newProfileSubGenreObj3 = {
+                        profileId: parseInt(profileId),
+                        subGenreId: selectedSubGenres[2]
+                    }
+
+                    return fetch(`http://localhost:8088/profileSubGenres`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(newProfileSubGenreObj3)
+                    }).then(() => {
+
+                        navigate(`/`)
                     })
+                })
             })
 
 
@@ -118,75 +131,75 @@ export const RegisterSubGenres = () => {
 
         return (
             <>
-                        <div className="container container_register_subgenres">
-                            <div className="container container_register_subgenres_header">
-                                <h2>Select 3 Subgenres:</h2>
-                                <p className="optional">(Don't worry, you can change this later)</p>
-                            </div>
+                <div className="container container_register_subgenres">
+                    <div className="container container_register_subgenres_header">
+                        <h2>Select 3 Subgenres:</h2>
+                        <p className="optional">(Don't worry, you can change this later)</p>
+                    </div>
 
-                            <form className="container container_subgenre_edit_form">
-                                <div className="container container_subgenre_columns">
-                                    <ul className="container container_subgenre_edit_checkbox-col">
-                                        {
-                                            subGenreCol1.map((subgenre, index) => {
+                    <form className="container container_subgenre_edit_form">
+                        <div className="container container_subgenre_columns">
+                            <ul className="container container_subgenre_edit_checkbox-col">
+                                {
+                                    subGenreCol1.map((subgenre, index) => {
 
-                                                return (
-                                                    <>
-                                                        <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
+                                        return (
+                                            <>
+                                                <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
 
-                                                            <input
-                                                                key={subgenre.id}
-                                                                type="checkbox"
-                                                                id={`subgenre--${subgenre.id}`}
-                                                                value={subgenre.id}
-                                                                onChange={checkboxHandler}
-                                                                checked={selectedSubGenres.includes(subgenre.id)}
-                                                                className="subgenre-list-item-checkbox"
-                                                            />
-                                                            <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
-                                                        </li>
-                                                    </>
-                                                );
-                                            })}
-                                    </ul>
-                                    <ul className="container container_subgenre_edit_checkbox_col">
-                                        {
-                                            subGenreCol2.map((subgenre, index) => {
+                                                    <input
+                                                        key={subgenre.id}
+                                                        type="checkbox"
+                                                        id={`subgenre--${subgenre.id}`}
+                                                        value={subgenre.id}
+                                                        onChange={checkboxHandler}
+                                                        checked={selectedSubGenres.includes(subgenre.id)}
+                                                        className="subgenre-list-item-checkbox"
+                                                    />
+                                                    <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
+                                                </li>
+                                            </>
+                                        );
+                                    })}
+                            </ul>
+                            <ul className="container container_subgenre_edit_checkbox_col">
+                                {
+                                    subGenreCol2.map((subgenre, index) => {
 
-                                                return (
-                                                    <>
-                                                        <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
+                                        return (
+                                            <>
+                                                <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
 
-                                                            <input
-                                                                key={subgenre.id}
-                                                                type="checkbox"
-                                                                id={`subgenre--${subgenre.id}`}
-                                                                value={subgenre.id}
-                                                                onChange={checkboxHandler}
-                                                                checked={selectedSubGenres.includes(subgenre.id)}
-                                                                className="subgenre-list-item-checkbox"
-                                                            />
-                                                            <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
-                                                        </li>
-                                                    </>
-                                                );
-                                            })}
-                                    </ul>
-                                </div>
-                            </form>
-                                <button type="submit" className="btn btn_edit btn_submit button_profile_colors button-loginreg" onClick={handleSubmitTagEdits}>Confirm Selections</button>
+                                                    <input
+                                                        key={subgenre.id}
+                                                        type="checkbox"
+                                                        id={`subgenre--${subgenre.id}`}
+                                                        value={subgenre.id}
+                                                        onChange={checkboxHandler}
+                                                        checked={selectedSubGenres.includes(subgenre.id)}
+                                                        className="subgenre-list-item-checkbox"
+                                                    />
+                                                    <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
+                                                </li>
+                                            </>
+                                        );
+                                    })}
+                            </ul>
                         </div>
-                        <div className="waves-subgenre-transparent"></div>
+                    </form>
+                    <button type="submit" className="btn btn_edit btn_submit button_profile_colors button-loginreg" onClick={handleSubmitTagEdits}>Confirm Selections</button>
+                </div>
+                <div className="waves-subgenre-transparent"></div>
 
-                   
+
             </>
         );
     } else {
         return (
             <>
-               
-                        <img className="loading img_loading" src={require("../../images/loading_spinner.svg")} />
-                  <div className="waves-subgenre-transparent"></div>
+
+                <img className="loading img_loading" src={require("../../images/loading_spinner.svg")} />
+                <div className="waves-subgenre-transparent"></div>
             </>
         )
     }

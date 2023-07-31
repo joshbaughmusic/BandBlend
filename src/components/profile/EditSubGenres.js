@@ -115,48 +115,71 @@ export const EditSubGenres = () => {
 
             //delete all current profileSubGenres
 
-            Promise.all(currentProfileSubGenres.map(profileSubGenre => {
-                return fetch(`http://localhost:8088/profileSubGenres/${profileSubGenre.id}`, {
+            return fetch(`http://localhost:8088/profileSubGenres/${currentProfileSubGenres[0].id}`, {
+                method: "DELETE",
+            }).then(() => {
+
+                return fetch(`http://localhost:8088/profileSubGenres/${currentProfileSubGenres[1].id}`, {
                     method: "DELETE",
-                })
-            }))
-                .then(() => {
+                }).then(() => {
 
-                    //create all new profileTags by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
+                    return fetch(`http://localhost:8088/profileSubGenres/${currentProfileSubGenres[2].id}`, {
+                        method: "DELETE",
+                    }).then(() => {
 
-                    Promise.all(selectedSubGenres.map(subGenreId => {
-
-                        //create new object to send
-
-                        let newProfileSubGenreObj = {
+                        let newProfileSubGenreObj1 = {
                             profileId: parseInt(profileId),
-                            subGenreId: subGenreId
+                            subGenreId: selectedSubGenres[0]
                         }
-
-                        //send object
+                       
+                        
+                        //send object 1 
 
                         return fetch(`http://localhost:8088/profileSubGenres`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
                             },
-                            body: JSON.stringify(newProfileSubGenreObj)
+                            body: JSON.stringify(newProfileSubGenreObj1)
+                        }).then(() => {
+
+                            let newProfileSubGenreObj2 = {
+                                profileId: parseInt(profileId),
+                                subGenreId: selectedSubGenres[1]
+                            }
+
+                            //send object 2
+
+                            return fetch(`http://localhost:8088/profileSubGenres`, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(newProfileSubGenreObj2)
+                            }).then(() => {
+
+                                let newProfileSubGenreObj3 = {
+                                    profileId: parseInt(profileId),
+                                    subGenreId: selectedSubGenres[2]
+                                }
+
+                                //send object 3
+
+                                return fetch(`http://localhost:8088/profileSubGenres`, {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify(newProfileSubGenreObj3)
+                                }).then(() => {
+
+                                    navigate("/myprofile")
+                                })
+                            })
                         })
-                    }))
-                        .then(() => {
-
-                            // setShowSpinner(true)
-
-                            // setTimeout(() => {
-
-                                navigate("/myprofile")
-
-                            // }, 2000)
-                        })
-
+                    })
                 })
-
-
+            })
         } else {
             window.alert("Please select 3 subgenres.")
         }

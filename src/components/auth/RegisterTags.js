@@ -63,42 +63,53 @@ export const RegisterTags = () => {
 
         if (selectedTags.length === 3) {
 
-            //create all new profileTags by mapping through the selectedTags array. This only has the tagId values, not the full profileTag.
+            let newProfileTagObj1 = {
+                profileId: parseInt(profileId),
+                tagId: selectedTags[0]
+            }
 
-            Promise.all(selectedTags.map(tagId => {
-
-                //create new object to send
-
-                let newProfileTagObj = {
-                    profileId: parseInt(profileId),
-                    tagId: tagId
-                }
-
-                //send object
-
-                return fetch(`http://localhost:8088/profileTags`, {
+            return fetch(`http://localhost:8088/profileTags`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    body: JSON.stringify(newProfileTagObj)
-                })
-            }))
-            .then(() => {
+                    body: JSON.stringify(newProfileTagObj1)
+                }).then(() => {
 
-
-                // setShowSpinner(true)
-    
-                // setTimeout(() => {
-    
-                    navigate(`/register/subgenres/${profileId}`)
-    
-                // }, 1000)
+                    let newProfileTagObj2 = {
+                        profileId: parseInt(profileId),
+                        tagId: selectedTags[1]
+                    }
+        
+                    return fetch(`http://localhost:8088/profileTags`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(newProfileTagObj2)
+                        }).then(() => {
+        
+                            let newProfileTagObj3 = {
+                                profileId: parseInt(profileId),
+                                tagId: selectedTags[2]
+                            }
+                
+                            return fetch(`http://localhost:8088/profileTags`, {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify(newProfileTagObj3)
+                                }).then(() => {
+                
+                                    navigate(`/register/subgenres/${profileId}`)
+                            })
+                    })
             })
 
 
         } else {
-            window.alert("Please select 3 subgenres.")
+            window.alert("Please select 3 tags.")
         }
 
 

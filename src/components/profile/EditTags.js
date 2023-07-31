@@ -102,50 +102,74 @@ export const EditTags = () => {
 
             //delete all current proFileTags
 
-            Promise.all(currentProfileTags.map(profileTag => {
-                return fetch(`http://localhost:8088/profileTags/${profileTag.id}`, {
+            return fetch(`http://localhost:8088/profileTags/${currentProfileTags[0].id}`, {
+                method: "DELETE",
+            }).then(() => {
+
+                return fetch(`http://localhost:8088/profileTags/${currentProfileTags[1].id}`, {
                     method: "DELETE",
-                })
+                }).then(() => {
 
-            }))
-                .then(() => {
+                    return fetch(`http://localhost:8088/profileTags/${currentProfileTags[2].id}`, {
+                        method: "DELETE",
+                    }).then(() => {
 
-                    //create all new profileTags by mapping through the selectedTags array. This only has the tagId values, not the full profileTag.
-
-                    Promise.all(selectedTags.map(tagId => {
-
-                        //create new object to send
-
-                        let newProfileTagObj = {
+                        let newProfileTagObj1 = {
                             profileId: parseInt(profileId),
-                            tagId: tagId
+                            tagId: selectedTags[0]
                         }
-
-                        //send object
+                       
+                        
+                        //send object 1 
 
                         return fetch(`http://localhost:8088/profileTags`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
                             },
-                            body: JSON.stringify(newProfileTagObj)
+                            body: JSON.stringify(newProfileTagObj1)
+                        }).then(() => {
+
+                            let newProfileTagObj2 = {
+                                profileId: parseInt(profileId),
+                                tagId: selectedTags[1]
+                            }
+
+                            //send object 2
+
+                            return fetch(`http://localhost:8088/profileTags`, {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(newProfileTagObj2)
+                            }).then(() => {
+
+                                let newProfileTagObj3 = {
+                                    profileId: parseInt(profileId),
+                                    tagId: selectedTags[2]
+                                }
+
+                                //send object 3
+
+                                return fetch(`http://localhost:8088/profileTags`, {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify(newProfileTagObj3)
+                                }).then(() => {
+
+                                    navigate("/myprofile")
+                                })
+                            })
                         })
-                    }))
-                        .then(() => {
-
-                            // setShowSpinner(true)
-
-                            // setTimeout(() => {
-
-                                navigate("/myprofile")
-
-                            // }, 2000)
-                        })
-
+                    })
                 })
+            })
 
         } else {
-            window.alert("Please select 3 subgenres.")
+            window.alert("Please select 3 tags.")
         }
 
 
