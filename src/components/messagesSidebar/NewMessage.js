@@ -44,7 +44,8 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
             senderId: bBUserObject.id,
             receiverId: message.receiverId,
             body: message.body,
-            date: Date.now()
+            date: Date.now(),
+            isRead: false
         }
 
         if (message.body !== "" && message.receiverId) {

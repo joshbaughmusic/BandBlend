@@ -25,9 +25,8 @@ export const BandBlend = () => {
   //state to handle whether or not to show new message form also for handling reply and message click
 
   const [showNewMessage, setShowNewMessage] = useState(false);
-
-
-
+  
+  
   //defining sidebar stuff here so it can go to sidebar, nav, and main content
   //states to handle whether or not to show the sidebar
   const [sidebar, setSidebar] = useState(false)
@@ -47,7 +46,7 @@ export const BandBlend = () => {
         <Route path="*" element={
           <Authorized>
             <>
-              <Navbar showSidebar={showSidebar} sidebar={sidebar}/>
+              <Navbar showSidebar={showSidebar} sidebar={sidebar} setSidebar={setSidebar}/>
               <MessagesSidebar message={message} setMessage={setMessage} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} showNewMessage={showNewMessage} setShowNewMessage={setShowNewMessage} sidebar={sidebar}  showSidebar={showSidebar}/>
               <MainContent message={message} setMessage={setMessage} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} showNewMessage={showNewMessage} setShowNewMessage={setShowNewMessage} sidebar={sidebar} setSidebar={setSidebar}/>
 
