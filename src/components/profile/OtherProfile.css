@@ -325,7 +325,10 @@
     box-shadow: var(--bxsh-profile-bubbles);
 }
 
-/* not doing the 20px maring here like other sections because of the text height making it look off then. This makes up the visual difference */
+.text_profile_post_none {
+    margin-top: 20px;
+}
+
 .text_profile_about {
-    margin-top: 15px;
+    margin-top: 20px;
 }

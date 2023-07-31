@@ -115,48 +115,48 @@ export const EditSubGenres = () => {
 
             //delete all current profileSubGenres
 
-            currentProfileSubGenres.map(profileSubGenre => {
+            Promise.all(currentProfileSubGenres.map(profileSubGenre => {
                 return fetch(`http://localhost:8088/profileSubGenres/${profileSubGenre.id}`, {
                     method: "DELETE",
                 })
-                    .then(() => {
-                    })
-            })
+            }))
+                .then(() => {
 
-            //create all new profileTags by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
+                    //create all new profileTags by mapping through the selectedSubGenres array. This only has the subGenreId values, not the full profileSubGenre.
 
-            selectedSubGenres.map(subGenreId => {
+                    Promise.all(selectedSubGenres.map(subGenreId => {
 
-                //create new object to send
+                        //create new object to send
 
-                let newProfileSubGenreObj = {
-                    profileId: parseInt(profileId),
-                    subGenreId: subGenreId
-                }
+                        let newProfileSubGenreObj = {
+                            profileId: parseInt(profileId),
+                            subGenreId: subGenreId
+                        }
 
-                //send object
+                        //send object
 
-                fetch(`http://localhost:8088/profileSubGenres`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(newProfileSubGenreObj)
+                        return fetch(`http://localhost:8088/profileSubGenres`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(newProfileSubGenreObj)
+                        })
+                    }))
+                        .then(() => {
+
+                            // setShowSpinner(true)
+
+                            // setTimeout(() => {
+
+                                navigate("/myprofile")
+
+                            // }, 2000)
+                        })
+
                 })
-                    .then(() => {
 
-                    })
-            })
 
-            //make it so that a loading spinner replaces the screen for a few seconds since there are a lot of fetch calls happening and the db needs a little time to catch up. Let it breathe.
-
-            setShowSpinner(true)
-
-            setTimeout(() => {
-
-                navigate("/myprofile")
-
-            }, 2000)
         } else {
             window.alert("Please select 3 subgenres.")
         }
@@ -240,7 +240,7 @@ export const EditSubGenres = () => {
             return <>
                 <section className="waves-reggenres container container_homepage">
                     <div className="container container_homepage_inner container_loading_spinner">
-                        <img className="loading img_loading" src={require("../../images/loading_spinner.gif")} />
+                        <img className="loading img_loading" src={require("../../images/loading_spinner.svg")} />
                     </div>
                 </section>
                 <div className="waves-subgenre-transparent"></div>
