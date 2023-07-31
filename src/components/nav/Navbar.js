@@ -39,7 +39,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
         getMessages()
     }, [])
 
-    useEffect(() => {
+    const handleMessageReadUpdate = () => {
 
         newMessages.map(message => {
 
@@ -54,15 +54,14 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
                 },
                 body: JSON.stringify(updatedMessage)
             })
-               
                     getMessages()
-               
-
         })
+    }
 
-       
-
-    }, [sidebar])
+    const handleMessageTabClick = async e => {
+        await showSidebar()
+        await handleMessageReadUpdate()
+    }
 
 
     const navigate = useNavigate()
@@ -88,7 +87,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
 
                             ?
 
-                            <li className="list_item nav_list_item nav_list_item_message_active" onClick={showSidebar}>
+                            <li className="list_item nav_list_item nav_list_item_message_active" onClick={handleMessageTabClick}>
                                 Messages
                             </li>
 
@@ -98,7 +97,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
 
                             ?
 
-                            <li className="list_item nav_list_item nav_list_item_with_new_mail" onClick={showSidebar}>
+                            <li className="list_item nav_list_item nav_list_item_with_new_mail" onClick={handleMessageTabClick}>
                                     <span>Messages</span>
                                     <GoIcons.GoMail className="icon icon_newmail" />
                                 <div className="container container_newmail">
@@ -113,7 +112,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
 
                             :
 
-                            <li className="list_item nav_list_item nav_list_item_message" onClick={showSidebar}>
+                            <li className="list_item nav_list_item nav_list_item_message" onClick={handleMessageTabClick}>
                                 Messages
                             </li>
 
@@ -124,7 +123,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
                             ? <li className="list_item nav_list_item nav_list_item_logout">
                                 <Link className="nav_list_item_link" to="" onClick={() => {
                                     localStorage.removeItem("bb_user")
-                                    // setSidebar(false)
+                                    setSidebar(false)
                                     navigate("/", { replace: true })
                                 }}>Logout</Link>
                             </li>
