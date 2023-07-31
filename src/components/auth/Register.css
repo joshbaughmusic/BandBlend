@@ -13,13 +13,14 @@
 
 .container_register {
     width: 100%;
-    margin-top: 20%;
+    margin-top: 15%;
+    position: absolute;
 }
 
 .container_register h2 {
     color: var(--text-1);
     text-shadow: var(--bxsh-loginreg-text);
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .container_isBandCheck {
@@ -42,6 +43,7 @@
     align-items: center;
     width: 100%;
     margin-top: 70px;
+    position: absolute;
 }
 
 .profile_register_form_primary_info h2 {
@@ -67,6 +69,8 @@
     justify-content: center;
     align-items: center;
     margin-top: 70px;
+    position: absolute;
+    width: 100%;
 }
 
 .container_register_tags_header {
@@ -104,6 +108,7 @@
     align-items: center;
     margin-top: 70px;
     width: 100%;
+    position: absolute;
 }
 
 .container_register_subgenres_header {

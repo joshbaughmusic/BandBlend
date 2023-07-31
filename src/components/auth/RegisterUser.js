@@ -55,13 +55,7 @@ export const RegisterUser = (props) => {
   return (
 
     <>
-
-      {/* copied over homepage content for background and logos, leaving css the same here for that part of it */}
-
-      <section className="waves-reguser container container_homepage">
-        <div className="container container_homepage_inner">
-
-
+        
           <main className="container container_register">
             <form className="form--login" onSubmit={handleRegister}>
               <h2 className="h3 mb-3 font-weight-normal">Register below:</h2>
@@ -112,8 +106,7 @@ export const RegisterUser = (props) => {
               
             </form>
           </main>
-        </div>
-      </section>
+          <div className="waves-user-transparent"></div>
 
     </>
   );

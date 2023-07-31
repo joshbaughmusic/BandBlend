@@ -114,134 +114,132 @@ export const RegisterProfile = () => {
 
             {/* copied over homepage content for background and logos, leaving css the same here for that part of it */}
 
-            <section className="waves-regprofile container container_homepage">
-                <div className="container container_homepage_inner">
-
-                    <form className="form profile_register_form profile_register_form_primary_info">
-                        <div className="container container_regprofile_header">
-                        <h2 className="label_regprofile">Enter Profile Primary Info:</h2>
-                        <p className="optional">(Don't worry, you can change this later)</p>
-                        </div>
-                        <label htmlFor="profile_register_Picture">Profile Picture URL:</label>
-
-                        <input required type="url" name="profile_register_Picture" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.picture} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.picture = e.target.value
-                                setProfile(copy)
-                            }
-                        }
-                        ></input>
-                        <label htmlFor="profile_register_Location">Location:</label>
-
-                        <input required type="text" name="profile_register_Location" className="input input_text input_reg input_field_colors" placeholder="City, State Code" value={profile.location} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.location = e.target.value
-                                setProfile(copy)
-                            }
-                        }
-                        ></input>
-                        {
-                            bBUserObject.isBand
-
-                                ?
-
-                                ""
-                                :
-                                <>
-
-                                            <label htmlFor="profile_register_PrimaryInstrument">Primary Instrument:</label>
-                                   
-                                    <select required name="profile_register_PrimaryInstrument" className="input input_select input_reg input_field_colors" onChange={e => {
-                                        const [, instrumentId] = e.target.value.split("--")
-                                        let copy = { ...profile }
-                                        copy.primaryInstrumentId = parseInt(instrumentId)
-                                        setProfile(copy)
-                                    }}>
-                                        <option key={`primaryinstrument--null`} value={null} ><span className="selection_placeholder input_field_colors ">-select an instrument-</span></option>
-                                        {
-                                            primaryInstruments.map(instrument => {
-                                                return <option key={`primaryinstrument--${instrument.id}`} value={`primaryinstrument--${instrument.id}`} className="input_field_colors">{instrument.name}</option>
-
-                                            })
-                                        }
-                                    </select>
-                                    </>
-                        }
-                        <label htmlFor="profile_register_PrimaryGenre">Primary Genre:</label>
-
-                        <select required name="profile_register_PrimaryGenre" className="input input_select input_reg input_field_colors" onChange={e => {
-                            const [, genreId] = e.target.value.split("--")
-                            let copy = { ...profile }
-                            copy.primaryGenreId = parseInt(genreId)
-                            setProfile(copy)
-                        }}>
-                            <option key={`primarygenre--null`} value={null} ><span className="selection_placeholder input_field_colors">-select a genre-</span></option>
-                            {
-                                primaryGenres.map(genre => {
-                                    return <option key={`primarygenre--${genre.id}`} value={`primarygenre--${genre.id}`} className="input_field_colors">{genre.name}</option>
-
-                                })
-                            }
-                        </select>
-                        <label htmlFor="profile_register_Spotify">Spotify URL: <span className="optional">(optional)</span></label>
-
-                        <input type="url" name="profile_register_Spotify" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.spotify} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.spotify = e.target.value
-                                setProfile(copy)
-                            }
-                        }
-                        ></input>
-                        <label htmlFor="profile_register_Facebook">Facebook URL: <span className="optional">(optional)</span></label>
-
-                        <input type="url" name="profile_register_Facebook" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.facebook} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.facebook = e.target.value
-                                setProfile(copy)
-                            }
-                        }
-                        ></input>
-                        <label htmlFor="profile_register_Instagram">Instagram URL: <span className="optional">(optional)</span></label>
-
-                        <input type="url" name="profile_register_Instagram" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.instagram} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.instagram = e.target.value
-                                setProfile(copy)
-                            }
-                        }
-                        ></input>
-                        <label htmlFor="profile_register_Tiktok">TikTok URL: <span className="optional">(optional)</span></label>
-
-                        <input type="url" name="profile_register_Tiktok" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.tiktok} onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.tiktok = e.target.value
-                                setProfile(copy)
-                            }
-                        }
-                        ></input>
-                        <label htmlFor="profile_register)About">About Me</label>
-
-                        <textarea autoFocus placeholder="Tell people a little about yourself!" name="profile_register_About" className="input input_text input_reg input_field_colors" value={profile.about} rows="8" cols="50" onChange={
-                            e => {
-                                let copy = { ...profile }
-                                copy.about = e.target.value
-                                setProfile(copy)
-                            }
-                        }
-                        ></textarea>
 
 
-                        <button type="submit" className="btn btn_profile_register btn_submit button_profile_colors button-loginreg" onClick={handleProfileRegistration}>Submit Profile</button>
-                    </form>
-
+            <form className="form profile_register_form profile_register_form_primary_info">
+                <div className="container container_regprofile_header">
+                    <h2 className="label_regprofile">Enter Profile Primary Info:</h2>
+                    <p className="optional">(Don't worry, you can change this later)</p>
                 </div>
-            </section >
+                <label htmlFor="profile_register_Picture">Profile Picture URL:</label>
+
+                <input required type="url" name="profile_register_Picture" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.picture} onChange={
+                    e => {
+                        let copy = { ...profile }
+                        copy.picture = e.target.value
+                        setProfile(copy)
+                    }
+                }
+                ></input>
+                <label htmlFor="profile_register_Location">Location:</label>
+
+                <input required type="text" name="profile_register_Location" className="input input_text input_reg input_field_colors" placeholder="City, State Code" value={profile.location} onChange={
+                    e => {
+                        let copy = { ...profile }
+                        copy.location = e.target.value
+                        setProfile(copy)
+                    }
+                }
+                ></input>
+                {
+                    bBUserObject.isBand
+
+                        ?
+
+                        ""
+                        :
+                        <>
+
+                            <label htmlFor="profile_register_PrimaryInstrument">Primary Instrument:</label>
+
+                            <select required name="profile_register_PrimaryInstrument" className="input input_select input_reg input_field_colors" onChange={e => {
+                                const [, instrumentId] = e.target.value.split("--")
+                                let copy = { ...profile }
+                                copy.primaryInstrumentId = parseInt(instrumentId)
+                                setProfile(copy)
+                            }}>
+                                <option key={`primaryinstrument--null`} value={null} ><span className="selection_placeholder input_field_colors ">-select an instrument-</span></option>
+                                {
+                                    primaryInstruments.map(instrument => {
+                                        return <option key={`primaryinstrument--${instrument.id}`} value={`primaryinstrument--${instrument.id}`} className="input_field_colors">{instrument.name}</option>
+
+                                    })
+                                }
+                            </select>
+                        </>
+                }
+                <label htmlFor="profile_register_PrimaryGenre">Primary Genre:</label>
+
+                <select required name="profile_register_PrimaryGenre" className="input input_select input_reg input_field_colors" onChange={e => {
+                    const [, genreId] = e.target.value.split("--")
+                    let copy = { ...profile }
+                    copy.primaryGenreId = parseInt(genreId)
+                    setProfile(copy)
+                }}>
+                    <option key={`primarygenre--null`} value={null} ><span className="selection_placeholder input_field_colors">-select a genre-</span></option>
+                    {
+                        primaryGenres.map(genre => {
+                            return <option key={`primarygenre--${genre.id}`} value={`primarygenre--${genre.id}`} className="input_field_colors">{genre.name}</option>
+
+                        })
+                    }
+                </select>
+                <label htmlFor="profile_register_Spotify">Spotify URL: <span className="optional">(optional)</span></label>
+
+                <input type="url" name="profile_register_Spotify" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.spotify} onChange={
+                    e => {
+                        let copy = { ...profile }
+                        copy.spotify = e.target.value
+                        setProfile(copy)
+                    }
+                }
+                ></input>
+                <label htmlFor="profile_register_Facebook">Facebook URL: <span className="optional">(optional)</span></label>
+
+                <input type="url" name="profile_register_Facebook" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.facebook} onChange={
+                    e => {
+                        let copy = { ...profile }
+                        copy.facebook = e.target.value
+                        setProfile(copy)
+                    }
+                }
+                ></input>
+                <label htmlFor="profile_register_Instagram">Instagram URL: <span className="optional">(optional)</span></label>
+
+                <input type="url" name="profile_register_Instagram" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.instagram} onChange={
+                    e => {
+                        let copy = { ...profile }
+                        copy.instagram = e.target.value
+                        setProfile(copy)
+                    }
+                }
+                ></input>
+                <label htmlFor="profile_register_Tiktok">TikTok URL: <span className="optional">(optional)</span></label>
+
+                <input type="url" name="profile_register_Tiktok" className="input input_text input_reg input_field_colors" placeholder="Enter URL" value={profile.tiktok} onChange={
+                    e => {
+                        let copy = { ...profile }
+                        copy.tiktok = e.target.value
+                        setProfile(copy)
+                    }
+                }
+                ></input>
+                <label htmlFor="profile_register)About">About Me</label>
+
+                <textarea autoFocus placeholder="Tell people a little about yourself!" name="profile_register_About" className="input input_text input_reg input_field_colors" value={profile.about} rows="8" cols="50" onChange={
+                    e => {
+                        let copy = { ...profile }
+                        copy.about = e.target.value
+                        setProfile(copy)
+                    }
+                }
+                ></textarea>
+
+
+                <button type="submit" className="btn btn_profile_register btn_submit button_profile_colors button-loginreg" onClick={handleProfileRegistration}>Submit Profile</button>
+            </form>
+            <div className="waves-primary-transparent"></div>
+
         </>
     )
 

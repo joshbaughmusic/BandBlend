@@ -1,3 +1,9 @@
+.container_register_tags_edit {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
 .button_exit_edit {
     margin-left: 5px;
 }

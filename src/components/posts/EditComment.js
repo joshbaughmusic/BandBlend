@@ -99,8 +99,7 @@ export const EditComment = () => {
             <>
             {/* copied over registration content for background, leaving css the same here for that part of it. Also carrying over styles and classes from registration for a lot of it*/}
             
-                <section className="waves-reguser container container_homepage">
-                    <div className="container container_homepage_inner">
+               
                         <form className="form edit_form edit_form_comment">
                             <h2 htmlFor="editComment">Edit Comment:</h2>
                             <textarea autoFocus name="editComment" className="input input_text input_reg input_field_colors" value={comment.body} rows="8" cols="50" onChange={
@@ -126,8 +125,7 @@ export const EditComment = () => {
                                 }
                             </div>
                         </form>
-                    </div>
-                </section>
+                    <div className="waves-comment-transparent"></div>
             </>
         )
     } else {
