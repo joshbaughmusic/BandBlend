@@ -38,8 +38,9 @@ export const Login = () => {
 
             {/* copied over homepage content for background and logos, leaving css the same here for that part of it */}
 
-            <section className="waves-login container container_homepage">
-                <div className="container container_homepage_inner">
+
+            <div className="waves-login-transparent"></div>
+            <div className="container container_all_login_content">
                     <section className="container container_hero container_hero_login">
                         <header className="container container_heading">
                             <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-black.png")} />
@@ -70,8 +71,10 @@ export const Login = () => {
                             <button type="submit" className="button_profile_colors button-loginreg" onClick={handleRegisterClick}>Register</button>
                         </section>
                     </main>
-                </div>
-            </section>
+                    </div>
+              
+           
+
 
         </>
     )
