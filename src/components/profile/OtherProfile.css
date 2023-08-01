@@ -29,7 +29,7 @@
     box-shadow: var(--bxsh-profile-sections);
 
     /* get rid of this to make the primary section fill top to bottom as well */
-    max-height: 950px;
+    max-height: 975px;
 }
 
 

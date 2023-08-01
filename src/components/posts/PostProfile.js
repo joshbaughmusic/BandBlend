@@ -158,13 +158,13 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
         const buttonToHide = document.getElementById(`viewCommentsButton--${postIdToOpenCommentsFor}`)
 
-        buttonToHide.classList.remove("visibleButton")
+        buttonToHide.classList.remove("visibleBarButton")
 
         //show hide comments button
 
         const buttonToShow = document.getElementById(`hideCommentsButton--${postIdToOpenCommentsFor}`)
 
-        buttonToShow.classList.add("visibleButton")
+        buttonToShow.classList.add("visibleBarButton")
 
     }
 
@@ -182,13 +182,13 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
         const buttonToHide = document.getElementById(`hideCommentsButton--${postIdToCloseCommentsFor}`)
 
-        buttonToHide.classList.remove("visibleButton")
+        buttonToHide.classList.remove("visibleBarButton")
 
         //show view comments button
 
         const buttonToShow = document.getElementById(`viewCommentsButton--${postIdToCloseCommentsFor}`)
 
-        buttonToShow.classList.add("visibleButton")
+        buttonToShow.classList.add("visibleBarButton")
 
     }
 
@@ -309,7 +309,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                                 <button className="btn btn_edit btn_edit_post button_cmt_msg_colors" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
                                 <button id={`postDelete--${postId}`} className="btn btn_delete_post button_cmt_msg_colors" onClick={handleDeletePostClick}>Delete</button>
 
-                                {
+                                {/* {
 
                                     commentsWithUsers.some(item => item.commentObj.postId === postId)
 
@@ -317,7 +317,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                                         <>
 
-                                            <button className="btn btn_view_comments visibleButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View Comments</button>
+                                            <button className="btn btn_view_comments visibleBarButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View Comments</button>
 
                                             <button className="btn btn_hide_comments" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide Comments</button>
 
@@ -327,13 +327,34 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                                         ""
 
-                                }
+                                } */}
 
 
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {
+
+                    commentsWithUsers.some(item => item.commentObj.postId === postId)
+
+                        ?
+
+                        <>
+
+                            <div className="btn_view_comments viewhide_comments_bar visibleBarButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View comments</div>
+
+                            <div className="btn_hide_comments viewhide_comments_bar" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide comments</div>
+
+
+                        </>
+
+                        :
+
+                        ""
+
+                }
 
                 <NewComment postId={postId} getAllComments={getAllComments} handleViewCommentsButtonClick={handleViewCommentsButtonClick} />
 
@@ -418,7 +439,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         {/* open comment box button below*/}
                         <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
 
-                        {
+                        {/* {
 
                             commentsWithUsers.some(item => item.commentObj.postId === postId)
 
@@ -426,7 +447,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                                 <>
 
-                                    <button className="btn btn_view_comments visibleButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View Comments</button>
+                                    <button className="btn btn_view_comments visibleBarButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View Comments</button>
 
                                     <button className="btn btn_hide_comments" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide Comments</button>
 
@@ -436,12 +457,33 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                                 ""
 
-                        }
+                        } */}
 
                     </div>
                 </div>
 
-                <NewComment postId={postId} getAllComments={getAllComments} handleViewCommentsButtonClick={handleViewCommentsButtonClick}/>
+                {
+
+                    commentsWithUsers.some(item => item.commentObj.postId === postId)
+
+                        ?
+
+                        <>
+
+                            <div className="btn_view_comments viewhide_comments_bar visibleBarButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View comments</div>
+
+                            <div className="btn_hide_comments viewhide_comments_bar" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide comments</div>
+
+
+                        </>
+
+                        :
+
+                        ""
+
+                }
+
+                <NewComment postId={postId} getAllComments={getAllComments} handleViewCommentsButtonClick={handleViewCommentsButtonClick} />
 
                 <section className="container container_commentsSection" id={`comments--${postId}`}>
                     {

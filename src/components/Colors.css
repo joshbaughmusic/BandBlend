@@ -43,6 +43,9 @@
     --bg-dropdown-nav-hover: #602d2db4;
     --nav-dropdown-links-active: #8d8d8d;
     --nav-dropdown-links-active-choice: #f1cccc;
+    --bg-viewhide-comments:  linear-gradient(0deg, rgba(52,61,60,1) 3%, rgba(79,89,87,1) 60%);
+    --bg-viewhide-comments-hover: linear-gradient(0deg, rgba(79,89,87,1) 60%, rgba(52,61,60,1) 96%);
+    --bg-viewhide-comments-active: linear-gradient(0deg, rgb(65, 73, 72) 60%, rgb(44, 52, 51) 96%);
 
 
     /* borders and border colors */
@@ -184,9 +187,9 @@ a.active.nav-dropdown-links {
 /* buttons */
 
 .button_profile_colors {
-    color: var(--text-buttons-pro);
-    background: var(--bg-buttons-pro);
-    border: var(--border-buttons-pro);
+    color: var(--text-buttons-cmt-mes);
+    background: var(--bg-buttons-cmt-mes);
+    border: var(--border-buttons-cmt-mes);
 }
 
 .button_cmt_msg_colors {
