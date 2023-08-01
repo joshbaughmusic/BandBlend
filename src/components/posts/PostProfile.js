@@ -335,7 +335,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     </div>
                 </div>
 
-                <NewComment postId={postId} getAllComments={getAllComments} />
+                <NewComment postId={postId} getAllComments={getAllComments} handleViewCommentsButtonClick={handleViewCommentsButtonClick} />
 
                 <div className="container container_commentsSection" id={`comments--${postId}`}>
                     {
@@ -441,7 +441,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     </div>
                 </div>
 
-                <NewComment postId={postId} getAllComments={getAllComments} />
+                <NewComment postId={postId} getAllComments={getAllComments} handleViewCommentsButtonClick={handleViewCommentsButtonClick}/>
 
                 <section className="container container_commentsSection" id={`comments--${postId}`}>
                     {
