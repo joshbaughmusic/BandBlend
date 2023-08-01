@@ -3,6 +3,8 @@
     position: absolute;
     width: 100%;
     min-width: 550px;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
 }
 
 /* hero */
@@ -15,6 +17,7 @@
     width: 85%;
     max-width: 900px;
     /* margin-top: 20px; */
+    /* animation: slideinleft 1s ease-in; */
 }
 
 .heading_app_subtitle {
@@ -22,6 +25,8 @@
     max-width: 700px;
     margin: 10px auto 0px;
     display: flex;
+    /* animation: slideinright 1s ease-in; */
+
 }
 
 .container_hero {
@@ -65,6 +70,7 @@
     min-width: 550px;
     margin: auto;
     margin-bottom: 150px;
+    /* animation: fadein ease-in 1s; */
     
 }
 
@@ -106,4 +112,19 @@
    .container_home_latest_posts_outer {
     margin-bottom: 290px;
    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .container_all_homepage_content {
+        position: absolute;
+        min-width: 0;
+        width: 100%;
+        max-width: none;
+    }
+
+    .container_home_latest_posts_outer {
+        min-width: 0;
+        width: 100%;
+        max-width: none;
+    }
   }

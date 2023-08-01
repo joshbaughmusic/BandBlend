@@ -22,8 +22,6 @@
     grid-template-areas: 
     'image header genre tags save';
     grid-template-columns: 150px 1fr 0.7fr 1fr 50px;
-    /* display: flex;
-    justify-content: space-between; */
     /* border: black solid 2px; */
     border-radius: 20px;
     margin: 0px 0px 10px 0px;
@@ -66,3 +64,73 @@
 .profileall_link {
     width: fit-content;
 }
+
+/* media queries */
+
+@media screen and (max-width: 900px) {
+ 
+    .container_profile_card {
+        min-width: 0;
+        grid-template-areas: 
+        'image header genre'
+        'tags'
+        ;
+        grid-template-rows: 1fr;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container_profile_card {
+        min-width: 0;
+        grid-template-areas: 
+        'image header tags'
+        ;
+        grid-template-columns: 150px 1.5fr 1fr;
+    }
+ 
+    .container_profile_card_primarygenre {
+        display: none;
+    }
+
+    .img_profileCard {
+        width: 75px;
+        height: 75px;
+        margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 585px) {
+    .container_profile_card {
+        grid-template-areas: 
+        'image header'
+        ;
+        grid-template-columns: 100px 1fr;
+    }
+ 
+    .container_profile_card_tags {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 585px) {
+    .container_profile_card {
+        grid-template-columns: 1.2fr 2fr;
+        font-size: small;
+    }
+    .img_profileCard {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container_profile_card {
+        grid-template-columns: 1fr 1.5fr;
+        font-size: small;
+    }
+    .img_profileCard {
+        width: 50px;
+        height: 50px;
+    }
+}
+

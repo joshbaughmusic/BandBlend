@@ -2,7 +2,7 @@
     position: fixed;
     right: 0;
     width: 35%;
-    min-width: 300px;
+    min-width: 350px;
     max-width: 475px;
     background: var(--bg-dropdown-nav);
     height: 100vh;
@@ -55,6 +55,8 @@
     color: var(--text-1);
 }
 
+/* media queries */
+
 @media screen and (max-width: 960px) {
    .nav-dropdown {
     display: block;
@@ -68,3 +70,10 @@
     display: none;
    }
   }
+
+  @media screen and (min-width: 960px) {
+    .nav-dropdown.active {
+     display: none;
+    }
+   }
+

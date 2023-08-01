@@ -179,7 +179,7 @@ export const RegisterProfile = () => {
                     <option key={`primarygenre--null`} value={null} ><span className="selection_placeholder input_field_colors">-select a genre-</span></option>
                     {
                         primaryGenres.map(genre => {
-                            return <option key={`primarygenre--${genre.id}`} value={`primarygenre--${genre.id}`} className="input_field_colors">{genre.name}</option>
+                            return <option key={`primarygenre--${genre.id}`} value={`primarygenre--${genre.id}`} className="input_field_colors input_reg">{genre.name}</option>
 
                         })
                     }

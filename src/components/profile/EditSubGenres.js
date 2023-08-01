@@ -208,7 +208,8 @@ export const EditSubGenres = () => {
                         <form className="container container_subgenre_edit_form">
                             <div className="container container_subgenre_columns">
                                 <ul className="container container_subgenre_edit_checkbox-col">
-                                    {subGenreCol1.map((subgenre, index) => {
+                                    {
+                                        subGenreCol1.map((subgenre, index) => {
 
                                         return (
                                             <>

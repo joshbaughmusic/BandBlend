@@ -68,11 +68,11 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
 
                             ?
 
-                            <h4 className="heading heading_comment_name"><Link to={`/profiles/${commentProfileId}`}>You</Link> commented:</h4>
+                            <h4 className="heading heading_comment_name"><Link className='heading_comment_name_link' to={`/profiles/${commentProfileId}`}>You</Link> commented:</h4>
 
                             :
 
-                            <h4 className="heading heading_comment_name"><Link to={`/profiles/${commentProfileId}`}>{commentName}</Link> commented:</h4>
+                            <h4 className="heading heading_comment_name"><Link className='heading_comment_name_link'to={`/profiles/${commentProfileId}`}>{commentName}</Link> commented:</h4>
                     }
                     <div className="container container_comment_date_icon">
                         <p className="text text_comment_date">{convertTimestamp(commentDate)}</p>

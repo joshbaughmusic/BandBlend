@@ -332,3 +332,41 @@
 .text_profile_about {
     margin-top: 20px;
 }
+
+
+
+/* media queries */
+
+@media screen and (max-width: 870px) {
+   
+    .container_profile_page {
+        display: flex;
+        flex-direction: column;
+  
+    }
+
+    .container_profile_primary {
+        margin-left: 0;
+        margin-right: 0;
+
+    }
+
+    .container_profile_about {
+        margin-left: 0;
+        margin-right: 0;
+
+    }
+
+    .container_profile_media_outer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .container_profile_posts_outer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+  }
+
+  

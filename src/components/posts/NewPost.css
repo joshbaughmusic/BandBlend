@@ -14,3 +14,11 @@
 .btn_submit_post {
     margin-right: 5px;
 }
+
+/* media queries */
+
+@media screen and (max-width: 450px) {
+    .input_text_post {
+        min-width: 0px; 
+    }
+}
