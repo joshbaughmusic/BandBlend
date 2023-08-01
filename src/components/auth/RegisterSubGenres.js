@@ -139,7 +139,7 @@ export const RegisterSubGenres = () => {
 
                     <form className="container container_subgenre_edit_form">
                         <div className="container container_subgenre_columns">
-                            <ul className="container container_subgenre_edit_checkbox-col">
+                            <ul className="container container_subgenre_edit_checkbox-col subgenre_reg_width_res_fix">
                                 {
                                     subGenreCol1.map((subgenre, index) => {
 
@@ -162,7 +162,7 @@ export const RegisterSubGenres = () => {
                                         );
                                     })}
                             </ul>
-                            <ul className="container container_subgenre_edit_checkbox_col">
+                            <ul className="container container_subgenre_edit_checkbox_col subgenre_reg_width_res_fix">
                                 {
                                     subGenreCol2.map((subgenre, index) => {
 

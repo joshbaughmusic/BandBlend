@@ -3,3 +3,12 @@
     left: 0;
     right: 0;
 }
+
+/* media queries */
+
+@media screen and (max-width: 500px) {
+    .subgenre_reg_width_res_fix {
+        width: 200px;
+        margin-left: 10px;
+    }
+}

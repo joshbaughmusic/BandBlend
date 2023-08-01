@@ -5,15 +5,6 @@ img.logo {
     animation: rotate 20s linear infinite;
 }
 
-@keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
 .container_nav {
     display: flex;
     justify-content: space-between;
@@ -31,7 +22,7 @@ img.logo {
     margin-right: 15px;
     display: flex;
     justify-content: space-evenly;
-    
+
 }
 
 .nav_list_item {
@@ -72,4 +63,17 @@ img.logo {
     border: var(--border-2-thick);
     padding: 0 6px;
     border-radius: 50%;
+}
+
+
+/* media queries */
+
+@media screen and (max-width: 960px) {
+    .newmail_count {
+        top: 10px;
+        right: 57px;
+        padding: 0 8px;
+
+        
+    }
 }

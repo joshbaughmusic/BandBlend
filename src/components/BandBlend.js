@@ -12,6 +12,7 @@ import { useState } from "react"
 import "./BandBlend.css"
 import "./Colors.css"
 import "./Backgrounds.css"
+import "./KeyFrames.css"
 
 export const BandBlend = () => {
 

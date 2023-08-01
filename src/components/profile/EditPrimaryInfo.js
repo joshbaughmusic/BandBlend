@@ -180,9 +180,9 @@ export const EditPrimaryInfo = () => {
                                 {
                                     primaryGenres.map(genre => {
                                         if (genre.id === profile.primaryGenreId) {
-                                            return <option selected key={`primarygenrekey--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
+                                            return <option selected className='input_field_colors'  key={`primarygenrekey--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
                                         } else {
-                                            return <option key={`primarygenrekey--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
+                                            return <option className='input_field_colors' key={`primarygenrekey--${genre.id}`} value={`primarygenre--${genre.id}`}>{genre.name}</option>
                                         }
                                     })
                                 }

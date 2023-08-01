@@ -8,6 +8,7 @@
   margin: 0px;
   padding: 0px;
   list-style-type: none;
+  word-wrap: break-word;
 }
 
 a {
@@ -32,3 +33,13 @@ select:focus,
 option:focus {
   outline: none;
 }
+
+
+/* media queries */
+
+/* @media screen and (max-width: 500px) {
+ button {
+  max-height: 30px;
+  min-width: 300px;
+}
+} */

@@ -9,3 +9,11 @@
 .icon_save:hover {
     cursor: pointer;
 }
+
+/* media queries */
+
+@media screen and (max-width: 900px) {
+    .icon_save {
+        display: none;
+    }
+}

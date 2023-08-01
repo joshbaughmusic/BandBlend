@@ -63,3 +63,23 @@
 .button-loginreg {
     margin-top: 5px;
 }
+
+/* media queries */
+
+@media screen and (max-width: 500px) {
+    
+    .input_login {
+        width: 30%;
+        min-width: 300px;
+    }
+
+    .container--login {
+        top: 275px;
+    }
+
+    .container_hero_login {
+        padding-top: 30px; 
+    }
+
+
+}

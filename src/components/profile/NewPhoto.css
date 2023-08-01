@@ -13,3 +13,12 @@
 .btn_submit_photo {
     margin-right: 5px;
 }
+
+/* media queries */
+
+@media screen and (max-width: 450px) {
+    .input_text_photo {
+        min-width: 0px; 
+    }
+}
+

@@ -12,6 +12,11 @@
 
 }
 
+.container_all_profiles_search_filter_individual {
+    display: flex;
+    align-items: center;
+}
+
 .input_allprofiles {
     padding: 8px;
     /* border: 1px solid rgba(0, 0, 0, 0.275); */
@@ -57,4 +62,51 @@
     top: 8px;
     left: 9px;
     margin: auto 0;
+}
+
+/* media queries */
+
+@media screen and (max-width: 800px) {
+    .container_search_filter_all_profiles {
+        min-width: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container_searchbar_allprofiles {
+        margin-bottom: 20px;
+        width: auto;
+        position: relative;
+    }
+
+    .searchbar_all_profiles {
+        width: 100%;
+        min-width: 0;
+        padding-left: 30px;
+    }
+
+    .container_sort_filter_allprofiles {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .filter_all_profiles,
+    .sort_all_profiles {
+        min-width: 150px;
+        margin-left: 5px;
+        margin-top: 10px;
+        padding-top: 5px;
+
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .container_all_profiles_search_filter_individual {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
 }
