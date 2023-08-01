@@ -113,12 +113,6 @@
       "isBand": false,
       "name": "Noah Adams",
       "email": "noahadams@gmail.com"
-    },
-    {
-      "email": "patrick.star@gmail.com",
-      "name": "Patrick Star",
-      "isBand": false,
-      "id": 20
     }
   ],
   "profiles": [
@@ -387,19 +381,6 @@
       "facebook": "https://www.facebook.com/noahadamsmusic",
       "instagram": "https://www.instagram.com/noahadamsmusic",
       "tiktok": "https://www.tiktok.com/@noahadamsmusic"
-    },
-    {
-      "userId": 20,
-      "picture": "https://chat.openai.com/",
-      "location": "asdfasdf",
-      "about": "asdf",
-      "primaryInstrumentId": 2,
-      "primaryGenreId": 3,
-      "spotify": "",
-      "facebook": "",
-      "instagram": "",
-      "tiktok": "",
-      "id": 20
     }
   ],
   "savedProfiles": [
@@ -1428,21 +1409,6 @@
       "profileId": 1,
       "tagId": 7,
       "id": 63
-    },
-    {
-      "profileId": 20,
-      "tagId": 15,
-      "id": 64
-    },
-    {
-      "profileId": 20,
-      "tagId": 14,
-      "id": 65
-    },
-    {
-      "profileId": 20,
-      "tagId": 13,
-      "id": 66
     }
   ],
   "tags": [
@@ -1858,21 +1824,6 @@
       "profileId": 4,
       "subGenreId": 1,
       "id": 66
-    },
-    {
-      "profileId": 20,
-      "subGenreId": 35,
-      "id": 67
-    },
-    {
-      "profileId": 20,
-      "subGenreId": 33,
-      "id": 68
-    },
-    {
-      "profileId": 20,
-      "subGenreId": 32,
-      "id": 69
     }
   ],
   "subgenres": [
