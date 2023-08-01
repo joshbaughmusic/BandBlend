@@ -23,3 +23,9 @@
 .button_profile_sidebar_edit {
     margin: 10px 0px
 }
+
+.button_myprofile_primary_section {
+    margin-top: 15px;
+    padding: 3px 6px;
+    font-size: 12px;
+}
