@@ -5,6 +5,8 @@ import { Comment } from "./Comment.js"
 import { NewComment } from "./NewComment.js"
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
+import * as BiIcons from "react-icons/bi";
+import { Collapse } from 'antd'
 
 
 // import { ReactComponent as ThumbLiked } from "../../images/svg/thumb-liked-2.svg"
@@ -13,6 +15,8 @@ import * as AiIcons from "react-icons/ai";
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage.
 
 export const PostProfile = ({ userName, userId, postId, userPicture, postBody, postDate, myProfileId, setMyPosts, postKey }) => {
+
+    const { Panel } = Collapse
 
     const navigate = useNavigate()
     const localBbUser = localStorage.getItem("bb_user")
@@ -145,54 +149,6 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
     }
 
-    //handle expanding the comments section for the selected post by adding a show class to that specific comments section. Handle button swapping too
-
-    const handleViewCommentsButtonClick = e => {
-        const [, postIdToOpenCommentsFor] = e.target.id.split('--')
-
-        const commentsToOpen = document.getElementById(`comments--${postIdToOpenCommentsFor}`)
-
-        commentsToOpen.classList.add("showComments")
-
-        //hide view comments button
-
-        const buttonToHide = document.getElementById(`viewCommentsButton--${postIdToOpenCommentsFor}`)
-
-        buttonToHide.classList.remove("visibleBarButton")
-
-        //show hide comments button
-
-        const buttonToShow = document.getElementById(`hideCommentsButton--${postIdToOpenCommentsFor}`)
-
-        buttonToShow.classList.add("visibleBarButton")
-
-    }
-
-
-    //handle closing the comments section for the selected post by removing the show class from that specific comments section. Handle button swapping too
-
-    const handleCloseCommentsButtonClick = e => {
-        const [, postIdToCloseCommentsFor] = e.target.id.split('--')
-
-        const commentsToClose = document.getElementById(`comments--${postIdToCloseCommentsFor}`)
-
-        commentsToClose.classList.remove("showComments")
-
-        //hide hide comments button
-
-        const buttonToHide = document.getElementById(`hideCommentsButton--${postIdToCloseCommentsFor}`)
-
-        buttonToHide.classList.remove("visibleBarButton")
-
-        //show view comments button
-
-        const buttonToShow = document.getElementById(`viewCommentsButton--${postIdToCloseCommentsFor}`)
-
-        buttonToShow.classList.add("visibleBarButton")
-
-    }
-
-
     //handle the like button being clicked when the user hasn't already liked
 
     const handlePostNewLikeClick = e => {
@@ -232,7 +188,6 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
             })
     }
-
 
     //format post date
 
@@ -309,31 +264,13 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                                 <button className="btn btn_edit btn_edit_post button_cmt_msg_colors" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
                                 <button id={`postDelete--${postId}`} className="btn btn_delete_post button_cmt_msg_colors" onClick={handleDeletePostClick}>Delete</button>
 
-                                {/* {
-
-                                    commentsWithUsers.some(item => item.commentObj.postId === postId)
-
-                                        ?
-
-                                        <>
-
-                                            <button className="btn btn_view_comments visibleBarButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View Comments</button>
-
-                                            <button className="btn btn_hide_comments" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide Comments</button>
-
-                                        </>
-
-                                        :
-
-                                        ""
-
-                                } */}
-
-
                             </div>
                         </div>
                     </div>
                 </div>
+
+
+                <NewComment postId={postId} getAllComments={getAllComments} />
 
                 {
 
@@ -343,9 +280,32 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                         <>
 
-                            <div className="btn_view_comments viewhide_comments_bar visibleBarButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View comments</div>
+                            <div className="container container_commentsSection" id={`comments--${postId}`}>
+                                <Collapse expandIcon={({ isActive }) => isActive ? <BiIcons.BiSolidDownArrow /> : <BiIcons.BiSolidRightArrow />} ghost expandIconPosition="end" size='small' >
+                                    <Panel className="panel_comment_colapsible" header="View Comments" key="1">
 
-                            <div className="btn_hide_comments viewhide_comments_bar" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide comments</div>
+
+                                        {
+                                            commentsWithUsers.map(comment => {
+                                                if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
+                                                    return <Comment
+                                                        fullCommentObj={comment}
+                                                        posterId={userId}
+                                                        posterName={userName}
+                                                        posterPicture={userPicture} posterProfileId={myProfileId}
+                                                        commentId={comment.commentObj.id} commentBody={comment.commentObj.body} commentDate={comment.commentObj.date}
+                                                        commentName={comment.userObj.name}
+                                                        commentPicture={comment.userObj.profiles[0].picture}
+                                                        commentProfileId={comment.userObj.profiles[0].id}
+                                                        commentKey={`comment--${comment.commentObj.Id}`}
+                                                        getAllComments={getAllComments}
+                                                    />
+                                                }
+                                            })
+                                        }
+                                    </Panel>
+                                </Collapse>
+                            </div>
 
 
                         </>
@@ -356,28 +316,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                 }
 
-                <NewComment postId={postId} getAllComments={getAllComments} handleViewCommentsButtonClick={handleViewCommentsButtonClick} />
 
-                <div className="container container_commentsSection" id={`comments--${postId}`}>
-                    {
-                        commentsWithUsers.map(comment => {
-                            if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
-                                return <Comment
-                                    fullCommentObj={comment}
-                                    posterId={userId}
-                                    posterName={userName}
-                                    posterPicture={userPicture} posterProfileId={myProfileId}
-                                    commentId={comment.commentObj.id} commentBody={comment.commentObj.body} commentDate={comment.commentObj.date}
-                                    commentName={comment.userObj.name}
-                                    commentPicture={comment.userObj.profiles[0].picture}
-                                    commentProfileId={comment.userObj.profiles[0].id}
-                                    commentKey={`comment--${comment.commentObj.Id}`}
-                                    getAllComments={getAllComments}
-                                />
-                            }
-                        })
-                    }
-                </div>
             </div>
         </>
     } else {
@@ -439,28 +378,12 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         {/* open comment box button below*/}
                         <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
 
-                        {/* {
-
-                            commentsWithUsers.some(item => item.commentObj.postId === postId)
-
-                                ?
-
-                                <>
-
-                                    <button className="btn btn_view_comments visibleBarButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View Comments</button>
-
-                                    <button className="btn btn_hide_comments" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide Comments</button>
-
-                                </>
-
-                                :
-
-                                ""
-
-                        } */}
 
                     </div>
                 </div>
+
+
+                <NewComment postId={postId} getAllComments={getAllComments} />
 
                 {
 
@@ -470,9 +393,32 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                         <>
 
-                            <div className="btn_view_comments viewhide_comments_bar visibleBarButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View comments</div>
+                            <div className="container container_commentsSection" id={`comments--${postId}`}>
+                                <Collapse expandIcon={({ isActive }) => isActive ? <BiIcons.BiSolidDownArrow /> : <BiIcons.BiSolidRightArrow />} ghost expandIconPosition="end" size='small' >
+                                    <Panel className="panel_comment_colapsible" header="View Comments" key="1">
 
-                            <div className="btn_hide_comments viewhide_comments_bar" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide comments</div>
+
+                                        {
+                                            commentsWithUsers.map(comment => {
+                                                if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
+                                                    return <Comment
+                                                        fullCommentObj={comment}
+                                                        posterId={userId}
+                                                        posterName={userName}
+                                                        posterPicture={userPicture} posterProfileId={myProfileId}
+                                                        commentId={comment.commentObj.id} commentBody={comment.commentObj.body} commentDate={comment.commentObj.date}
+                                                        commentName={comment.userObj.name}
+                                                        commentPicture={comment.userObj.profiles[0].picture}
+                                                        commentProfileId={comment.userObj.profiles[0].id}
+                                                        commentKey={`comment--${comment.commentObj.Id}`}
+                                                        getAllComments={getAllComments}
+                                                    />
+                                                }
+                                            })
+                                        }
+                                    </Panel>
+                                </Collapse>
+                            </div>
 
 
                         </>
@@ -483,28 +429,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                 }
 
-                <NewComment postId={postId} getAllComments={getAllComments} handleViewCommentsButtonClick={handleViewCommentsButtonClick} />
 
-                <section className="container container_commentsSection" id={`comments--${postId}`}>
-                    {
-                        commentsWithUsers.map(comment => {
-                            if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
-                                return <Comment
-                                    fullCommentObj={comment}
-                                    posterId={userId}
-                                    posterName={userName}
-                                    posterPicture={userPicture} posterProfileId={myProfileId}
-                                    commentId={comment.commentObj.id} commentBody={comment.commentObj.body} commentDate={comment.commentObj.date}
-                                    commentName={comment.userObj.name}
-                                    commentPicture={comment.userObj.profiles[0].picture}
-                                    commentProfileId={comment.userObj.profiles[0].id}
-                                    commentKey={`comment--${comment.commentObj.Id}`}
-                                    getAllComments={getAllComments}
-                                />
-                            }
-                        })
-                    }
-                </section>
             </div>
         </>
     }

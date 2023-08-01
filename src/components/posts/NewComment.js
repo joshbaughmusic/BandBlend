@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './NewComment.css'
 
-export const NewComment = ({ postId, getAllComments, handleViewCommentsButtonClick }) => {
+export const NewComment = ({ postId, getAllComments }) => {
 
     const [newComment, setNewComment] = useState({
         body: ""
@@ -84,7 +84,6 @@ export const NewComment = ({ postId, getAllComments, handleViewCommentsButtonCli
 
                     //open comments section
 
-                    handleViewCommentsButtonClick(e)
                 })
         } else {
             window.alert("New post cannot be blank.")
