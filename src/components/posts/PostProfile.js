@@ -128,6 +128,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
             })
     }
 
+    //handle opening up a new comment form for the selected post by adding a show class to that specific form
+
     const handleOpenNewCommentFormButtonClick = e => {
         const [, postIdToOpenNewCommentFor] = e.target.id.split('--')
 
@@ -142,6 +144,54 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
         buttonToHide.classList.remove("show")
 
     }
+
+    //handle expanding the comments section for the selected post by adding a show class to that specific comments section. Handle button swapping too
+
+    const handleViewCommentsButtonClick = e => {
+        const [, postIdToOpenCommentsFor] = e.target.id.split('--')
+
+        const commentsToOpen = document.getElementById(`comments--${postIdToOpenCommentsFor}`)
+
+        commentsToOpen.classList.add("showComments")
+
+        //hide view comments button
+
+        const buttonToHide = document.getElementById(`viewCommentsButton--${postIdToOpenCommentsFor}`)
+
+        buttonToHide.classList.remove("visibleButton")
+
+        //show hide comments button
+
+        const buttonToShow = document.getElementById(`hideCommentsButton--${postIdToOpenCommentsFor}`)
+
+        buttonToShow.classList.add("visibleButton")
+
+    }
+
+
+    //handle closing the comments section for the selected post by removing the show class from that specific comments section. Handle button swapping too
+
+    const handleCloseCommentsButtonClick = e => {
+        const [, postIdToCloseCommentsFor] = e.target.id.split('--')
+
+        const commentsToClose = document.getElementById(`comments--${postIdToCloseCommentsFor}`)
+
+        commentsToClose.classList.remove("showComments")
+
+        //hide hide comments button
+
+        const buttonToHide = document.getElementById(`hideCommentsButton--${postIdToCloseCommentsFor}`)
+
+        buttonToHide.classList.remove("visibleButton")
+
+        //show view comments button
+
+        const buttonToShow = document.getElementById(`viewCommentsButton--${postIdToCloseCommentsFor}`)
+
+        buttonToShow.classList.add("visibleButton")
+
+    }
+
 
     //handle the like button being clicked when the user hasn't already liked
 
@@ -220,8 +270,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                                 <h4 className="heading heading_post_name">You posted:</h4>
                             </div>
                             <div className="container container_post_date_icon">
-                            <p className="text text_post_date">{convertTimestamp(postDate)}</p>
-                            <FaIcons.FaRegComment className="icon icon_post_bubble"/>
+                                <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                                <FaIcons.FaRegComment className="icon icon_post_bubble" />
                             </div>
                         </div>
                         <p className="text text_post_body">{postBody}</p>
@@ -258,6 +308,28 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                             <div className="container container_post_myprofile_edit-delete_buttons">
                                 <button className="btn btn_edit btn_edit_post button_cmt_msg_colors" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
                                 <button id={`postDelete--${postId}`} className="btn btn_delete_post button_cmt_msg_colors" onClick={handleDeletePostClick}>Delete</button>
+
+                                {
+
+                                    commentsWithUsers.some(item => item.commentObj.postId === postId)
+
+                                        ?
+
+                                        <>
+
+                                            <button className="btn btn_view_comments visibleButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View Comments</button>
+
+                                            <button className="btn btn_hide_comments" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide Comments</button>
+
+                                        </>
+
+                                        :
+
+                                        ""
+
+                                }
+
+
                             </div>
                         </div>
                     </div>
@@ -299,8 +371,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                                 <h4 className="heading heading_post_name">{userName} posted:</h4>
                             </div>
                             <div className="container container_post_date_icon">
-                            <p className="text text_post_date">{convertTimestamp(postDate)}</p>
-                            <FaIcons.FaRegComment className="icon icon_post_bubble"/>
+                                <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                                <FaIcons.FaRegComment className="icon icon_post_bubble" />
                             </div>                        </div>
                         <p className="text text_post_body">{postBody}</p>
                     </section>
@@ -346,12 +418,32 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         {/* open comment box button below*/}
                         <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
 
+                        {
+
+                            commentsWithUsers.some(item => item.commentObj.postId === postId)
+
+                                ?
+
+                                <>
+
+                                    <button className="btn btn_view_comments visibleButton" id={`viewCommentsButton--${postId}`} onClick={handleViewCommentsButtonClick}>View Comments</button>
+
+                                    <button className="btn btn_hide_comments" id={`hideCommentsButton--${postId}`} onClick={handleCloseCommentsButtonClick}>Hide Comments</button>
+
+                                </>
+
+                                :
+
+                                ""
+
+                        }
+
                     </div>
                 </div>
 
                 <NewComment postId={postId} getAllComments={getAllComments} />
 
-                <section className="container container_commentsSection" id={`commentsSection--${postId}`}>
+                <section className="container container_commentsSection" id={`comments--${postId}`}>
                     {
                         commentsWithUsers.map(comment => {
                             if (parseInt(comment.commentObj.postId) === parseInt(postId)) {

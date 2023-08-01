@@ -17,12 +17,10 @@ a {
   align-self: center;
 }
 
-/* button {
-  cursor: pointer;
-  min-width: 80px;
-  padding: 4px 7px;
-  border-radius: 8px;
-} */
+button {
+  word-wrap: normal;
+
+}
 
 
 /* keep outlines off of any focused text input fields/searchbars */

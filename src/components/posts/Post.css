@@ -67,6 +67,7 @@
 
 .container_commentsSection {
     padding-left: 30px;
+    display: none;
 }
 
 .heading_post_name_home {
@@ -115,6 +116,28 @@
 }
 
 /* end hide and show reply button  */
+
+
+/* comments section show hide */
+
+.container_commentsSection.showComments {
+    display: block;
+}
+
+.btn_view_comments {
+    display: none;
+}
+
+.btn_hide_comments {
+    display: none;
+}
+
+.visibleButton {
+    display: block;
+}
+
+
+/* end comments section show hide */
 
 
 /* text */
