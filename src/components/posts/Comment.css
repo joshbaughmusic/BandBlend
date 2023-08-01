@@ -72,6 +72,7 @@
 
 .heading_comment_name_link {
     margin-right: 5px;
+    color: var(--text-1);
 }
 
 .text_comment_date {
