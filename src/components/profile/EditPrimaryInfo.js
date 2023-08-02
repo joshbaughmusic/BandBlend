@@ -76,7 +76,20 @@ export const EditPrimaryInfo = () => {
             tiktok: profile.tiktok
         }
 
-        if (newPrimaryInfoObj.picture && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryGenreId) {
+        function isValidUrl(str) {
+            const pattern = new RegExp(
+              '^([a-zA-Z]+:\\/\\/)?' + // protocol
+                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+                '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
+                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                '(\\#[-a-z\\d_]*)?$', // fragment locator
+              'i'
+            );
+            return pattern.test(str);
+          }
+
+        if (isValidUrl(newPrimaryInfoObj.picture) && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryGenreId) {
 
             return fetch(`http://localhost:8088/profiles/${profileId}`, {
                 method: "PATCH",
@@ -156,9 +169,9 @@ export const EditPrimaryInfo = () => {
                                             {
                                                 primaryInstruments.map(instrument => {
                                                     if (instrument.id === profile.primaryInstrumentId) {
-                                                        return <option selected key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`}>{instrument.name}</option>
+                                                        return <option selected key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`} className="input_field_colors">{instrument.name}</option>
                                                     } else {
-                                                        return <option key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`}>{instrument.name}</option>
+                                                        return <option key={`primaryinstrumentkey--${instrument.id}`} value={`primaryinstrument--${instrument.id}`} className="input_field_colors">{instrument.name}</option>
                                                     }
                                                 })
                                             }
