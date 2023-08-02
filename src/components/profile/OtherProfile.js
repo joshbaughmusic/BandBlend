@@ -229,6 +229,8 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
                     </div>
                 </article>
 
+                <div className="container container_right_profile_sections">
+
                 <article className="container container_profile_about">
                     <h3 className="heading heading_profile_about heading_main_profile_sections">About</h3>
                     {/* <hr className="linebreak_about"/> */}
@@ -279,6 +281,7 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
                         }
                     </ul>
                 </article>
+                </div>
             </section>
             </FadeIn>
         </>
