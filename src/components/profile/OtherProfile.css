@@ -148,7 +148,7 @@
     display: flex;
     flex-wrap: wrap;
     overflow-x: auto;
-    row-gap: 8px;
+    gap: 8px;
     
 
 }

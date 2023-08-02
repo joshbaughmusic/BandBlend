@@ -332,7 +332,9 @@ export const MyProfile = () => {
                                             <>
                                                 
                                                 <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span></div>
-                                                <ModalPhotoWarning mediaId={media.id} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePhotoClick={handleDeletePhotoClick} />
+                                                <ModalPhotoWarning 
+                                                mediaId={media.id} 
+                                                isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePhotoClick={handleDeletePhotoClick} />
 
                                             </>
                                         )
