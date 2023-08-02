@@ -5,7 +5,8 @@ export const RegisterProfile = () => {
     const [profile, setProfile] = useState({
         userId: "",
         picture: "",
-        location: "",
+        city: "",
+        state: "",
         about: "",
         primaryInstrumentId: 16,
         primaryGenreId: 0,
@@ -49,11 +50,13 @@ export const RegisterProfile = () => {
 
     const handleProfileRegistration = e => {
         e.preventDefault()
+         
+        const combinedLocationString = `${profile.city}, ${profile.state}`
 
         const newPrimaryInfoObj = {
             userId: bBUserObject.id,
             picture: profile.picture,
-            location: profile.location,
+            location: combinedLocationString,
             about: profile.about,
             primaryInstrumentId: profile.primaryInstrumentId,
             primaryGenreId: profile.primaryGenreId,
@@ -144,12 +147,23 @@ export const RegisterProfile = () => {
                     }
                 }
                 ></input>
-                <label htmlFor="profile_register_Location">Location:</label>
+                <label htmlFor="profile_register_City">City:</label>
 
-                <input required type="text" name="profile_register_Location" className="input input_text input_reg input_field_colors" placeholder="City, State Code" value={profile.location} onChange={
+                <input required type="text" name="profile_register_City" className="input input_text input_reg input_field_colors" placeholder="City Name" value={profile.city} onChange={
                     e => {
                         let copy = { ...profile }
-                        copy.location = e.target.value
+                        copy.city = e.target.value
+                        setProfile(copy)
+                    }
+                }
+                ></input>
+
+                <label htmlFor="profile_register_State">State Code:</label>
+
+                <input required type="text" name="profile_register_State" maxLength="2" className="input input_text input_reg input_field_colors" placeholder="State Code" value={profile.state} onChange={
+                    e => {
+                        let copy = { ...profile }
+                        copy.state = e.target.value
                         setProfile(copy)
                     }
                 }
