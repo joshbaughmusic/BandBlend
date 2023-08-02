@@ -284,6 +284,8 @@ export const MyProfile = () => {
                         </div>
                     </article>
 
+                    <div className="container container_right_profile_sections">
+                        
                     <article className="container container_profile_about">
                         <div className="container heading_main_profile_sections">
                             <h3 className="heading heading_profile_about">About</h3>
@@ -404,6 +406,7 @@ export const MyProfile = () => {
                         </ul>
 
                     </article>
+                    </div>
                 </section>
             </FadeIn>
         </>

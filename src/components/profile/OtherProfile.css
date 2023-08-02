@@ -3,9 +3,7 @@
 .container_profile_page {
     display: grid;
     grid-template-areas:
-        "primary about"
-        "primary media"
-        "primary posts";
+        "primary right-sections";
     grid-template-columns: 280px auto;
     grid-template-rows: auto;
     grid-gap: 20px;
@@ -120,7 +118,6 @@
 
 
 .container_profile_about {
-    grid-area: about;
     padding: 20px;
     /* border: 2px solid black; */
     border-radius: 25px;
@@ -130,16 +127,23 @@
 
 }
 
+.container_right_profile_sections {
+    grid-area: right-sections;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
 
 .container_profile_media_outer {
-    grid-area: media;
     padding: 20px;
     /* border: 2px solid black; */
     border-radius: 25px;
     margin-right: 20px;
     box-shadow: var(--bxsh-profile-sections);
-    /* max-height: 257px;
-    max-width: 1330px; */
+    /* max-height: 255px;
+    max-width: 1330px;  */
 
 
 
@@ -156,7 +160,6 @@
 }
 
 .container_profile_posts_outer {
-    grid-area: posts;
     padding: 20px;
     /* border: 2px solid black; */
     border-radius: 25px;
