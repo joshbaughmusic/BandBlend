@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./ProfilesAllList.css";
 import { Link } from "react-router-dom";
 import { SaveButtonList } from "./SaveButtonList.js";
+import FadeIn from 'react-fade-in';
 
 export const ProfilesAllList = ({
     searchTerms,
@@ -143,6 +144,7 @@ export const ProfilesAllList = ({
     } else {
         return (
             <>
+            <FadeIn>
                 <section className="container container_allProfiles">
                     {filteredProfiles.map((profile) => (
                         <article key={`profileCard--${profile.id}`} className="container container_profile_card">
@@ -192,6 +194,7 @@ export const ProfilesAllList = ({
                         </article>
                     ))}
                 </section>
+                </FadeIn>
             </>
         );
     }

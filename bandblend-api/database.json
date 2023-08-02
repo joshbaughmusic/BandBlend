@@ -136,7 +136,7 @@
       "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/271038497_326399376155152_6662249675223265793_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=EcPCmki4oiEAX8mA-up&_nc_ht=scontent-atl3-1.xx&oh=00_AfA9yGAa7IDcl3ERWNEg2l2ALpC6B3XxdNao1TOAk_hlow&oe=64CDF34B",
       "location": "Birmingham, AL",
       "primaryInstrumentId": 17,
-      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "about": "Crowmouth is a Nu Metalcore act that combines fast-paced grooves, dissonant leads, and crushing breakdowns. The lyrical content takes all the sorrow and anguish any one person is capable of feeling and spins them into a sincere representation of rock bottom and self loathing.",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "https://open.spotify.com/artist/6P9WxS7Sr4fgdJnzKI70h8",
@@ -427,7 +427,7 @@
     {
       "id": 5,
       "profileId": 2,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "body": "Tonight we will be dropping our next EP, Low Life. Our vocalist, Alec Harrah, wrote the majority of this EP from scratch. Not only is he able to pour his emotion into the music, but he is also an amazing song writer. Not many musicians can write the guitar, bass, drums, vocals, and synths for a song, much less a whole EP! But Alec can. He deserves all the credit for this one. It is an honor to play guitar for Crowmouth. I am excited to see how far we can go.",
       "date": "1649898151611"
     },
     {
@@ -582,19 +582,13 @@
     },
     {
       "profileId": 2,
-      "body": "Hello!",
+      "body": "Saturday August 5th at Zydeco in Birmingham, AL! ",
       "date": 1690166733441,
       "id": 33
     },
     {
-      "profileId": 1,
-      "body": "wasssssssssssssupppppppppppp",
-      "date": 1690255387584,
-      "id": 34
-    },
-    {
       "profileId": 2,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n",
+      "body": "We will be performing a Crowmouth version of a Korn cover this Saturday night at Zydeco in Birmingham, AL! It will be our next released song as well...",
       "date": 1690320904636,
       "id": 35
     }
@@ -609,6 +603,36 @@
       "profileId": 2,
       "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355265181_732701238858295_1570047882012937844_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=do1r0A7GWBYAX8WkcI-&_nc_ht=scontent-atl3-1.xx&oh=00_AfBuE6FeIdwc3fmAs7D0FpRbsd44ZsAB4NjTWqlJhvmLGg&oe=64BD36FC",
       "id": 5
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/362694270_756423556486063_5439015348625405944_n.jpg?stp=dst-jpg_p526x296&_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=730e14&_nc_ohc=cVGFJEbuD9sAX-lhQN3&_nc_oc=AQnVflfMTv02Nd8rgdb0jhn7jxIC7aVpRKIYqSZcLuLRqdRONh5wEM5s_BzUh6ltqWYUqRZlkew8xJxk_du0k8e8&_nc_ht=scontent-atl3-1.xx&oh=00_AfADydBLZ6KCg_QiVtkNSm9Kh__rEIF-drEfCh1eN1ULqg&oe=64CE37FF",
+      "id": 6
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/358105438_743700107758408_438747135637897983_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=nFJkDOMXhC4AX88syin&_nc_ht=scontent-atl3-1.xx&oh=00_AfC959IOuvnP3Cjqtdos9WxXJVGqbH9Q7RLfK4HfReGS8w&oe=64CE62AD",
+      "id": 7
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/333367483_908007003782600_1861021595508951571_n.jpg?_nc_cat=102&cb=99be929b-59f725be&ccb=1-7&_nc_sid=19026a&_nc_ohc=Ib8QTGVOhS8AX9F5Ll6&_nc_ht=scontent-atl3-2.xx&oh=00_AfDUSkd0Nw_CeXecymh-s-k9Dl73F__gEtO9MaqOS9uFog&oe=64CF2DA4",
+      "id": 8
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/325924513_720616596121161_1018086373805934063_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=19026a&_nc_ohc=a6lXhdAhDSEAX-Z2IFF&_nc_oc=AQkJZQz1mFkq-Sq9vzQ3PAt0Wxjv8XelVxRxX7ur2Y0DbL3VVM6SYGNHnA29rmtGaMcsyREL_cPoLO_qIFWEqZP0&_nc_ht=scontent-atl3-2.xx&oh=00_AfBTKXrS59kMwr2OAwAJ6bV6ZcZ1WNAAOhvIbcx6p1uBbA&oe=64CDB048",
+      "id": 9
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/313089216_545569467571474_6298842391481025481_n.jpg?_nc_cat=105&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=htOqPRNM1ykAX_WRDS2&_nc_ht=scontent-atl3-2.xx&oh=00_AfDtGZeGgCpvwuFnajvuQ7NgI0hwdmcfw73fjv2i4skvzQ&oe=64CEB799",
+      "id": 10
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/328943519_890311099090547_7120939662962605335_n.jpg?stp=dst-jpg_s600x600&_nc_cat=107&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=zgbr10PePYcAX-XULpy&_nc_ht=scontent-atl3-1.xx&oh=00_AfDpZv0Hg4u4-SehCqYDORl-ExZBXigWyIVQrF2S9uzpxg&oe=64CE218C",
+      "id": 11
     }
   ],
   "messages": [
@@ -631,7 +655,16 @@
       "receiverId": 2,
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "date": 1690209087558,
-      "id": 3
+      "id": 3,
+      "isRead": true
+    },
+    {
+      "senderId": 1,
+      "receiverId": 8,
+      "body": "asefasef",
+      "date": 1690937250121,
+      "isRead": false,
+      "id": 4
     }
   ],
   "comments": [
@@ -1084,25 +1117,53 @@
       "date": 1672231717000
     },
     {
-      "postId": 5,
-      "userId": 2,
-      "body": "asdfasdfasdfasdfasdfasdfasdfasdf",
-      "date": 1690392906738,
-      "id": 66
-    },
-    {
-      "postId": 6,
-      "userId": 1,
-      "body": "sadfasdf",
-      "date": 1690911099790,
-      "id": 69
-    },
-    {
       "postId": 3,
       "userId": 1,
       "body": "asdfasdf",
       "date": 1690921978836,
       "id": 70
+    },
+    {
+      "postId": 5,
+      "userId": 1,
+      "body": "asdfasdf",
+      "date": 1690925533790,
+      "id": 82
+    },
+    {
+      "postId": 5,
+      "userId": 1,
+      "body": "asdfasdf",
+      "date": 1690925585128,
+      "id": 83
+    },
+    {
+      "postId": 35,
+      "userId": 1,
+      "body": "Yo!!!! Can't wait for this",
+      "date": 1690941296666,
+      "id": 84
+    },
+    {
+      "postId": 35,
+      "userId": 1,
+      "body": "But like seriously",
+      "date": 1690941311641,
+      "id": 85
+    },
+    {
+      "postId": 5,
+      "userId": 2,
+      "body": "fuck yeah",
+      "date": 1690941672578,
+      "id": 86
+    },
+    {
+      "postId": 35,
+      "userId": 2,
+      "body": "hell yeah! Maybe",
+      "date": 1690941878764,
+      "id": 87
     }
   ],
   "likes": [
@@ -1129,6 +1190,36 @@
       "userId": 5,
       "postId": 5,
       "date": 1690392906738
+    },
+    {
+      "userId": 1,
+      "postId": 35,
+      "date": 1690939962586,
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "postId": 3,
+      "date": 1690941679605,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "postId": 6,
+      "date": 1690941778804,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "postId": 26,
+      "date": 1690941858868,
+      "id": 8
+    },
+    {
+      "userId": 2,
+      "postId": 1,
+      "date": 1690941897282,
+      "id": 9
     }
   ],
   "profileTags": [

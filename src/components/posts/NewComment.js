@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './NewComment.css'
 
-export const NewComment = ({ postId, getAllComments }) => {
+export const NewComment = ({ postId, getAllComments, handleOpenCommentsOnNewComment }) => {
 
     const [newComment, setNewComment] = useState({
         body: ""
@@ -57,6 +57,8 @@ export const NewComment = ({ postId, getAllComments }) => {
                 body: JSON.stringify(newCommentObject)
             })
                 .then(() => {
+                    handleOpenCommentsOnNewComment(e)
+                    
                     //refetch all comments
                     getAllComments()
 
@@ -82,7 +84,7 @@ export const NewComment = ({ postId, getAllComments }) => {
 
                     buttonToShow.classList.add("show")
 
-                    //open comments section
+                    //open comments section panel of corresponding section
 
                 })
         } else {

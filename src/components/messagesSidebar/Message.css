@@ -77,7 +77,7 @@
 }
 
 .heading_message_date{
-    margin: 5px 0 6px 0px;
+    margin: 5px 0 15px 0px;
     font-weight: 600;
 }
 
@@ -93,6 +93,11 @@
 
 .btn_message_delete {
     margin-right: 5px;
+    margin-top: 10px;
+}
+
+.btn_message_reply {
+    align-self: end;
 }
 
 /* end buttons */

@@ -3,8 +3,8 @@
     position: absolute;
     width: 100%;
     min-width: 550px;
-    /* overflow-x: hidden;
-    overflow-y: hidden; */
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
 }
 
 /* hero */
@@ -17,7 +17,7 @@
     width: 85%;
     max-width: 900px;
     /* margin-top: 20px; */
-    /* animation: slideinleft 1s ease-in; */
+    animation: slideinleft 1s ease-in;
 }
 
 .heading_app_subtitle {
@@ -25,7 +25,7 @@
     max-width: 700px;
     margin: 10px auto 0px;
     display: flex;
-    /* animation: slideinright 1s ease-in; */
+    animation: slideinright 1s ease-in;
 
 }
 
