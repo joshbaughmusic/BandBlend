@@ -123,17 +123,28 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
     const handleDeletePostClick = postIdToDelete => {
 
-                return fetch(`http://localhost:8088/posts/${postIdToDelete}`, {
-                    method: "DELETE",
-                })
-                    .then(() => {
-                        fetch(`http://localhost:8088/posts?profileId=${myProfileId}`)
-                            .then(res => res.json())
-                            .then(data => {
-                                setMyPosts(data)
-        
-                            })
+        return fetch(`http://localhost:8088/posts/${postIdToDelete}`, {
+            method: "DELETE",
+        })
+            .then(() => {
+                fetch(`http://localhost:8088/posts?profileId=${myProfileId}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        setMyPosts(data)
+
                     })
+            }).then(() => {
+                //filter out comments that were attached to that post
+                const commentsToDelete = commentsWithUsers.filter(comment => {
+                    return comment.commentObj.postId === parseInt(postIdToDelete)
+                })
+                //map through and delete each one of those comments
+                commentsToDelete.map(comment => {
+                    fetch(`http://localhost:8088/comments/${comment.commentObj.id}`, {
+                        method: "DELETE",
+                    })
+                })
+            })
 
     }
 
@@ -238,274 +249,274 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     if (userId === bBUserObject.id) {
 
         return <>
-        <FadeIn >
-            <ModalPostWarning postId={postId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePostClick={handleDeletePostClick}/>
-            <div className="container_container_post_comments_full">
-                <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
-                    <section className="post_content_except_comments">
-                        <div className="container container_heading_post">
-                            <div className="container container_post_img_name">
-                                <img className="img img_post_picture" src={userPicture} />
-                                <h4 className="heading heading_post_name">You posted:</h4>
+            <FadeIn >
+                <ModalPostWarning postId={postId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePostClick={handleDeletePostClick} />
+                <div className="container_container_post_comments_full">
+                    <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
+                        <section className="post_content_except_comments">
+                            <div className="container container_heading_post">
+                                <div className="container container_post_img_name">
+                                    <img className="img img_post_picture" src={userPicture} />
+                                    <h4 className="heading heading_post_name">You posted:</h4>
+                                </div>
+                                <div className="container container_post_date_icon">
+                                    <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                                    <FaIcons.FaRegComment className="icon icon_post_bubble" />
+                                </div>
                             </div>
-                            <div className="container container_post_date_icon">
-                                <p className="text text_post_date">{convertTimestamp(postDate)}</p>
-                                <FaIcons.FaRegComment className="icon icon_post_bubble" />
-                            </div>
-                        </div>
-                        <p className="text text_post_body">{postBody}</p>
-                    </section>
-                    <div className="container container_footer_post">
-                        <section className="container container_post_like_section">
-                            {
-                                !likes.length
-
-                                    ?
-
-                                    <p className="text text_post_likecount">No likes yet</p>
-
-                                    :
-
-                                    likes.length === 1
+                            <p className="text text_post_body">{postBody}</p>
+                        </section>
+                        <div className="container container_footer_post">
+                            <section className="container container_post_like_section">
+                                {
+                                    !likes.length
 
                                         ?
 
-                                        <p className="text text_post_likecount">{likes.length} like</p>
+                                        <p className="text text_post_likecount">No likes yet</p>
 
                                         :
 
-                                        <p className="text text_post_likecount">{likes.length} likes</p>
+                                        likes.length === 1
 
-                            }
-                        </section>
-                        <div className="container container_post_myprofile_all_buttons">
+                                            ?
 
-                            {/* open comment box button below*/}
-                            <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+                                            <p className="text text_post_likecount">{likes.length} like</p>
 
-                            {/* edit and delete buttons */}
-                            <div className="container container_post_myprofile_edit-delete_buttons">
-                                <button className="btn btn_edit btn_edit_post button_cmt_msg_colors" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
-                                <button id={`postDelete--${postId}`} className="btn btn_delete_post button_cmt_msg_colors" onClick={handleDeletePostClickWarning}>Delete</button>
+                                            :
 
+                                            <p className="text text_post_likecount">{likes.length} likes</p>
+
+                                }
+                            </section>
+                            <div className="container container_post_myprofile_all_buttons">
+
+                                {/* open comment box button below*/}
+                                <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+
+                                {/* edit and delete buttons */}
+                                <div className="container container_post_myprofile_edit-delete_buttons">
+                                    <button className="btn btn_edit btn_edit_post button_cmt_msg_colors" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
+                                    <button id={`postDelete--${postId}`} className="btn btn_delete_post button_cmt_msg_colors" onClick={handleDeletePostClickWarning}>Delete</button>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {
-                    commentsWithUsers.some(item => item.commentObj.postId === postId) 
-
-                        ?
-
-
-                        openPanel
+                    {
+                        commentsWithUsers.some(item => item.commentObj.postId === postId)
 
                             ?
 
-                            <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>Hide Comments <BiIcons.BiSolidUpArrow className="icon icon_viewhide_comments"/></div>
+
+                            openPanel
+
+                                ?
+
+                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>Hide Comments <BiIcons.BiSolidUpArrow className="icon icon_viewhide_comments" /></div>
+
+                                :
+
+                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>View Comments <BiIcons.BiSolidDownArrow className="icon icon_viewhide_comments" /></div>
+
+
 
                             :
 
-                            <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>View Comments <BiIcons.BiSolidDownArrow className="icon icon_viewhide_comments"/></div>
+                            ""
+                    }
 
 
+                    <NewComment postId={postId} getAllComments={getAllComments} handleOpenCommentsOnNewComment={handleOpenCommentsOnNewComment} />
 
-                        :
+                    {
 
-                        ""
-                }
+                        commentsWithUsers.some(item => item.commentObj.postId === postId)
 
+                            ?
 
-                <NewComment postId={postId} getAllComments={getAllComments} handleOpenCommentsOnNewComment={handleOpenCommentsOnNewComment} />
+                            <>
 
-                {
-
-                    commentsWithUsers.some(item => item.commentObj.postId === postId)
-
-                        ?
-
-                        <>
-
-                            <div className="container container_commentsSection" id={`comments--${postId}`}>
-                                <Collapse activeKey={openPanel}  ghost size='small' >
-                                    <Panel className="panel_comment_colapsible" header="View Comments" key={postId}>
+                                <div className="container container_commentsSection" id={`comments--${postId}`}>
+                                    <Collapse activeKey={openPanel} ghost size='small' >
+                                        <Panel className="panel_comment_colapsible" header="View Comments" key={postId}>
 
 
-                                        {
-                                            commentsWithUsers.map(comment => {
-                                                if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
-                                                    return <Comment
-                                                        fullCommentObj={comment}
-                                                        posterId={userId}
-                                                        posterName={userName}
-                                                        posterPicture={userPicture} posterProfileId={myProfileId}
-                                                        commentId={comment.commentObj.id} commentBody={comment.commentObj.body} commentDate={comment.commentObj.date}
-                                                        commentName={comment.userObj.name}
-                                                        commentPicture={comment.userObj.profiles[0].picture}
-                                                        commentProfileId={comment.userObj.profiles[0].id}
-                                                        commentKey={`comment--${comment.commentObj.Id}`}
-                                                        getAllComments={getAllComments}
-                                                    />
-                                                }
-                                            })
-                                        }
-                                    </Panel>
-                                </Collapse>
-                            </div>
+                                            {
+                                                commentsWithUsers.map(comment => {
+                                                    if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
+                                                        return <Comment
+                                                            fullCommentObj={comment}
+                                                            posterId={userId}
+                                                            posterName={userName}
+                                                            posterPicture={userPicture} posterProfileId={myProfileId}
+                                                            commentId={comment.commentObj.id} commentBody={comment.commentObj.body} commentDate={comment.commentObj.date}
+                                                            commentName={comment.userObj.name}
+                                                            commentPicture={comment.userObj.profiles[0].picture}
+                                                            commentProfileId={comment.userObj.profiles[0].id}
+                                                            commentKey={`comment--${comment.commentObj.Id}`}
+                                                            getAllComments={getAllComments}
+                                                        />
+                                                    }
+                                                })
+                                            }
+                                        </Panel>
+                                    </Collapse>
+                                </div>
 
 
-                        </>
+                            </>
 
-                        :
+                            :
 
-                        ""
+                            ""
 
-                }
+                    }
 
 
-            </div>
+                </div>
             </FadeIn>
         </>
     } else {
 
         return <>
-        <FadeIn>
-        <ModalPostWarning postId={postId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePostClick={handleDeletePostClick}/>
-            <div className="container_container_post_comments_full">
-                <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
-                    <section className="post_content_except_comments">
-                        <div className="container container_heading_post">
-                            <div className="container container_post_img_name">
-                                <img className="img img_post_picture" src={userPicture} />
-                                <h4 className="heading heading_post_name">{userName} posted:</h4>
-                            </div>
-                            <div className="container container_post_date_icon">
-                                <p className="text text_post_date">{convertTimestamp(postDate)}</p>
-                                <FaIcons.FaRegComment className="icon icon_post_bubble" />
-                            </div>                        </div>
-                        <p className="text text_post_body">{postBody}</p>
-                    </section>
-                    <div className="container container_footer_post">
-                        <section className="container container_post_like_section">
-                            <div className="container container_post_like_icon">
+            <FadeIn>
+                <ModalPostWarning postId={postId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePostClick={handleDeletePostClick} />
+                <div className="container_container_post_comments_full">
+                    <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
+                        <section className="post_content_except_comments">
+                            <div className="container container_heading_post">
+                                <div className="container container_post_img_name">
+                                    <img className="img img_post_picture" src={userPicture} />
+                                    <h4 className="heading heading_post_name">{userName} posted:</h4>
+                                </div>
+                                <div className="container container_post_date_icon">
+                                    <p className="text text_post_date">{convertTimestamp(postDate)}</p>
+                                    <FaIcons.FaRegComment className="icon icon_post_bubble" />
+                                </div>                        </div>
+                            <p className="text text_post_body">{postBody}</p>
+                        </section>
+                        <div className="container container_footer_post">
+                            <section className="container container_post_like_section">
+                                <div className="container container_post_like_icon">
 
+                                    {
+                                        userLikeObj
+
+                                            ?
+
+                                            <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick} />
+
+                                            :
+
+                                            <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick} />
+
+                                    }
+                                </div>
                                 {
-                                    userLikeObj
+                                    !likes.length
 
                                         ?
 
-                                        <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick} />
+                                        <p className="text text_post_likecount">Be the first to like this!</p>
 
                                         :
 
-                                        <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick} />
+                                        likes.length === 1
+
+                                            ?
+
+                                            <p className="text text_post_likecount">{likes.length} like</p>
+
+                                            :
+
+                                            <p className="text text_post_likecount">{likes.length} likes</p>
 
                                 }
-                            </div>
-                            {
-                                !likes.length
+                            </section>
 
-                                    ?
-
-                                    <p className="text text_post_likecount">Be the first to like this!</p>
-
-                                    :
-
-                                    likes.length === 1
-
-                                        ?
-
-                                        <p className="text text_post_likecount">{likes.length} like</p>
-
-                                        :
-
-                                        <p className="text text_post_likecount">{likes.length} likes</p>
-
-                            }
-                        </section>
-
-                        {/* open comment box button below*/}
-                        <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+                            {/* open comment box button below*/}
+                            <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
 
 
+                        </div>
                     </div>
-                </div>
 
-                {
-                    commentsWithUsers.some(item => item.commentObj.postId === postId) 
-
-                        ?
-
-
-                        openPanel
+                    {
+                        commentsWithUsers.some(item => item.commentObj.postId === postId)
 
                             ?
 
-                            <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>Hide Comments</div>
+
+                            openPanel
+
+                                ?
+
+                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>Hide Comments</div>
+
+                                :
+
+                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>View Comments</div>
+
+
 
                             :
 
-                            <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>View Comments</div>
-
-
-
-                        :
-
-                        ""
-                }
+                            ""
+                    }
 
 
 
 
-                <NewComment postId={postId} getAllComments={getAllComments} handleOpenCommentsOnNewComment={handleOpenCommentsOnNewComment} />
+                    <NewComment postId={postId} getAllComments={getAllComments} handleOpenCommentsOnNewComment={handleOpenCommentsOnNewComment} />
 
-                {
+                    {
 
-                    commentsWithUsers.some(item => item.commentObj.postId === postId)
+                        commentsWithUsers.some(item => item.commentObj.postId === postId)
 
-                        ?
+                            ?
 
-                        <>
+                            <>
 
-                            <div className="container container_commentsSection" id={`comments--${postId}`}>
-                                <Collapse activeKey={openPanel} ghost  size='small' >
-                                    <Panel className="panel_comment_colapsible" header="View Comments" key={postId}>
-
-
-                                        {
-                                            commentsWithUsers.map(comment => {
-                                                if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
-                                                    return <Comment
-                                                        fullCommentObj={comment}
-                                                        posterId={userId}
-                                                        posterName={userName}
-                                                        posterPicture={userPicture} posterProfileId={myProfileId}
-                                                        commentId={comment.commentObj.id} commentBody={comment.commentObj.body} commentDate={comment.commentObj.date}
-                                                        commentName={comment.userObj.name}
-                                                        commentPicture={comment.userObj.profiles[0].picture}
-                                                        commentProfileId={comment.userObj.profiles[0].id}
-                                                        commentKey={`comment--${comment.commentObj.Id}`}
-                                                        getAllComments={getAllComments}
-                                                    />
-                                                }
-                                            })
-                                        }
-                                    </Panel>
-                                </Collapse>
-                            </div>
+                                <div className="container container_commentsSection" id={`comments--${postId}`}>
+                                    <Collapse activeKey={openPanel} ghost size='small' >
+                                        <Panel className="panel_comment_colapsible" header="View Comments" key={postId}>
 
 
-                        </>
+                                            {
+                                                commentsWithUsers.map(comment => {
+                                                    if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
+                                                        return <Comment
+                                                            fullCommentObj={comment}
+                                                            posterId={userId}
+                                                            posterName={userName}
+                                                            posterPicture={userPicture} posterProfileId={myProfileId}
+                                                            commentId={comment.commentObj.id} commentBody={comment.commentObj.body} commentDate={comment.commentObj.date}
+                                                            commentName={comment.userObj.name}
+                                                            commentPicture={comment.userObj.profiles[0].picture}
+                                                            commentProfileId={comment.userObj.profiles[0].id}
+                                                            commentKey={`comment--${comment.commentObj.Id}`}
+                                                            getAllComments={getAllComments}
+                                                        />
+                                                    }
+                                                })
+                                            }
+                                        </Panel>
+                                    </Collapse>
+                                </div>
 
-                        :
 
-                        ""
+                            </>
 
-                }
+                            :
+
+                            ""
+
+                    }
 
 
-            </div>
+                </div>
             </FadeIn>
         </>
     }
