@@ -12,7 +12,8 @@ export const EditPrimaryInfo = () => {
 
     const [profile, setProfile] = useState({
         picture: "",
-        location: "",
+        city: "",
+        state: "",
         primaryInstrumentId: "",
         primaryGenreId: "",
         spotify: "",
@@ -32,13 +33,37 @@ export const EditPrimaryInfo = () => {
 
     //fetch profile using profileId from above
 
-    useEffect(() => {
+     useEffect(() => {
         fetch(`http://localhost:8088/profiles?id=${profileId}`)
             .then(res => res.json())
             .then(data => {
-                setProfile(data[0])
+
+                //extract city and state from location
+
+                const [extractedCity, extractedState] = data[0].location.split(', ')
+
+                const formattedObject = {
+                    id: data[0].id,
+                    userId: data[0].userId,
+                    picture: data[0].picture,
+                    city: extractedCity,
+                    state: extractedState,
+                    primaryInstrumentId: data[0].primaryInstrumentId,
+                    about: data[0].about,
+                    primaryGenreId: data[0].primaryGenreId,
+                    featuredSong: '',
+                    spotify: data[0].spotify,
+                    facebook: data[0].facebook,
+                    instagram: data[0].instagram,
+                    tiktok: data[0].tiktok
+                }
+
+                // console.log(data[0])
+                // console.log(formattedObject)
+                setProfile(formattedObject)
             })
     }, [])
+
 
     //fetch primary genres
 
@@ -65,9 +90,12 @@ export const EditPrimaryInfo = () => {
     const handlePrimaryInfoEditSubmission = e => {
         e.preventDefault()
 
+        //combine city and state into a string
+        const combinedCityState = `${profile.city}, ${profile.state}`
+
         const newPrimaryInfoObj = {
             picture: profile.picture,
-            location: profile.location,
+            location: combinedCityState,
             primaryInstrumentId: profile.primaryInstrumentId,
             primaryGenreId: profile.primaryGenreId,
             spotify: profile.spotify,
@@ -137,17 +165,27 @@ export const EditPrimaryInfo = () => {
                             }
                             ></input>
 
-                            <label htmlFor="editLocation">Location:</label>
+                            <label htmlFor="editCity">City:</label>
                             <br />
-                            <input required type="text" name="editLocation" className="input input_text input_reg input_field_colors" value={profile.location} onChange={
+                            <input required type="text" name="editCity" className="input input_text input_reg input_field_colors" value={profile.city} onChange={
                                 e => {
                                     let copy = { ...profile }
-                                    copy.location = e.target.value
+                                    copy.city = e.target.value
                                     setProfile(copy)
                                 }
                             }
                             ></input>
 
+                            <label htmlFor="editState">State Code:</label>
+                            <br />
+                            <input required type="text" name="editState" maxLength="2" className="input input_text input_reg input_field_colors" value={profile.state} onChange={
+                                e => {
+                                    let copy = { ...profile }
+                                    copy.state = e.target.value
+                                    setProfile(copy)
+                                }
+                            }
+                            ></input>
                             {
                                 bBUserObject.isBand
 
