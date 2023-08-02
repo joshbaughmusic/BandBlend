@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"
+import FadeIn from 'react-fade-in';
 import "./Login.css"
 
 export const Login = () => {
@@ -38,8 +39,7 @@ export const Login = () => {
 
             {/* copied over homepage content for background and logos, leaving css the same here for that part of it */}
 
-
-            <div className="waves-login-transparent"></div>
+            
             <div className="container container_all_login_content">
                     <section className="container container_hero container_hero_login">
                         <header className="container container_heading">
@@ -49,6 +49,7 @@ export const Login = () => {
                     </section>
 
                   
+            <FadeIn>
 
                     <main className="container--login">
                         
@@ -71,9 +72,10 @@ export const Login = () => {
                             <button type="submit" className="button_profile_colors button-loginreg" onClick={handleRegisterClick}>Register</button>
                         </section>
                     </main>
+                    </FadeIn>
                     </div>
+                    <div className="waves-login-transparent"></div>
               
-           
 
 
         </>

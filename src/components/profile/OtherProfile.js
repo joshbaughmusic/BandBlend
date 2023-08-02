@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom"
 import { PostProfile } from "../posts/PostProfile.js"
 import { SaveButtonProfile } from "./SaveButtonProfile.js"
 import { Distance } from "./Distance.js"
+import FadeIn from 'react-fade-in';
+
 
 export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, setSidebar }) => {
     //bringing in these props from maincontainer to handle message button click
@@ -94,6 +96,7 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
 
     return (
         <>
+        <FadeIn>
             <section className="container container_profile_page">
                 <article className="container container_profile_primary">
 
@@ -277,6 +280,7 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
                     </ul>
                 </article>
             </section>
+            </FadeIn>
         </>
     )
 }

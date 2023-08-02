@@ -4,9 +4,9 @@ import { useEffect, useState } from "react"
 import { Comment } from "./Comment.js"
 import { NewComment } from "./NewComment.js"
 import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
 import * as BiIcons from "react-icons/bi";
 import { Collapse } from 'antd'
+import FadeIn from 'react-fade-in';
 
 
 // import { ReactComponent as ThumbLiked } from "../../images/svg/thumb-liked-2.svg"
@@ -16,7 +16,9 @@ import { Collapse } from 'antd'
 
 export const PostProfile = ({ userName, userId, postId, userPicture, postBody, postDate, myProfileId, setMyPosts, postKey }) => {
 
+    //from antD library for collapse feature
     const { Panel } = Collapse
+    const [openPanel, setOpenPanel] = useState(0)
 
     const navigate = useNavigate()
     const localBbUser = localStorage.getItem("bb_user")
@@ -94,7 +96,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
     useEffect(() => {
         getAllComments()
-    }, [])
+    }, [openPanel])
 
     //use effect to set state of whether or not current user has like the post already or not so the right html can be generated below
 
@@ -189,6 +191,23 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
             })
     }
 
+    const handleOpenCommentsOnNewComment = e => {
+        const [, commentPanelToOpen] = e.target.id.split('--')
+
+        setOpenPanel(parseInt(commentPanelToOpen))
+    }
+
+    const handleViewHideCommentsClick = e => {
+        const [, commentSectionToOpen] = e.target.id.split('--')
+
+        if (openPanel) {
+            setOpenPanel(0)
+        } else {
+            setOpenPanel(parseInt(commentSectionToOpen))
+        }
+    }
+
+
     //format post date
 
     const convertTimestamp = timestamp => {
@@ -216,6 +235,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     if (userId === bBUserObject.id) {
 
         return <>
+        <FadeIn >
             <div className="container_container_post_comments_full">
                 <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
                     <section className="post_content_except_comments">
@@ -269,8 +289,31 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     </div>
                 </div>
 
+                {
+                    commentsWithUsers.some(item => item.commentObj.postId === postId) 
 
-                <NewComment postId={postId} getAllComments={getAllComments} />
+                        ?
+
+
+                        openPanel
+
+                            ?
+
+                            <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>Hide Comments <BiIcons.BiSolidUpArrow className="icon icon_viewhide_comments"/></div>
+
+                            :
+
+                            <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>View Comments <BiIcons.BiSolidDownArrow className="icon icon_viewhide_comments"/></div>
+
+
+
+                        :
+
+                        ""
+                }
+
+
+                <NewComment postId={postId} getAllComments={getAllComments} handleOpenCommentsOnNewComment={handleOpenCommentsOnNewComment} />
 
                 {
 
@@ -281,8 +324,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         <>
 
                             <div className="container container_commentsSection" id={`comments--${postId}`}>
-                                <Collapse expandIcon={({ isActive }) => isActive ? <BiIcons.BiSolidDownArrow /> : <BiIcons.BiSolidRightArrow />} ghost expandIconPosition="end" size='small' >
-                                    <Panel className="panel_comment_colapsible" header="View Comments" key="1">
+                                <Collapse activeKey={openPanel}  ghost size='small' >
+                                    <Panel className="panel_comment_colapsible" header="View Comments" key={postId}>
 
 
                                         {
@@ -318,10 +361,12 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
 
             </div>
+            </FadeIn>
         </>
     } else {
 
         return <>
+        <FadeIn>
             <div className="container_container_post_comments_full">
                 <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
                     <section className="post_content_except_comments">
@@ -382,8 +427,33 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                     </div>
                 </div>
 
+                {
+                    commentsWithUsers.some(item => item.commentObj.postId === postId) 
 
-                <NewComment postId={postId} getAllComments={getAllComments} />
+                        ?
+
+
+                        openPanel
+
+                            ?
+
+                            <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>Hide Comments</div>
+
+                            :
+
+                            <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>View Comments</div>
+
+
+
+                        :
+
+                        ""
+                }
+
+
+
+
+                <NewComment postId={postId} getAllComments={getAllComments} handleOpenCommentsOnNewComment={handleOpenCommentsOnNewComment} />
 
                 {
 
@@ -394,8 +464,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         <>
 
                             <div className="container container_commentsSection" id={`comments--${postId}`}>
-                                <Collapse expandIcon={({ isActive }) => isActive ? <BiIcons.BiSolidDownArrow /> : <BiIcons.BiSolidRightArrow />} ghost expandIconPosition="end" size='small' >
-                                    <Panel className="panel_comment_colapsible" header="View Comments" key="1">
+                                <Collapse activeKey={openPanel} ghost  size='small' >
+                                    <Panel className="panel_comment_colapsible" header="View Comments" key={postId}>
 
 
                                         {
@@ -431,6 +501,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
 
             </div>
+            </FadeIn>
         </>
     }
 }

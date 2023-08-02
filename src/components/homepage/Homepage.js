@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import "./Homepage.css"
 import { PostHome } from "../posts/PostHome.js"
 import { HomeSearchbar } from "./HomeSearchbar.js"
+import FadeIn from 'react-fade-in';
+
 
 export const Homepage = () => {
 
@@ -44,11 +46,11 @@ export const Homepage = () => {
 
     //get profile of current logged in user
 
-    const currentUserProfile = profilesWithUsers.find( profile => profile.user.id === bBUserObject.id)
+    const currentUserProfile = profilesWithUsers.find(profile => profile.user.id === bBUserObject.id)
 
     //filter out posts that belong to the currently logged in user and get latest 3 posts from remainder and store in variable
 
-    const latestPosts = [...allPosts].filter( post => {
+    const latestPosts = [...allPosts].filter(post => {
         return post.profileId !== currentUserProfile?.id
     }).sort((a, b) => b.date - a.date).slice(0, 3)
 
@@ -57,27 +59,29 @@ export const Homepage = () => {
 
     const profilesWithPostsAttached = latestPosts.map(post => {
         let matchedProfile = profilesWithUsers.find(profile => profile.id === post.profileId)
-        
+
         let profileWithPost = {
             ...matchedProfile,
             ...post
         }
 
         return profileWithPost
-    })    
+    })
 
     return (
         <>
 
             {/* <section className="waves-home container container_homepage">
                 <div className="container container_homepage_inner"> */}
-                <div className="container container_all_homepage_content">
+                <FadeIn>
+            <div className="container container_all_homepage_content">
                 <section className="container container_hero">
                     <header className="container container_heading">
-                        <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-black.png")}/>
-                        <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-black.png")}/>
+                        <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-black.png")} />
+                        <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-black.png")} />
                     </header>
-                        <HomeSearchbar />
+
+                    <HomeSearchbar />
                 </section>
                     <div className="container container_greeting">
                         {
@@ -93,32 +97,35 @@ export const Homepage = () => {
 
                         }
                     </div>
-                <section className="container container_home_latest_posts_outer">
-                    <ul className="container container_home_latest_posts_inner">
-                    <h3 className="heading heading_home_latest_posts">Latest posts from the community:</h3>
-                        {
-                            profilesWithPostsAttached?.length
+                    <section className="container container_home_latest_posts_outer">
+                        <ul className="container container_home_latest_posts_inner">
+                            <h3 className="heading heading_home_latest_posts">Latest posts from the community:</h3>
+                            {
+                                profilesWithPostsAttached?.length
 
-                                ?
+                                    ?
 
-                                profilesWithPostsAttached.map(profileWithPost => <PostHome 
-                                    key={`profileWithPost--${profileWithPost.id}`} 
-                                    profileId={profileWithPost.profileId} userPicture={profileWithPost.picture} userName={profileWithPost?.user?.name} userId={profileWithPost?.user?.id} 
-                                    postId={profileWithPost.id}
-                                    postBody={profileWithPost.body} 
-                                    postDate={profileWithPost.date} />)
+                                    profilesWithPostsAttached.map(profileWithPost => <PostHome
+                                        key={`profileWithPost--${profileWithPost.id}`}
+                                        profileId={profileWithPost.profileId} userPicture={profileWithPost.picture} userName={profileWithPost?.user?.name} userId={profileWithPost?.user?.id}
+                                        postId={profileWithPost.id}
+                                        postBody={profileWithPost.body}
+                                        postDate={profileWithPost.date} />)
 
-                                :
+                                    :
 
-                                ''
-                        }
-                    </ul>
-                    
-                </section>
-                </div>
-                {/* </div>
+                                    ''
+                            }
+                        </ul>
+
+                    </section>
+
+            </div>
+            {/* </div>
             </section> */}
+            </FadeIn>
             <div className="waves-home"></div>
+
 
         </>
     )

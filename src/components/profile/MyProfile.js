@@ -4,6 +4,8 @@ import { PostProfile } from "../posts/PostProfile.js"
 import { NewPost } from "../posts/NewPost.js"
 import "./MyProfile.css"
 import { NewPhoto } from "./NewPhoto.js"
+import FadeIn from 'react-fade-in';
+
 
 export const MyProfile = () => {
 
@@ -142,6 +144,7 @@ export const MyProfile = () => {
 
     return (
         <>
+        <FadeIn>
             <section className="container container_profile_page">
                 <article className="container container_profile_primary">
 
@@ -392,6 +395,7 @@ export const MyProfile = () => {
 
                 </article>
             </section>
+            </FadeIn>
         </>
     )
 }

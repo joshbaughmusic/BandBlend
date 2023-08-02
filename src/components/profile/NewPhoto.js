@@ -39,14 +39,14 @@ export const NewPhoto = ({ closeNewPhoto, myProfileId, setMedia, }) => {
                         })
                 })
         } else {
-            window.alert("New post cannot be blank.")
+            window.alert("Please enter a URL to your photo.")
         }
     }
 
     return (
         <>
         <form className="form form_new_photo">
-                    <input autoFocus name="newPhoto" className="input input_text input_text_photo input_field_colors" placeholder="Enter Photo URL..." onChange={
+                    <input type="url" pattern="https://.*" required autoFocus name="newPhoto" className="input input_text input_text_photo input_field_colors" placeholder="Enter Photo URL..." onChange={
                         e => {
                             const copy = { ...newPhoto }
                             copy.url = e.target.value
@@ -55,7 +55,7 @@ export const NewPhoto = ({ closeNewPhoto, myProfileId, setMedia, }) => {
                     }
                     ></input>
                 <br />
-                <button type="submit" className="btn btn_profile btn_submit_photo button_profile_colors" onClick={handleSubmitNewPhotoClick}>Submit Photo</button>
+                <button type="button" className="btn btn_profile btn_submit_photo button_profile_colors" onClick={handleSubmitNewPhotoClick}>Submit Photo</button>
                 {/* <button type="button" className="btn btn_profile btn_close" onClick={closeNewPhoto}>Close</button> */}
             </form>
         </>

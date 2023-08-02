@@ -149,6 +149,10 @@
     box-shadow: var(--bxsh-post-container);
     font-size: 0.8rem;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .viewhide_comments_bar:hover {
@@ -159,7 +163,9 @@
     background: var(--bg-viewhide-comments-active);
 }
 
-/* end comments section show hide */
+.icon_viewhide_comments {
+}
+
 
 
 /* colapse section */
@@ -181,6 +187,9 @@
     box-shadow: var(--bxsh-post-container);
     font-size: 0.8rem;
     cursor: pointer;
+    height: 0;
+    visibility: collapse;
+    margin-bottom: -20px;
 }
 
 .ant-collapse-header:hover {
@@ -194,6 +203,11 @@
 .ant-collapse-header-text {
     font-weight: 500;
 }
+
+
+/* end colapse section */
+
+/* end comments section show hide */
 
 
 

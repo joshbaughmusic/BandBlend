@@ -96,11 +96,11 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
 
                             ?
 
-                            <FaIcons.FaTimes />
+                            <FaIcons.FaTimes fill="#1D2625" />
                             
                             :
                             
-                            <FaIcons.FaBars />
+                            <FaIcons.FaBars fill="#1D2625" />
                     }
                 </div>
 
