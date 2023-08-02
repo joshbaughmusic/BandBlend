@@ -137,7 +137,9 @@
     /* border: 2px solid black; */
     border-radius: 25px;
     margin-right: 20px;
-    box-shadow: var(--bxsh-profile-sections)
+    box-shadow: var(--bxsh-profile-sections);
+    /* max-height: 257px;
+    max-width: 1330px; */
 
 
 
