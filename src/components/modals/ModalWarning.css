@@ -1,0 +1,46 @@
+.modalStyle .ant-modal-content {
+    background-color: var(--bg-main-solid-3);
+}
+
+.modalStyle .ant-modal-header {
+    background-color: var(--bg-main-solid-3);
+}
+
+.modalStyle .ant-modal-body p {
+    color: var(--text-2);
+}
+
+.modalStyle .ant-modal-footer .ant-btn-default {
+    background: var(--bg-buttons-modal-cancel);
+    border: var(--border-buttons-cmt-mes);
+}
+
+.modalStyle .ant-modal-footer .ant-btn-default:hover {
+    background: var(--bg-buttons-modal-cancel-hover);
+    border: var(--border-buttons-cmt-mes);
+}
+
+.modalStyle .ant-modal-footer .ant-btn-default:active {
+    background: var(--bg-buttons-modal-cancel-active);
+    border: var(--border-buttons-cmt-mes);
+}
+
+.modalStyle .ant-modal-footer .ant-btn-primary {
+    background: var(--bg-buttons-modal-delete);
+    border: var(--border-buttons-cmt-mes);
+}
+
+.modalStyle .ant-modal-footer .ant-btn-primary:hover {
+    background: var(--bg-buttons-modal-delete-hover);
+    border: var(--border-buttons-cmt-mes);
+}
+
+.modalStyle .ant-modal-footer .ant-btn-primary:active {
+    background: var(--bg-buttons-modal-delete-active);
+    border: var(--border-buttons-cmt-mes);
+}
+
+.modalStyle .ant-modal-footer span {
+    color: var(--text-1);
+    font-weight: 300;
+}

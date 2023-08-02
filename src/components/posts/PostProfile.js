@@ -7,22 +7,19 @@ import * as FaIcons from "react-icons/fa";
 import * as BiIcons from "react-icons/bi";
 import { Collapse } from 'antd'
 import FadeIn from 'react-fade-in';
-
-
-// import { ReactComponent as ThumbLiked } from "../../images/svg/thumb-liked-2.svg"
-// import { ReactComponent as ThumbNonLiked } from "../../images/svg/thumb-nonliked.svg"
+import { ModalPostWarning } from "../modals/ModalPostWarning.js"
 
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage.
 
 export const PostProfile = ({ userName, userId, postId, userPicture, postBody, postDate, myProfileId, setMyPosts, postKey }) => {
 
-    //from antD library for collapse feature
-    const { Panel } = Collapse
-    const [openPanel, setOpenPanel] = useState(0)
-
     const navigate = useNavigate()
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
+
+    //from antD library for collapse feature
+    const { Panel } = Collapse
+    const [openPanel, setOpenPanel] = useState(0)
 
     //states to store fetches
 
@@ -32,6 +29,10 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     //state to track if current user has already liked the post or not
 
     const [userLikeObj, setUserLikeObj] = useState([])
+
+    //states to track modal open or close
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
     //fetch all users and comments and match them up with each other:
@@ -114,24 +115,26 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
 
 
-    //set a handler function to take care of deleting posts when the button is clicked. Will also update list of posts using props passed down from MyProfile.
+    //set handler functions to take care of deleting posts when the button is clicked. Will also update list of posts using props passed down from MyProfile.
 
-    const handleDeletePostClick = e => {
-        e.preventDefault()
+    const handleDeletePostClickWarning = e => {
+        setIsModalOpen(true)
+    }
 
-        const [, postIdToDelete] = e.target.id.split("--")
+    const handleDeletePostClick = postIdToDelete => {
 
-        return fetch(`http://localhost:8088/posts/${postIdToDelete}`, {
-            method: "DELETE",
-        })
-            .then(() => {
-                fetch(`http://localhost:8088/posts?profileId=${myProfileId}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        setMyPosts(data)
-
+                return fetch(`http://localhost:8088/posts/${postIdToDelete}`, {
+                    method: "DELETE",
+                })
+                    .then(() => {
+                        fetch(`http://localhost:8088/posts?profileId=${myProfileId}`)
+                            .then(res => res.json())
+                            .then(data => {
+                                setMyPosts(data)
+        
+                            })
                     })
-            })
+
     }
 
     //handle opening up a new comment form for the selected post by adding a show class to that specific form
@@ -236,6 +239,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
         return <>
         <FadeIn >
+            <ModalPostWarning postId={postId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePostClick={handleDeletePostClick}/>
             <div className="container_container_post_comments_full">
                 <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
                     <section className="post_content_except_comments">
@@ -282,7 +286,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                             {/* edit and delete buttons */}
                             <div className="container container_post_myprofile_edit-delete_buttons">
                                 <button className="btn btn_edit btn_edit_post button_cmt_msg_colors" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
-                                <button id={`postDelete--${postId}`} className="btn btn_delete_post button_cmt_msg_colors" onClick={handleDeletePostClick}>Delete</button>
+                                <button id={`postDelete--${postId}`} className="btn btn_delete_post button_cmt_msg_colors" onClick={handleDeletePostClickWarning}>Delete</button>
 
                             </div>
                         </div>
@@ -367,6 +371,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
         return <>
         <FadeIn>
+        <ModalPostWarning postId={postId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePostClick={handleDeletePostClick}/>
             <div className="container_container_post_comments_full">
                 <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
                     <section className="post_content_except_comments">

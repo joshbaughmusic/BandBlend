@@ -46,6 +46,13 @@
     --bg-viewhide-comments:  linear-gradient(0deg, rgba(52,61,60,1) 3%, rgba(79,89,87,1) 60%);
     --bg-viewhide-comments-hover: linear-gradient(0deg, rgba(79,89,87,1) 60%, rgba(52,61,60,1) 96%);
     --bg-viewhide-comments-active: linear-gradient(0deg, rgb(65, 73, 72) 60%, rgb(44, 52, 51) 96%);
+    /* --bg-button-modal-cancel: #4F5957; */
+    --bg-buttons-modal-cancel: linear-gradient(0deg, rgba(52,61,60,1) 16%, rgba(79,89,87,1) 60%);
+    --bg-buttons-modal-cancel-hover: linear-gradient(180deg, rgba(52,61,60,1) 16%, rgba(79,89,87,1) 60%);
+    --bg-buttons-modal-cancel-active: linear-gradient(180deg, rgb(45, 53, 52) 16%, rgb(69, 79, 77)60%);
+    --bg-buttons-modal-delete: linear-gradient(to bottom, #9d5d5c 5%, #5b2929 100%);
+    --bg-buttons-modal-delete-hover: linear-gradient(to bottom, #683131 5%, rgb(119, 70, 69) 100%);
+    --bg-buttons-modal-delete-active: linear-gradient(to bottom, #5d2c2c 5%, rgb(82, 36, 35) 100%);
 
 
     /* borders and border colors */
