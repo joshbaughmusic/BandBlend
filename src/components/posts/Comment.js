@@ -1,14 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ReactComponent as ArrowUpturnRight } from "../../images/svg/arrow_upturn_right.svg"
 import { ReactComponent as ArrowUpturnLeft } from "../../images/svg/arrow_upturn_left.svg"
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import "./Comment.css"
+import { useState } from "react";
+import { ModalCommentWarning } from "../modals/ModalCommentWarning.js";
+
 
 export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, posterProfileId, commentId, commentBody, commentDate, commentName, commentPicture, commentProfileId, commentUserId, commentKey, getAllComments }) => {
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
+
+    //states to track modal open or close
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
     const navigate = useNavigate()
@@ -32,16 +38,15 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
         return formattedDate;
     };
 
-    // handler event for delete comment click
+    //set handler functions to take care of deleting comments when the button is clicked.
 
-    const handleCommentDeleteClick = e => {
-        e.preventDefault()
+    const handleDeleteCommentClickWarning = e => {
+        setIsModalOpen(true)
+    }
 
-        const [, commentId] = e.target.id.split('--')
+    const handleDeleteCommentClick = commentIdToDelete => {
 
-        const parsed = parseInt(commentId)
-
-        return fetch(`http://localhost:8088/comments/${parsed}`, {
+        return fetch(`http://localhost:8088/comments/${commentIdToDelete}`, {
             method: "DELETE",
         })
             .then(() => {
@@ -49,11 +54,13 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
                 getAllComments()
 
             })
+
     }
 
 
     return (
         <>
+        <ModalCommentWarning commentId={commentId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeleteCommentClick={handleDeleteCommentClick}/>
             <div className="container container_comment_card" key={commentKey}>
                 <div className="container container_comment_heading">
                     <ArrowUpturnLeft className="icon icon_comment icon_comment_arrowup" />
@@ -96,7 +103,7 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
                                     navigate(`../edit/comment/${commentId}`)
                                 }}>Edit</button>
 
-                                <button className="btn btn_delete btn_delete_comment button_cmt_msg_colors" id={`comment--${commentId}`} onClick={handleCommentDeleteClick}>Delete</button>
+                                <button className="btn btn_delete btn_delete_comment button_cmt_msg_colors" id={`comment--${commentId}`} onClick={handleDeleteCommentClickWarning}>Delete</button>
                             </div>
 
                         </>
