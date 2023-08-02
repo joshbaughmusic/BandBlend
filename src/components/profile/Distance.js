@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import './Distance.css'
+import * as TbIcons from "react-icons/tb";
+import * as BsIcons from "react-icons/bs";
 
 export const Distance = ({ profileId }) => {
     const [calculatedMiles, setCalculatedMiles] = useState('')
@@ -88,13 +90,25 @@ export const Distance = ({ profileId }) => {
     return (
         <>
             <div className="container container_profile_distance">
-                <img className="icon icon_distance" src={require("../../images/car_icon.png")} />
+
+                {
+                    calculatedMiles === 'In a galaxy far, far away...'
+                    
+                    ?
+
+                    <TbIcons.TbPlanet className="icon icon_distance" />
+
+                    :
+
+                    <BsIcons.BsFillCarFrontFill className="icon icon_distance" />
+
+                }
                 {
                     calculatedMiles === 'In a galaxy far, far away...'
 
                     ?
 
-                    <p className="text text_profile_distance">In a galaxy far, far away...</p>
+                    <p className="text text_profile_distance text_profile_distance_galaxy">In a galaxy far, far away...</p>
 
                     :
 

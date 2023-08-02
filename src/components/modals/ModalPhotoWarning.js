@@ -29,7 +29,7 @@ export const ModalPhotoWarning = ({ mediaId, isModalOpen, setIsModalOpen, handle
         className="modalStyle"
         closeIcon={false}
         maskStyle={{
-            backgroundColor: "rgba(0, 0, 0, 0.100)"
+            backgroundColor: "rgba(0, 0, 0, 0.400)"
         }}
         >
         <p>Are you sure you want to delete this photo?</p>

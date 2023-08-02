@@ -35,6 +35,17 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
 
+    //store profile of current user
+    const [currentUserProfile, setCurrentUserProfile] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}`)
+            .then(res => res.json())
+            .then(data => {
+                setCurrentUserProfile(data[0])
+            })
+    }, [])
+
     const getMessages = () => {
 
         fetch(`http://localhost:8088/messages?receiverId=${bBUserObject.id}`)
@@ -158,7 +169,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
                     }
                     {
                         localStorage.getItem("bb_user")
-                            ? <li className="list_item  nav_list_item_logout dropdown-item">
+                        ? <li className="list_item  nav_list_item_logout dropdown-item">
                                 <Link className="nav_list_item_link nav-dropdown-links" to="" onClick={() => {
                                     localStorage.removeItem("bb_user")
                                     setSidebar(false)
@@ -227,6 +238,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
                                     setSidebar(false)
                                     navigate("/", { replace: true })
                                 }}>Logout</Link>
+                                <NavLink className="nav_list_item_link" to={`/myprofile`}><img className="img img_navbar_user" src={currentUserProfile.picture}/></NavLink>
                             </li>
                             : ""
                     }

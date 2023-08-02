@@ -1,6 +1,7 @@
 .container_profile_distance {
     display: flex;
     align-items: center;
+    margin-top: 2px;
 }
 
 .icon_loading {
@@ -10,9 +11,9 @@
 }
 
 .icon_distance {
-    height: 30px;
-    width: 30px;
-    margin-right: 6px;
+    height: 25px;
+    width: 25px;
+    margin-right: 8px;
 }
 
 .text_profile_distance {
@@ -20,4 +21,8 @@
     font-size: 0.95rem;
     font-weight: 400;
 
+}
+
+.text_profile_distance_galaxy {
+    font-size: 0.85rem;
 }

@@ -83,8 +83,10 @@
     --bxsh-message-receiver: -5px 5px 5px hsla(0, 0%, 0%, 0.300);
     --bxsh-message-sidebar: -13px 0px 15px rgba(0, 0, 0, 0.61);
     --bxsh-nav: 0px 1px 15px rgba(0, 0, 0, 0.61);
+    --bxsh-navbar-img: 3px 3px 3px rgba(30, 30, 30, 0.395);
     --bxsh-button: 3px 3px 3px rgba(0, 0, 0, 0.326);
     --bxsh-button-saved: 3px 3px 5px rgba(0, 0, 0, 0.326);
+    --txsh-allprofiles: 3px 3px 3px rgba(0, 0, 0, 0.321);
 }
 
 

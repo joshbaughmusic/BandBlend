@@ -22,7 +22,6 @@ img.logo {
     margin-right: 15px;
     display: flex;
     justify-content: space-evenly;
-
 }
 
 .nav_list_item {
@@ -39,6 +38,18 @@ img.logo {
     cursor: pointer;
 }
 
+.img_navbar_user {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: var(--border-2-thick);
+    box-shadow: var(--bxsh-navbar-img);
+}
+
+.nav_list_item_logout {
+    display: flex;
+    gap: 15px;
+}
 
 /* new mail positioning */
 

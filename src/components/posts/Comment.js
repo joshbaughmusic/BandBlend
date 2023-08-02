@@ -63,7 +63,7 @@ export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, p
         <ModalCommentWarning commentId={commentId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeleteCommentClick={handleDeleteCommentClick}/>
             <div className="container container_comment_card" key={commentKey}>
                 <div className="container container_comment_heading">
-                    <ArrowUpturnLeft className="icon icon_comment icon_comment_arrowup" />
+                    <img src={require("../../images/arrow_upturn_left.png")} className="icon icon_comment icon_comment_arrowup" />
                     <img src={commentPicture} alt="" className="img img_commentor" onClick={() => {
                         navigate(`/profiles/${commentProfileId}`)
                     }} />
