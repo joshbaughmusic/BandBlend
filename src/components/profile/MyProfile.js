@@ -333,8 +333,9 @@ export const MyProfile = () => {
                                         return (
                                             <>
                                                 
-                                                <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${profile.id}--${media.url}`} src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span></div>
-                                                <ModalPhotoWarning 
+                                                <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${media.url}`} src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span></div>
+                                                <ModalPhotoWarning
+                                                key={`imgModalWarning--${media.url}`} 
                                                 mediaId={media.id} 
                                                 isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePhotoClick={handleDeletePhotoClick} />
 
@@ -396,7 +397,7 @@ export const MyProfile = () => {
 
                                     ?
 
-                                    myPosts.sort((a, b) => b.date - a.date).map(post => <PostProfile setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
+                                    myPosts.sort((a, b) => b.date - a.date).map(post => <PostProfile key={`postkey--${post.id}`} setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postCardkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
 
                                     :
 

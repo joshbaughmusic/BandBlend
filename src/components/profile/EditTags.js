@@ -193,7 +193,7 @@ export const EditTags = () => {
                         </div>
                         <form className="container container_tag_edit_form">
                             <ul className="container container_tag_edit_checkboxes">
-                                {tags.map((tag, index) => {
+                                {tags.map((tag) => {
 
                                     return (
                                         <>
