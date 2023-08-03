@@ -25,6 +25,8 @@ export const SearchFilterAllProfiles = ({ setSearchTerms, setSortTerms, setFilte
                             <option className="input_field_colors" value="--">--</option>
                             <option className="input_field_colors" value="name-forward">Name A-Z</option>
                             <option className="input_field_colors" value="name-backward">Name Z-A</option>
+                            <option className="input_field_colors" value="distance-closest">Closest</option>
+                            <option className="input_field_colors" value="distance-furthest">Furthest</option>
                             <option className="input_field_colors" value="genre">Genre</option>
                             <option className="input_field_colors" value="instrument">Instrument</option>
                             {/* <option value="distance">Distance</option> */}

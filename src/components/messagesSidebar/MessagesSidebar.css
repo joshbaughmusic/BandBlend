@@ -25,7 +25,7 @@
 
 .container_messages_sidebar.active {
     right: 0;
-    transition: all ease-in-out 0.7s;
+    transition: all ease-out 0.5s;
 }
 
 .container_messages_header {

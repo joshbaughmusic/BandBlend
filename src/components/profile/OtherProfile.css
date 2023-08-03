@@ -296,16 +296,29 @@
 .heading_profile_primary_location {
     margin-bottom: 2px;
     margin-top: 20px;
+    text-shadow: var(--txsh-profile-location);
+
 }
 
 .heading_profile_primary_primary_instrument {
     font-size: 1rem;
+    text-shadow: var(--txsh-profile-small-headings);
 }
 
 .heading_profile_primary_primary_genre {
     font-size: 1rem; 
+    text-shadow: var(--txsh-profile-small-headings);
 }
 
+.heading_profile_primary_tags {
+    font-size: 1rem; 
+    text-shadow: var(--txsh-profile-small-headings);
+}
+
+.heading_profile_subgenres {
+    font-size: 1rem; 
+    text-shadow: var(--txsh-profile-small-headings);
+}
 .heading_profile_primary_name {
     text-shadow: var(--txsh-profile-headings);
 }

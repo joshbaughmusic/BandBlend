@@ -59,6 +59,31 @@
     font-weight: 500;
 } */
 
+.profile_card_location {
+    font-weight: 500;
+    font-size: 1rem;
+    text-shadow: var(--txsh-allprofiles);
+
+}
+
+.profile_card_instrument,
+.profile_card_bandnote {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 7px;
+}
+
+.text_profile_distance_allprof {
+    font-size: .9rem;
+}
+
+.icon_distance_allprof {
+    width: 19px;
+    min-width: 17px;
+    min-height: 19px;
+    margin-top: 3px;
+}
+
 .profileall_link {
     width: fit-content;
 }
@@ -69,10 +94,13 @@
 
 .profile_card_genre {
     text-shadow: var(--txsh-allprofiles);
+    margin-bottom: 2px;
 }
 
 .profile_card_tags {
     text-shadow: var(--txsh-allprofiles);
+    margin-bottom: 2px;
+
 }
 
 .icon_loading_big {
