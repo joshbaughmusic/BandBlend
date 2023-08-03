@@ -75,6 +75,10 @@
     text-shadow: var(--txsh-allprofiles);
 }
 
+.icon_loading_big {
+    margin: 100px auto;
+}
+
 /* media queries */
 
 @media screen and (max-width: 900px) {
