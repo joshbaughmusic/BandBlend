@@ -16,6 +16,8 @@ export const RegisterProfile = () => {
         tiktok: ""
     })
 
+    const graphHopperAPIKey = 'adf07474-6bc7-421e-8731-0e202739ca11'
+
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
 
@@ -50,78 +52,90 @@ export const RegisterProfile = () => {
 
     const handleProfileRegistration = e => {
         e.preventDefault()
-         
+
         const combinedLocationString = `${profile.city}, ${profile.state}`
 
-        const newPrimaryInfoObj = {
-            userId: bBUserObject.id,
-            picture: profile.picture,
-            location: combinedLocationString,
-            about: profile.about,
-            primaryInstrumentId: profile.primaryInstrumentId,
-            primaryGenreId: profile.primaryGenreId,
-            spotify: profile.spotify,
-            facebook: profile.facebook,
-            instagram: profile.instagram,
-            tiktok: profile.tiktok
-        }
+        //geolocate the combined location string to get coordinates
+        fetch(`https://graphhopper.com/api/1/geocode?q=${combinedLocationString}&locale=de&key=${graphHopperAPIKey}`)
+            .then(res => res.json())
+            .then(data => {
 
-        function isValidUrl(str) {
-            const pattern = new RegExp(
-              '^([a-zA-Z]+:\\/\\/)?' + // protocol
-                '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-                '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
-                '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-                '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-                '(\\#[-a-z\\d_]*)?$', // fragment locator
-              'i'
-            );
-            return pattern.test(str);
-          }
+                const userGeoLocation = data;
 
-        if (bBUserObject.isBand) {
+                const userLatLong = userGeoLocation.hits[0].point.lat + ',' + userGeoLocation.hits[0].point.lng;
 
-            //if the user is a band, dont make it required to have a primary instrument since they can't pick one
+                const newPrimaryInfoObj = {
+                    userId: bBUserObject.id,
+                    picture: profile.picture,
+                    location: combinedLocationString,
+                    latlong: userLatLong,
+                    about: profile.about,
+                    primaryInstrumentId: profile.primaryInstrumentId,
+                    primaryGenreId: profile.primaryGenreId,
+                    spotify: profile.spotify,
+                    facebook: profile.facebook,
+                    instagram: profile.instagram,
+                    tiktok: profile.tiktok
+                }
+        
+                function isValidUrl(str) {
+                    const pattern = new RegExp(
+                        '^([a-zA-Z]+:\\/\\/)?' + // protocol
+                        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+                        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
+                        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                        '(\\#[-a-z\\d_]*)?$', // fragment locator
+                        'i'
+                    );
+                    return pattern.test(str);
+                }
+        
+                if (bBUserObject.isBand) {
+        
+                    //if the user is a band, dont make it required to have a primary instrument since they can't pick one
+        
+                    if (isValidUrl(newPrimaryInfoObj.picture) && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryGenreId) {
+        
+                        return fetch(`http://localhost:8088/profiles`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(newPrimaryInfoObj)
+                        })
+                            .then(response => response.json())
+                            .then((data) => {
+                                console.log(data)
+                                const newProfileId = data.id;
+                                navigate(`/register/tags/${newProfileId}`)
+                            })
+                    } else {
+                        window.alert("Please fill out all non-optional forms.")
+                    }
+                } else {
+        
+                    if (isValidUrl(newPrimaryInfoObj.picture) && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryInstrumentId && newPrimaryInfoObj.primaryGenreId) {
+        
+                        return fetch(`http://localhost:8088/profiles`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(newPrimaryInfoObj)
+                        })
+                            .then(response => response.json())
+                            .then((data) => {
+                                console.log(data)
+                                const newProfileId = data.id;
+                                navigate(`/register/tags/${newProfileId}`)
+                            })
+                    } else {
+                        window.alert("Please fill out all non-optional forms.")
+                    }
+                }
+            })
 
-            if (isValidUrl(newPrimaryInfoObj.picture) && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryGenreId) {
-
-                return fetch(`http://localhost:8088/profiles`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(newPrimaryInfoObj)
-                })
-                    .then(response => response.json())
-                    .then((data) => {
-                        console.log(data)
-                        const newProfileId = data.id;
-                        navigate(`/register/tags/${newProfileId}`)
-                    })
-            } else {
-                window.alert("Please fill out all non-optional forms.")
-            }
-        } else {
-
-            if (isValidUrl(newPrimaryInfoObj.picture) && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryInstrumentId && newPrimaryInfoObj.primaryGenreId) {
-
-                return fetch(`http://localhost:8088/profiles`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(newPrimaryInfoObj)
-                })
-                    .then(response => response.json())
-                    .then((data) => {
-                        console.log(data)
-                        const newProfileId = data.id;
-                        navigate(`/register/tags/${newProfileId}`)
-                    })
-            } else {
-                window.alert("Please fill out all non-optional forms.")
-            }
-        }
 
     }
 

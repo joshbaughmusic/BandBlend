@@ -75,6 +75,8 @@
     --bxsh-profile-img: 1px 1px 20px rgba(30, 30, 30, 0.698);
     --bxsh-profile-sections: 8px 12px 8px rgba(30, 30, 30, 0.824);
     --txsh-profile-headings: 5px 5px 7px rgba(0, 0, 0, 0.514);
+    --txsh-profile-small-headings: 2px 3px 3px rgba(0, 0, 0, 0.514);
+    --txsh-profile-location: 3px 4px 4px rgba(0, 0, 0, 0.514);
     --bxsh-profile-bubbles: 5px 5px 5px rgba(0, 0, 0, 0.451);
     --bxsh-post-container: 5px 5px 8px rgba(0, 0, 0, 0.422);
     --bxsh-comment-container: 5px 5px 8px rgba(0, 0, 0, 0.422);

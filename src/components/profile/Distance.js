@@ -32,13 +32,13 @@ export const Distance = ({ profileId }) => {
                             setCalculatedMiles('0');
                         } else {
                             //geolocate both locations
-                            fetch(`https://graphhopper.com/api/1/geocode?q=${userLocation}&locale=de&key=${graphHopperAPIKey}`)
+                            fetch(`https://graphhopper.com/api/1/geocode?q=${userLocation}&locale=us&key=${graphHopperAPIKey}`)
                                 .then(res => res.json())
                                 .then(data => {
                                     //store this
                                     const userGeoLocation = data;
                                     //now profileLocation
-                                    fetch(`https://graphhopper.com/api/1/geocode?q=${profileLocation}&locale=de&key=${graphHopperAPIKey}`)
+                                    fetch(`https://graphhopper.com/api/1/geocode?q=${profileLocation}&locale=us&key=${graphHopperAPIKey}`)
                                         .then(res => res.json())
                                         .then(data => {
                                             //store this
