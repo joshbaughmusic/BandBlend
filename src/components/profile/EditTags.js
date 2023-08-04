@@ -193,13 +193,12 @@ export const EditTags = () => {
                         </div>
                         <form className="container container_tag_edit_form">
                             <ul className="container container_tag_edit_checkboxes">
-                                {tags.map((tag) => {
+                                {tags.map((tag, index) => {
 
                                     return (
                                         <>
-                                            <li key={`tagListItem--${tag.id}`} className="tag-list-item">
+                                            <li key={`tagLi--${index}`} className="tag-list-item">
                                                 <input
-                                                    key={tag.id}
                                                     type="checkbox"
                                                     id={`tag--${tag.id}`}
                                                     value={tag.id}

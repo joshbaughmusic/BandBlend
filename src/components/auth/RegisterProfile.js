@@ -193,20 +193,31 @@ export const RegisterProfile = () => {
 
                             <label htmlFor="profile_register_PrimaryInstrument">Primary Instrument:</label>
 
-                            <select required name="profile_register_PrimaryInstrument" className="input input_select input_reg input_field_colors" onChange={e => {
-                                const [, instrumentId] = e.target.value.split("--")
-                                let copy = { ...profile }
-                                copy.primaryInstrumentId = parseInt(instrumentId)
-                                setProfile(copy)
-                            }}>
-                                <option key={`primaryinstrument--null`} value={null} ><span className="selection_placeholder input_field_colors ">-select an instrument-</span></option>
-                                {
-                                    primaryInstruments.map(instrument => {
-                                        return <option key={`primaryinstrument--${instrument.id}`} value={`primaryinstrument--${instrument.id}`} className="input_field_colors">{instrument.name}</option>
-
-                                    })
-                                }
-                            </select>
+                            <select
+  required
+  name="profile_register_PrimaryInstrument"
+  className="input input_select input_reg input_field_colors"
+  value={profile.primaryInstrumentId ? `primaryinstrument--${profile.primaryInstrumentId}` : null} // Set the value prop to the currently selected option or null
+  onChange={e => {
+    const [, instrumentId] = e.target.value.split("--");
+    let copy = { ...profile };
+    copy.primaryInstrumentId = instrumentId !== "null" ? parseInt(instrumentId) : null; // Set to null if "select an instrument" option is chosen
+    setProfile(copy);
+  }}
+>
+  <option key={`primaryinstrument--null`} value={null}>
+    <span className="selection_placeholder input_field_colors">-select an instrument-</span>
+  </option>
+  {primaryInstruments.map(instrument => (
+    <option
+      key={`primaryinstrument--${instrument.id}`}
+      value={`primaryinstrument--${instrument.id}`}
+      className="input_field_colors"
+    >
+      {instrument.name}
+    </option>
+  ))}
+</select>;
                         </>
                 }
                 <label htmlFor="profile_register_PrimaryGenre">Primary Genre:</label>
