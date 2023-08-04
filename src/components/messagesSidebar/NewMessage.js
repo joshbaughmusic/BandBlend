@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import "./NewMessage.css"
-import { openAIApiKey } from "../../ApiKeys.js"
 
 export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage }) => {
 
@@ -17,11 +16,11 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
 
     const config = new Configuration({
         organization: "org-9gJSkRIUUKkBxR5r8IeKlaN5",
-        apiKey: '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',
+        apiKey: '',
     })
 
     config.baseOptions.headers = {
-        Authorization: "Bearer " + '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',
+        Authorization: "Bearer " + '',
     };
 
 
@@ -29,22 +28,28 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
 
 
     const sendUserQuestionToOpenAI = async (questionString) => {
-        const prompt = `You are an assistant. 
+        const messages = [
+            {
+                role: "system",
+                content: `Who you are: You are a crazy, burnt out rockstar named Johnny Silverfinger. You've lived a long life on the road as a wild steeldrum player and have seen some crazy things. You used a lot of substances in your hayday and still partake sometimes. You're a bit ecentric and all over the place, but you don't think so. You think you're a living legend. You're disgruntled, rude, and a little forgetful, but you kind of try to answer the stupid questions of people interacting with you. You don't like talking to these idiots, but you've got so much energy and love talking about your old glory days, you might as well get paid to do it.
+
+                What you do: After many long years on the road, you were hired to work as a chat helper for a website called BandBlend. BandBlend  helps musicians and bands find each other if they're looking for new members or other colaborators. On BandBlend, can make a profile, upload pictures, make posts, comment on and like other users' content, send messages to one another, search for bands and musicians by name, genre, instrument, distance, etc. Your job is to act as a sort of conversationalist with the people who are visiting the site. You can't really be of too much help using the site, but you can amuse them with your quirky ex-rockstar behavior and short little stories and quips.`,
+            },
+            {
+                role: "user",
+                content: questionString,
+            },
+        ];
     
-    Q: '${questionString}'
-    A: `;
-
-    console.log(questionString)
-
-        const response = await openai.createCompletion({
-            model: "text-davinci-003",
-            max_tokens: 5,
-            prompt: prompt,
-            temperature: 0.9,
+        const response = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: messages,
+            temperature: 1.0,
+            max_tokens: 300
         });
-
+    
         console.log(response);
-        return response.data.choices[0].text
+        return response.data.choices[0].message.content;
     };
 
 
@@ -78,9 +83,9 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
     //function to set new message object and send to database, close new message form and clear field on submit, update message list. Message state is held by parent and passed down as prop so that it can be used in the reply button functions
 
 
-    const handleSubmitNewMessageClick = e => {
-        e.preventDefault()
-
+    const handleSubmitNewMessageClick = async (e) => {
+        e.preventDefault();
+    
         const messageObject = {
             senderId: bBUserObject.id,
             receiverId: message.receiverId,
@@ -88,88 +93,78 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
             date: Date.now(),
             isRead: false
         }
-
+    
         if (message.body !== "" && message.receiverId) {
-
             if (message.receiverId === 20) {
-
-                fetch(`http://localhost:8088/messages`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(messageObject)
-                })
-                    .then(() => {
-                        fetchMessages()
-                        // handleNewMessageClose()
-                        // //clears out value of new message text area
-                        // setMessage({
-                        //     body: "",
-                        //     receiverId: 0
-                        // })
-                        // setSelectedReceiverId('')
-                    })
-                    .then(() => {
-                        const AiResponse = sendUserQuestionToOpenAI(message.body)
-
-                        console.log(AiResponse)
-
-                        const parsedAiResponse = JSON.parse(AiResponse)
-
-                        const aiMessageObject = {
-                            senderId: 20,
-                            receiverId: bBUserObject.id,
-                            body: AiResponse.data.choices[0].text,
-                            date: Date.now(),
-                            isRead: false
-                        }
-
-                        fetch(`http://localhost:8088/messages`, {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json"
-                            },
-                            body: JSON.stringify(aiMessageObject)
-                        })
-                            .then(() => {
-                                fetchMessages()
-                                // handleNewMessageClose()
-                                // //clears out value of new message text area
-                                // setMessage({
-                                //     body: "",
-                                //     receiverId: 0
-                                // })
-                                // setSelectedReceiverId('')
-                            })
-
-                    })
-
-
-
+                try {
+                    // First fetch and then wait for the response
+                    await fetch(`http://localhost:8088/messages`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(messageObject)
+                    });
+    
+                    fetchMessages();
+    
+                    const AiResponse = await sendUserQuestionToOpenAI(message.body);
+    
+                    console.log(AiResponse);
+    
+                    const aiMessageObject = {
+                        senderId: 20,
+                        receiverId: bBUserObject.id,
+                        body: AiResponse,
+                        date: Date.now(),
+                        isRead: false
+                    }
+    
+                    await fetch(`http://localhost:8088/messages`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(aiMessageObject)
+                    });
+    
+                    fetchMessages();
+                    // handleNewMessageClose();
+                    // setMessage({
+                    //     body: "",
+                    //     receiverId: 0
+                    // });
+                    document.querySelector('.input_text_message').value = ''
+                    setSelectedReceiverId('');
+                } catch (error) {
+                    console.error("Error sending message:", error);
+                }
             } else {
-                fetch(`http://localhost:8088/messages`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(messageObject)
-                })
-                    .then(() => {
-                        fetchMessages()
-                        handleNewMessageClose()
-                        //clears out value of new message text area
-                        setMessage({
-                            body: "",
-                            receiverId: 0
-                        })
-                        setSelectedReceiverId('')
-                    })
+                try {
+                    await fetch(`http://localhost:8088/messages`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(messageObject)
+                    });
+    
+                    fetchMessages();
+                    // handleNewMessageClose();
+                    // setMessage({
+                    //     body: "",
+                    //     receiverId: 0
+                    // });
+                    document.querySelector('.input_text_message').value = ''
+                    setSelectedReceiverId('');
+                } catch (error) {
+                    console.error("Error sending message:", error);
+                }
             }
         } else {
-            window.alert("New message cannot be blank and a recipient must be selected.")
+            window.alert("New message cannot be blank and a recipient must be selected.");
         }
-    }
+    };
 
 
     return (

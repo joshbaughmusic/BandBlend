@@ -117,7 +117,7 @@
     {
       "id": 20,
       "isBand": false,
-      "name": "Johnny Silverfinger",
+      "name": "Johnny Silverfinger (Bot)",
       "email": "null"
     }
   ],
@@ -412,9 +412,9 @@
       "userId": 20,
       "picture": "https://images.unsplash.com/photo-1535644258845-185656906071?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
       "location": "BandBlend, XX",
-      "latlong": "30.2711286,-97.7436995",
-      "primaryInstrumentId": 1,
-      "about": "I'm Johnny Silverfinger!",
+      "latlong": "30.186,-9",
+      "primaryInstrumentId": 11,
+      "about": "Alright, listen up, folks! I'm Johnny Silverfinger, the one and only! I've seen it all during my wild years on the road as a steeldrum player, stuff you can't even imagine. Now though, I pretty much run the show here at BandBlend...and I'm stuck answering your dumb questions. Sure, my senses might not be what they used to be, but you'll have to deal with it cause it's what you're getting. Since I'm getting paid for it, come talk to me if you need help with the site or want to hear about some of the crazy $&@! from when I was on the road. Just make it quick, I ain't got all day.",
       "primaryGenreId": 1,
       "featuredSong": "",
       "spotify": "",
@@ -637,6 +637,12 @@
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n",
       "date": 1690320904636,
       "id": 35
+    },
+    {
+      "profileId": 20,
+      "body": "\"Alright, buckle up, BandBlend gang! Let me take you on a wild ride down memory lane. Back in '89, we were tearing up the road, and this one time, we found ourselves in a quirky little town. The crowd was nuts, and so was I! I accidentally grabbed a tambourine instead of my steeldrum and ended up playing the craziest version of 'Sweet Child O' Mine.' Man, you should've seen the looks on their faces! Man, I miss those days. Good times, good times. Now I'm stuck here with all of you.",
+      "date": 1691187923485,
+      "id": 36
     }
   ],
   "media": [
@@ -649,6 +655,11 @@
       "profileId": 2,
       "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355265181_732701238858295_1570047882012937844_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=0-l97t9MwbsAX9A7KrH&_nc_ht=scontent-atl3-1.xx&oh=00_AfA7AraHR8oFOlX1S4lafGsZo1Eq6fmIFQkY12SAOAdD0w&oe=64D2F7BC",
       "id": 5
+    },
+    {
+      "profileId": 20,
+      "url": "https://i.ebayimg.com/images/g/u-UAAOSwShxhcetV/s-l1600.jpg",
+      "id": 6
     }
   ],
   "messages": [
@@ -672,46 +683,6 @@
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "date": 1690209087558,
       "id": 3
-    },
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "hello!",
-      "date": 1691173544933,
-      "isRead": false,
-      "id": 4
-    },
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "hello!",
-      "date": 1691173596024,
-      "isRead": false,
-      "id": 5
-    },
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "hello",
-      "date": 1691173742952,
-      "isRead": false,
-      "id": 6
-    },
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "hello!",
-      "date": 1691174062473,
-      "isRead": false,
-      "id": 7
-    },
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "hello!",
-      "date": 1691174206239,
-      "isRead": false,
-      "id": 8
     }
   ],
   "comments": [
@@ -1489,6 +1460,21 @@
       "profileId": 1,
       "tagId": 7,
       "id": 63
+    },
+    {
+      "profileId": 20,
+      "tagId": 2,
+      "id": 64
+    },
+    {
+      "profileId": 20,
+      "tagId": 3,
+      "id": 65
+    },
+    {
+      "profileId": 20,
+      "tagId": 4,
+      "id": 66
     }
   ],
   "tags": [
@@ -1904,6 +1890,21 @@
       "profileId": 4,
       "subGenreId": 1,
       "id": 66
+    },
+    {
+      "profileId": 20,
+      "subGenreId": 15,
+      "id": 67
+    },
+    {
+      "profileId": 20,
+      "subGenreId": 14,
+      "id": 68
+    },
+    {
+      "profileId": 20,
+      "subGenreId": 16,
+      "id": 69
     }
   ],
   "subgenres": [
@@ -2095,7 +2096,7 @@
     },
     {
       "id": 11,
-      "name": "Cello"
+      "name": "Steel Drum"
     },
     {
       "id": 12,
