@@ -627,13 +627,6 @@
   ],
   "messages": [
     {
-      "id": 1,
-      "senderId": 1,
-      "receiverId": 4,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "date": 1690063510518
-    },
-    {
       "id": 2,
       "senderId": 2,
       "receiverId": 3,
@@ -645,7 +638,24 @@
       "receiverId": 2,
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "date": 1690209087558,
-      "id": 3
+      "id": 3,
+      "isRead": true
+    },
+    {
+      "senderId": 1,
+      "receiverId": 2,
+      "body": "asdfasdf",
+      "date": 1691111800410,
+      "isRead": true,
+      "id": 4
+    },
+    {
+      "senderId": 2,
+      "receiverId": 1,
+      "body": "asdfasdfa",
+      "date": 1691111820729,
+      "isRead": false,
+      "id": 5
     }
   ],
   "comments": [

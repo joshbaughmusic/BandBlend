@@ -344,7 +344,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
 
                                             {
-                                                commentsWithUsers.map(comment => {
+                                                commentsWithUsers.map((comment, index) => {
                                                     if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
                                                         return <Comment
                                                             fullCommentObj={comment}
@@ -355,7 +355,8 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                                                             commentName={comment.userObj.name}
                                                             commentPicture={comment.userObj.profiles[0].picture}
                                                             commentProfileId={comment.userObj.profiles[0].id}
-                                                            commentKey={`comment--${comment.commentObj.Id}`}
+                                                            key={`comment--${index}`}
+                                                            commentKey={`commentCard--${comment.commentObj.Id}`}
                                                             getAllComments={getAllComments}
                                                         />
                                                     }
@@ -485,7 +486,7 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
 
                                             {
-                                                commentsWithUsers.map(comment => {
+                                                commentsWithUsers.map((comment, index) => {
                                                     if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
                                                         return <Comment
                                                             fullCommentObj={comment}
@@ -496,7 +497,9 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                                                             commentName={comment.userObj.name}
                                                             commentPicture={comment.userObj.profiles[0].picture}
                                                             commentProfileId={comment.userObj.profiles[0].id}
-                                                            commentKey={`comment--${comment.commentObj.Id}`}
+                                                            key={`commentCard--${comment.commentObj.Id}`}
+                                                            key={`comment--${index}`}
+                                                            commentKey={`commentCard--${comment.commentObj.Id}`}
                                                             getAllComments={getAllComments}
                                                         />
                                                     }

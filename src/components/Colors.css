@@ -115,7 +115,8 @@
 /* myprofile delete photo */
 
 .icon_delete_photo {
-    color: #a23831b3;
+    color: #a23831e7;
+    text-shadow: 0px 0px 10px #000000b7;
 }
 
 .icon_delete_photo:hover {

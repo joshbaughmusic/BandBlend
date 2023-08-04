@@ -197,9 +197,8 @@ export const EditTags = () => {
 
                                     return (
                                         <>
-                                            <li key={`tagListItem--${tag.id}`} className="tag-list-item">
+                                            <li key={`tagLi--${index}`} className="tag-list-item">
                                                 <input
-                                                    key={tag.id}
                                                     type="checkbox"
                                                     id={`tag--${tag.id}`}
                                                     value={tag.id}

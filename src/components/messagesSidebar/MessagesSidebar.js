@@ -7,6 +7,17 @@ import { Message } from "./Message.js";
 import { NewMessage } from "./NewMessage.js";
 import { MessageSearchSort } from "./MessageSortFilter.js";
 
+const iteratorGenerator = function* () {
+    let counter = 0
+    while (true) {
+        yield counter
+        counter += 1
+    }
+}
+
+
+const generator = iteratorGenerator();
+
 export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, showSidebar }) => {
 
     const [messages, setMessages] = useState([])
@@ -165,7 +176,8 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
                 <section className="container container_messages_display">
                     {
                         filteredMessages.map(message => <Message
-                            messageKey={`message--${message.messageObj.id}`}
+                            messageKey={`messageCard--${message.messageObj.id}`}
+                            key={`message--${message.messageObj.id}`}
                             messageId={message.messageObj.id}
                             messageSenderId={message.messageObj.senderId}
                             messageReceiverId={message.messageObj.receiverId}

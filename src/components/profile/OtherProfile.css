@@ -355,12 +355,17 @@
 
 /* media queries */
 
-@media screen and (max-width: 870px) {
-   
+@media screen and (max-width: 850px) {
     .container_profile_page {
-        display: flex;
-        flex-direction: column;
+       
+        padding: 30px 30px;
   
+    }
+
+    .container_profile_primary {
+        margin-left: 0;
+        margin-right: 0;
+
     }
 
     .container_profile_primary {
@@ -384,7 +389,26 @@
         margin-left: 0;
         margin-right: 0;
     }
+}
+
+@media screen and (max-width: 775px) {
+   
+    .container_profile_page {
+        display: flex;
+        flex-direction: column;  
+    }
     
+    
+  }
+
+  @media screen and (max-width: 450px) {
+    .container_tags_genres {
+        flex-direction: column;
+        width: 100%;
+        gap: 0px;
+    }
+
+
   }
 
   

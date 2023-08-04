@@ -213,9 +213,8 @@ export const EditSubGenres = () => {
 
                                         return (
                                             <>
-                                                <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
+                                                <li key={`subgenreListItem1Col--${index}`} className="subgenre-list-item">
                                                     <input
-                                                        key={subgenre.id}
                                                         type="checkbox"
                                                         id={`subgenre--${subgenre.id}`}
                                                         value={subgenre.id}
@@ -234,9 +233,8 @@ export const EditSubGenres = () => {
 
                                         return (
                                             <>
-                                                <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
+                                                <li key={`subgenreListItem2Col--${index}`} className="subgenre-list-item">
                                                     <input
-                                                        key={subgenre.id}
                                                         type="checkbox"
                                                         id={`subgenre--${subgenre.id}`}
                                                         value={subgenre.id}
