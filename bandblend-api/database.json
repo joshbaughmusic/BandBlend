@@ -361,7 +361,7 @@
       "userId": 17,
       "picture": "https://plus.unsplash.com/premium_photo-1661714036369-ba1ca9433ddc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fG11c2ljaWFuJTIwYW5kJTIwYmFuZHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
       "location": "Portland, OR",
-      "latlong": "45.5202471,2.674194",
+      "latlong": "45.5202471,-122.674194",
       "primaryInstrumentId": 15,
       "about": "Mia Roberts is a talented indie-pop singer-songwriter from Portland, OR, whose music captivates with its dreamy melodies and introspective lyrics.",
       "primaryGenreId": 8,
@@ -414,9 +414,14 @@
       "id": 9
     },
     {
-      "profileId": 5,
+      "profileId": 4,
       "userId": 1,
       "id": 10
+    },
+    {
+      "profileId": 2,
+      "userId": 1,
+      "id": 11
     }
   ],
   "posts": [
@@ -621,11 +626,18 @@
     },
     {
       "profileId": 2,
-      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355265181_732701238858295_1570047882012937844_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=0-l97t9MwbsAX8g00ax&_nc_ht=scontent-atl3-1.xx&oh=00_AfA1Ah_GTwfpvzRN_ojuK5Z5FcCtO18MYf19ph206RJAgw&oe=64D0FD7C",
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355265181_732701238858295_1570047882012937844_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=do1r0A7GWBYAX8WkcI-&_nc_ht=scontent-atl3-1.xx&oh=00_AfBuE6FeIdwc3fmAs7D0FpRbsd44ZsAB4NjTWqlJhvmLGg&oe=64BD36FC",
       "id": 5
     }
   ],
   "messages": [
+    {
+      "id": 1,
+      "senderId": 1,
+      "receiverId": 4,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": 1690063510518
+    },
     {
       "id": 2,
       "senderId": 2,
@@ -638,24 +650,7 @@
       "receiverId": 2,
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "date": 1690209087558,
-      "id": 3,
-      "isRead": true
-    },
-    {
-      "senderId": 1,
-      "receiverId": 2,
-      "body": "asdfasdf",
-      "date": 1691111800410,
-      "isRead": true,
-      "id": 4
-    },
-    {
-      "senderId": 2,
-      "receiverId": 1,
-      "body": "asdfasdfa",
-      "date": 1691111820729,
-      "isRead": false,
-      "id": 5
+      "id": 3
     }
   ],
   "comments": [

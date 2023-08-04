@@ -196,7 +196,7 @@ export const ProfilesAllList = ({
     //loading spinner will be shown until everything is fetched, then the showSpinner state is set to false
     if (showSpinner) {
         return <section className="container container_loading_screen_all_profiles">
-            <p>Finding your stage mates...</p>
+            <p className="loading_text">Finding your stage mates...</p>
             <img className="icon icon_loading_big" src={require("../../images/spinner_big_background.gif")} />
         </section>
 

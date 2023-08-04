@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { PostProfile } from "../posts/PostProfile.js"
 import { NewPost } from "../posts/NewPost.js"
@@ -330,10 +330,10 @@ export const MyProfile = () => {
                                         ?
 
                                         media.map((media, index) => {
-                                            return (
-                                                <>
+                                            return  <React.Fragment key={`img--${index}`}>
+                                                
 
-                                                    <div className="container container_profile_additional_img" key={`img--${index}`}><img className="img profile_img_item" src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span>
+                                                    <div className="container container_profile_additional_img"><img className="img profile_img_item" src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span>
                                                     </div>
                                                     <ModalPhotoWarning
                                                         key={`imgModalWarning--${index}`}
@@ -341,8 +341,8 @@ export const MyProfile = () => {
                                                         mediaId={media.id}
                                                         isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePhotoClick={handleDeletePhotoClick} />
 
-                                                </>
-                                            )
+                                                </React.Fragment>
+                                            
                                         })
 
                                         :

@@ -102,11 +102,15 @@
     }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 596px) {
     .container_all_profiles_search_filter_individual {
         display: flex;
         flex-direction: column;
         align-items: center;
         
+    }
+
+    .label_allprofiles {
+        margin-top: 10px;
     }
 }
