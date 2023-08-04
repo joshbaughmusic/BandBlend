@@ -110,7 +110,7 @@ export const RegisterProfile = () => {
                                 navigate(`/register/tags/${newProfileId}`)
                             })
                     } else {
-                        window.alert("Please fill out all non-optional forms.")
+                        window.alert("Please finish filling out all non-optional forms or check that your URLs are valid.")
                     }
                 } else {
 
@@ -130,7 +130,7 @@ export const RegisterProfile = () => {
                                 navigate(`/register/tags/${newProfileId}`)
                             })
                     } else {
-                        window.alert("Please fill out all non-optional forms.")
+                        window.alert("Please finish filling out all non-optional forms or check that your URLs are valid.")
                     }
                 }
             })
