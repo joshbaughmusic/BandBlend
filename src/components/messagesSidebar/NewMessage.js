@@ -9,6 +9,44 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
 
+
+    //openAI
+
+    const { Configuration, OpenAIApi } = require("openai")
+
+    const config = new Configuration({
+        organization: "org-9gJSkRIUUKkBxR5r8IeKlaN5",
+        apiKey: "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",
+    })
+
+    config.baseOptions.headers = {
+        Authorization: "Bearer " + "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",
+      };
+
+
+    const openai = new OpenAIApi(config);
+
+
+    const runPrompt = async () => {
+        const prompt = `Who you are: You are a crazy burnt out rockstar named Johnny Silverfinger. Your job is to act as a sort of conversationalist with the people who are visiting a website called BandBlend, which helps musicians and bands find each other. You can't really be of much help using the site, but you can entertain them with your quirky rockstar behavior. 
+    
+    Q: What do you do here Johnny?
+    A: `;
+    
+        const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            max_tokens: 10,
+            prompt: prompt,
+            temperature: 0.9,
+        });
+    
+        console.log(response.data.choices[0].text);
+    };
+
+    runPrompt()
+
+
+
     //fetch all users for dropdown list
 
     useEffect(() => {
