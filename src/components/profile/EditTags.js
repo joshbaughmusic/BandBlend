@@ -195,8 +195,7 @@ export const EditTags = () => {
                             <ul className="container container_tag_edit_checkboxes">
                                 {tags.map((tag, index) => {
 
-                                    return (
-                                        <>
+                                    return  <React.Fragment key={`tagLi--${index}`}>
                                             <li key={`tagLi--${index}`} className="tag-list-item">
                                                 <input
                                                     type="checkbox"
@@ -207,8 +206,7 @@ export const EditTags = () => {
                                                 />
                                                 <label htmlFor={`tag--${tag.id}`} className="tag-list-item-label">{tag.name}</label>
                                             </li>
-                                        </>
-                                    );
+                                        </React.Fragment>
                                 })}
                             </ul>
                             <button type="submit" className="btn btn_edit btn_submit button_profile_colors button-loginreg" onClick={handleSubmitTagEdits}>Confirm Changes</button>

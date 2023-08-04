@@ -8,7 +8,7 @@ export const RegisterProfile = () => {
         city: "",
         state: "",
         about: "",
-        primaryInstrumentId: 16,
+        primaryInstrumentId: 0,
         primaryGenreId: 0,
         spotify: "",
         facebook: "",
@@ -77,7 +77,7 @@ export const RegisterProfile = () => {
                     instagram: profile.instagram,
                     tiktok: profile.tiktok
                 }
-        
+
                 function isValidUrl(str) {
                     const pattern = new RegExp(
                         '^([a-zA-Z]+:\\/\\/)?' + // protocol
@@ -90,13 +90,13 @@ export const RegisterProfile = () => {
                     );
                     return pattern.test(str);
                 }
-        
+
                 if (bBUserObject.isBand) {
-        
+
                     //if the user is a band, dont make it required to have a primary instrument since they can't pick one
-        
+
                     if (isValidUrl(newPrimaryInfoObj.picture) && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryGenreId) {
-        
+
                         return fetch(`http://localhost:8088/profiles`, {
                             method: "POST",
                             headers: {
@@ -106,7 +106,6 @@ export const RegisterProfile = () => {
                         })
                             .then(response => response.json())
                             .then((data) => {
-                                console.log(data)
                                 const newProfileId = data.id;
                                 navigate(`/register/tags/${newProfileId}`)
                             })
@@ -114,9 +113,9 @@ export const RegisterProfile = () => {
                         window.alert("Please fill out all non-optional forms.")
                     }
                 } else {
-        
+
                     if (isValidUrl(newPrimaryInfoObj.picture) && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryInstrumentId && newPrimaryInfoObj.primaryGenreId) {
-        
+
                         return fetch(`http://localhost:8088/profiles`, {
                             method: "POST",
                             headers: {
@@ -194,30 +193,30 @@ export const RegisterProfile = () => {
                             <label htmlFor="profile_register_PrimaryInstrument">Primary Instrument:</label>
 
                             <select
-  required
-  name="profile_register_PrimaryInstrument"
-  className="input input_select input_reg input_field_colors"
-  value={profile.primaryInstrumentId ? `primaryinstrument--${profile.primaryInstrumentId}` : null} // Set the value prop to the currently selected option or null
-  onChange={e => {
-    const [, instrumentId] = e.target.value.split("--");
-    let copy = { ...profile };
-    copy.primaryInstrumentId = instrumentId !== "null" ? parseInt(instrumentId) : null; // Set to null if "select an instrument" option is chosen
-    setProfile(copy);
-  }}
->
-  <option key={`primaryinstrument--null`} value={null}>
-    <span className="selection_placeholder input_field_colors">-select an instrument-</span>
-  </option>
-  {primaryInstruments.map(instrument => (
-    <option
-      key={`primaryinstrument--${instrument.id}`}
-      value={`primaryinstrument--${instrument.id}`}
-      className="input_field_colors"
-    >
-      {instrument.name}
-    </option>
-  ))}
-</select>;
+                                required
+                                name="profile_register_PrimaryInstrument"
+                                className="input input_select input_reg input_field_colors"
+                                value={profile.primaryInstrumentId ? `primaryinstrument--${profile.primaryInstrumentId}` : ''} // Set the value prop to the currently selected option or null
+                                onChange={e => {
+                                    const [, instrumentId] = e.target.value.split("--");
+                                    let copy = { ...profile };
+                                    copy.primaryInstrumentId = instrumentId !== '' ? parseInt(instrumentId) : ''; // Set to null if "select an instrument" option is chosen
+                                    setProfile(copy);
+                                }}
+                            >
+                                <option key={`primaryinstrument--null`} value='' className="selection_placeholder input_field_colors">
+                                    -select an instrument-
+                                </option>
+                                {primaryInstruments.map(instrument => (
+                                    <option
+                                        key={`primaryinstrument--${instrument.id}`}
+                                        value={`primaryinstrument--${instrument.id}`}
+                                        className="input_field_colors"
+                                    >
+                                        {instrument.name}
+                                    </option>
+                                ))}
+                            </select>
                         </>
                 }
                 <label htmlFor="profile_register_PrimaryGenre">Primary Genre:</label>
@@ -228,7 +227,7 @@ export const RegisterProfile = () => {
                     copy.primaryGenreId = parseInt(genreId)
                     setProfile(copy)
                 }}>
-                    <option key={`primarygenre--null`} value={null} ><span className="selection_placeholder input_field_colors">-select a genre-</span></option>
+                    <option key={`primarygenre--null`} value='' className="selection_placeholder input_field_colors">-select a genre-</option>
                     {
                         primaryGenres.map(genre => {
                             return <option key={`primarygenre--${genre.id}`} value={`primarygenre--${genre.id}`} className="input_field_colors input_reg">{genre.name}</option>

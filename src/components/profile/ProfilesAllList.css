@@ -110,12 +110,28 @@
 .profile_card_tags {
     text-shadow: var(--txsh-allprofiles);
     margin-bottom: 2px;
-
 }
 
 .icon_loading_big {
     margin: 0 auto;
 }
+
+.loading_text {
+    animation: textPulseAnimation 2.5s infinite;
+}
+
+@keyframes textPulseAnimation {
+    0%, 100% {
+      color: rgba(209, 207, 207, 0.747); 
+      text-shadow: 0px 0px 5px rgba(131, 111, 111, 0.72);
+    }
+    50% {
+      color: var(--text-1); 
+      text-shadow: 0px 0px 20px rgba(131, 111, 111, 0.837);
+
+    }
+  }
+  
 
 /* media queries */
 

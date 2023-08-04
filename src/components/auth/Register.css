@@ -60,6 +60,10 @@
     margin-bottom: 30px;
 }
 
+.selection_placeholder {
+    color: #663e01 !important;
+}
+
 
 /* register tags */
 

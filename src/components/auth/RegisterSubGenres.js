@@ -143,9 +143,8 @@ export const RegisterSubGenres = () => {
                                 {
                                     subGenreCol1.map((subgenre, index) => {
 
-                                        return (
-                                            <>
-                                                <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
+                                        return <React.Fragment key={`subgenreListItemCol1--${subgenre.id}`}>
+                                                <li className="subgenre-list-item">
 
                                                     <input
                                                         key={subgenre.id}
@@ -158,16 +157,14 @@ export const RegisterSubGenres = () => {
                                                     />
                                                     <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
                                                 </li>
-                                            </>
-                                        );
+                                            </React.Fragment>
                                     })}
                             </ul>
                             <ul className="container container_subgenre_edit_checkbox_col subgenre_reg_width_res_fix">
                                 {
                                     subGenreCol2.map((subgenre, index) => {
 
-                                        return (
-                                            <>
+                                        return <React.Fragment key={`subgenreListItemCol2--${subgenre.id}`}>
                                                 <li key={`subgenreListItem--${subgenre.id}`} className="subgenre-list-item">
 
                                                     <input
@@ -181,8 +178,7 @@ export const RegisterSubGenres = () => {
                                                     />
                                                     <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
                                                 </li>
-                                            </>
-                                        );
+                                            </React.Fragment>
                                     })}
                             </ul>
                         </div>

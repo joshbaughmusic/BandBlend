@@ -211,8 +211,7 @@ export const EditSubGenres = () => {
                                     {
                                         subGenreCol1.map((subgenre, index) => {
 
-                                        return (
-                                            <>
+                                        return <React.Fragment key={`subgenreListItem1Col--${index}`}>
                                                 <li key={`subgenreListItem1Col--${index}`} className="subgenre-list-item">
                                                     <input
                                                         type="checkbox"
@@ -224,15 +223,13 @@ export const EditSubGenres = () => {
                                                     />
                                                     <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
                                                 </li>
-                                            </>
-                                        );
+                                            </React.Fragment>
                                     })}
                                 </ul>
                                 <ul className="container container_subgenre_edit_checkbox-col">
                                     {subGenreCol2.map((subgenre, index) => {
 
-                                        return (
-                                            <>
+                                        return <React.Fragment key={`subgenreListItem2Col--${index}`}>
                                                 <li key={`subgenreListItem2Col--${index}`} className="subgenre-list-item">
                                                     <input
                                                         type="checkbox"
@@ -244,8 +241,7 @@ export const EditSubGenres = () => {
                                                     />
                                                     <label htmlFor={`subgenre--${subgenre.id}`}>{subgenre.name}</label>
                                                 </li>
-                                            </>
-                                        );
+                                            </React.Fragment>
                                     })}
                                 </ul>
                             </div>
