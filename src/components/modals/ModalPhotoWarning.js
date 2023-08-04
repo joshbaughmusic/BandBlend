@@ -3,7 +3,7 @@ import { Modal } from 'antd';
 import "./ModalWarning.css"
 
 
-export const ModalPhotoWarning = ({ mediaId, isModalOpen, setIsModalOpen, handleDeletePhotoClick }) => {
+export const ModalPhotoWarning = ({ modalKey, mediaId, isModalOpen, setIsModalOpen, handleDeletePhotoClick }) => {
 
 
   const handleOk = (mediaId) => {
@@ -19,6 +19,7 @@ export const ModalPhotoWarning = ({ mediaId, isModalOpen, setIsModalOpen, handle
     <>
       
       <Modal 
+        key={modalKey}
         title="Confirm Deletion" 
         open={isModalOpen} 
         onOk={ 

@@ -627,13 +627,6 @@
   ],
   "messages": [
     {
-      "id": 1,
-      "senderId": 1,
-      "receiverId": 4,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "date": 1690063510518
-    },
-    {
       "id": 2,
       "senderId": 2,
       "receiverId": 3,

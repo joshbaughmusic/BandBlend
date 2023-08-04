@@ -285,128 +285,130 @@ export const MyProfile = () => {
                     </article>
 
                     <div className="container container_right_profile_sections">
-                        
-                    <article className="container container_profile_about">
-                        <div className="container heading_main_profile_sections">
-                            <h3 className="heading heading_profile_about">About</h3>
-                            <button type="button" className="btn button_profile_about_edit button_profile_colors" id={`btnEditProfileAbout--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/about/${profile.id}`) }}>Edit About</button>
-                        </div>
-                        <p className="text text_profile_about">{profile.about}</p>
-                    </article>
 
-                    <article className="container container_profile_media_outer">
-                        <div className="container heading_main_profile_sections">
-                            <h3 className="heading heading_profile_media ">Additional Photos</h3>
+                        <article className="container container_profile_about">
+                            <div className="container heading_main_profile_sections">
+                                <h3 className="heading heading_profile_about">About</h3>
+                                <button type="button" className="btn button_profile_about_edit button_profile_colors" id={`btnEditProfileAbout--${profile.id}`} onClick={() => { navigate(`/myprofile/edit/about/${profile.id}`) }}>Edit About</button>
+                            </div>
+                            <p className="text text_profile_about">{profile.about}</p>
+                        </article>
+
+                        <article className="container container_profile_media_outer">
+                            <div className="container heading_main_profile_sections">
+                                <h3 className="heading heading_profile_media ">Additional Photos</h3>
+                                {
+                                    showNewPhoto
+
+                                        ?
+
+                                        <button type="button" className="btn button_profile_photos_close_main button_profile_colors" onClick={handleNewPhotoClose}>Close</button>
+
+                                        :
+
+                                        <button type="button" className="btn button_profile_photos_new button_profile_colors" onClick={handleNewPhotoShow}>Add Photo</button>
+
+                                }
+
+                            </div>
                             {
                                 showNewPhoto
 
                                     ?
 
-                                    <button type="button" className="btn button_profile_photos_close_main button_profile_colors" onClick={handleNewPhotoClose}>Close</button>
+                                    <NewPhoto closeNewPhoto={handleNewPhotoClose} myProfileId={profile.id} setMedia={setMedia} />
 
                                     :
 
-                                    <button type="button" className="btn button_profile_photos_new button_profile_colors" onClick={handleNewPhotoShow}>Add Photo</button>
+                                    ''
 
                             }
-
-                        </div>
-                        {
-                            showNewPhoto
-
-                                ?
-
-                                <NewPhoto closeNewPhoto={handleNewPhotoClose} myProfileId={profile.id} setMedia={setMedia} />
-
-                                :
-
-                                ''
-
-                        }
-                        <div className="container container_profile_media_inner">
-                            {
-                                media?.length
-
-                                    ?
-
-                                    media.map(media => {
-                                        return (
-                                            <>
-                                                
-                                                <div className="container container_profile_additional_img"><img className="img profile_img_item" key={`img--${media.url}`} src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span></div>
-                                                <ModalPhotoWarning
-                                                key={`imgModalWarning--${media.url}`} 
-                                                mediaId={media.id} 
-                                                isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePhotoClick={handleDeletePhotoClick} />
-
-                                            </>
-                                        )
-                                    })
-
-                                    :
-
-                                    <p className="text text_profile_media_none">User hasn't uploaded additional photos yet.</p>
-                            }
-
-                            <div className="popup-media-container" style={{ display: file ? 'block' : 'none' }}>
-                                <span className="icon icon_close icon_close_popup_media" onClick={() => {
-                                    setFile(null)
-                                }}>&times;</span>
-                                <img className="img img-popup" src={file?.url ? file?.url : file} />
-                            </div>
-
-                        </div>
-                        <div className="container container_new_photo" id="container_new_photo">
-
-                        </div>
-                    </article>
-
-                    <article className="container container_profile_posts_outer">
-                        <div className="container heading_main_profile_sections">
-                            <h3 className="heading heading_profile_posts ">Posts</h3>
-                            <div className="container container_new_post" id="container_new_post">
+                            <div className="container container_profile_media_inner">
                                 {
-                                    showNewPost
+                                    media?.length
 
                                         ?
 
-                                        <button type="button" className="btn button_profile_posts_close_main button_profile_colors" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostClose}>Close</button>
+                                        media.map((media, index) => {
+                                            return (
+                                                <>
+
+                                                    <div className="container container_profile_additional_img" key={`img--${index}`}><img className="img profile_img_item" src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span>
+                                                    </div>
+                                                    <ModalPhotoWarning
+                                                        key={`imgModalWarning--${index}`}
+                                                        modalKey={`imgModalWarningCard--${index * Math.random()}`}
+                                                        mediaId={media.id}
+                                                        isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePhotoClick={handleDeletePhotoClick} />
+
+                                                </>
+                                            )
+                                        })
 
                                         :
 
-                                        <button type="button" className="btn button_profile_posts_new button_profile_colors" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostShow}>New Post</button>
-
+                                        <p className="text text_profile_media_none">User hasn't uploaded additional photos yet.</p>
                                 }
+
+                                <div className="popup-media-container" style={{ display: file ? 'block' : 'none' }}>
+                                    <span className="icon icon_close icon_close_popup_media" onClick={() => {
+                                        setFile(null)
+                                    }}>&times;</span>
+                                    <img className="img img-popup" src={file?.url ? file?.url : file} />
+                                </div>
+
                             </div>
-                        </div>
-                        {
-                            showNewPost
+                            <div className="container container_new_photo" id="container_new_photo">
 
-                                ?
+                            </div>
+                        </article>
 
-                                <NewPost closeNewPost={handleNewPostClose} myProfileId={profile.id} setMyPosts={setMyPosts} />
+                        <article className="container container_profile_posts_outer">
+                            <div className="container heading_main_profile_sections">
+                                <h3 className="heading heading_profile_posts ">Posts</h3>
+                                <div className="container container_new_post" id="container_new_post">
+                                    {
+                                        showNewPost
 
-                                :
+                                            ?
 
-                                ''
+                                            <button type="button" className="btn button_profile_posts_close_main button_profile_colors" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostClose}>Close</button>
 
-                        }
-                        <ul className="container container_profile_posts_inner">
+                                            :
+
+                                            <button type="button" className="btn button_profile_posts_new button_profile_colors" id={`btnNewProfilePosts--${profile.id}`} onClick={handleNewPostShow}>New Post</button>
+
+                                    }
+                                </div>
+                            </div>
                             {
-                                myPosts?.length
+                                showNewPost
 
                                     ?
 
-                                    myPosts.sort((a, b) => b.date - a.date).map(post => <PostProfile key={`postkey--${post.id}`} setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postCardkey--${post.id}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
+                                    <NewPost closeNewPost={handleNewPostClose} myProfileId={profile.id} setMyPosts={setMyPosts} />
 
                                     :
 
-                                    <li key={`nopostskey`} className="post post_list_item_null"><p className="text text_profile_post_none">User hasn't submitted any posts yet.</p>
-                                    </li>
-                            }
-                        </ul>
+                                    ''
 
-                    </article>
+                            }
+                            <ul className="container container_profile_posts_inner">
+                                {
+                                    myPosts?.length
+
+                                        ?
+
+                                        myPosts.sort((a, b) => b.date - a.date).map((post, index) => <PostProfile key={`postkey--${index}`} setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postCardkey--${index}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
+
+                                        :
+
+                                        <li key={`nopostskey`} className="post post_list_item_null"><p className="text text_profile_post_none">User hasn't submitted any posts yet.</p>
+                                        </li>
+                                }
+                            </ul>
+
+                        </article>
                     </div>
                 </section>
             </FadeIn>

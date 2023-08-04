@@ -84,14 +84,14 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
                     }
                 }
                 ></textarea>
-                <select required defaultValue={null} name="dropdown dropdown_message_receiver" className="input input_select input_select_message input_field_colors" value={selectedReceiverId} onChange={e => {
+                <select required name="dropdown dropdown_message_receiver" className="input input_select input_select_message input_field_colors" value={selectedReceiverId} onChange={e => {
                     setSelectedReceiverId(e.target.value)
                     const [, userId] = e.target.value.split("--")
                     let copy = { ...message }
                     copy.receiverId = parseInt(userId)
                     setMessage(copy)
                 }}>
-                    <option key={`user--null`} className="input_field_colors" value={null} ><span className="selection_placeholder input_field_colors">-select a recipient-</span></option>
+                    <option key={`user--null`} className="input_field_colors" value='null' >-select a recipient-</option>
                     {
                         users.map(user => {
                             return <option key={`userKey--${user.id}`} className="input_field_colors" value={`user--${user.id}`}>{user.name}</option>
