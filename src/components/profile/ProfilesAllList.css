@@ -35,6 +35,16 @@
 
 }
 
+.container_loading_screen_all_profiles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
 .img_profileCard {
     width: 100px;
     height: 100px;
@@ -104,7 +114,7 @@
 }
 
 .icon_loading_big {
-    margin: 100px auto;
+    margin: 0 auto;
 }
 
 /* media queries */
