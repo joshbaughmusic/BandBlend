@@ -7,16 +7,6 @@ import { Message } from "./Message.js";
 import { NewMessage } from "./NewMessage.js";
 import { MessageSearchSort } from "./MessageSortFilter.js";
 
-const iteratorGenerator = function* () {
-    let counter = 0
-    while (true) {
-        yield counter
-        counter += 1
-    }
-}
-
-
-const generator = iteratorGenerator();
 
 export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, showSidebar }) => {
 

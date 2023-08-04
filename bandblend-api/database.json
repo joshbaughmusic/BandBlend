@@ -117,7 +117,7 @@
     {
       "id": 20,
       "isBand": false,
-      "name": "Johnny Silverfinger (Bot)",
+      "name": "Johnny Silverfinger",
       "email": "null"
     }
   ],
@@ -682,7 +682,8 @@
       "receiverId": 2,
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "date": 1690209087558,
-      "id": 3
+      "id": 3,
+      "isRead": true
     }
   ],
   "comments": [
