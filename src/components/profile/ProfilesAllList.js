@@ -5,6 +5,7 @@ import { SaveButtonList } from "./SaveButtonList.js";
 import FadeIn from 'react-fade-in';
 import * as TbIcons from "react-icons/tb";
 import * as BsIcons from "react-icons/bs";
+import { graphHopperAPIKey } from "../../ApiKeys.js";
 
 export const ProfilesAllList = ({
     searchTerms,
@@ -20,9 +21,6 @@ export const ProfilesAllList = ({
     const [tags, setTags] = useState([]);
     const [saveListener, setSaveListener] = useState(true)
     const [showSpinner, setShowSpinner] = useState(true)
-
-
-    const graphHopperAPIKey = 'adf07474-6bc7-421e-8731-0e202739ca11'
 
 
     //get current user id from local storage

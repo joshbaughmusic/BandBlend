@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import "./NewMessage.css"
+import { openAIApiKey } from "../../ApiKeys.js"
 
 export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage }) => {
 
@@ -16,34 +17,35 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
 
     const config = new Configuration({
         organization: "org-9gJSkRIUUKkBxR5r8IeKlaN5",
-        apiKey: "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",
+        apiKey: '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',
     })
 
     config.baseOptions.headers = {
-        Authorization: "Bearer " + "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",
-      };
+        Authorization: "Bearer " + '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',
+    };
 
 
     const openai = new OpenAIApi(config);
 
 
-    const runPrompt = async () => {
-        const prompt = `Who you are: You are a crazy burnt out rockstar named Johnny Silverfinger. Your job is to act as a sort of conversationalist with the people who are visiting a website called BandBlend, which helps musicians and bands find each other. You can't really be of much help using the site, but you can entertain them with your quirky rockstar behavior. 
+    const sendUserQuestionToOpenAI = async (questionString) => {
+        const prompt = `You are an assistant. 
     
-    Q: What do you do here Johnny?
+    Q: '${questionString}'
     A: `;
-    
+
+    console.log(questionString)
+
         const response = await openai.createCompletion({
             model: "text-davinci-003",
-            max_tokens: 10,
+            max_tokens: 5,
             prompt: prompt,
             temperature: 0.9,
         });
-    
-        console.log(response.data.choices[0].text);
-    };
 
-    runPrompt()
+        console.log(response);
+        return response.data.choices[0].text
+    };
 
 
 
@@ -88,23 +90,82 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
         }
 
         if (message.body !== "" && message.receiverId) {
-            fetch(`http://localhost:8088/messages`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(messageObject)
-            })
-                .then(() => {
-                    fetchMessages()
-                    handleNewMessageClose()
-                    //clears out value of new message text area
-                    setMessage({
-                        body: "",
-                        receiverId: 0
-                    })
-                    setSelectedReceiverId('')
+
+            if (message.receiverId === 20) {
+
+                fetch(`http://localhost:8088/messages`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(messageObject)
                 })
+                    .then(() => {
+                        fetchMessages()
+                        // handleNewMessageClose()
+                        // //clears out value of new message text area
+                        // setMessage({
+                        //     body: "",
+                        //     receiverId: 0
+                        // })
+                        // setSelectedReceiverId('')
+                    })
+                    .then(() => {
+                        const AiResponse = sendUserQuestionToOpenAI(message.body)
+
+                        console.log(AiResponse)
+
+                        const parsedAiResponse = JSON.parse(AiResponse)
+
+                        const aiMessageObject = {
+                            senderId: 20,
+                            receiverId: bBUserObject.id,
+                            body: AiResponse.data.choices[0].text,
+                            date: Date.now(),
+                            isRead: false
+                        }
+
+                        fetch(`http://localhost:8088/messages`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(aiMessageObject)
+                        })
+                            .then(() => {
+                                fetchMessages()
+                                // handleNewMessageClose()
+                                // //clears out value of new message text area
+                                // setMessage({
+                                //     body: "",
+                                //     receiverId: 0
+                                // })
+                                // setSelectedReceiverId('')
+                            })
+
+                    })
+
+
+
+            } else {
+                fetch(`http://localhost:8088/messages`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(messageObject)
+                })
+                    .then(() => {
+                        fetchMessages()
+                        handleNewMessageClose()
+                        //clears out value of new message text area
+                        setMessage({
+                            body: "",
+                            receiverId: 0
+                        })
+                        setSelectedReceiverId('')
+                    })
+            }
         } else {
             window.alert("New message cannot be blank and a recipient must be selected.")
         }
