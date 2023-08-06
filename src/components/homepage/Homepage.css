@@ -87,6 +87,28 @@
 /* end latest posts container */
 
 
+/* johnny button  */
+
+.container_johnny_button {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    border: var(--border-2-thick);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--bxsh-home-latestposts);
+    background: var(--bg-main-gradient-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+/* end johnny button  */
+
+
 
 /* media queries */
 

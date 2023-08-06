@@ -27,8 +27,10 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
 
     //set up new messaage notifications
 
-    const [myReceivedMessages, setMyReceivedMessages] = useState([])
     const [newMessages, setNewMessages] = useState([])
+
+    //this is just a state that can be watched by the useEffect that runs getMessages so that when the sidebar is closed, it renders again
+    const [updateMessages, setUpdateMessages] = useState(false)
 
     //fetch all messages that the receiver Id mataches the id of the current logged in user and filter for newMessages and set that too
 
@@ -51,7 +53,6 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
         fetch(`http://localhost:8088/messages?receiverId=${bBUserObject.id}`)
             .then((res) => res.json())
             .then((receivedMessages) => {
-                setMyReceivedMessages(receivedMessages)
 
                 //sort through all new messages and copy over any that have an isRead property with a value of false into a new aray. This new array will then be set as newMessages
 
@@ -65,7 +66,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
 
     useEffect(() => {
         getMessages()
-    }, [newMessages])
+    }, [updateMessages])
 
     const handleMessageReadUpdate = () => {
 
@@ -89,6 +90,8 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
     const handleMessageTabClick = e => {
          closeMobileMenu()
          showSidebar()
+         //updateMessages is flipped so that it can trigger the useEffect to getMessages
+         setUpdateMessages(!updateMessages)
          handleMessageReadUpdate()
 
     }

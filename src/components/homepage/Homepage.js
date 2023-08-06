@@ -135,8 +135,9 @@ export const Homepage = ({message, setMessage, selectedReceiverId, setSelectedRe
 
                     </section>
                             <div className="container container_johnny_button">
-                                <p>Talk to Johnny</p>
-                                <button className="btn btn_johnny_button" onClick={handleJohhnyClick}>Message</button>
+                                <p>Not sure where to start?</p>
+                                <p>Try asking Johnny:</p>
+                                <button className="btn btn_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
                             </div>
                 </div>
 
