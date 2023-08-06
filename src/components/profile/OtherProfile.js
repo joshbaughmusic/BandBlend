@@ -22,6 +22,12 @@ export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelec
 
     const [file, setFile] = useState(null)
 
+    //make sure page starts at top when it's loaded
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     //fetch currently viewed profile based on param (profileId) with expanded users and primary genre, embeded profileTags and media
 
     useEffect(() => {

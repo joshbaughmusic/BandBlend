@@ -20,7 +20,11 @@ export const Homepage = ({ message, setMessage, selectedReceiverId, setSelectedR
     const [profilesWithUsers, setProfilesWithUsers] = useState([])
     const [allPosts, setAllPosts] = useState([])
 
-    // need to get posts separately to sort them, then somehow get posts matched up with the relevant profile and user to get the picture and name for them
+    //make sure page starts at top when it's loaded
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     //fetch profiles with expanded users (need this info to display on the posts)
 
@@ -136,16 +140,23 @@ export const Homepage = ({ message, setMessage, selectedReceiverId, setSelectedR
                             }
                         </ul>
 
-                    </section>
-                    <div className="container container_homepage_johnny_button">
-                        <div className="container container_homepage_johnny_button_text">
-                            <p className="text text_homepage_johnny_button_1">Not sure where to start?</p>
-                            <p className="text text_homepage_johnny_button_2">Try asking <span className="johnny_profile_link" onClick={ () => {
-                                            navigate(`profiles/20`)
-                                        }}>Johnny</span>:</p>
+                        <div className="container container_homepage_johnny_button">
+                            <div className="container container_homepage_johnny_button_text">
+                                <p className="text text_homepage_johnny_button_1">Not sure where to start?</p>
+                                <p className="text text_homepage_johnny_button_2">Try asking <span className="johnny_profile_link" onClick={() => {
+                                    navigate(`profiles/20`)
+                                }}>Johnny</span>:</p>
+                            </div>
+                            <button className="btn btn_homepage_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
                         </div>
-                        <button className="btn btn_homepage_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
-                    </div>
+                        <div className="container container_homepage_johnny_button container_homepage_johnny_button_smaller">
+                            <p className="text text_homepage_johnny_button_smaller">Not sure where to start?</p>
+                            <p className="text text_homepage_johnny_button_2">Try asking <span className="johnny_profile_link" onClick={() => {
+                                    navigate(`profiles/20`)
+                                }}>Johnny</span>:</p>
+                            <button className="btn btn_homepage_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
+                        </div>
+                    </section>
                 </div>
 
             </FadeIn>

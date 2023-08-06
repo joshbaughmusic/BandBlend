@@ -1,6 +1,7 @@
 
 .container_all_homepage_content {
     position: absolute;
+    height: 93vh;
     width: 100%;
     min-width: 550px;
     overflow-x: hidden;
@@ -90,14 +91,14 @@
 /* johnny button  */
 
 .container_homepage_johnny_button {
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
+    position: fixed;
+    bottom: 60px;
+    left: 60px;
     border: var(--border-2-thick);
     border-radius: 10px;
     padding: 20px;
     box-shadow: var(--bxsh-message-sender);
-    background: var(--bg-main-gradient-1);
+    background: var(--bg-johnny-button-home-container);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -118,6 +119,13 @@
 .text_homepage_johnny_button_1 {
     font-weight: bold;
     text-shadow: var(--txsh-johnny-button);
+}
+
+.container_homepage_johnny_button_smaller {
+    display: none;
+    justify-content: center;
+    text-align: center;
+    min-width: 240px;
 }
 
 /* end johnny button  */
@@ -141,28 +149,29 @@
 @media screen and (max-width: 1500px) {
    .container_homepage_johnny_button {
     position: static;
-    max-width: 300px;
-    margin: 0px auto 20px auto;
+    width: 50%;
+    margin: 20px auto 20px auto;
+   }
+
+   .container_homepage_johnny_button_text {
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 10px;
+    
    }
   }
 
-@media screen and (max-width: 1200px) {
-   .container_home_latest_posts_outer {
-    margin-bottom: 220px;
-   }
+@media screen and (max-width: 1125px) {
+    .container_homepage_johnny_button {
+        display: none;
+    }
+
+    .container_homepage_johnny_button_smaller {
+        display: flex;
+        
+    }
   }
 
-@media screen and (max-width: 1039px) {
-   .container_home_latest_posts_outer {
-    margin-bottom: 250px;
-   }
-  }
-
-@media screen and (max-width: 867px) {
-   .container_home_latest_posts_outer {
-    margin-bottom: 280px;
-   }
-  }
 
   @media screen and (max-width: 550px) {
     .container_all_homepage_content {
@@ -177,10 +186,7 @@
         width: 100%;
         max-width: none;
     }
+
+  
   }
 
-  @media screen and (max-width: 557px) {
-    .container_homepage_johnny_button {
-        display: none;
-       }
-  }

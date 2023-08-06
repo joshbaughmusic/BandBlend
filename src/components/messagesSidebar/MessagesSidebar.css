@@ -80,6 +80,11 @@
     
 }
 
+.icon_loading_messages {
+    margin: 15px auto 20px auto;
+    width: 20%;
+}
+
 /* headings and text */
 
 .heading_messages {

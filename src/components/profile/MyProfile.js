@@ -38,6 +38,12 @@ export const MyProfile = () => {
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
 
+    //make sure page starts at top when it's loaded
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     useEffect(() => {
         fetch(`http://localhost:8088/profiles?userId=${bBUserObject.id}&_expand=user&_expand=primaryGenre&_expand=primaryInstrument&_embed=profileTags&_embed=profileSubGenres`)
             .then(res => res.json())
