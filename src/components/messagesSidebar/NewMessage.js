@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./NewMessage.css"
 
-export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage }) => {
+export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage, handleNewMessageClose }) => {
 
     const [users, setUsers] = useState([])
 
@@ -16,11 +16,11 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
 
     const config = new Configuration({
         organization: "org-9gJSkRIUUKkBxR5r8IeKlaN5",
-        apiKey: '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',
+        apiKey: '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',
     })
 
     config.baseOptions.headers = {
-        Authorization: "Bearer " + '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',
+        Authorization: "Bearer " + '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',
     };
 
 
@@ -129,11 +129,11 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
                     });
     
                     fetchMessages();
-                    // handleNewMessageClose();
-                    // setMessage({
-                    //     body: "",
-                    //     receiverId: 0
-                    // });
+                    handleNewMessageClose();
+                    setMessage({
+                        body: "",
+                        receiverId: 0
+                    });
                     document.querySelector('.input_text_message').value = ''
                     setSelectedReceiverId('');
                 } catch (error) {
@@ -150,11 +150,11 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
                     });
     
                     fetchMessages();
-                    // handleNewMessageClose();
-                    // setMessage({
-                    //     body: "",
-                    //     receiverId: 0
-                    // });
+                    handleNewMessageClose();
+                    setMessage({
+                        body: "",
+                        receiverId: 0
+                    });
                     document.querySelector('.input_text_message').value = ''
                     setSelectedReceiverId('');
                 } catch (error) {
