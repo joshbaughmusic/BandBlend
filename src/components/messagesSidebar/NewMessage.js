@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import "./NewMessage.css"
+import { openaiAPIKey } from "../../apiKeys.js"
 
 export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage, handleNewMessageClose, setShowSpinner }) => {
+
 
     const [users, setUsers] = useState([])
 
@@ -16,11 +18,11 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
 
     const config = new Configuration({
         organization: "org-9gJSkRIUUKkBxR5r8IeKlaN5",
-        apiKey: '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',
+        apiKey: `${openaiAPIKey}`,
     })
 
     config.baseOptions.headers = {
-        Authorization: "Bearer " + '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',
+        Authorization: "Bearer " + `${openaiAPIKey}`,
     };
 
 

@@ -5,14 +5,13 @@ import { SaveButtonList } from "./SaveButtonList.js";
 import FadeIn from 'react-fade-in';
 import * as TbIcons from "react-icons/tb";
 import * as BsIcons from "react-icons/bs";
+import { graphHopperAPIKey } from "../../apiKeys.js";
 
 export const ProfilesAllList = ({
     searchTerms,
     sortTerms,
     filterTerms
 }) => {
-    
-    const graphHopperAPIKey = 'adf07474-6bc7-421e-8731-0e202739ca11'
 
 
     //getting all search, sort, filter terms from parents component ProfilesAllListContainer Shared with SearchFilterAllProfiles.
