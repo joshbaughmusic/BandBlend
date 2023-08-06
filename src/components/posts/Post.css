@@ -64,9 +64,6 @@
     margin-left: 30px;
 }
 
-.container_commentsSection {
-    /* padding-left: 30px; */
-}
 
 .heading_post_name_home {
     display: flex;
@@ -160,10 +157,6 @@
 .viewhide_comments_bar:active {
     background: var(--bg-viewhide-comments-active);
 }
-
-.icon_viewhide_comments {
-}
-
 
 
 /* colapse section */
