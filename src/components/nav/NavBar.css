@@ -9,11 +9,9 @@ img.logo {
     display: flex;
     justify-content: space-between;
     padding: 5px;
-    /* border-bottom: 2px black solid; */
     height: 100px;
     position: fixed;
     width: 100%;
-    /* background-color: rgb(122, 157, 174); */
     z-index: 100;
     top: 0
 }

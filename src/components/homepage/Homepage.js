@@ -6,7 +6,7 @@ import FadeIn from 'react-fade-in';
 import { useNavigate } from "react-router";
 
 
-export const Homepage = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, setSidebar }) => {
+export const Homepage = ({ message, setMessage, setSelectedReceiverId, setShowNewMessage, setSidebar }) => {
 
     const navigate = useNavigate()
 

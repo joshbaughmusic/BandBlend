@@ -497,7 +497,6 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                                                             commentName={comment.userObj.name}
                                                             commentPicture={comment.userObj.profiles[0].picture}
                                                             commentProfileId={comment.userObj.profiles[0].id}
-                                                            key={`commentCard--${comment.commentObj.Id}`}
                                                             key={`comment--${index}`}
                                                             commentKey={`commentCard--${comment.commentObj.Id}`}
                                                             getAllComments={getAllComments}

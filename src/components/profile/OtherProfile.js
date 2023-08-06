@@ -7,7 +7,7 @@ import { Distance } from "./Distance.js"
 import FadeIn from 'react-fade-in';
 
 
-export const OtherProfile = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, setSidebar }) => {
+export const OtherProfile = ({ message, setMessage, setSelectedReceiverId, setShowNewMessage, setSidebar }) => {
     //bringing in these props from maincontainer to handle message button click
 
     //use useParams to get the profile id from url.

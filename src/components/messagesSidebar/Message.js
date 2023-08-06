@@ -5,7 +5,7 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { ModalMessageWarning } from "../modals/ModalMessageWarning.js";
 
-export const Message = ({ messageKey, messageId, messageSenderId, messageReceiverId, messageBody, messageDate, messageReceiverProfileId, messageSenderProfileId, messageReceiverPicture, messageSenderPicture, messageReceiverName, messageSenderName, fetchMessages, handleNewMessageShow, selectedReceiverId, setSelectedReceiverId, message, setMessage }) => {
+export const Message = ({ messageKey, messageId, messageSenderId, messageReceiverId, messageBody, messageDate, messageReceiverProfileId, messageSenderProfileId, messageReceiverPicture, messageSenderPicture, messageReceiverName, messageSenderName, fetchMessages, handleNewMessageShow, setSelectedReceiverId, message, setMessage }) => {
 
     //getting all message details for each message as a props and function to re fetch messages from MessagesSidebar parent ^
 

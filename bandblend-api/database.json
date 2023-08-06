@@ -801,40 +801,7 @@
       "id": 10
     }
   ],
-  "messages": [
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "hello!",
-      "date": 1691360098052,
-      "isRead": false,
-      "id": 1
-    },
-    {
-      "senderId": 20,
-      "receiverId": 1,
-      "body": "Well, hello there, sunshine! What can I do ya for? Need some advice on how to become the next rock 'n' roll legend? Or maybe you just wanna chat with an old, weathered rockstar like myself? Either way, I'm all ears, or, well, eyes in this case. Shoot!",
-      "date": 1691360100316,
-      "isRead": true,
-      "id": 2
-    },
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "tell me about the site! What can i do here?",
-      "date": 1691360117997,
-      "isRead": false,
-      "id": 3
-    },
-    {
-      "senderId": 20,
-      "receiverId": 1,
-      "body": "Ah, BandBlend, the magical land where musicians and bands come together to create auditory masterpieces! Well, my fine friend, on this illustrious site, you can do a whole bunch of things. First off, you can create your own profile and show off your musical prowess. Upload pictures of yourself shredding on your chosen instrument, write some witty yet humble bio, and you'll be attracting fans and potential bandmates like moths to a flame!\n\nThen, you can make posts and share your thoughts with the world. Let everyone know about your latest gigs, your musical influences, or even your favorite brand of guitar strings. Comment on other users' posts, spread some love or give 'em a piece of your mind. Oh, and don't forget to like their stuff too. It's like a virtual pat on the back, but without the sweaty palms.\n\nIf you find a band or musician that tickles your fancy, you can send them a message. Maybe you want to collaborate on a song, jam together, or just have a friendly chat about music and life. Who knows, you might even make a lifelong connection that will lead to superstardom!\n\nAnd of course, you can search for bands and musicians based on their name, genre, instrument, or even how far away they are from you. Because let's face it, nobody wants to travel across the world just for a jam session, right? So, go ahead, my friend, explore the musical wonderland",
-      "date": 1691360126807,
-      "isRead": true,
-      "id": 4
-    }
-  ],
+  "messages": [],
   "comments": [
     {
       "id": 1,

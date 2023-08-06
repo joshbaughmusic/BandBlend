@@ -1,6 +1,5 @@
 .input_reg {
     padding: 8px;
-    /* border: var(--border-2-thin); */
     border-radius: 5px;
     box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
     font-size: 1rem;
