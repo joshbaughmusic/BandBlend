@@ -173,7 +173,7 @@
       "picture": "https://rooftopantics.com/wp-content/uploads/2019/04/popular_female_singers_2019_billie_eilish-1024x683.jpg",
       "location": "Columbus, OH",
       "latlong": "39.9622601,-83.0007065",
-      "primaryInstrumentId": 2,
+      "primaryInstrumentId": 1,
       "about": "I'm a passionate singer-songwriter, telling stories through my music.",
       "primaryGenreId": 2,
       "featuredSong": "https://example.com/songs/lilythompson/featured.mp3",
@@ -455,13 +455,13 @@
     {
       "id": 3,
       "profileId": 3,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "body": "Seeking a talented drummer to complete our band's rhythm section. Our musical journey has been a fusion of passion and creativity, and we need someone who can groove with us on stage and in the studio. If you've got the beats, and you're hungry for musical exploration, hit us up for a jam session. We believe that when diverse minds and talents converge, extraordinary things happen. Let's create something magical together!\n\n",
       "date": "1639009248617"
     },
     {
       "id": 4,
       "profileId": 4,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "body": "Just dropped my latest single on all major platforms! Give it a listen and let me know what you think. Your feedback means the world to me!",
       "date": "1669904542432"
     },
     {
@@ -473,13 +473,13 @@
     {
       "id": 7,
       "profileId": 3,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "body": "Just dropped our latest single on all major platforms! This song has been a labor of love, and we're thrilled to share it with all of you. From the heartfelt lyrics to the infectious melody, it encapsulates the essence of our musical journey. We hope it becomes the soundtrack to your life's moments, whether joyful or reflective. Give it a listen and let us know what you think. Your support means the world to us, and together, we can spread the power of music far and wide.",
       "date": "1489885793455"
     },
     {
       "id": 8,
       "profileId": 4,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "body": "Calling all guitarists! My normal guitarist won't be able to play on my upcoming run of shows. Hit me up if you're interested in the spot!",
       "date": "1527874236231"
     },
     {
@@ -688,14 +688,8 @@
       "senderId": 1,
       "receiverId": 4,
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "date": 1690063510518
-    },
-    {
-      "id": 2,
-      "senderId": 2,
-      "receiverId": 3,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "date": 1690063510518
+      "date": 1690063510518,
+      "isRead": true
     },
     {
       "senderId": 1,
@@ -753,7 +747,7 @@
       "id": 7,
       "postId": 8,
       "userId": 1,
-      "body": "Can't get enough of your amazing tunes! Let's connect and share ideas!",
+      "body": "Just sent you a message!",
       "date": 1672005711000
     },
     {
@@ -804,13 +798,6 @@
       "userId": 5,
       "body": "Your drumming skills are insane! Would love to play together sometime!",
       "date": 1673408602000
-    },
-    {
-      "id": 15,
-      "postId": 8,
-      "userId": 12,
-      "body": "Your latest music video is a visual masterpiece! Kudos! 🎥",
-      "date": 1672136319000
     },
     {
       "id": 16,
@@ -869,13 +856,6 @@
       "date": 1672227443000
     },
     {
-      "id": 24,
-      "postId": 8,
-      "userId": 4,
-      "body": "Your beats are fire! Let's collab on a track that'll get everyone dancing!",
-      "date": 1672081164000
-    },
-    {
       "id": 25,
       "postId": 3,
       "userId": 7,
@@ -930,13 +910,6 @@
       "userId": 3,
       "body": "Your passion for music shines through! Let's connect and share experiences!",
       "date": 1672273009000
-    },
-    {
-      "id": 33,
-      "postId": 8,
-      "userId": 13,
-      "body": "Your guitar riffs are killer! Let's collab and create some serious rock music!",
-      "date": 1672154853000
     },
     {
       "id": 34,
@@ -1154,6 +1127,13 @@
       "userId": 15,
       "body": "Your music is an inspiration! Let's create and uplift through our art!",
       "date": 1672231717000
+    },
+    {
+      "postId": 4,
+      "userId": 4,
+      "body": "thank you so much!",
+      "date": 1691351086531,
+      "id": 66
     }
   ],
   "likes": [],
