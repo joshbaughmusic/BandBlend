@@ -65,7 +65,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
 
     useEffect(() => {
         getMessages()
-    }, [])
+    }, [newMessages])
 
     const handleMessageReadUpdate = () => {
 
@@ -86,10 +86,10 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
         })
     }
 
-    const handleMessageTabClick = async e => {
-        await closeMobileMenu()
-        await showSidebar()
-        await handleMessageReadUpdate()
+    const handleMessageTabClick = e => {
+         closeMobileMenu()
+         showSidebar()
+         handleMessageReadUpdate()
 
     }
 
