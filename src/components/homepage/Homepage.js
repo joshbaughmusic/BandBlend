@@ -5,7 +5,7 @@ import { HomeSearchbar } from "./HomeSearchbar.js"
 import FadeIn from 'react-fade-in';
 
 
-export const Homepage = () => {
+export const Homepage = ({message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, setSidebar}) => {
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
@@ -51,7 +51,7 @@ export const Homepage = () => {
     //filter out posts that belong to the currently logged in user and get latest 3 posts from remainder and store in variable
 
     const latestPosts = [...allPosts].filter(post => {
-        return post.profileId !== currentUserProfile?.id
+        return post.profileId !== currentUserProfile?.id && post.profileId !== 20
     }).sort((a, b) => b.date - a.date).slice(0, 3)
 
 
@@ -68,21 +68,36 @@ export const Homepage = () => {
         return profileWithPost
     })
 
+    const handleJohhnyClick = e => {
+        e.preventDefault()
+
+        setShowNewMessage(true)
+
+        const copy = message
+        copy.receiverId = 20
+        copy.body = ''
+        copy.date = 0
+        copy.id = ''
+        setMessage(copy)
+        setSidebar(true)
+        setSelectedReceiverId(`user--20`)
+
+    }
+
     return (
         <>
 
-            {/* <section className="waves-home container container_homepage">
-                <div className="container container_homepage_inner"> */}
-                <FadeIn>
-            <div className="container container_all_homepage_content">
-                <section className="container container_hero">
-                    <header className="container container_heading">
-                        <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-black.png")} />
-                        <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-black.png")} />
-                    </header>
 
-                    <HomeSearchbar />
-                </section>
+            <FadeIn>
+                <div className="container container_all_homepage_content">
+                    <section className="container container_hero">
+                        <header className="container container_heading">
+                            <img className="heading heading_app_title" src={require("../../images/Bandblend_Logos/Logo-top-black.png")} />
+                            <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-black.png")} />
+                        </header>
+
+                        <HomeSearchbar />
+                    </section>
                     <div className="container container_greeting">
                         {
                             bBUserObject.isBand === true
@@ -119,10 +134,12 @@ export const Homepage = () => {
                         </ul>
 
                     </section>
+                            <div className="container container_johnny_button">
+                                <p>Talk to Johnny</p>
+                                <button className="btn btn_johnny_button" onClick={handleJohhnyClick}>Message</button>
+                            </div>
+                </div>
 
-            </div>
-            {/* </div>
-            </section> */}
             </FadeIn>
             <div className="waves-home"></div>
 

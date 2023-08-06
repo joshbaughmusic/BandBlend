@@ -16,11 +16,11 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
 
     const config = new Configuration({
         organization: "org-9gJSkRIUUKkBxR5r8IeKlaN5",
-        apiKey: '',
+        apiKey: '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',
     })
 
     config.baseOptions.headers = {
-        Authorization: "Bearer " + '',
+        Authorization: "Bearer " + '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',
     };
 
 
