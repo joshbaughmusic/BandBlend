@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./NewMessage.css"
 
-export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage }) => {
+export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage }) => {
 
     const [users, setUsers] = useState([])
 
