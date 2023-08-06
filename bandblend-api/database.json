@@ -144,7 +144,7 @@
       "location": "Birmingham, AL",
       "latlong": "33.5206824,-86.8024326",
       "primaryInstrumentId": 17,
-      "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "about": "Crowmouth is a Nu Metalcore act that combines fast-paced grooves, dissonant leads, and crushing breakdowns. The lyrical content takes all the sorrow and anguish any one person is capable of feeling and spins them into a sincere representation of rock bottom and self loathing.\n\n",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "https://open.spotify.com/artist/6P9WxS7Sr4fgdJnzKI70h8",
@@ -465,12 +465,6 @@
       "date": "1669904542432"
     },
     {
-      "id": 5,
-      "profileId": 2,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "date": "1649898151611"
-    },
-    {
       "id": 6,
       "profileId": 1,
       "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -621,28 +615,34 @@
       "date": "1689863128559"
     },
     {
-      "profileId": 2,
-      "body": "Hello!",
-      "date": 1690166733441,
-      "id": 33
-    },
-    {
       "profileId": 1,
       "body": "wasssssssssssssupppppppppppp",
       "date": 1690255387584,
       "id": 34
     },
     {
-      "profileId": 2,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n",
-      "date": 1690320904636,
-      "id": 35
-    },
-    {
       "profileId": 20,
       "body": "\"Alright, buckle up, BandBlend gang! Let me take you on a wild ride down memory lane. Back in '89, we were tearing up the road, and this one time, we found ourselves in a quirky little town. The crowd was nuts, and so was I! I accidentally grabbed a tambourine instead of my steeldrum and ended up playing the craziest version of 'Sweet Child O' Mine.' Man, you should've seen the looks on their faces! Man, I miss those days. Good times, good times. Now I'm stuck here with all of you.",
       "date": 1691187923485,
       "id": 36
+    },
+    {
+      "profileId": 2,
+      "body": "Tonight we will be dropping our next EP, Low Life. Our vocalist, Alec Harrah, wrote the majority of this EP from scratch. Not only is he able to pour his emotion into the music, but he is also an amazing song writer. Not many musicians can write the guitar, bass, drums, vocals, and synths for a song, much less a whole EP! But Alec can. He deserves all the credit for this one. It is an honor to play guitar for Crowmouth. I am excited to see how far we can go. Thank you to everybody who has come out to support us from social media to live shows. Everything we have right now is because of all of you! Thank you so much from the bottom of our hearts!",
+      "date": 1681348273645,
+      "id": 37
+    },
+    {
+      "profileId": 2,
+      "body": "We will be performing a Crowmouth version of a Korn cover this Saturday night at Zydeco in Birmingham, AL! It will be our next released song as well...",
+      "date": 1691148120073,
+      "id": 38
+    },
+    {
+      "profileId": 2,
+      "body": "Last night was hands down our favorite show. Thank you, Birmingham, for such an incredible evening. All of the bands that played absolutely destroyed their sets. It was an honor to share the evening with you all. We cannot wait to have more future shows with you guys. 🤘🖤",
+      "date": 1691348127312,
+      "id": 39
     }
   ],
   "media": [
@@ -660,6 +660,26 @@
       "profileId": 20,
       "url": "https://i.ebayimg.com/images/g/u-UAAOSwShxhcetV/s-l1600.jpg",
       "id": 6
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/362694270_756423556486063_5439015348625405944_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=730e14&_nc_ohc=48QhcaLHmU4AX_vAssm&_nc_oc=AQmz_ho78ALNwk_vcZb_RY8MbfgRFZjEPPoq7jxWP_PYOIPKdVjV6yq4Q8FtRcQ_o53uT8LUR73QYu-7UU69AaVo&_nc_ht=scontent-atl3-1.xx&oh=00_AfDidHfqtkM6RfyPqW7UU6_BznPkFs_yr1MpuHMVeWHvjA&oe=64D426BF",
+      "id": 7
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/358105438_743700107758408_438747135637897983_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1CFEM3eDQVIAX9RN2b6&_nc_ht=scontent-atl3-1.xx&oh=00_AfBTHGnhg_I5Cz8JRzIoFx-ANUu8xp7brJQ-d6jzZCMQ_w&oe=64D4516D",
+      "id": 8
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/333367483_908007003782600_1861021595508951571_n.jpg?_nc_cat=102&cb=99be929b-59f725be&ccb=1-7&_nc_sid=19026a&_nc_ohc=95LghXIViEkAX_jqAcb&_nc_ht=scontent-atl3-2.xx&oh=00_AfDdPSlPLrUwF-1b0co0X8WmnmRepoaXgqd81fxnw2t8OQ&oe=64D51C64",
+      "id": 9
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/325924513_720616596121161_1018086373805934063_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=19026a&_nc_ohc=Uw0KXXZJkwwAX-McRvg&_nc_oc=AQmMsT35PneFAUsydwwfy4HQl7NopG_lKxg04Bg9YAPch7yz-JCRz_LWxWsiF9Uhyxw9AD5sEq06BtdC04MP3uWi&_nc_ht=scontent-atl3-2.xx&oh=00_AfDCmeD6MiVJKgG2GO0YTLBBfxK4-Jj1ZAgmwDTB5blE4g&oe=64D59948",
+      "id": 10
     }
   ],
   "messages": [
@@ -1038,13 +1058,6 @@
       "date": 1672461956000
     },
     {
-      "id": 51,
-      "postId": 5,
-      "userId": 3,
-      "body": "Your music videos are visually stunning! Congrats on the creativity! 🎥",
-      "date": 1672804022000
-    },
-    {
       "id": 52,
       "postId": 25,
       "userId": 9,
@@ -1141,41 +1154,9 @@
       "userId": 15,
       "body": "Your music is an inspiration! Let's create and uplift through our art!",
       "date": 1672231717000
-    },
-    {
-      "postId": 5,
-      "userId": 2,
-      "body": "asdfasdfasdfasdfasdfasdfasdfasdf",
-      "date": 1690392906738,
-      "id": 66
     }
   ],
-  "likes": [
-    {
-      "id": 1,
-      "userId": 1,
-      "postId": 5,
-      "date": 1690392906738
-    },
-    {
-      "id": 2,
-      "userId": 3,
-      "postId": 5,
-      "date": 1690392906738
-    },
-    {
-      "id": 3,
-      "userId": 4,
-      "postId": 5,
-      "date": 1690392906738
-    },
-    {
-      "id": 4,
-      "userId": 5,
-      "postId": 5,
-      "date": 1690392906738
-    }
-  ],
+  "likes": [],
   "profileTags": [
     {
       "id": 7,
