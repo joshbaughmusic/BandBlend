@@ -253,7 +253,7 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
                                         <p className="text text_messages_johnny_button_1">A bit lonely in here?</p>
                                         <p className="text text_messages_johnny_button_2"><span className="johnny_profile_link" onClick={() => {
                                             navigate(`profiles/20`)
-                                        }}>Johnny</span> is always happy to talk:</p>
+                                        }}>Johnny</span> is always happy(...ish) to talk:</p>
                                     </div>
                                     <button className="btn btn_messages)_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
                                 </div>

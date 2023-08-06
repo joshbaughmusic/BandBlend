@@ -129,7 +129,7 @@
       "location": "Nashville, TN",
       "latlong": "36.17712455,-86.78936303230881",
       "primaryInstrumentId": 2,
-      "about": "Musician turned coder, creator of BandBlend.",
+      "about": "Musician turned coder, creator of BandBlend. Metal never paid the bills.",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "",
@@ -756,12 +756,6 @@
       "body": "\"I just released my new track, 'The Heart of the Forest.' This song is about the power of nature to heal and connect us. I hope you enjoy it!",
       "date": 1690356152776,
       "id": 58
-    },
-    {
-      "profileId": 1,
-      "body": "hello!",
-      "date": 1691359884259,
-      "id": 59
     }
   ],
   "media": [
@@ -1481,15 +1475,15 @@
     },
     {
       "userId": 1,
-      "postId": 54,
-      "date": 1691359779369,
-      "id": 49
-    },
-    {
-      "userId": 1,
       "postId": 36,
       "date": 1691360159429,
       "id": 50
+    },
+    {
+      "userId": 1,
+      "postId": 54,
+      "date": 1691364386934,
+      "id": 51
     }
   ],
   "profileTags": [
