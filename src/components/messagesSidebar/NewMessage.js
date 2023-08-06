@@ -16,11 +16,11 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
 
     const config = new Configuration({
         organization: "org-9gJSkRIUUKkBxR5r8IeKlaN5",
-        apiKey: '',
+        apiKey: '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',
     })
 
     config.baseOptions.headers = {
-        Authorization: "Bearer " + '',
+        Authorization: "Bearer " + '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',
     };
 
 
@@ -117,7 +117,7 @@ export const NewMessage = ({ handleNewMessageClose, handleNewMessageShow, fetchM
                         receiverId: bBUserObject.id,
                         body: AiResponse,
                         date: Date.now(),
-                        isRead: false
+                        isRead: true
                     }
     
                     await fetch(`http://localhost:8088/messages`, {
