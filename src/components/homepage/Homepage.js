@@ -3,9 +3,12 @@ import "./Homepage.css"
 import { PostHome } from "../posts/PostHome.js"
 import { HomeSearchbar } from "./HomeSearchbar.js"
 import FadeIn from 'react-fade-in';
+import { useNavigate } from "react-router";
 
 
-export const Homepage = ({message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, setSidebar}) => {
+export const Homepage = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, setSidebar }) => {
+
+    const navigate = useNavigate()
 
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
@@ -134,11 +137,15 @@ export const Homepage = ({message, setMessage, selectedReceiverId, setSelectedRe
                         </ul>
 
                     </section>
-                            <div className="container container_johnny_button">
-                                <p>Not sure where to start?</p>
-                                <p>Try asking Johnny:</p>
-                                <button className="btn btn_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
-                            </div>
+                    <div className="container container_homepage_johnny_button">
+                        <div className="container container_homepage_johnny_button_text">
+                            <p className="text text_homepage_johnny_button_1">Not sure where to start?</p>
+                            <p className="text text_homepage_johnny_button_2">Try asking <span className="johnny_profile_link" onClick={ () => {
+                                            navigate(`profiles/20`)
+                                        }}>Johnny</span>:</p>
+                        </div>
+                        <button className="btn btn_homepage_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
+                    </div>
                 </div>
 
             </FadeIn>

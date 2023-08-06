@@ -3,7 +3,6 @@
 .container_message_card {
     padding: 10px;
     margin: 15px;
-    /* border: 1px solid black; */
     border-radius: 15px;
     width: 75%;
 }
@@ -16,7 +15,6 @@
 .container_message_card_sender {
     margin-right: auto;
     position: relative;
-    /* background-color: rgba(84, 116, 176, 0.639); */
     box-shadow: var(--bxsh-message-sender);
 
 }
@@ -24,7 +22,6 @@
 .container_message_card_receiver {
     margin-left: auto;
     position: relative;
-    /* background-color: rgba(97, 96, 158, 0.601); */
     box-shadow: var(--bxsh-message-receiver)
 
 }
@@ -62,7 +59,6 @@
 .img_message {
     width: 30px;
     height: 30px;
-    /* border: 2px solid black; */
     border-radius: 50%;
 }
 
