@@ -53,6 +53,8 @@
     --bg-buttons-modal-delete: linear-gradient(to bottom, #9d5d5c 5%, #5b2929 100%);
     --bg-buttons-modal-delete-hover: linear-gradient(to bottom, #683131 5%, rgb(119, 70, 69) 100%);
     --bg-buttons-modal-delete-active: linear-gradient(to bottom, #5d2c2c 5%, rgb(82, 36, 35) 100%);
+    --bg-johnny-button-home-container: linear-gradient(20deg, rgba(94,51,51,0.9332107843137255) 22%, rgba(140,74,74,0.9108018207282913) 51%, rgba(174,104,103,0.8911939775910365) 93%);
+
 
 
     /* borders and border colors */

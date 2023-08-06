@@ -20,7 +20,11 @@ export const Homepage = ({ message, setMessage, selectedReceiverId, setSelectedR
     const [profilesWithUsers, setProfilesWithUsers] = useState([])
     const [allPosts, setAllPosts] = useState([])
 
-    // need to get posts separately to sort them, then somehow get posts matched up with the relevant profile and user to get the picture and name for them
+    //make sure page starts at top when it's loaded
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     //fetch profiles with expanded users (need this info to display on the posts)
 

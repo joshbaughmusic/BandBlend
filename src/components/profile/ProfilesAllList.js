@@ -23,6 +23,13 @@ export const ProfilesAllList = ({
     const [tags, setTags] = useState([]);
     const [saveListener, setSaveListener] = useState(true)
     const [showSpinner, setShowSpinner] = useState(true)
+    
+
+    //make sure page starts at top when it's loaded
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
 
     //get current user id from local storage

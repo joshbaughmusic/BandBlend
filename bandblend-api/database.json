@@ -144,7 +144,7 @@
       "location": "Birmingham, AL",
       "latlong": "33.5206824,-86.8024326",
       "primaryInstrumentId": 17,
-      "about": "Crowmouth is a Nu Metalcore act that combines fast-paced grooves, dissonant leads, and crushing breakdowns. The lyrical content takes all the sorrow and anguish any one person is capable of feeling and spins them into a sincere representation of rock bottom and self loathing.\n\n",
+      "about": "Crowmouth is a Nu Metalcore act from Birmingham, Alabama. They combine fast-paced grooves, dissonant leads, and crushing breakdowns to create a sound that is both heavy and melodic. Their lyrical content is often dark and personal, exploring themes of sorrow, anguish, and self-loathing.\n\n",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "https://open.spotify.com/artist/6P9WxS7Sr4fgdJnzKI70h8",
@@ -441,11 +441,6 @@
     },
     {
       "profileId": 2,
-      "userId": 1,
-      "id": 11
-    },
-    {
-      "profileId": 2,
       "userId": 16,
       "id": 12
     },
@@ -717,19 +712,19 @@
     {
       "profileId": 17,
       "body": "What an unforgettable night! 🎉 I played a cool show a few nights ago that left me buzzing with excitement. The energy was electric, and the crowd's response to my music was absolutely heartwarming. Thank you all for being part of this musical journey. Your support means the world to me, and I can't wait to share more magical moments with you soon!",
-      "date": 1691355531664,
+      "date": 1690355531664,
       "id": 51
     },
     {
       "profileId": 17,
       "body": "Why I write the music I write 📝 For me, music is an exploration of the human experience - the highs, the lows, and everything in between. My songs are like windows into my soul, where I pour my emotions, dreams, and fears into each lyric and melody. It's a way for me to connect with others and make sense of the world around me. I hope my music touches your heart and serves as a reminder that we're never alone in this journey called life. ",
-      "date": 1691355542695,
+      "date": 1681355542695,
       "id": 52
     },
     {
       "profileId": 18,
       "body": "Our new track 'The Breakdown' is out now! This is our heaviest song yet, so get ready to lose your head!",
-      "date": 1691355981638,
+      "date": 1690355981638,
       "id": 53
     },
     {
@@ -741,7 +736,7 @@
     {
       "profileId": 18,
       "body": "Last night's show was insane! The mosh pit was so crazy, I thought the venue was going to collapse! Thanks to everyone who came out and gave us so much energy!",
-      "date": 1691355994279,
+      "date": 1690355994279,
       "id": 55
     },
     {
@@ -753,14 +748,20 @@
     {
       "profileId": 19,
       "body": "Had a great jam session with someone I met on BandlBlend last night! We played for hours and had so much fun. It's always great to find other musicians who are passionate about music as much as I am",
-      "date": 1691356145388,
+      "date": 1681356145388,
       "id": 57
     },
     {
       "profileId": 19,
       "body": "\"I just released my new track, 'The Heart of the Forest.' This song is about the power of nature to heal and connect us. I hope you enjoy it!",
-      "date": 1691356152776,
+      "date": 1690356152776,
       "id": 58
+    },
+    {
+      "profileId": 1,
+      "body": "hello!",
+      "date": 1691359884259,
+      "id": 59
     }
   ],
   "media": [
@@ -803,34 +804,34 @@
   "messages": [
     {
       "senderId": 1,
-      "receiverId": 2,
-      "body": "Hey there!",
-      "date": 1691356253166,
+      "receiverId": 20,
+      "body": "hello!",
+      "date": 1691360098052,
       "isRead": false,
       "id": 1
     },
     {
+      "senderId": 20,
+      "receiverId": 1,
+      "body": "Well, hello there, sunshine! What can I do ya for? Need some advice on how to become the next rock 'n' roll legend? Or maybe you just wanna chat with an old, weathered rockstar like myself? Either way, I'm all ears, or, well, eyes in this case. Shoot!",
+      "date": 1691360100316,
+      "isRead": true,
+      "id": 2
+    },
+    {
       "senderId": 1,
       "receiverId": 20,
-      "body": "hey man!",
-      "date": 1691356509346,
+      "body": "tell me about the site! What can i do here?",
+      "date": 1691360117997,
       "isRead": false,
-      "id": 2
+      "id": 3
     },
     {
       "senderId": 20,
       "receiverId": 1,
-      "body": "Hey there, buddy! What's shakin'? Got any burning questions for the ol' Johnny Silverfinger today?",
-      "date": 1691356510587,
+      "body": "Ah, BandBlend, the magical land where musicians and bands come together to create auditory masterpieces! Well, my fine friend, on this illustrious site, you can do a whole bunch of things. First off, you can create your own profile and show off your musical prowess. Upload pictures of yourself shredding on your chosen instrument, write some witty yet humble bio, and you'll be attracting fans and potential bandmates like moths to a flame!\n\nThen, you can make posts and share your thoughts with the world. Let everyone know about your latest gigs, your musical influences, or even your favorite brand of guitar strings. Comment on other users' posts, spread some love or give 'em a piece of your mind. Oh, and don't forget to like their stuff too. It's like a virtual pat on the back, but without the sweaty palms.\n\nIf you find a band or musician that tickles your fancy, you can send them a message. Maybe you want to collaborate on a song, jam together, or just have a friendly chat about music and life. Who knows, you might even make a lifelong connection that will lead to superstardom!\n\nAnd of course, you can search for bands and musicians based on their name, genre, instrument, or even how far away they are from you. Because let's face it, nobody wants to travel across the world just for a jam session, right? So, go ahead, my friend, explore the musical wonderland",
+      "date": 1691360126807,
       "isRead": true,
-      "id": 3
-    },
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "tell me about bandblend",
-      "date": 1691356526084,
-      "isRead": false,
       "id": 4
     }
   ],
@@ -1219,6 +1220,13 @@
       "body": "Can't wait to hear it!",
       "date": 1691352789947,
       "id": 67
+    },
+    {
+      "postId": 36,
+      "userId": 1,
+      "body": "thanks for your work. Even though you talk too much",
+      "date": 1691360174950,
+      "id": 68
     }
   ],
   "likes": [
@@ -1275,12 +1283,6 @@
       "postId": 37,
       "date": 1691352891678,
       "id": 9
-    },
-    {
-      "userId": 1,
-      "postId": 38,
-      "date": 1691352892891,
-      "id": 10
     },
     {
       "userId": 1,
@@ -1491,6 +1493,36 @@
       "postId": 55,
       "date": 1691356046408,
       "id": 45
+    },
+    {
+      "userId": 1,
+      "postId": 56,
+      "date": 1691356770313,
+      "id": 46
+    },
+    {
+      "userId": 1,
+      "postId": 55,
+      "date": 1691356771904,
+      "id": 47
+    },
+    {
+      "userId": 1,
+      "postId": 57,
+      "date": 1691356776393,
+      "id": 48
+    },
+    {
+      "userId": 1,
+      "postId": 54,
+      "date": 1691359779369,
+      "id": 49
+    },
+    {
+      "userId": 1,
+      "postId": 36,
+      "date": 1691360159429,
+      "id": 50
     }
   ],
   "profileTags": [

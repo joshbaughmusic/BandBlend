@@ -13,6 +13,8 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
 
     const navigate = useNavigate()
 
+    const [showSpinner, setShowSpinner] = useState(false)
+
     const [messages, setMessages] = useState([])
 
     // states to handle and hold filter/sort terms. Passing down into MessageSortFilter.js
@@ -166,21 +168,37 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
 
                     </section>
                 </div>
-                <section className="container container_messages_new">
 
-                    {
-                        showNewMessage
+                {
+                    showSpinner
 
-                            ?
+                        ?
+                        <section className="container container_messages_new">
 
-                            <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage} />
+                            <img className="icon icon_loading_messages" src={require("../../images/loading_pulse.gif")} />
 
-                            :
+                        </section>
 
-                            ""
-                    }
+                        :
 
-                </section>
+                        <section className="container container_messages_new">
+
+                            {
+                                showNewMessage
+
+                                    ?
+
+                                    <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage} showSpinner={showSpinner} setShowSpinner={setShowSpinner} />
+
+                                    :
+
+                                    ""
+                            }
+
+                        </section>
+
+                }
+
                 <MessageSearchSort setSearchTerms={setSearchTerms} setSortTerms={setSortTerms} />
                 <section className="container container_messages_display">
 
@@ -233,7 +251,7 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
                                 <div className="container container_messages_johnny_button">
                                     <div className="container container_messages_johnny_button_text">
                                         <p className="text text_messages_johnny_button_1">A bit lonely in here?</p>
-                                        <p className="text text_messages_johnny_button_2"><span className="johnny_profile_link" onClick={ () => {
+                                        <p className="text text_messages_johnny_button_2"><span className="johnny_profile_link" onClick={() => {
                                             navigate(`profiles/20`)
                                         }}>Johnny</span> is always happy to talk:</p>
                                     </div>

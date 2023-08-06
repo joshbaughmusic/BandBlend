@@ -1,6 +1,7 @@
 
 .container_all_homepage_content {
     position: absolute;
+    height: 93vh;
     width: 100%;
     min-width: 550px;
     overflow-x: hidden;
@@ -90,14 +91,14 @@
 /* johnny button  */
 
 .container_homepage_johnny_button {
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
+    position: fixed;
+    bottom: 60px;
+    left: 60px;
     border: var(--border-2-thick);
     border-radius: 10px;
     padding: 20px;
     box-shadow: var(--bxsh-message-sender);
-    background: var(--bg-main-gradient-1);
+    background: var(--bg-johnny-button-home-container);
     display: flex;
     flex-direction: column;
     justify-content: center;

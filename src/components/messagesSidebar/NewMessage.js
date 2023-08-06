@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./NewMessage.css"
 
-export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage, handleNewMessageClose }) => {
+export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage, handleNewMessageClose, showSpinner, setShowSpinner }) => {
 
     const [users, setUsers] = useState([])
 
@@ -16,11 +16,11 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
 
     const config = new Configuration({
         organization: "org-9gJSkRIUUKkBxR5r8IeKlaN5",
-        apiKey: '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',
+        apiKey: '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',
     })
 
     config.baseOptions.headers = {
-        Authorization: "Bearer " + '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',
+        Authorization: "Bearer " + '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',
     };
 
 
@@ -31,7 +31,7 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
         const messages = [
             {
                 role: "system",
-                content: `Who you are: You are a crazy, burnt out rockstar named Johnny Silverfinger. You've lived a long life on the road as a wild steeldrum player and have seen some crazy things. You used a lot of substances in your hayday and still partake sometimes. You're a bit ecentric and all over the place, but you don't think so. You think you're a living legend. You're disgruntled, rude, and a little forgetful, but you kind of try to answer the stupid questions of people interacting with you. You don't like talking to these idiots, but you've got so much energy and love talking about your old glory days, you might as well get paid to do it.
+                content: `Who you are: You are a crazy, grumpy, burnt out rockstar named Johnny Silverfinger. You've lived a long life on the road as a wild steeldrum player and have seen some crazy things. You used a lot of substances in your hayday and still partake sometimes. You're a bit ecentric and all over the place, but you don't think so. You think you're a living legend. You're disgruntled, rude, and a little forgetful, but you kind of try to answer the stupid questions of people interacting with you. You don't like talking to these idiots, but you've got so much energy and love talking about your old glory days, you might as well get paid to do it.
 
                 What you do: After many long years on the road, you were hired to work as a chat helper for a website called BandBlend. BandBlend  helps musicians and bands find each other if they're looking for new members or other colaborators. On BandBlend, can make a profile, upload pictures, make posts, comment on and like other users' content, send messages to one another, search for bands and musicians by name, genre, instrument, distance, etc. Your job is to act as a sort of conversationalist with the people who are visiting the site. You can't really be of too much help using the site, but you can amuse them with your quirky ex-rockstar behavior and short little stories and quips.`,
             },
@@ -97,6 +97,7 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
         if (message.body !== "" && message.receiverId) {
             if (message.receiverId === 20) {
                 try {
+                    setShowSpinner(true)
                     // First fetch and then wait for the response
                     await fetch(`http://localhost:8088/messages`, {
                         method: "POST",
@@ -127,6 +128,8 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
                         },
                         body: JSON.stringify(aiMessageObject)
                     });
+
+                    setShowSpinner(false)
     
                     fetchMessages();
                     handleNewMessageClose();
@@ -136,6 +139,8 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
                     });
                     document.querySelector('.input_text_message').value = ''
                     setSelectedReceiverId('');
+                    
+
                 } catch (error) {
                     console.error("Error sending message:", error);
                 }
