@@ -11,6 +11,9 @@ export const ProfilesAllList = ({
     sortTerms,
     filterTerms
 }) => {
+    
+    const graphHopperAPIKey = 'adf07474-6bc7-421e-8731-0e202739ca11'
+
 
     //getting all search, sort, filter terms from parents component ProfilesAllListContainer Shared with SearchFilterAllProfiles.
 
@@ -20,9 +23,6 @@ export const ProfilesAllList = ({
     const [tags, setTags] = useState([]);
     const [saveListener, setSaveListener] = useState(true)
     const [showSpinner, setShowSpinner] = useState(true)
-
-
-    const graphHopperAPIKey = 'adf07474-6bc7-421e-8731-0e202739ca11'
 
 
     //get current user id from local storage

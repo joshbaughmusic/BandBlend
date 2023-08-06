@@ -6,19 +6,12 @@ import "./MessagesSidebar.css"
 import { Message } from "./Message.js";
 import { NewMessage } from "./NewMessage.js";
 import { MessageSearchSort } from "./MessageSortFilter.js";
-
-const iteratorGenerator = function* () {
-    let counter = 0
-    while (true) {
-        yield counter
-        counter += 1
-    }
-}
+import { useNavigate, useNavigation } from "react-router";
 
 
-const generator = iteratorGenerator();
+export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, setSidebar, showSidebar }) => {
 
-export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSelectedReceiverId, showNewMessage, setShowNewMessage, sidebar, showSidebar }) => {
+    const navigate = useNavigate()
 
     const [messages, setMessages] = useState([])
 
@@ -132,6 +125,22 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
         setSelectedReceiverId('')
     }
 
+    const handleJohhnyClick = e => {
+        e.preventDefault()
+
+        setShowNewMessage(true)
+
+        const copy = message
+        copy.receiverId = 20
+        copy.body = ''
+        copy.date = 0
+        copy.id = ''
+        setMessage(copy)
+        setSidebar(true)
+        setSelectedReceiverId(`user--20`)
+
+    }
+
 
     return (
         <>
@@ -157,44 +166,80 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
 
                     </section>
                 </div>
-                    <section className="container container_messages_new">
+                <section className="container container_messages_new">
 
-                        {
-                            showNewMessage
+                    {
+                        showNewMessage
 
-                                ?
+                            ?
 
-                                <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage} />
+                            <NewMessage handleNewMessageClose={handleNewMessageClose} fetchMessages={fetchMessages} handleNewMessageShow={handleNewMessageShow} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} message={message} setMessage={setMessage} />
 
-                                :
+                            :
 
-                                ""
-                        }
+                            ""
+                    }
 
-                    </section>
+                </section>
                 <MessageSearchSort setSearchTerms={setSearchTerms} setSortTerms={setSortTerms} />
                 <section className="container container_messages_display">
+
                     {
-                        filteredMessages.map(message => <Message
-                            messageKey={`messageCard--${message.messageObj.id}`}
-                            key={`message--${message.messageObj.id}`}
-                            messageId={message.messageObj.id}
-                            messageSenderId={message.messageObj.senderId}
-                            messageReceiverId={message.messageObj.receiverId}
-                            messageBody={message.messageObj.body}
-                            messageDate={message.messageObj.date}
-                            messageReceiverProfileId={message.receiverProfileObj.id}
-                            messageSenderProfileId={message.senderProfileObj.id}
-                            messageReceiverPicture={message.receiverProfileObj.picture}
-                            messageSenderPicture={message.senderProfileObj.picture}
-                            messageReceiverName={message.receiverProfileObj.user.name}
-                            messageSenderName={message.senderProfileObj.user.name}
-                            fetchMessages={fetchMessages}
-                            handleNewMessageShow={handleNewMessageShow}
-                            selectedReceiverId={selectedReceiverId}
-                            setSelectedReceiverId={setSelectedReceiverId}
-                            message={message}
-                            setMessage={setMessage} />)
+                        messages && messages.length > 0
+
+                            ?
+
+                            (
+                                filteredMessages && filteredMessages.length > 0
+
+                                    ?
+
+                                    (
+                                        filteredMessages.map((message) => (
+                                            <Message
+                                                messageKey={`messageCard--${message.messageObj.id}`}
+                                                key={`message--${message.messageObj.id}`}
+                                                messageId={message.messageObj.id}
+                                                messageSenderId={message.messageObj.senderId}
+                                                messageReceiverId={message.messageObj.receiverId}
+                                                messageBody={message.messageObj.body}
+                                                messageDate={message.messageObj.date}
+                                                messageReceiverProfileId={message.receiverProfileObj.id}
+                                                messageSenderProfileId={message.senderProfileObj.id}
+                                                messageReceiverPicture={message.receiverProfileObj.picture}
+                                                messageSenderPicture={message.senderProfileObj.picture}
+                                                messageReceiverName={message.receiverProfileObj.user.name}
+                                                messageSenderName={message.senderProfileObj.user.name}
+                                                fetchMessages={fetchMessages}
+                                                handleNewMessageShow={handleNewMessageShow}
+                                                selectedReceiverId={selectedReceiverId}
+                                                setSelectedReceiverId={setSelectedReceiverId}
+                                                message={message}
+                                                setMessage={setMessage}
+                                            />
+                                        ))
+                                    )
+
+                                    :
+
+                                    (
+                                        <p className="text text_messages_no_results">No matching results.</p>
+                                    )
+                            )
+
+                            :
+
+                            (
+                                <div className="container container_messages_johnny_button">
+                                    <div className="container container_messages_johnny_button_text">
+                                        <p className="text text_messages_johnny_button_1">A bit lonely in here?</p>
+                                        <p className="text text_messages_johnny_button_2"><span className="johnny_profile_link" onClick={ () => {
+                                            navigate(`profiles/20`)
+                                        }}>Johnny</span> is always happy to talk:</p>
+                                    </div>
+                                    <button className="btn btn_messages)_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
+                                </div>
+                            )
                     }
 
                 </section>

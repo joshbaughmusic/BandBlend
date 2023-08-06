@@ -20,7 +20,7 @@ export const MainContent = ({message, setMessage, selectedReceiverId, setSelecte
     return (
         <>  <main className="container container_main">
             <Routes>
-                <Route path="/" element={ <Homepage />}/>
+                <Route path="/" element={ <Homepage message={message} setMessage={setMessage} selectedReceiverId={selectedReceiverId} setSelectedReceiverId={setSelectedReceiverId} showNewMessage={showNewMessage} setShowNewMessage={setShowNewMessage} sidebar={sidebar} setSidebar={setSidebar} />}/>
                 <Route path="profiles" element={ <ProfileAllListContainer /> } />
                 <Route path="myprofile" element={<MyProfile />} />
                 <Route path="myprofile/edit/post/:postId" element={<EditPost />} />

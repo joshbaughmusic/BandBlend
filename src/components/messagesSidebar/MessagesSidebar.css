@@ -96,3 +96,51 @@
 }
 
 /* end buttons */
+
+
+/* johhny button */
+
+.container_messages_johnny_button {
+    margin: 15px auto;
+    width: 80%;
+    border: var(--border-2-thin);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--bxsh-message-sender);
+    background: var(--bg-sidebar-msg-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container_messages_johnny_button_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+}
+
+.text_messages_johnny_button_1 {
+    font-weight: bold;
+    text-shadow: var(--txsh-johnny-button);
+}
+
+.johnny_profile_link {
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.johnny_profile_link:hover {
+    cursor: pointer;
+    color: var(--link-hover);
+}
+
+.johnny_profile_link:active {
+    color: var(--link-active);
+}
+
+/* end johhny button */
