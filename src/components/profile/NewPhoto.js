@@ -52,7 +52,7 @@ export const NewPhoto = ({ closeNewPhoto, myProfileId, setMedia, }) => {
                         })
                 })
         } else {
-            window.alert("Please enter a URL to your photo.")
+            window.alert("Please enter a valid URL to your photo.")
         }
     }
 

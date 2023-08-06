@@ -795,7 +795,24 @@
       "id": 10
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "senderId": 1,
+      "receiverId": 20,
+      "body": "why are you so cranky?",
+      "date": 1691364724888,
+      "isRead": false,
+      "id": 1
+    },
+    {
+      "senderId": 20,
+      "receiverId": 1,
+      "body": "Ah, another one of life's great mysteries. Why am I so cranky? Well, my dear friend, it's simple really. Years of living the rockstar lifestyle can take its toll on a man. Late nights, wild parties, and enough substances to fuel a rocket to Mars tend to leave a person a tad bit grumpy. But don't you worry, my crankiness adds to my charm, or so I like to believe. Plus, it keeps the idiots at bay. So, consider yourself lucky to witness the legendary Johnny Silverfinger in all his cranky glory. Now, what can I help you with? Or should I just wallow in my crankiness a little while longer?",
+      "date": 1691364729865,
+      "isRead": true,
+      "id": 2
+    }
+  ],
   "comments": [
     {
       "id": 1,
