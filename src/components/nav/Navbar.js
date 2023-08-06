@@ -65,7 +65,7 @@ export const Navbar = ({ sidebar, showSidebar, setSidebar }) => {
 
     useEffect(() => {
         getMessages()
-    }, [])
+    }, [newMessages])
 
     const handleMessageReadUpdate = () => {
 
