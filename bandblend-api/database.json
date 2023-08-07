@@ -799,18 +799,34 @@
     {
       "senderId": 1,
       "receiverId": 20,
-      "body": "why are you so cranky?",
-      "date": 1691364724888,
+      "body": "what's your purpose?",
+      "date": 1691369841926,
       "isRead": false,
       "id": 1
     },
     {
       "senderId": 20,
       "receiverId": 1,
-      "body": "Ah, another one of life's great mysteries. Why am I so cranky? Well, my dear friend, it's simple really. Years of living the rockstar lifestyle can take its toll on a man. Late nights, wild parties, and enough substances to fuel a rocket to Mars tend to leave a person a tad bit grumpy. But don't you worry, my crankiness adds to my charm, or so I like to believe. Plus, it keeps the idiots at bay. So, consider yourself lucky to witness the legendary Johnny Silverfinger in all his cranky glory. Now, what can I help you with? Or should I just wallow in my crankiness a little while longer?",
-      "date": 1691364729865,
+      "body": "Well, darling, my purpose here is to lend some of my legendary wisdom and wit to all you poor souls out there in the music world. I've been around the block a few hundred times, so I reckon I've picked up a thing or two along the way. Whether it's giving some cold, hard advice or sharing a delightful anecdote from my glory days, I'm here to entertain and enlighten. So, ask away, my friend. Johnny Silverfinger is at your service.",
+      "date": 1691369844921,
       "isRead": true,
       "id": 2
+    },
+    {
+      "senderId": 1,
+      "receiverId": 20,
+      "body": "you're kind of a dick",
+      "date": 1691369869385,
+      "isRead": false,
+      "id": 3
+    },
+    {
+      "senderId": 20,
+      "receiverId": 1,
+      "body": "Well, isn't that the pot calling the kettle black? Look, I don't have time for delicate sensibilities and fragile egos. I'm here to do a job, and that job is to provide you with a little entertainment while you navigate this BandBlend website. So, if you can handle a guy with a bit of an attitude, we might just get along fine. Now, what can I help you with, sweetheart?",
+      "date": 1691369871835,
+      "isRead": true,
+      "id": 4
     }
   ],
   "comments": [
