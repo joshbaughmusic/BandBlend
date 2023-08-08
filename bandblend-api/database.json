@@ -129,7 +129,7 @@
       "location": "Nashville, TN",
       "latlong": "36.17712455,-86.78936303230881",
       "primaryInstrumentId": 2,
-      "about": "Musician turned software developer, creator of BandBlend.",
+      "about": "Musician turned coder, creator of BandBlend.",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "",
@@ -159,7 +159,7 @@
       "location": "Los Angeles, CA",
       "latlong": "34.0536909,-118.242766",
       "primaryInstrumentId": 17,
-      "about": "We are an energetic and dynamic band, bringing the best of rock and pop music to the world.",
+      "about": "As the heart and soul of The Beat Strikers, we are a vibrant and electrifying musical force hailing from the sun-soaked streets of Los Angeles, CA. With an unwavering passion for our craft, we effortlessly fuse the infectious rhythms of rock and the infectious melodies of pop, creating an explosive sonic experience that resonates with audiences far and wide. Our stage comes alive with pulsating energy, captivating every listener in our musical journey. With each strum of the guitar and every beat of the drum, we ignite a wildfire of emotions, leaving an indelible imprint on the hearts of those who witness our electrifying performances. The Beat Strikers are more than just a band; we are a musical phenomenon that invigorates the senses and leaves an everlasting imprint on the landscape of sound.",
       "primaryGenreId": 6,
       "featuredSong": "https://example.com/songs/beatstrikers/featured.mp3",
       "spotify": "https://open.spotify.com/artist/beatstrikers",
@@ -245,7 +245,7 @@
     {
       "id": 9,
       "userId": 9,
-      "picture": "https://images.unsplash.com/photo-1507404684477-09c7f690976a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      "picture": "https://images.unsplash.com/photo-1507404684477-09c7f690976a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "location": "Nashville, TN",
       "latlong": "36.17712455,-86.78936303230881",
       "primaryInstrumentId": 1,
@@ -448,21 +448,6 @@
       "profileId": 5,
       "userId": 16,
       "id": 13
-    },
-    {
-      "profileId": 2,
-      "userId": 1,
-      "id": 14
-    },
-    {
-      "profileId": 7,
-      "userId": 1,
-      "id": 15
-    },
-    {
-      "profileId": 8,
-      "userId": 1,
-      "id": 16
     }
   ],
   "posts": [
@@ -775,6 +760,11 @@
   ],
   "media": [
     {
+      "profileId": 1,
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/74881481_10157191501453884_8530669089901772800_n.jpg?_nc_cat=107&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=lJ7tl4bhABIAX_ZWCLa&_nc_ht=scontent-atl3-1.xx&oh=00_AfDFedrxo4ANKxEgahXeUZqwvIdG1FW8yJ3jgPZ2b7Sv4A&oe=64DC0BF1",
+      "id": 4
+    },
+    {
       "profileId": 2,
       "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355265181_732701238858295_1570047882012937844_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=0-l97t9MwbsAX9A7KrH&_nc_ht=scontent-atl3-1.xx&oh=00_AfA7AraHR8oFOlX1S4lafGsZo1Eq6fmIFQkY12SAOAdD0w&oe=64D2F7BC",
       "id": 5
@@ -805,54 +795,22 @@
       "id": 10
     },
     {
-      "profileId": 1,
-      "url": "https://ca.slack-edge.com/T03F2SDTJ-U0541EG21UG-940cc443e893-512",
-      "id": 11
-    },
-    {
-      "profileId": 1,
-      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/117765643_10225827077809947_5801240950566481158_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1kkEyZob6KMAX-ybWUx&_nc_ht=scontent-atl3-2.xx&oh=00_AfCg3evwR4e1zmkQnBh1vqcVfzRodEW7tmyGERAD8CsndQ&oe=64F8E5DB",
+      "profileId": 9,
+      "url": "https://images.unsplash.com/photo-1621784166258-c6fdfff31879?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG11c2ljaWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       "id": 12
     },
     {
-      "profileId": 1,
-      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/62488944_2221527474621406_5160661462527508480_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=JoJqj7BmZAgAX_3MBMt&_nc_ht=scontent-atl3-2.xx&oh=00_AfCtixm_35t2E9vkigFGaWUTXoR3WAyvUNqAfknu99Qh4g&oe=64F8E3F5",
+      "profileId": 9,
+      "url": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "id": 13
     },
     {
       "profileId": 9,
-      "url": "https://images.unsplash.com/photo-1571932404401-688edf70f0fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1742&q=80",
-      "id": 17
-    },
-    {
-      "profileId": 9,
-      "url": "https://images.unsplash.com/photo-1621784166258-c6fdfff31879?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG11c2ljaWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-      "id": 18
-    },
-    {
-      "profileId": 1,
-      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/74881481_10157191501453884_8530669089901772800_n.jpg?_nc_cat=107&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=lJ7tl4bhABIAX_ZWCLa&_nc_ht=scontent-atl3-1.xx&oh=00_AfDFedrxo4ANKxEgahXeUZqwvIdG1FW8yJ3jgPZ2b7Sv4A&oe=64DC0BF1",
-      "id": 19
+      "url": "https://images.unsplash.com/photo-1580665377274-dda7c0bebc22?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "id": 14
     }
   ],
-  "messages": [
-    {
-      "senderId": 1,
-      "receiverId": 2,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "date": 1691510017794,
-      "isRead": true,
-      "id": 1
-    },
-    {
-      "senderId": 2,
-      "receiverId": 1,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n",
-      "date": 1691510088506,
-      "isRead": false,
-      "id": 2
-    }
-  ],
+  "messages": [],
   "comments": [
     {
       "id": 1,
@@ -1245,13 +1203,6 @@
       "body": "thanks for your work. Even though you talk too much",
       "date": 1691360174950,
       "id": 68
-    },
-    {
-      "postId": 39,
-      "userId": 1,
-      "body": "Killer show y'all!",
-      "date": 1691523741769,
-      "id": 69
     }
   ],
   "likes": [
@@ -1296,6 +1247,12 @@
       "postId": 29,
       "date": 1691352877497,
       "id": 7
+    },
+    {
+      "userId": 1,
+      "postId": 39,
+      "date": 1691352889675,
+      "id": 8
     },
     {
       "userId": 1,
@@ -1544,22 +1501,10 @@
       "id": 50
     },
     {
-      "userId": 1,
-      "postId": 39,
-      "date": 1691444538812,
-      "id": 51
-    },
-    {
       "userId": 9,
-      "postId": 1,
-      "date": 1691523332164,
-      "id": 52
-    },
-    {
-      "userId": 2,
-      "postId": 1,
-      "date": 1691523420226,
-      "id": 53
+      "postId": 56,
+      "date": 1691529919886,
+      "id": 51
     }
   ],
   "profileTags": [

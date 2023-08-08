@@ -1,5 +1,7 @@
 import { useState } from "react"
 import "./NewPost.css"
+import FadeIn from 'react-fade-in';
+
 
 export const NewPost = ({ closeNewPost, myProfileId, setMyPosts }) => {
 
@@ -46,6 +48,7 @@ export const NewPost = ({ closeNewPost, myProfileId, setMyPosts }) => {
 
     return (
         <>
+        <FadeIn>
             <form className="form form_new_post">
                     <textarea autoFocus name="newPost" className="input input_text input_text_post input_field_colors" placeholder="What's on your mind?" rows="4" cols="50" onChange={
                         e => {
@@ -59,6 +62,7 @@ export const NewPost = ({ closeNewPost, myProfileId, setMyPosts }) => {
                 <button type="submit" className="btn btn_profile btn_submit_post button_profile_colors" onClick={handleSubmitNewPostClick}>Submit Post</button>
                 {/* <button type="button" className="btn btn_profile btn_close" onClick={closeNewPost}>Close</button> */}
             </form>
+            </FadeIn>
         </>
     )
 }

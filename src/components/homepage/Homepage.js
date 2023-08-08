@@ -99,7 +99,6 @@ export const Homepage = ({ message, setMessage, setSelectedReceiverId, showNewMe
         <>
 
 
-            <FadeIn>
                 <div className="container container_all_homepage_content">
                     <section className="container container_hero">
                         <header className="container container_heading">
@@ -107,8 +106,9 @@ export const Homepage = ({ message, setMessage, setSelectedReceiverId, showNewMe
                             <img className="heading heading_app_subtitle" src={require("../../images/Bandblend_Logos/Logo-bot-black.png")} />
                         </header>
 
-                        <HomeSearchbar />
                     </section>
+                        <FadeIn transitionDuration={800}>
+                        <HomeSearchbar />
                     <div className="container container_greeting">
                         {
                             bBUserObject.isBand === true
@@ -160,10 +160,11 @@ export const Homepage = ({ message, setMessage, setSelectedReceiverId, showNewMe
                                 }}>Johnny</span>:</p>
                             <button className="btn btn_homepage_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
                         </div>
+                        
                     </section>
+            </FadeIn>
                 </div>
 
-            </FadeIn>
             <div className="waves-home"></div>
 
 

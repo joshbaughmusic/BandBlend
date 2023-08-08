@@ -4,13 +4,16 @@ import { useEffect, useState } from "react"
 import { Comment } from "./Comment.js"
 import { NewComment } from "./NewComment.js"
 import * as FaIcons from "react-icons/fa";
+import * as BiIcons from "react-icons/bi";
 import { Collapse } from 'antd'
 import FadeIn from 'react-fade-in';
+import { ModalPostWarning } from "../modals/ModalPostWarning.js"
 
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage.
 
-export const PostProfile = ({ userName, userId, postId, userPicture, postBody, postDate, myProfileId, postKey }) => {
+export const PostMyProfile = ({ userName, userId, postId, userPicture, postBody, postDate, myProfileId, setMyPosts, postKey, likes, getAllLikes }) => {
 
+    const navigate = useNavigate()
     const localBbUser = localStorage.getItem("bb_user")
     const bBUserObject = JSON.parse(localBbUser)
 
@@ -21,12 +24,14 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     //states to store fetches
 
     const [commentsWithUsers, setCommentsWithUsers] = useState([])
-    const [likes, setLikes] = useState([])
 
-    //state to track if current user has already liked the post or not
+    //state to store likes for only the current post
 
-    const [userLikeObj, setUserLikeObj] = useState([])
+    const [currentPostLikes, setCurrentPostLikes] = useState([])
 
+    //states to track modal open or close
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
     //fetch all users and comments and match them up with each other:
@@ -76,35 +81,68 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
             })
     }
 
-    //get all likes for the post
-    const getAllLikes = () => {
-        fetch(`http://localhost:8088/likes?postId=${postId}`)
-            .then(res => res.json())
-            .then(data => {
-                setLikes(data)
-            })
-    }
-
-    useEffect(() => {
-        getAllLikes()
-    }, [])
 
     useEffect(() => {
         getAllComments()
     }, [openPanel])
 
-    //use effect to set state of whether or not current user has like the post already or not so the right html can be generated below
 
     useEffect(() => {
-        const searchForUserLike = likes.find(like => {
-            return like.userId === bBUserObject.id
-        }
-        )
+        const matchedLikes = likes.filter(like => {
+            return parseInt(like.postId) === parseInt(postId)
+        })
 
-        setUserLikeObj(searchForUserLike)
-
+        setCurrentPostLikes(matchedLikes)
     }, [likes])
 
+
+
+
+
+    //set handler functions to take care of deleting posts when the button is clicked. Will also update list of posts using props passed down from MyProfile.
+
+    const handleDeletePostClickWarning = e => {
+        setIsModalOpen(true)
+    }
+
+    const handleDeletePostClick = postIdToDelete => {
+
+        return fetch(`http://localhost:8088/posts/${postIdToDelete}`, {
+            method: "DELETE",
+        })
+            .then(() => {
+                fetch(`http://localhost:8088/posts?profileId=${myProfileId}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        setMyPosts(data)
+
+                    })
+            }).then(() => {
+                //filter out comments that were attached to that post
+                const commentsToDelete = commentsWithUsers.filter(comment => {
+                    return comment.commentObj.postId === parseInt(postIdToDelete)
+                })
+                //map through and delete each one of those comments
+                commentsToDelete.map(comment => {
+                    fetch(`http://localhost:8088/comments/${comment.commentObj.id}`, {
+                        method: "DELETE",
+                    })
+                })
+            }).then(() => {
+                //filter out likes that were attached to that post
+                const likesToDelete = likes.filter(like => {
+                    return like.postId === parseInt(postIdToDelete)
+                })
+                //map through and delete each one of those comments
+                likesToDelete.map(like => {
+                    fetch(`http://localhost:8088/likes/${like.id}`, {
+                        method: "DELETE",
+                    })
+                })
+            }).then(() => {
+                getAllLikes()
+            })
+    }
 
     //handle opening up a new comment form for the selected post by adding a show class to that specific form
 
@@ -121,46 +159,6 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
         buttonToHide.classList.remove("show")
 
-    }
-
-    //handle the like button being clicked when the user hasn't already liked
-
-    const handlePostNewLikeClick = e => {
-
-        const newLikeObj = {
-            userId: bBUserObject.id,
-            postId: postId,
-            date: Date.now()
-        }
-
-        fetch(`http://localhost:8088/likes`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newLikeObj)
-        })
-            .then(() => {
-                //refetch all likes
-                getAllLikes()
-            })
-    }
-
-
-    //handle the like button being clicked when the user HAS already liked and wants to unlike
-
-    const handleDeletePreviousLikeClick = e => {
-
-        const [, likeId] = e.target.id.split('--')
-
-        return fetch(`http://localhost:8088/likes/${likeId}`, {
-            method: "DELETE",
-        })
-            .then(() => {
-                //refetch all likes
-                getAllLikes()
-
-            })
     }
 
     const handleOpenCommentsOnNewComment = e => {
@@ -205,64 +203,58 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
     //only give edit and delete options on the profile pages and only to owners of that post
 
         return <>
-            <FadeIn>
+            <FadeIn >
+                <ModalPostWarning postId={postId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePostClick={handleDeletePostClick} />
                 <div className="container_container_post_comments_full">
                     <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
                         <section className="post_content_except_comments">
                             <div className="container container_heading_post">
                                 <div className="container container_post_img_name">
                                     <img className="img img_post_picture" src={userPicture} />
-                                    <h4 className="heading heading_post_name">{userName} posted:</h4>
+                                    <h4 className="heading heading_post_name">You posted:</h4>
                                 </div>
                                 <div className="container container_post_date_icon">
                                     <p className="text text_post_date">{convertTimestamp(postDate)}</p>
                                     <FaIcons.FaRegComment className="icon icon_post_bubble" />
-                                </div>                        </div>
+                                </div>
+                            </div>
                             <p className="text text_post_body">{postBody}</p>
                         </section>
                         <div className="container container_footer_post">
                             <section className="container container_post_like_section">
-                                <div className="container container_post_like_icon">
-
-                                    {
-                                        userLikeObj
-
-                                            ?
-
-                                            <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick} />
-
-                                            :
-
-                                            <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick} />
-
-                                    }
-                                </div>
                                 {
-                                    !likes.length
+                                    !currentPostLikes.length
 
                                         ?
 
-                                        <p className="text text_post_likecount">Be the first to like this!</p>
+                                        <p className="text text_post_likecount">No likes yet</p>
 
                                         :
 
-                                        likes.length === 1
+                                        currentPostLikes.length === 1
 
                                             ?
 
-                                            <p className="text text_post_likecount">{likes.length} like</p>
+                                            <p className="text text_post_likecount">{currentPostLikes.length} like</p>
 
                                             :
 
-                                            <p className="text text_post_likecount">{likes.length} likes</p>
+                                            <p className="text text_post_likecount">{currentPostLikes.length} likes</p>
 
                                 }
                             </section>
+                            <div className="container container_post_myprofile_all_buttons">
 
-                            {/* open comment box button below*/}
-                            <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
+                                {/* open comment box button below*/}
+                                <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
 
+                                {/* edit and delete buttons */}
+                                <div className="container container_post_myprofile_edit-delete_buttons">
+                                    <button className="btn btn_edit btn_edit_post button_cmt_msg_colors" onClick={() => { navigate(`/myprofile/edit/post/${postId}`) }}>Edit</button>
+                                    <button id={`postDelete--${postId}`} className="btn btn_delete_post button_cmt_msg_colors" onClick={handleDeletePostClickWarning}>Delete</button>
 
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -276,11 +268,11 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                                 ?
 
-                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>Hide Comments</div>
+                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>Hide Comments <BiIcons.BiSolidUpArrow className="icon icon_viewhide_comments" /></div>
 
                                 :
 
-                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>View Comments</div>
+                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>View Comments <BiIcons.BiSolidDownArrow className="icon icon_viewhide_comments" /></div>
 
 
 
@@ -288,8 +280,6 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
 
                             ""
                     }
-
-
 
 
                     <NewComment postId={postId} getAllComments={getAllComments} handleOpenCommentsOnNewComment={handleOpenCommentsOnNewComment} />
@@ -343,4 +333,5 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                 </div>
             </FadeIn>
         </>
+    
 }

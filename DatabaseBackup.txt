@@ -159,7 +159,7 @@
       "location": "Los Angeles, CA",
       "latlong": "34.0536909,-118.242766",
       "primaryInstrumentId": 17,
-      "about": "We are an energetic and dynamic band, bringing the best of rock and pop music to the world.",
+      "about": "As the heart and soul of The Beat Strikers, we are a vibrant and electrifying musical force hailing from the sun-soaked streets of Los Angeles, CA. With an unwavering passion for our craft, we effortlessly fuse the infectious rhythms of rock and the infectious melodies of pop, creating an explosive sonic experience that resonates with audiences far and wide. Our stage comes alive with pulsating energy, captivating every listener in our musical journey. With each strum of the guitar and every beat of the drum, we ignite a wildfire of emotions, leaving an indelible imprint on the hearts of those who witness our electrifying performances. The Beat Strikers are more than just a band; we are a musical phenomenon that invigorates the senses and leaves an everlasting imprint on the landscape of sound.",
       "primaryGenreId": 6,
       "featuredSong": "https://example.com/songs/beatstrikers/featured.mp3",
       "spotify": "https://open.spotify.com/artist/beatstrikers",
@@ -245,7 +245,7 @@
     {
       "id": 9,
       "userId": 9,
-      "picture": "https://images.unsplash.com/photo-1621784166258-c6fdfff31879?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG11c2ljaWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "picture": "https://images.unsplash.com/photo-1507404684477-09c7f690976a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       "location": "Nashville, TN",
       "latlong": "36.17712455,-86.78936303230881",
       "primaryInstrumentId": 1,
@@ -756,12 +756,6 @@
       "body": "\"I just released my new track, 'The Heart of the Forest.' This song is about the power of nature to heal and connect us. I hope you enjoy it!",
       "date": 1690356152776,
       "id": 58
-    },
-    {
-      "profileId": 1,
-      "body": "hello!",
-      "date": 1691359884259,
-      "id": 59
     }
   ],
   "media": [
@@ -799,6 +793,21 @@
       "profileId": 2,
       "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/325924513_720616596121161_1018086373805934063_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=19026a&_nc_ohc=Uw0KXXZJkwwAX-McRvg&_nc_oc=AQmMsT35PneFAUsydwwfy4HQl7NopG_lKxg04Bg9YAPch7yz-JCRz_LWxWsiF9Uhyxw9AD5sEq06BtdC04MP3uWi&_nc_ht=scontent-atl3-2.xx&oh=00_AfDCmeD6MiVJKgG2GO0YTLBBfxK4-Jj1ZAgmwDTB5blE4g&oe=64D59948",
       "id": 10
+    },
+    {
+      "profileId": 9,
+      "url": "https://images.unsplash.com/photo-1621784166258-c6fdfff31879?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG11c2ljaWFufGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      "id": 12
+    },
+    {
+      "profileId": 9,
+      "url": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "id": 13
+    },
+    {
+      "profileId": 9,
+      "url": "https://images.unsplash.com/photo-1580665377274-dda7c0bebc22?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      "id": 14
     }
   ],
   "messages": [],
@@ -1490,6 +1499,12 @@
       "postId": 36,
       "date": 1691360159429,
       "id": 50
+    },
+    {
+      "userId": 9,
+      "postId": 56,
+      "date": 1691529919886,
+      "id": 51
     }
   ],
   "profileTags": [

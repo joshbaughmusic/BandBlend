@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { PostProfile } from "../posts/PostProfile.js"
 import { NewPost } from "../posts/NewPost.js"
 import "./MyProfile.css"
 import { NewPhoto } from "./NewPhoto.js"
 import FadeIn from 'react-fade-in';
 import { Photo } from "./Photo.js"
+import { PostMyProfile } from "../posts/PostMyProfile.js"
 
 
 export const MyProfile = () => {
-
+    
     const [profile, setProfile] = useState({})
     const [myPosts, setMyPosts] = useState([])
     const [media, setMedia] = useState([])
     const [tags, setTags] = useState([])
     const [subGenres, setSubGenres] = useState([])
-
+    const [likes, setLikes] = useState([])
+    
     const navigate = useNavigate()
 
     //states to handle whether or not to show new content forms
@@ -26,6 +27,8 @@ export const MyProfile = () => {
     //state to handle photo enlarge
 
     const [file, setFile] = useState(null)
+
+
 
 
     //fetch current user in local storage and fetch their profile when they arrive at MyProfile page. Use this to populate the view.
@@ -88,6 +91,19 @@ export const MyProfile = () => {
             })
 
     }, [])
+
+    //get all likes
+    const getAllLikes = () => {
+        fetch(`http://localhost:8088/likes`)
+            .then(res => res.json())
+            .then(data => {
+                setLikes(data)
+            })
+    }
+
+    useEffect(() => {
+        getAllLikes()
+    }, [myPosts])
 
     //define a function to match tag from all tags with incoming profileTags tagId attached to profile by embed. Return that tag's name. Will be invoked in map function below
 
@@ -378,7 +394,7 @@ export const MyProfile = () => {
 
                                         ?
 
-                                        myPosts.sort((a, b) => b.date - a.date).map((post, index) => <PostProfile key={`postkey--${index}`} setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postCardkey--${index}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} />)
+                                        myPosts.sort((a, b) => b.date - a.date).map((post, index) => <PostMyProfile key={`postkey--${index}`} setMyPosts={setMyPosts} myProfileId={profile.id} postKey={`postCardkey--${index}`} postId={post.id} userPicture={profile.picture} userId={profile?.user?.id} userName={profile?.user?.name} postBody={post.body} postDate={post.date} getAllLikes={getAllLikes} likes={likes} />)
 
                                         :
 
