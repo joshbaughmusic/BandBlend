@@ -99,7 +99,7 @@ export const Homepage = ({ message, setMessage, setSelectedReceiverId, showNewMe
         <>
 
 
-            <FadeIn>
+            <FadeIn transitionDuration={800}>
                 <div className="container container_all_homepage_content">
                     <section className="container container_hero">
                         <header className="container container_heading">
@@ -160,6 +160,7 @@ export const Homepage = ({ message, setMessage, setSelectedReceiverId, showNewMe
                                 }}>Johnny</span>:</p>
                             <button className="btn btn_homepage_johnny_button" onClick={handleJohhnyClick}>Message Now</button>
                         </div>
+                        
                     </section>
                 </div>
 

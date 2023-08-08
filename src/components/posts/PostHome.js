@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom"
 import "./Post.css"
 import { useEffect, useState } from "react"
 import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
 
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage.
 

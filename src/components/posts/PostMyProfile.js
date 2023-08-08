@@ -25,10 +25,6 @@ export const PostMyProfile = ({ userName, userId, postId, userPicture, postBody,
 
     const [commentsWithUsers, setCommentsWithUsers] = useState([])
 
-    //state to track if current user has already liked the post or not
-
-    const [userLikeObj, setUserLikeObj] = useState([])
-
     //state to store likes for only the current post
 
     const [currentPostLikes, setCurrentPostLikes] = useState([])
@@ -90,17 +86,6 @@ export const PostMyProfile = ({ userName, userId, postId, userPicture, postBody,
         getAllComments()
     }, [openPanel])
 
-    //use effect to set state of whether or not current user has like the post already or not so the right html can be generated below
-
-    useEffect(() => {
-        const searchForUserLike = likes.find(like => {
-            return like.userId === bBUserObject.id
-        }
-        )
-
-        setUserLikeObj(searchForUserLike)
-
-    }, [likes])
 
     useEffect(() => {
         const matchedLikes = likes.filter(like => {
@@ -176,46 +161,6 @@ export const PostMyProfile = ({ userName, userId, postId, userPicture, postBody,
 
     }
 
-    //handle the like button being clicked when the user hasn't already liked
-
-    const handlePostNewLikeClick = e => {
-
-        const newLikeObj = {
-            userId: bBUserObject.id,
-            postId: postId,
-            date: Date.now()
-        }
-
-        fetch(`http://localhost:8088/likes`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newLikeObj)
-        })
-            .then(() => {
-                //refetch all likes
-                getAllLikes()
-            })
-    }
-
-
-    //handle the like button being clicked when the user HAS already liked and wants to unlike
-
-    const handleDeletePreviousLikeClick = e => {
-
-        const [, likeId] = e.target.id.split('--')
-
-        return fetch(`http://localhost:8088/likes/${likeId}`, {
-            method: "DELETE",
-        })
-            .then(() => {
-                //refetch all likes
-                getAllLikes()
-
-            })
-    }
-
     const handleOpenCommentsOnNewComment = e => {
         const [, commentPanelToOpen] = e.target.id.split('--')
 
@@ -256,8 +201,6 @@ export const PostMyProfile = ({ userName, userId, postId, userPicture, postBody,
         return null
     }
     //only give edit and delete options on the profile pages and only to owners of that post
-
-    if (userId === bBUserObject.id) {
 
         return <>
             <FadeIn >
@@ -390,147 +333,5 @@ export const PostMyProfile = ({ userName, userId, postId, userPicture, postBody,
                 </div>
             </FadeIn>
         </>
-    } else {
-
-        return <>
-            <FadeIn>
-                <ModalPostWarning postId={postId} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePostClick={handleDeletePostClick} />
-                <div className="container_container_post_comments_full">
-                    <div className="container container_post container_post_profile" key={postKey} id={`post--${postId}`}>
-                        <section className="post_content_except_comments">
-                            <div className="container container_heading_post">
-                                <div className="container container_post_img_name">
-                                    <img className="img img_post_picture" src={userPicture} />
-                                    <h4 className="heading heading_post_name">{userName} posted:</h4>
-                                </div>
-                                <div className="container container_post_date_icon">
-                                    <p className="text text_post_date">{convertTimestamp(postDate)}</p>
-                                    <FaIcons.FaRegComment className="icon icon_post_bubble" />
-                                </div>                        </div>
-                            <p className="text text_post_body">{postBody}</p>
-                        </section>
-                        <div className="container container_footer_post">
-                            <section className="container container_post_like_section">
-                                <div className="container container_post_like_icon">
-
-                                    {
-                                        userLikeObj
-
-                                            ?
-
-                                            <img className="icon icon_like icon_liked" src={require("../../images/thumb-liked.png")} id={`likedIcon--${userLikeObj?.id}`} onClick={handleDeletePreviousLikeClick} />
-
-                                            :
-
-                                            <img className="icon icon_like icon_nonliked" src={require("../../images/thumb-nonliked.png")} id={`nonLikedIcon--${postId}`} onClick={handlePostNewLikeClick} />
-
-                                    }
-                                </div>
-                                {
-                                    !likes.length
-
-                                        ?
-
-                                        <p className="text text_post_likecount">Be the first to like this!</p>
-
-                                        :
-
-                                        likes.length === 1
-
-                                            ?
-
-                                            <p className="text text_post_likecount">{likes.length} like</p>
-
-                                            :
-
-                                            <p className="text text_post_likecount">{likes.length} likes</p>
-
-                                }
-                            </section>
-
-                            {/* open comment box button below*/}
-                            <button className="btn btn_post btn_open btn_reply_comment show button_cmt_msg_colors" id={`openNewCommentBtn--${postId}`} onClick={handleOpenNewCommentFormButtonClick}>Comment</button>
-
-
-                        </div>
-                    </div>
-
-                    {
-                        commentsWithUsers.some(item => item.commentObj.postId === postId)
-
-                            ?
-
-
-                            openPanel
-
-                                ?
-
-                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>Hide Comments</div>
-
-                                :
-
-                                <div className="viewhide_comments_bar" id={`commentsViewHide--${postId}`} onClick={handleViewHideCommentsClick}>View Comments</div>
-
-
-
-                            :
-
-                            ""
-                    }
-
-
-
-
-                    <NewComment postId={postId} getAllComments={getAllComments} handleOpenCommentsOnNewComment={handleOpenCommentsOnNewComment} />
-
-                    {
-
-                        commentsWithUsers.some(item => item.commentObj.postId === postId)
-
-                            ?
-
-                            <>
-
-                                <div className="container container_commentsSection" id={`comments--${postId}`}>
-                                    <Collapse activeKey={openPanel} ghost size='small' >
-                                        <Panel className="panel_comment_colapsible" header="View Comments" key={postId}>
-
-
-                                            {
-                                                commentsWithUsers.map((comment, index) => {
-                                                    if (parseInt(comment.commentObj.postId) === parseInt(postId)) {
-                                                        return <Comment
-                                                            fullCommentObj={comment}
-                                                            posterId={userId}
-                                                            posterName={userName}
-                                                            posterPicture={userPicture} posterProfileId={myProfileId}
-                                                            commentId={comment.commentObj.id} commentBody={comment.commentObj.body} commentDate={comment.commentObj.date}
-                                                            commentName={comment.userObj.name}
-                                                            commentPicture={comment.userObj.profiles[0].picture}
-                                                            commentProfileId={comment.userObj.profiles[0].id}
-                                                            key={`comment--${index}`}
-                                                            commentKey={`commentCard--${comment.commentObj.Id}`}
-                                                            getAllComments={getAllComments}
-                                                        />
-                                                    }
-                                                })
-                                            }
-                                        </Panel>
-                                    </Collapse>
-                                </div>
-
-
-                            </>
-
-                            :
-
-                            ""
-
-                    }
-
-
-                </div>
-            </FadeIn>
-        </>
-    }
+    
 }

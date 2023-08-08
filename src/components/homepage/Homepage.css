@@ -5,6 +5,7 @@
     width: 100%;
     min-width: 550px;
     overflow-x: hidden;
+
 }
 
 /* hero */
@@ -66,8 +67,7 @@
     max-width: 70%;
     max-height: 500px;
     min-width: 550px;
-    margin: auto;
-    margin-bottom: 150px;
+    margin: auto auto 150px auto;
     
 }
 
@@ -98,7 +98,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-
+    animation: fadein 1.7s ease-in;
 }
 
 .container_homepage_johnny_button_text {
@@ -127,6 +127,7 @@
 
 
 /* media queries */
+
 
 @media screen and (max-width: 1860px) {
    .container_home_latest_posts_outer {
