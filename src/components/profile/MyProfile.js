@@ -6,6 +6,7 @@ import "./MyProfile.css"
 import { NewPhoto } from "./NewPhoto.js"
 import FadeIn from 'react-fade-in';
 import { ModalPhotoWarning } from "../modals/ModalPhotoWarning.js"
+import { Photo } from "./Photo.js"
 
 
 export const MyProfile = () => {
@@ -27,10 +28,6 @@ export const MyProfile = () => {
     //state to handle photo enlarge
 
     const [file, setFile] = useState(null)
-
-    //states to track modal open or close
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
     //fetch current user in local storage and fetch their profile when they arrive at MyProfile page. Use this to populate the view.
@@ -125,28 +122,6 @@ export const MyProfile = () => {
 
     const handleNewPhotoClose = () => {
         setShowNewPhoto(false)
-    }
-
-    //handler functions to take care of deletion of photo
-
-    const handleDeletePhotoClickWarning = e => {
-        setIsModalOpen(true)
-    }
-
-    const handleDeletePhotoClick = photoIdToDelete => {
-
-        return fetch(`http://localhost:8088/media/${photoIdToDelete}`, {
-            method: "DELETE",
-        })
-            .then(() => {
-                fetch(`http://localhost:8088/media?profileId=${profile.id}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        setMedia(data)
-
-                    })
-            })
-
     }
 
 
@@ -339,13 +314,13 @@ export const MyProfile = () => {
                                             return  <React.Fragment key={`img--${index}`}>
                                                 
 
-                                                    <div className="container container_profile_additional_img"><img className="img profile_img_item" src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span>
-                                                    </div>
-                                                    <ModalPhotoWarning
-                                                        key={`imgModalWarning--${index}`}
-                                                        modalKey={`imgModalWarningCard--${index * Math.random()}`}
-                                                        mediaId={media.id}
-                                                        isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePhotoClick={handleDeletePhotoClick} />
+                                                    <Photo 
+                                                    profile={profile}
+                                                    setMedia={setMedia}
+                                                    setFile={setFile}
+                                                    media={media}
+                                                    index={index}
+                                                    />
 
                                                 </React.Fragment>
                                             
