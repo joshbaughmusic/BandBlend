@@ -6,7 +6,7 @@ import FadeIn from 'react-fade-in';
 import { useNavigate } from "react-router";
 
 
-export const Homepage = ({ message, setMessage, setSelectedReceiverId, setShowNewMessage, setSidebar }) => {
+export const Homepage = ({ message, setMessage, setSelectedReceiverId, showNewMessage, setShowNewMessage, setSidebar }) => {
 
     const navigate = useNavigate()
 
@@ -88,6 +88,10 @@ export const Homepage = ({ message, setMessage, setSelectedReceiverId, setShowNe
         setMessage(copy)
         setSidebar(true)
         setSelectedReceiverId(`user--20`)
+
+        if (showNewMessage) {
+            document.querySelector('.input_text_message').value = ''
+        }
 
     }
 

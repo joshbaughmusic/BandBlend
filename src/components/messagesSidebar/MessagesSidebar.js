@@ -141,6 +141,10 @@ export const MessagesSidebar = ({ message, setMessage, selectedReceiverId, setSe
         setSidebar(true)
         setSelectedReceiverId(`user--20`)
 
+        if (showNewMessage) {
+            document.querySelector('.input_text_message').value = ''
+        }
+
     }
 
 

@@ -33,7 +33,17 @@ export const BandBlend = () => {
   const [sidebar, setSidebar] = useState(false)
 
   //function to handle open of side bar
-  const showSidebar = () => setSidebar(!sidebar)
+  const showSidebar = () => {
+    setSidebar(!sidebar)
+    
+    //clear out anything in newMessage if sidebar is already open and changes to closed
+    if (showNewMessage) {
+      document.querySelector('.input_text_message').value = ''
+      setSelectedReceiverId('null')
+      setShowNewMessage(false)
+    }
+   
+  }
 
 
   return <>

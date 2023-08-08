@@ -78,24 +78,11 @@ export const RegisterProfile = () => {
                     tiktok: profile.tiktok
                 }
 
-                function isValidUrl(str) {
-                    const pattern = new RegExp(
-                        '^([a-zA-Z]+:\\/\\/)?' + // protocol
-                        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-                        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
-                        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-                        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-                        '(\\#[-a-z\\d_]*)?$', // fragment locator
-                        'i'
-                    );
-                    return pattern.test(str);
-                }
-
                 if (bBUserObject.isBand) {
 
                     //if the user is a band, dont make it required to have a primary instrument since they can't pick one
 
-                    if (isValidUrl(newPrimaryInfoObj.picture) && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryGenreId) {
+                    if (newPrimaryInfoObj.location && newPrimaryInfoObj.primaryGenreId) {
 
                         return fetch(`http://localhost:8088/profiles`, {
                             method: "POST",
@@ -114,7 +101,7 @@ export const RegisterProfile = () => {
                     }
                 } else {
 
-                    if (isValidUrl(newPrimaryInfoObj.picture) && newPrimaryInfoObj.location && newPrimaryInfoObj.primaryInstrumentId && newPrimaryInfoObj.primaryGenreId) {
+                    if (newPrimaryInfoObj.location && newPrimaryInfoObj.primaryInstrumentId && newPrimaryInfoObj.primaryGenreId) {
 
                         return fetch(`http://localhost:8088/profiles`, {
                             method: "POST",

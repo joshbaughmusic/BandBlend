@@ -129,7 +129,7 @@
       "location": "Nashville, TN",
       "latlong": "36.17712455,-86.78936303230881",
       "primaryInstrumentId": 2,
-      "about": "Musician turned coder, creator of BandBlend. Metal never paid the bills.",
+      "about": "Musician turned software developer, creator of BandBlend.",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "",
@@ -793,40 +793,39 @@
       "profileId": 2,
       "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/325924513_720616596121161_1018086373805934063_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=19026a&_nc_ohc=Uw0KXXZJkwwAX-McRvg&_nc_oc=AQmMsT35PneFAUsydwwfy4HQl7NopG_lKxg04Bg9YAPch7yz-JCRz_LWxWsiF9Uhyxw9AD5sEq06BtdC04MP3uWi&_nc_ht=scontent-atl3-2.xx&oh=00_AfDCmeD6MiVJKgG2GO0YTLBBfxK4-Jj1ZAgmwDTB5blE4g&oe=64D59948",
       "id": 10
+    },
+    {
+      "profileId": 1,
+      "url": "https://ca.slack-edge.com/T03F2SDTJ-U0541EG21UG-940cc443e893-512",
+      "id": 11
+    },
+    {
+      "profileId": 1,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/117765643_10225827077809947_5801240950566481158_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1kkEyZob6KMAX-ybWUx&_nc_ht=scontent-atl3-2.xx&oh=00_AfCg3evwR4e1zmkQnBh1vqcVfzRodEW7tmyGERAD8CsndQ&oe=64F8E5DB",
+      "id": 12
+    },
+    {
+      "profileId": 1,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/62488944_2221527474621406_5160661462527508480_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=JoJqj7BmZAgAX_3MBMt&_nc_ht=scontent-atl3-2.xx&oh=00_AfCtixm_35t2E9vkigFGaWUTXoR3WAyvUNqAfknu99Qh4g&oe=64F8E3F5",
+      "id": 13
     }
   ],
   "messages": [
     {
       "senderId": 1,
-      "receiverId": 20,
-      "body": "what's your purpose?",
-      "date": 1691369841926,
-      "isRead": false,
+      "receiverId": 2,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": 1691510017794,
+      "isRead": true,
       "id": 1
     },
     {
-      "senderId": 20,
+      "senderId": 2,
       "receiverId": 1,
-      "body": "Well, darling, my purpose here is to lend some of my legendary wisdom and wit to all you poor souls out there in the music world. I've been around the block a few hundred times, so I reckon I've picked up a thing or two along the way. Whether it's giving some cold, hard advice or sharing a delightful anecdote from my glory days, I'm here to entertain and enlighten. So, ask away, my friend. Johnny Silverfinger is at your service.",
-      "date": 1691369844921,
-      "isRead": true,
-      "id": 2
-    },
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "you're kind of a dick",
-      "date": 1691369869385,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\n",
+      "date": 1691510088506,
       "isRead": false,
-      "id": 3
-    },
-    {
-      "senderId": 20,
-      "receiverId": 1,
-      "body": "Well, isn't that the pot calling the kettle black? Look, I don't have time for delicate sensibilities and fragile egos. I'm here to do a job, and that job is to provide you with a little entertainment while you navigate this BandBlend website. So, if you can handle a guy with a bit of an attitude, we might just get along fine. Now, what can I help you with, sweetheart?",
-      "date": 1691369871835,
-      "isRead": true,
-      "id": 4
+      "id": 2
     }
   ],
   "comments": [
@@ -1268,12 +1267,6 @@
     },
     {
       "userId": 1,
-      "postId": 39,
-      "date": 1691352889675,
-      "id": 8
-    },
-    {
-      "userId": 1,
       "postId": 37,
       "date": 1691352891678,
       "id": 9
@@ -1508,14 +1501,20 @@
     },
     {
       "userId": 1,
+      "postId": 54,
+      "date": 1691359779369,
+      "id": 49
+    },
+    {
+      "userId": 1,
       "postId": 36,
       "date": 1691360159429,
       "id": 50
     },
     {
       "userId": 1,
-      "postId": 54,
-      "date": 1691364386934,
+      "postId": 39,
+      "date": 1691444538812,
       "id": 51
     }
   ],
