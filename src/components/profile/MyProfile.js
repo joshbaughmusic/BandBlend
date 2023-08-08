@@ -5,7 +5,6 @@ import { NewPost } from "../posts/NewPost.js"
 import "./MyProfile.css"
 import { NewPhoto } from "./NewPhoto.js"
 import FadeIn from 'react-fade-in';
-import { ModalPhotoWarning } from "../modals/ModalPhotoWarning.js"
 import { Photo } from "./Photo.js"
 
 
@@ -16,7 +15,6 @@ export const MyProfile = () => {
     const [media, setMedia] = useState([])
     const [tags, setTags] = useState([])
     const [subGenres, setSubGenres] = useState([])
-    const [primaryInstruments, setPrimaryInstruments] = useState([])
 
     const navigate = useNavigate()
 

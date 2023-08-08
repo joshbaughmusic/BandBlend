@@ -32,15 +32,13 @@ export const Photo = ({ media, index, setFile, setMedia, profile }) => {
 
     return (
         <>
-            <FadeIn>
-                <div className="container container_profile_additional_img"><img className="img profile_img_item" src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span>
-                </div>
-                <ModalPhotoWarning
-                    key={`imgModalWarning--${index}`}
-                    modalKey={`imgModalWarningCard--${index * Math.random()}`}
-                    mediaId={media.id}
-                    isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePhotoClick={handleDeletePhotoClick} />
-            </FadeIn>
+            <div className="container container_profile_additional_img"><img className="img profile_img_item" src={media.url} onClick={() => { setFile(media) }} /><span id={`img--${media.id}`} className="icon icon_delete icon_delete_photo" onClick={handleDeletePhotoClickWarning}>&times;</span>
+            </div>
+            <ModalPhotoWarning
+                key={`imgModalWarning--${index}`}
+                modalKey={`imgModalWarningCard--${index * Math.random()}`}
+                mediaId={media.id}
+                isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleDeletePhotoClick={handleDeletePhotoClick} />
         </>
     )
 }

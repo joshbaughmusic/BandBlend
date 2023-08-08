@@ -144,8 +144,18 @@ export const PostProfile = ({ userName, userId, postId, userPicture, postBody, p
                         method: "DELETE",
                     })
                 })
+            }).then(() => {
+                //filter out likes that were attached to that post
+                const likesToDelete = likes.filter(like => {
+                    return like.postId === parseInt(postIdToDelete)
+                })
+                //map through and delete each one of those comments
+                likesToDelete.map(like => {
+                    fetch(`http://localhost:8088/likes/${like.id}`, {
+                        method: "DELETE",
+                    })
+                })
             })
-
     }
 
     //handle opening up a new comment form for the selected post by adding a show class to that specific form
