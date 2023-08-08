@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom"
 import "./Post.css"
 import { useEffect, useState } from "react"
 import * as FaIcons from "react-icons/fa";
+import FadeIn from 'react-fade-in';
+
 
 //create post module that will be used to render post html from other modules like OtherProfile, MyProfile, and Homepage.
 
@@ -107,6 +109,7 @@ export const PostHome = ({ userName, profileId, userPicture, postBody, postId, p
 
 
     return <>
+    <FadeIn>
         <div className="container container_post container_post_home" key={postKey} id={`post--${postId}`}>
             <div className="container container_heading_post">
                 <div className="container container_post_img_name">
@@ -159,6 +162,7 @@ export const PostHome = ({ userName, profileId, userPicture, postBody, postId, p
                 </section>
             </div>
         </div>
+        </FadeIn>
     </>
 
 }
