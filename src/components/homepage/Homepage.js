@@ -107,7 +107,7 @@ export const Homepage = ({ message, setMessage, setSelectedReceiverId, showNewMe
                         </header>
 
                     </section>
-                        <FadeIn transitionDuration={800}>
+                        <FadeIn transitionDuration={400}>
                         <HomeSearchbar />
                     <div className="container container_greeting">
                         {

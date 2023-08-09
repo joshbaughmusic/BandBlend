@@ -1,5 +1,7 @@
 import { useState } from "react"
 import './NewComment.css'
+import FadeIn from 'react-fade-in';
+
 
 export const NewComment = ({ postId, getAllComments, handleOpenCommentsOnNewComment }) => {
 

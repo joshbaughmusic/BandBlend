@@ -7,6 +7,7 @@ import { useState } from "react";
 import { ModalCommentWarning } from "../modals/ModalCommentWarning.js";
 
 
+
 export const Comment = ({ fullCommentObj, posterId, posterName, posterPicture, posterProfileId, commentId, commentBody, commentDate, commentName, commentPicture, commentProfileId, commentUserId, commentKey, getAllComments }) => {
 
     const localBbUser = localStorage.getItem("bb_user")

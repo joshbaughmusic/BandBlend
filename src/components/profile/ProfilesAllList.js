@@ -213,8 +213,8 @@ export const ProfilesAllList = ({
     } else {
         return (
             <>
-                <FadeIn>
                     <section className="container container_allProfiles">
+                <FadeIn>
                         {filteredProfiles.map((profile) => (
                             <article key={`profileCard--${profile.id}`} className="container container_profile_card">
                                 <Link to={`/profiles/${profile.id}`} className="profileall_link">
@@ -304,8 +304,8 @@ export const ProfilesAllList = ({
                                 <SaveButtonList profileId={profile.id} saveListener={saveListener} setSaveListener={setSaveListener} />
                             </article>
                         ))}
+                        </FadeIn>
                     </section>
-                </FadeIn>
             </>
         );
     }
