@@ -398,7 +398,7 @@
       "picture": "https://images.unsplash.com/photo-1528489496900-d841974f5290?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fG11c2ljaWFuJTIwYW5kJTIwYmFuZHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
       "location": "Austin, TX",
       "latlong": "30.2711286,-97.7436995",
-      "primaryInstrumentId": 1,
+      "primaryInstrumentId": 3,
       "about": "I'm Noah Adams, a bass player from Austin, TX. I've been playing music since I was a kid, and I'm passionate about creating music that is both beautiful and meaningful. My music is inspired by the beauty of nature and human connections. I love the way music can bring people together and create a sense of community. I'm always looking for new opportunities to collaborate with other musicians, and I'm eager to join a band that shares my vision for music.\n\n",
       "primaryGenreId": 1,
       "featuredSong": "https://www.youtube.com/watch?v=noahadams",
@@ -448,6 +448,26 @@
       "profileId": 5,
       "userId": 16,
       "id": 13
+    },
+    {
+      "profileId": 1,
+      "userId": 3,
+      "id": 14
+    },
+    {
+      "profileId": 5,
+      "userId": 3,
+      "id": 15
+    },
+    {
+      "profileId": 11,
+      "userId": 3,
+      "id": 16
+    },
+    {
+      "profileId": 12,
+      "userId": 3,
+      "id": 17
     }
   ],
   "posts": [
@@ -1166,6 +1186,20 @@
       "body": "thanks for your work. Even though you talk too much",
       "date": 1691360174950,
       "id": 68
+    },
+    {
+      "postId": 58,
+      "userId": 3,
+      "body": "Might wanna change that name there bud....",
+      "date": 1691619484989,
+      "id": 69
+    },
+    {
+      "postId": 39,
+      "userId": 3,
+      "body": "That was awesome!",
+      "date": 1691619698541,
+      "id": 70
     }
   ],
   "likes": [
@@ -1468,6 +1502,18 @@
       "postId": 54,
       "date": 1691613712985,
       "id": 52
+    },
+    {
+      "userId": 3,
+      "postId": 6,
+      "date": 1691619038408,
+      "id": 53
+    },
+    {
+      "userId": 3,
+      "postId": 39,
+      "date": 1691619657781,
+      "id": 54
     }
   ],
   "profileTags": [

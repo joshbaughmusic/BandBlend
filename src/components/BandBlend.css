@@ -8,6 +8,7 @@
   padding: 0px;
   list-style-type: none;
   word-wrap: break-word;
+
 }
 
 a {
@@ -20,11 +21,6 @@ button {
   word-wrap: normal;
 
 }
-
-/* body {
-  overflow-y: scroll;
-} */
-
 
 
 
