@@ -109,7 +109,7 @@ export const Distance = ({ profileId }) => {
 
                             :
 
-                            <p className="text text_profile_distance">Hey neighbor!</p>
+                            <p className="text text_profile_distance">In your city!</p>
 
                 }
             </div>
