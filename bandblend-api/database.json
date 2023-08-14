@@ -494,7 +494,7 @@
     {
       "id": 1,
       "profileId": 1,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit culpa tempore officiis ut, earum cumque, ducimus commodi voluptatibus sapiente molestias et natus necessitatibus error in provident quae optio maiores beatae.",
       "date": "1636434292736"
     },
     {
@@ -932,44 +932,12 @@
   ],
   "messages": [
     {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "hey man",
-      "date": 1691628949160,
-      "isRead": false,
-      "id": 2
-    },
-    {
-      "senderId": 20,
-      "receiverId": 1,
-      "body": "What's up, kid? You got a burning question or are you just here to bask in the glory of my presence?",
-      "date": 1691628950371,
-      "isRead": true,
-      "id": 3
-    },
-    {
-      "senderId": 1,
-      "receiverId": 20,
-      "body": "tell me about the site",
-      "date": 1691628959344,
-      "isRead": false,
-      "id": 4
-    },
-    {
-      "senderId": 20,
-      "receiverId": 1,
-      "body": "BandBlend, huh? Well, it's a website where musicians can go to find each other and potentially collaborate. You can make a profile, upload some pictures of your \"rockstar\" self, and then start searching for other musicians based on genre, instrument, or location. It's kind of like a virtual meat market for musicians. But let me warn you, there's a lot of talentless hacks on there, so brace yourself for disappointment. Any more brain-busting questions?",
-      "date": 1691628962645,
-      "isRead": true,
-      "id": 5
-    },
-    {
       "senderId": 2,
       "receiverId": 1,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "date": 1692023550461,
+      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit culpa tempore officiis ut, earum cumque, ducimus commodi voluptatibus sapiente molestias et natus necessitatibus error in provident quae optio maiores beatae.",
+      "date": 1692026460045,
       "isRead": false,
-      "id": 6
+      "id": 1
     }
   ],
   "comments": [
@@ -1663,12 +1631,6 @@
       "postId": 41,
       "date": 1691622000936,
       "id": 56
-    },
-    {
-      "userId": 1,
-      "postId": 59,
-      "date": 1691628895586,
-      "id": 58
     },
     {
       "userId": 1,
