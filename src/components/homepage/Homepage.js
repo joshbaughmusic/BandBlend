@@ -64,6 +64,7 @@ export const Homepage = ({ message, setMessage, setSelectedReceiverId, showNewMe
 
     //match those posts with the list of profiles pulled from before. Merge each post into the profile object and store them all in a new variable.
 
+
     const profilesWithPostsAttached = latestPosts.map(post => {
         let matchedProfile = profilesWithUsers.find(profile => profile.id === post.profileId)
 

@@ -140,11 +140,11 @@
     {
       "id": 2,
       "userId": 2,
-      "picture": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/325924513_720616596121161_1018086373805934063_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=19026a&_nc_ohc=Uw0KXXZJkwwAX-McRvg&_nc_oc=AQmMsT35PneFAUsydwwfy4HQl7NopG_lKxg04Bg9YAPch7yz-JCRz_LWxWsiF9Uhyxw9AD5sEq06BtdC04MP3uWi&_nc_ht=scontent-atl3-2.xx&oh=00_AfDCmeD6MiVJKgG2GO0YTLBBfxK4-Jj1ZAgmwDTB5blE4g&oe=64D59948",
+      "picture": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/325924513_720616596121161_1018086373805934063_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=2be8e3&_nc_ohc=htIF0jJMbhEAX-0d0r-&_nc_oc=AQmTTRb9C5cjDt8qU14c8nfnlMYVOBTDMjHnQyOGEHgpCO9YiuXH8adI2tWrh_iYjwuy939tetMLZJubCkWfwgFg&_nc_ht=scontent-atl3-2.xx&oh=00_AfCgQZ809CUaLAZuQBeL27z6mqsXFla5Ds9WIwr4iiJleg&oe=64DF7C88",
       "location": "Birmingham, AL",
       "latlong": "33.5206824,-86.8024326",
       "primaryInstrumentId": 17,
-      "about": "Crowmouth is a Nu Metalcore act from Birmingham, Alabama. They combine fast-paced grooves, dissonant leads, and crushing breakdowns to create a sound that is both heavy and melodic. Their lyrical content is often dark and personal, exploring themes of sorrow, anguish, and self-loathing.\n\n",
+      "about": "Crowmouth is a Nu Metalcore act from Birmingham, Alabama. They combine fast-paced grooves, dissonant leads, and crushing breakdowns to create a sound that is both heavy and melodic. Their lyrical content is often dark and personal, exploring themes of sorrow, anguish, and self-loathing.",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "https://open.spotify.com/artist/6P9WxS7Sr4fgdJnzKI70h8",
@@ -478,6 +478,16 @@
       "profileId": 2,
       "userId": 1,
       "id": 19
+    },
+    {
+      "profileId": 1,
+      "userId": 2,
+      "id": 20
+    },
+    {
+      "profileId": 6,
+      "userId": 2,
+      "id": 21
     }
   ],
   "posts": [
@@ -913,9 +923,55 @@
       "profileId": 19,
       "url": "https://images.unsplash.com/photo-1580745291813-8623b9e69a87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
       "id": 33
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/354581562_732613662200386_8036160276549499606_n.jpg?_nc_cat=101&cb=99be929b-59f725be&ccb=1-7&_nc_sid=dd63ad&_nc_ohc=W8xnT0vVZdsAX_XIUhE&_nc_ht=scontent-atl3-2.xx&oh=00_AfCf4mY1UXn8XtHZPbDQ7vYeOzhgPfxIXkzVxj5NqO4M_A&oe=64E00EA7",
+      "id": 34
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "senderId": 1,
+      "receiverId": 20,
+      "body": "hey man",
+      "date": 1691628949160,
+      "isRead": false,
+      "id": 2
+    },
+    {
+      "senderId": 20,
+      "receiverId": 1,
+      "body": "What's up, kid? You got a burning question or are you just here to bask in the glory of my presence?",
+      "date": 1691628950371,
+      "isRead": true,
+      "id": 3
+    },
+    {
+      "senderId": 1,
+      "receiverId": 20,
+      "body": "tell me about the site",
+      "date": 1691628959344,
+      "isRead": false,
+      "id": 4
+    },
+    {
+      "senderId": 20,
+      "receiverId": 1,
+      "body": "BandBlend, huh? Well, it's a website where musicians can go to find each other and potentially collaborate. You can make a profile, upload some pictures of your \"rockstar\" self, and then start searching for other musicians based on genre, instrument, or location. It's kind of like a virtual meat market for musicians. But let me warn you, there's a lot of talentless hacks on there, so brace yourself for disappointment. Any more brain-busting questions?",
+      "date": 1691628962645,
+      "isRead": true,
+      "id": 5
+    },
+    {
+      "senderId": 2,
+      "receiverId": 1,
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": 1692023550461,
+      "isRead": false,
+      "id": 6
+    }
+  ],
   "comments": [
     {
       "id": 1,
@@ -1280,6 +1336,13 @@
       "body": "That was awesome!",
       "date": 1691619698541,
       "id": 70
+    },
+    {
+      "postId": 39,
+      "userId": 2,
+      "body": "Thank you!",
+      "date": 1692023451645,
+      "id": 71
     }
   ],
   "likes": [
@@ -1543,12 +1606,6 @@
     },
     {
       "userId": 1,
-      "postId": 56,
-      "date": 1691356770313,
-      "id": 46
-    },
-    {
-      "userId": 1,
       "postId": 55,
       "date": 1691356771904,
       "id": 47
@@ -1606,6 +1663,24 @@
       "postId": 41,
       "date": 1691622000936,
       "id": 56
+    },
+    {
+      "userId": 1,
+      "postId": 59,
+      "date": 1691628895586,
+      "id": 58
+    },
+    {
+      "userId": 1,
+      "postId": 56,
+      "date": 1691628902798,
+      "id": 59
+    },
+    {
+      "userId": 2,
+      "postId": 56,
+      "date": 1692023353224,
+      "id": 60
     }
   ],
   "profileTags": [
