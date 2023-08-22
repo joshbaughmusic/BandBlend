@@ -125,11 +125,11 @@
     {
       "id": 1,
       "userId": 1,
-      "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/84354366_10157512722778884_280175598779760640_n.jpg?_nc_cat=109&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=PfsRZ6LkOMcAX9JqJ1R&_nc_ht=scontent-atl3-1.xx&oh=00_AfCTQrzl3ip7znjqKyUB5l-901niXmJZTnY57SswDRgX8w&oe=64DBFC54",
+      "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/84354366_10157512722778884_280175598779760640_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=EpjlfzUQYLsAX9sUzSc&_nc_ht=scontent-atl3-1.xx&oh=00_AfD9RGfwrIKPCi0mtxx_KHShZ73mfSN-m2Sv669V2dJdgA&oe=650C8B94",
       "location": "Nashville, TN",
       "latlong": "36.17712455,-86.78936303230881",
       "primaryInstrumentId": 2,
-      "about": "Musician turned coder, creator of BandBlend.",
+      "about": "Musician turned coder, creator of BandBlend. Musical interests range far and wide, but at the end of the day, always find myself going back to metal. Who says you have to use all the strings on an 8 string guitar anyways.",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "",
@@ -140,7 +140,7 @@
     {
       "id": 2,
       "userId": 2,
-      "picture": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/325924513_720616596121161_1018086373805934063_n.jpg?_nc_cat=104&cb=99be929b-59f725be&ccb=1-7&_nc_sid=2be8e3&_nc_ohc=htIF0jJMbhEAX-0d0r-&_nc_oc=AQmTTRb9C5cjDt8qU14c8nfnlMYVOBTDMjHnQyOGEHgpCO9YiuXH8adI2tWrh_iYjwuy939tetMLZJubCkWfwgFg&_nc_ht=scontent-atl3-2.xx&oh=00_AfCgQZ809CUaLAZuQBeL27z6mqsXFla5Ds9WIwr4iiJleg&oe=64DF7C88",
+      "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355265181_732701238858295_1570047882012937844_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=zeZkoz4MhZ8AX-3vs_P&_nc_ht=scontent-atl3-1.xx&oh=00_AfAyclrDSfWKxK8t3DaTy2YmIDad9lAkShPD8QcBJtUyBA&oe=64EAB2BC",
       "location": "Birmingham, AL",
       "latlong": "33.5206824,-86.8024326",
       "primaryInstrumentId": 17,
@@ -494,7 +494,7 @@
     {
       "id": 1,
       "profileId": 1,
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit culpa tempore officiis ut, earum cumque, ducimus commodi voluptatibus sapiente molestias et natus necessitatibus error in provident quae optio maiores beatae.",
+      "body": "Diving into some new musical explorations lately. The process of crafting fresh tunes is both invigorating and contemplative. Can't wait to share these creative endeavors with you all when the time is right.",
       "date": "1636434292736"
     },
     {
@@ -506,7 +506,7 @@
     {
       "id": 6,
       "profileId": 1,
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "body": "Had an awesome time on stage the other night! The energy from the crowd was amazing, and we all felt in sync throughout the performance. Big thanks to everyone who came out. Looking forward to more memorable nights like that!",
       "date": "1659888082873"
     },
     {
@@ -796,33 +796,19 @@
       "body": "Seeking a talented drummer to complete our band's rhythm section. Our musical journey has been a fusion of passion and creativity, and we need someone who can groove with us on stage and in the studio. If you've got the beats, and you're hungry for musical exploration, hit us up for a jam session!",
       "date": 1691613643577,
       "id": 59
+    },
+    {
+      "profileId": 1,
+      "body": "hello!",
+      "date": 1692738877023,
+      "id": 60
     }
   ],
   "media": [
     {
-      "profileId": 1,
-      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/74881481_10157191501453884_8530669089901772800_n.jpg?_nc_cat=107&cb=99be929b-59f725be&ccb=1-7&_nc_sid=174925&_nc_ohc=lJ7tl4bhABIAX_ZWCLa&_nc_ht=scontent-atl3-1.xx&oh=00_AfDFedrxo4ANKxEgahXeUZqwvIdG1FW8yJ3jgPZ2b7Sv4A&oe=64DC0BF1",
-      "id": 4
-    },
-    {
       "profileId": 20,
       "url": "https://i.ebayimg.com/images/g/u-UAAOSwShxhcetV/s-l1600.jpg",
       "id": 6
-    },
-    {
-      "profileId": 2,
-      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/362694270_756423556486063_5439015348625405944_n.jpg?_nc_cat=110&cb=99be929b-59f725be&ccb=1-7&_nc_sid=730e14&_nc_ohc=48QhcaLHmU4AX_vAssm&_nc_oc=AQmz_ho78ALNwk_vcZb_RY8MbfgRFZjEPPoq7jxWP_PYOIPKdVjV6yq4Q8FtRcQ_o53uT8LUR73QYu-7UU69AaVo&_nc_ht=scontent-atl3-1.xx&oh=00_AfDidHfqtkM6RfyPqW7UU6_BznPkFs_yr1MpuHMVeWHvjA&oe=64D426BF",
-      "id": 7
-    },
-    {
-      "profileId": 2,
-      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/358105438_743700107758408_438747135637897983_n.jpg?_nc_cat=108&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1CFEM3eDQVIAX9RN2b6&_nc_ht=scontent-atl3-1.xx&oh=00_AfBTHGnhg_I5Cz8JRzIoFx-ANUu8xp7brJQ-d6jzZCMQ_w&oe=64D4516D",
-      "id": 8
-    },
-    {
-      "profileId": 2,
-      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/333367483_908007003782600_1861021595508951571_n.jpg?_nc_cat=102&cb=99be929b-59f725be&ccb=1-7&_nc_sid=19026a&_nc_ohc=95LghXIViEkAX_jqAcb&_nc_ht=scontent-atl3-2.xx&oh=00_AfDdPSlPLrUwF-1b0co0X8WmnmRepoaXgqd81fxnw2t8OQ&oe=64D51C64",
-      "id": 9
     },
     {
       "profileId": 9,
@@ -853,11 +839,6 @@
       "profileId": 1,
       "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/62488944_2221527474621406_5160661462527508480_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=nLnj8nVCFSwAX_Fyr3G&_nc_ht=scontent-atl3-2.xx&oh=00_AfAGIA-1QsDb5LiuxKIazNJMaKIftPrTg9woxgUy8AirzQ&oe=64FB86F5",
       "id": 19
-    },
-    {
-      "profileId": 1,
-      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/117765643_10225827077809947_5801240950566481158_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=m33XUfoKqEcAX-uWBrd&_nc_ht=scontent-atl3-2.xx&oh=00_AfClKCpjCEHxFC00i_UmQ-p5oTid6Dd7upwXqQfDGoP7gw&oe=64FB88DB",
-      "id": 20
     },
     {
       "profileId": 8,
@@ -925,16 +906,31 @@
       "id": 33
     },
     {
+      "profileId": 1,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/72641263_2350656835060741_3171509722310246400_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=P6psrqBF9kgAX-KMSxL&_nc_ht=scontent-atl3-2.xx&oh=00_AfDGP4sPF0uZlP0LKFrzpgY4Z1rRC2P_ng_s3jaDUEQFzA&oe=650C8804",
+      "id": 35
+    },
+    {
       "profileId": 2,
-      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/354581562_732613662200386_8036160276549499606_n.jpg?_nc_cat=101&cb=99be929b-59f725be&ccb=1-7&_nc_sid=dd63ad&_nc_ohc=W8xnT0vVZdsAX_XIUhE&_nc_ht=scontent-atl3-2.xx&oh=00_AfCf4mY1UXn8XtHZPbDQ7vYeOzhgPfxIXkzVxj5NqO4M_A&oe=64E00EA7",
-      "id": 34
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/362694270_756423556486063_5439015348625405944_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=IMbL56Q06KQAX9V4PAy&_nc_oc=AQky2nCoj17VOfoJK13tNulrfU0QkRF1U6XtIYVwwcrRXyHN5hDJhhe1tIroGW92VsZbrYUbLgyPxcs97URL_dhS&_nc_ht=scontent-atl3-1.xx&oh=00_AfBh4EhWlIvtsPmbT7m1_p1mKUl45Ivv008HaIjWg-eTGg&oe=64E9E77F",
+      "id": 36
+    },
+    {
+      "profileId": 2,
+      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/358105438_743700107758408_438747135637897983_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=Tr6HU3OS9rcAX8Fy9II&_nc_ht=scontent-atl3-1.xx&oh=00_AfDNHvUErKjSlSaqyL8-aUz_zUbubQsM8lHd33yNxu_QXQ&oe=64EA122D",
+      "id": 37
+    },
+    {
+      "profileId": 1,
+      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/117765643_10225827077809947_5801240950566481158_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=m33XUfoKqEcAX-uWBrd&_nc_ht=scontent-atl3-2.xx&oh=00_AfClKCpjCEHxFC00i_UmQ-p5oTid6Dd7upwXqQfDGoP7gw&oe=64FB88DB",
+      "id": 38
     }
   ],
   "messages": [
     {
       "senderId": 2,
       "receiverId": 1,
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit culpa tempore officiis ut, earum cumque, ducimus commodi voluptatibus sapiente molestias et natus necessitatibus error in provident quae optio maiores beatae.",
+      "body": "Hey, why are you on here? You're already in our band!",
       "date": 1692026460045,
       "isRead": false,
       "id": 1
@@ -1105,8 +1101,8 @@
     {
       "id": 36,
       "postId": 6,
-      "userId": 2,
-      "body": "Hey, why are you on here? You're already in our band!",
+      "userId": 5,
+      "body": "Great show!",
       "date": 1671789860000
     },
     {
@@ -1311,6 +1307,13 @@
       "body": "Thank you!",
       "date": 1692023451645,
       "id": 71
+    },
+    {
+      "postId": 59,
+      "userId": 1,
+      "body": "i'll let people know!",
+      "date": 1692738807574,
+      "id": 72
     }
   ],
   "likes": [
