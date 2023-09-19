@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import './Distance.css'
 import * as TbIcons from "react-icons/tb";
 import * as BsIcons from "react-icons/bs";
-import { graphHopperAPIKey } from "../../apiKeys.js";
+import { graphHopperAPIKey } from "../../userApiKeys.js";
 
 
 export const Distance = ({ profileId }) => {

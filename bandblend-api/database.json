@@ -3,8 +3,8 @@
     {
       "id": 1,
       "isBand": false,
-      "name": "Josh Baugh",
-      "email": "joshbaughmusic@gmail.com"
+      "name": "Tom Jones",
+      "email": "tomjones@gmail.com"
     },
     {
       "id": 2,
@@ -125,22 +125,22 @@
     {
       "id": 1,
       "userId": 1,
-      "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t1.6435-9/84354366_10157512722778884_280175598779760640_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=EpjlfzUQYLsAX9sUzSc&_nc_ht=scontent-atl3-1.xx&oh=00_AfD9RGfwrIKPCi0mtxx_KHShZ73mfSN-m2Sv669V2dJdgA&oe=650C8B94",
+      "picture": "https://images.unsplash.com/photo-1516122276289-c28ffbaf888c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
       "location": "Nashville, TN",
       "latlong": "36.17712455,-86.78936303230881",
       "primaryInstrumentId": 2,
-      "about": "Musician turned coder, creator of BandBlend. Musical interests range far and wide, but at the end of the day, always find myself going back to metal. Who says you have to use all the strings on an 8 string guitar anyways.",
+      "about": "I'm Tom Jones, a passionate guitarist and musician. Music flows through my veins, and my fingers dance across the strings, creating melodies that resonate with the soul. Whether I'm strumming an acoustic ballad or shredding on an electric guitar, I lose myself in the music, and I hope it takes you on a journey too. When I'm not on stage, you can find me in my studio, crafting songs that tell stories from the heart. Music is my life, and I'm here to share it with the world.",
       "primaryGenreId": 11,
       "featuredSong": "",
       "spotify": "",
-      "facebook": "https://www.facebook.com/joshbaughmusic/",
-      "instagram": "https://www.instagram.com/joshbaughmusic",
+      "facebook": "https://www.facebook.com/tomjonesfake/",
+      "instagram": "https://www.instagram.com/tomjonesfake",
       "tiktok": ""
     },
     {
       "id": 2,
       "userId": 2,
-      "picture": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/355265181_732701238858295_1570047882012937844_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=zeZkoz4MhZ8AX-3vs_P&_nc_ht=scontent-atl3-1.xx&oh=00_AfAyclrDSfWKxK8t3DaTy2YmIDad9lAkShPD8QcBJtUyBA&oe=64EAB2BC",
+      "picture": "https://images.unsplash.com/photo-1552580185-86c7596a9063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",
       "location": "Birmingham, AL",
       "latlong": "33.5206824,-86.8024326",
       "primaryInstrumentId": 17,
@@ -796,12 +796,6 @@
       "body": "Seeking a talented drummer to complete our band's rhythm section. Our musical journey has been a fusion of passion and creativity, and we need someone who can groove with us on stage and in the studio. If you've got the beats, and you're hungry for musical exploration, hit us up for a jam session!",
       "date": 1691613643577,
       "id": 59
-    },
-    {
-      "profileId": 1,
-      "body": "hello!",
-      "date": 1692738877023,
-      "id": 60
     }
   ],
   "media": [
@@ -829,16 +823,6 @@
       "profileId": 3,
       "url": "https://images.unsplash.com/photo-1521547418549-6a31aad7c177?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
       "id": 17
-    },
-    {
-      "profileId": 1,
-      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/49778916_10156519599748884_5550707551714148352_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=dd63ad&_nc_ohc=oMTupzbXoMkAX_XA92J&_nc_ht=scontent-atl3-2.xx&oh=00_AfBZ78Nk79CR3HTGAkOnVwic6gQbG4OenWuoX4tDufMc1g&oe=64FB8F3E",
-      "id": 18
-    },
-    {
-      "profileId": 1,
-      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/62488944_2221527474621406_5160661462527508480_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=nLnj8nVCFSwAX_Fyr3G&_nc_ht=scontent-atl3-2.xx&oh=00_AfAGIA-1QsDb5LiuxKIazNJMaKIftPrTg9woxgUy8AirzQ&oe=64FB86F5",
-      "id": 19
     },
     {
       "profileId": 8,
@@ -907,35 +891,11 @@
     },
     {
       "profileId": 1,
-      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/72641263_2350656835060741_3171509722310246400_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cdbe9c&_nc_ohc=P6psrqBF9kgAX-KMSxL&_nc_ht=scontent-atl3-2.xx&oh=00_AfDGP4sPF0uZlP0LKFrzpgY4Z1rRC2P_ng_s3jaDUEQFzA&oe=650C8804",
-      "id": 35
-    },
-    {
-      "profileId": 2,
-      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/362694270_756423556486063_5439015348625405944_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=IMbL56Q06KQAX9V4PAy&_nc_oc=AQky2nCoj17VOfoJK13tNulrfU0QkRF1U6XtIYVwwcrRXyHN5hDJhhe1tIroGW92VsZbrYUbLgyPxcs97URL_dhS&_nc_ht=scontent-atl3-1.xx&oh=00_AfBh4EhWlIvtsPmbT7m1_p1mKUl45Ivv008HaIjWg-eTGg&oe=64E9E77F",
-      "id": 36
-    },
-    {
-      "profileId": 2,
-      "url": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-6/358105438_743700107758408_438747135637897983_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=Tr6HU3OS9rcAX8Fy9II&_nc_ht=scontent-atl3-1.xx&oh=00_AfDNHvUErKjSlSaqyL8-aUz_zUbubQsM8lHd33yNxu_QXQ&oe=64EA122D",
-      "id": 37
-    },
-    {
-      "profileId": 1,
-      "url": "https://scontent-atl3-2.xx.fbcdn.net/v/t1.6435-9/117765643_10225827077809947_5801240950566481158_n.jpg?_nc_cat=111&cb=99be929b-59f725be&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=m33XUfoKqEcAX-uWBrd&_nc_ht=scontent-atl3-2.xx&oh=00_AfClKCpjCEHxFC00i_UmQ-p5oTid6Dd7upwXqQfDGoP7gw&oe=64FB88DB",
+      "url": "https://images.unsplash.com/flagged/photo-1577129252450-6554415c4424?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
       "id": 38
     }
   ],
-  "messages": [
-    {
-      "senderId": 2,
-      "receiverId": 1,
-      "body": "Hey, why are you on here? You're already in our band!",
-      "date": 1692026460045,
-      "isRead": false,
-      "id": 1
-    }
-  ],
+  "messages": [],
   "comments": [
     {
       "id": 1,
