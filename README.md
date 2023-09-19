@@ -11,7 +11,7 @@ How to set up the project for local use:
 1. From the terminal, go to the file directory on your computer that you would like to install the application in.
 2. In that directory, run "git clone git@github.com:joshbaughmusic/BandBlend.git"
 3. If you are using VS Code, run "code ." to open the application in VS Code.
-4. Run "npm install" from the main application directory to install all dependencies.
+4. Run "npm install --force" from the main application directory to install all dependencies.
 5. Get an API key from GraphHopper.
    1. Go to https://graphhopper.com/dashboard/#/signup and register for an account.
    2. Once you are logged in, from the dashboard, click on "API Keys" in the top   navigation bar.
@@ -25,6 +25,5 @@ How to set up the project for local use:
 7. In the application, go to the userApiKeys.js file. In between the quotations, paste your API keys in their respective positions.
 8. Go to the NewMessage.js file, and between the "" on line 20, paste the Organization ID from Open AI.
 9. From the main application directory, go to the "bandblend-api" directory and run "json-server -p 8088 --host 127.0.0.1 database.json -w"
-10. Go back to the main application directory and run "npm start".
-11. This should open up a web browser with the application running.
-12. Click on "Register" to enter your details, create an account, and start using the app!
+10. Go back to the main application directory and run "npm start". This should open up a web browser with the application running.
+11. Click on "Register" to enter your details, create an account, and start using the app!
