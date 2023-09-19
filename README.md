@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+BandBlend is a React JS-based front-end capstone that serves as a social media platform tailored for musicians and bands. The platform facilitates connections among users, aiding in the search for potential members and collaborators. Users can create profiles, post content, comment, message each other, and engage with posts. The search feature allows users to find members based on location/distance, instrument, genre, and more. Additionally, the messaging system incorporates a chatbot for interactive site engagement. The project integrates APIs like GraphHopper and OpenAI, and styling is achieved using CSS. Ant Design components are used for modals and dropdown menus.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Technologies used:
+ReactJS | CSS | HTML
 
-## Available Scripts
+Video walkthrough:
 
-In the project directory, you can run:
+https://www.youtube.com/watch?v=fEymZ2LOXd8&ab_channel=JoshBaugh
 
-### `npm start`
+How to set up the project for local use:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. From the terminal, go to the file directory on your computer that you would like to install the application in.
+2. In that directory, run "git clone git@github.com:joshbaughmusic/BandBlend.git"
+3. If you are using VS Code, run "code ." to open the application in VS Code.
+4. Run "npm install" from the main application directory to install all dependencies.
+5. Get an API key from GraphHopper.
+   1. Go to https://graphhopper.com/dashboard/#/signup and register for an account.
+   2. Once you are logged in, from the dashboard, click on "API Keys" in the top   navigation bar.
+   3. Click "Add API Key", enter any description, and click "Add key".
+7. Get an API key and Organization ID from OpenAI. Make sure to copy this.
+   1. Go to https://auth0.openai.com/u/signup and register for an account.
+   2. Once you are logged in, from the dashboard, click on your profile picture in the top navigation bar, then click "View API Keys".
+   3. Click add "Create new secret key", enter any name, and click "Create secret key". Make sure to copy this.
+   4. Click on your profile icon again, then click "Manage Account".
+   5. Copy the organization ID.
+8. In the application, go to the userApiKeys.js file. In between the quotations, paste your API keys in their respective positions.
+9. Go to the NewMessage.js file, and between the "" on line 20, paste the Organization ID from Open AI.
+10. From the main application directory, go to the "bandblend-api" directory and run "json-server -p 8088 --host 127.0.0.1 database.json -w"
+11. Go back to the main application directory and run "npm start".
+12. This should open up a web browser with the application running.
+13. Click on "Register" to enter your details, create an account, and start using the app!

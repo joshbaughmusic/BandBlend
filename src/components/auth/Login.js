@@ -5,7 +5,7 @@ import FadeIn from 'react-fade-in';
 import "./Login.css"
 
 export const Login = () => {
-    const [email, set] = useState("joshbaughmusic@gmail.com")
+    const [email, set] = useState("")
     const navigate = useNavigate()
 
     const handleLogin = (e) => {

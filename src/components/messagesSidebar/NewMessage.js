@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./NewMessage.css"
-import { openaiAPIKey } from "../../apiKeys.js"
+import { openaiAPIKey } from "../../userApiKeys.js"
 
 export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage, handleNewMessageClose, setShowSpinner }) => {
 
@@ -55,7 +55,6 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
             temperature: 1.0,
         });
     
-        console.log(response);
         return response.data.choices[0].message.content;
     };
 
@@ -117,9 +116,7 @@ export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedRecei
                     fetchMessages();
     
                     const AiResponse = await sendUserQuestionToOpenAI(message.body);
-    
-                    console.log(AiResponse);
-    
+        
                     const aiMessageObject = {
                         senderId: 20,
                         receiverId: bBUserObject.id,
