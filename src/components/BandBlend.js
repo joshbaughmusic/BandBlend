@@ -10,7 +10,7 @@ import { RegisterSubGenres } from "./auth/RegisterSubGenres.js"
 import { MessagesSidebar } from "./messagesSidebar/MessagesSidebar.js"
 import { useState } from "react"
 import "./BandBlend.css"
-import "./Colors.css"
+import "./Colors+FX.css"
 import "./Backgrounds.css"
 import "./KeyFrames.css"
 
