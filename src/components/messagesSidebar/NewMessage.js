@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./NewMessage.css"
-import { openaiAPIKey } from "../../apiKeys.js"
+import { openaiAPIKey } from "../../userApiKeys.js"
 
 export const NewMessage = ({ fetchMessages, selectedReceiverId, setSelectedReceiverId, message, setMessage, handleNewMessageClose, setShowSpinner }) => {
 
